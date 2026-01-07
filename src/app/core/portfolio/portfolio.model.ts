@@ -1,7 +1,15 @@
 export interface Skill {
   name: string;
   icon: string; // URL or icon name
-  category: 'Frameworks' | 'State & Rx' | 'Styling' | 'Tools' | 'Other';
+  category:
+    | 'Frameworks'
+    | 'State & Rx'
+    | 'Styling'
+    | 'Tools'
+    | 'Other'
+    | 'Languages'
+    | 'Backend'
+    | 'State';
   proficiency: 'Expert' | 'Advanced' | 'Intermediate';
   years: number;
 }

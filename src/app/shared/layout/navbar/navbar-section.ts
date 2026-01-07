@@ -7,15 +7,13 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   imports: [CommonModule],
   template: `
     <nav
-      class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300"
+      class="fixed top-0 left-0 w-full z-50 bg-slate-50/90 dark:bg-slate-950/90 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800 transition-colors duration-300"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
           <div class="flex-shrink-0 cursor-pointer" (click)="scrollTo('hero')">
-            <span
-              class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
-            >
-              DevPortfolio
+            <span class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+              Karol Modelski
             </span>
           </div>
 
@@ -23,7 +21,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             @for (item of navItems; track item.id) {
             <a
               (click)="scrollTo(item.id)"
-              class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors px-3 py-2 text-sm font-medium"
+              class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors px-3 py-2 text-sm font-medium"
             >
               {{ item.label }}
             </a>
@@ -33,7 +31,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
           <div class="flex items-center space-x-4">
             <button
               (click)="toggleTheme()"
-              class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none transition-colors"
               aria-label="Toggle Dark Mode"
             >
               @if (isDark()) {
@@ -71,7 +69,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
 
             <!-- Mobile menu button -->
             <div class="md:hidden">
-              <button (click)="toggleMenu()" class="text-gray-700 dark:text-gray-300 p-2">
+              <button (click)="toggleMenu()" class="text-slate-700 dark:text-slate-300 p-2">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     stroke-linecap="round"
@@ -89,13 +87,13 @@ import { CommonModule, ViewportScroller } from '@angular/common';
       <!-- Mobile Menu -->
       @if (isMenuOpen()) {
       <div
-        class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
+        class="md:hidden bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800"
       >
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           @for (item of navItems; track item.id) {
           <a
             (click)="scrollTo(item.id); toggleMenu()"
-            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer"
+            class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
           >
             {{ item.label }}
           </a>

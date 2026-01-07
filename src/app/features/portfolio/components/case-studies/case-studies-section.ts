@@ -7,46 +7,48 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="cases" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section id="cases" class="py-20 bg-transparent">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
           <h2
-            class="text-base text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase"
+            class="text-base text-blue-600 dark:text-blue-500 font-semibold tracking-wide uppercase"
           >
             Portfolio
           </h2>
           <p
-            class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl"
+            class="mt-2 text-3xl leading-8 font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
           >
             Selected Work
           </p>
         </div>
 
-        <div class="space-y-16">
+        <div class="space-y-24">
           @for (case of cases(); track case.id; let i = $index) {
           <div
-            class="flex flex-col lg:flex-row gap-12 items-center"
+            class="flex flex-col lg:flex-row gap-16 items-center"
             [class.lg:flex-row-reverse]="i % 2 !== 0"
           >
             <!-- Visual Content -->
             <div class="w-full lg:w-1/2 relative group">
               <div
-                class="relative rounded-lg shadow-2xl overflow-hidden aspect-video bg-gray-200 dark:bg-gray-800"
+                class="relative rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden aspect-video bg-slate-100 dark:bg-slate-800"
               >
                 <!-- <img [ngSrc]="case.heroImage" fill class="object-cover transition-transform duration-500 group-hover:scale-105" alt="{{ case.title }}"> -->
-                <div class="absolute inset-0 flex items-center justify-center text-gray-400">
+                <div
+                  class="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-500"
+                >
                   <span>{{ case.title }} Screenshot</span>
                 </div>
 
                 <!-- Overlay -->
                 <div
-                  class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
+                  class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-sm"
                 >
                   @if (case.demoUrl) {
                   <a
                     [href]="case.demoUrl"
                     target="_blank"
-                    class="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full font-medium transition-colors"
+                    class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors border border-transparent"
                   >
                     View Live
                   </a>
@@ -54,7 +56,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   <a
                     [href]="case.repoUrl"
                     target="_blank"
-                    class="px-6 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-full font-medium transition-colors"
+                    class="px-6 py-2 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium transition-colors border border-slate-700"
                   >
                     Code Repo
                   </a>
@@ -65,37 +67,46 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 
             <!-- Text Content -->
             <div class="w-full lg:w-1/2">
-              <span class="text-indigo-600 dark:text-indigo-400 font-bold tracking-wider text-sm">{{
+              <span class="text-blue-600 dark:text-blue-400 font-bold tracking-wider text-sm">{{
                 case.tagline
               }}</span>
-              <h3 class="mt-2 text-3xl font-extrabold text-gray-900 dark:text-white">
+              <h3 class="mt-2 text-3xl font-bold text-slate-900 dark:text-white">
                 {{ case.title }}
               </h3>
 
-              <div class="mt-6 space-y-6">
+              <div class="mt-8 space-y-8">
                 <div>
-                  <h4 class="font-bold text-gray-900 dark:text-white">The Challenge</h4>
-                  <p class="mt-2 text-gray-600 dark:text-gray-300">{{ case.challenge }}</p>
+                  <h4 class="font-bold text-slate-900 dark:text-white">The Challenge</h4>
+                  <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {{ case.challenge }}
+                  </p>
                 </div>
 
                 <div>
-                  <h4 class="font-bold text-gray-900 dark:text-white">The Solution</h4>
-                  <p class="mt-2 text-gray-600 dark:text-gray-300">{{ case.solution }}</p>
+                  <h4 class="font-bold text-slate-900 dark:text-white">The Solution</h4>
+                  <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {{ case.solution }}
+                  </p>
                 </div>
 
-                <div class="border-l-4 border-indigo-600 pl-4 py-1 bg-gray-50 dark:bg-gray-800/50">
-                  <h4 class="font-bold text-gray-900 dark:text-white text-sm">Key Results</h4>
-                  <ul class="mt-2 list-disc list-inside text-gray-600 dark:text-gray-300 text-sm">
+                <div
+                  class="border-l-4 border-blue-600 pl-4 py-2 bg-slate-50 dark:bg-slate-800/50 rounded-r-lg"
+                >
+                  <h4 class="font-bold text-slate-900 dark:text-white text-sm">Key Results</h4>
+                  <ul class="mt-2 text-slate-600 dark:text-slate-400 text-sm space-y-1">
                     @for (result of case.results; track result) {
-                    <li>{{ result }}</li>
+                    <li class="flex items-start">
+                      <span class="mr-2">•</span>
+                      {{ result }}
+                    </li>
                     }
                   </ul>
                 </div>
 
-                <div class="flex flex-wrap gap-2 mt-6">
+                <div class="flex flex-wrap gap-2 mt-8">
                   @for (tech of case.techStack; track tech) {
                   <span
-                    class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium"
+                    class="px-3 py-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-md text-sm font-medium"
                   >
                     {{ tech }}
                   </span>

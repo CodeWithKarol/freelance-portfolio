@@ -7,23 +7,25 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section id="contact" class="py-20 bg-transparent">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center mb-16">
-          <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
             Let's Build Something Amazing
           </h2>
-          <p class="mt-4 text-xl text-gray-500 dark:text-gray-300">
+          <p class="mt-4 text-xl text-slate-500 dark:text-slate-400">
             Ready to scale your Angular/React project?
           </p>
         </div>
 
-        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden">
+        <div
+          class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden"
+        >
           <div class="grid grid-cols-1 lg:grid-cols-2">
             <!-- Contact Info -->
-            <div class="p-10 bg-indigo-600 text-white">
+            <div class="p-10 bg-slate-900 dark:bg-slate-800 text-white">
               <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-              <p class="mb-8 text-indigo-100">
+              <p class="mb-8 text-slate-300">
                 I'm currently available for freelance projects and consulting. Schedule a call or
                 create a request.
               </p>
@@ -31,7 +33,7 @@ import { CommonModule } from '@angular/common';
               <div class="space-y-6">
                 <div class="flex items-center">
                   <svg
-                    class="h-6 w-6 mr-4 text-indigo-300"
+                    class="h-6 w-6 mr-4 text-blue-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -47,7 +49,7 @@ import { CommonModule } from '@angular/common';
                 </div>
                 <div class="flex items-center">
                   <svg
-                    class="h-6 w-6 mr-4 text-indigo-300"
+                    class="h-6 w-6 mr-4 text-blue-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -74,7 +76,7 @@ import { CommonModule } from '@angular/common';
                 <a
                   href="https://calendly.com"
                   target="_blank"
-                  class="inline-block px-6 py-3 border border-white rounded-md text-white hover:bg-white hover:text-indigo-600 transition-colors font-medium"
+                  class="inline-block px-6 py-3 border border-slate-600 rounded-lg text-white hover:bg-white hover:text-slate-900 transition-colors font-medium"
                 >
                   Book 15 min Call
                 </a>
@@ -82,20 +84,20 @@ import { CommonModule } from '@angular/common';
             </div>
 
             <!-- Form -->
-            <div class="p-10">
+            <div class="p-10 bg-white dark:bg-slate-900">
               <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <div class="space-y-6">
                   <div>
                     <label
                       for="name"
-                      class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                      class="block text-sm font-medium text-slate-700 dark:text-slate-300"
                       >Name</label
                     >
                     <input
                       type="text"
                       formControlName="name"
                       id="name"
-                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white sm:text-sm p-3 border"
+                      class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white sm:text-sm p-3 border placeholder-slate-400"
                     />
                     @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
                     <p class="mt-1 text-sm text-red-600">Name is required.</p>
@@ -105,14 +107,14 @@ import { CommonModule } from '@angular/common';
                   <div>
                     <label
                       for="email"
-                      class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                      class="block text-sm font-medium text-slate-700 dark:text-slate-300"
                       >Email</label
                     >
                     <input
                       type="email"
                       formControlName="email"
                       id="email"
-                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white sm:text-sm p-3 border"
+                      class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white sm:text-sm p-3 border placeholder-slate-400"
                     />
                     @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
                     <p class="mt-1 text-sm text-red-600">Valid email is required.</p>
@@ -122,13 +124,13 @@ import { CommonModule } from '@angular/common';
                   <div>
                     <label
                       for="type"
-                      class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                      class="block text-sm font-medium text-slate-700 dark:text-slate-300"
                       >Project Type</label
                     >
                     <select
                       formControlName="projectType"
                       id="type"
-                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white sm:text-sm p-3 border"
+                      class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white sm:text-sm p-3 border"
                     >
                       <option value="angular">Angular Enterprise App</option>
                       <option value="react">React Dashboard</option>
@@ -140,14 +142,14 @@ import { CommonModule } from '@angular/common';
                   <div>
                     <label
                       for="message"
-                      class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+                      class="block text-sm font-medium text-slate-700 dark:text-slate-300"
                       >Message</label
                     >
                     <textarea
                       formControlName="message"
                       id="message"
                       rows="4"
-                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white sm:text-sm p-3 border"
+                      class="mt-1 block w-full rounded-lg border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-800 dark:border-slate-700 dark:text-white sm:text-sm p-3 border placeholder-slate-400"
                     ></textarea>
                     @if (contactForm.get('message')?.touched && contactForm.get('message')?.invalid)
                     {
@@ -158,7 +160,7 @@ import { CommonModule } from '@angular/common';
                   <button
                     type="submit"
                     [disabled]="contactForm.invalid || isSubmitting()"
-                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   >
                     @if (isSubmitting()) {
                     <span>Sending...</span>
@@ -168,7 +170,9 @@ import { CommonModule } from '@angular/common';
                   </button>
 
                   @if (isSuccess()) {
-                  <div class="p-4 bg-green-50 text-green-700 rounded-md">
+                  <div
+                    class="p-4 bg-emerald-50 text-emerald-700 rounded-lg border border-emerald-100 dark:bg-emerald-900/20 dark:text-emerald-300 dark:border-emerald-800"
+                  >
                     Message sent successfully! I'll be in touch soon.
                   </div>
                   }

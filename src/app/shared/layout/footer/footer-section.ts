@@ -4,16 +4,14 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-footer-section',
   standalone: true,
   template: `
-    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-12">
+    <footer
+      class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="mb-4 md:mb-0">
-            <span
-              class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
-            >
-              DevPortfolio
-            </span>
-            <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            <span class="text-xl font-bold text-slate-900 dark:text-white"> Karol Modelski </span>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
               © 2026. Made with Angular 20+ & Tailwind.
             </p>
           </div>
@@ -21,7 +19,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
             <a
               href="https://github.com"
               target="_blank"
-              class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+              class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
             >
               <span class="sr-only">GitHub</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +33,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
             <a
               href="https://linkedin.com"
               target="_blank"
-              class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+              class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
             >
               <span class="sr-only">LinkedIn</span>
               <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
