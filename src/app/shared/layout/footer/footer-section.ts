@@ -4,51 +4,179 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   selector: 'app-footer-section',
   standalone: true,
   template: `
-    <footer
-      class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12"
-    >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-4 md:mb-0">
-            <span class="text-xl font-bold text-slate-900 dark:text-white"> Karol Modelski </span>
-            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
-              © 2026. Made with Angular 20+ & Tailwind.
+    <footer class="bg-white dark:bg-slate-950" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" class="sr-only">Footer</h2>
+      <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div class="space-y-8">
+            <span class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+              >Karol Modelski</span
+            >
+            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400">
+              Building scalable, high-performance web applications with Angular & modern frontend
+              architecture.
             </p>
+            <div class="flex space-x-6">
+              <a
+                href="https://github.com"
+                class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+              >
+                <span class="sr-only">GitHub</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+              >
+                <span class="sr-only">LinkedIn</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
-          <div class="flex space-x-6">
-            <a
-              href="https://github.com"
-              target="_blank"
-              class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
-            >
-              <span class="sr-only">GitHub</span>
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  fill-rule="evenodd"
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
-            >
-              <span class="sr-only">LinkedIn</span>
-              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  fill-rule="evenodd"
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </a>
+          <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div class="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                  Services
+                </h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <a
+                      href="#services"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Web Development</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Performance Audit</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Angular Migration</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#services"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Consulting</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-10 md:mt-0">
+                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                  Portfolio
+                </h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <a
+                      href="#cases"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Case Studies</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#experience"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Experience</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#skills"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Tech Stack</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                  Open Source
+                </h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <a
+                      href="https://github.com/angular/angular"
+                      target="_blank"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Angular</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/nrwl/nx"
+                      target="_blank"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Nx</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/ngrx/platform"
+                      target="_blank"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >NgRx</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-10 md:mt-0">
+                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                  Legal
+                </h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      >Terms of Service</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="mt-16 border-t border-slate-900/10 dark:border-white/10 pt-8 sm:mt-20 lg:mt-24">
+          <p class="text-xs leading-5 text-slate-500 dark:text-slate-400">
+            &copy; {{ year }} Karol Modelski. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterSection {}
+export class FooterSection {
+  year = new Date().getFullYear();
+}
