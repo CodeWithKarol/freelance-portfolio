@@ -139,18 +139,31 @@ import { CommonModule } from '@angular/common';
                   class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
                   >Name</label
                 >
-                <div class="mt-2.5">
+                <div class="relative mt-2.5">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg
+                      class="h-5 w-5 text-slate-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z"
+                      />
+                    </svg>
+                  </div>
                   <input
                     type="text"
                     formControlName="name"
                     id="name"
                     autocomplete="name"
-                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-800 dark:ring-slate-700 dark:text-white"
+                    class="block w-full rounded-md border-0 py-2 pl-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
+                    placeholder="John Doe"
                   />
-                  @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
-                  <p class="mt-1 text-sm text-red-600">Name is required.</p>
-                  }
                 </div>
+                @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
+                <p class="mt-1 text-sm text-red-600">Name is required.</p>
+                }
               </div>
               <div class="sm:col-span-2">
                 <label
@@ -158,18 +171,34 @@ import { CommonModule } from '@angular/common';
                   class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
                   >Email</label
                 >
-                <div class="mt-2.5">
+                <div class="relative mt-2.5">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <svg
+                      class="h-5 w-5 text-slate-400"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"
+                      />
+                      <path
+                        d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"
+                      />
+                    </svg>
+                  </div>
                   <input
                     type="email"
                     formControlName="email"
                     id="email"
                     autocomplete="email"
-                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-800 dark:ring-slate-700 dark:text-white"
+                    class="block w-full rounded-md border-0 py-2 pl-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
+                    placeholder="john@example.com"
                   />
-                  @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
-                  <p class="mt-1 text-sm text-red-600">Valid email is required.</p>
-                  }
                 </div>
+                @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
+                <p class="mt-1 text-sm text-red-600">Valid email is required.</p>
+                }
               </div>
               <div class="sm:col-span-2">
                 <label
@@ -181,7 +210,7 @@ import { CommonModule } from '@angular/common';
                   <select
                     formControlName="projectType"
                     id="project-type"
-                    class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-800 dark:ring-slate-700 dark:text-white"
+                    class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
                   >
                     <option value="angular">Angular Enterprise App</option>
                     <option value="react">React Dashboard</option>
@@ -217,7 +246,7 @@ import { CommonModule } from '@angular/common';
                     formControlName="message"
                     id="message"
                     rows="4"
-                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-800 dark:ring-slate-700 dark:text-white"
+                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
                   ></textarea>
                   @if (contactForm.get('message')?.touched && contactForm.get('message')?.invalid) {
                   <p class="mt-1 text-sm text-red-600">Message is required.</p>
