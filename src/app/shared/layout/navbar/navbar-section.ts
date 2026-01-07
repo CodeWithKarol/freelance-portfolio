@@ -29,7 +29,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
           </div>
 
           <!-- Desktop Nav -->
-          <div class="hidden md:flex items-center space-x-1">
+          <div class="hidden lg:flex items-center space-x-1">
             @for (item of navItems; track item.id) {
             <a
               (click)="scrollTo(item.id)"
@@ -82,14 +82,14 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             </button>
 
             <button
-              class="hidden md:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white transition-all bg-blue-600 border border-transparent rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 shadow-sm shadow-blue-600/20"
+              class="hidden lg:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white transition-all bg-blue-600 border border-transparent rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 shadow-sm shadow-blue-600/20"
               (click)="scrollTo('contact')"
             >
               Hire Me
             </button>
 
             <!-- Mobile menu button -->
-            <div class="md:hidden">
+            <div class="lg:hidden">
               <button
                 (click)="toggleMenu()"
                 class="inline-flex items-center justify-center p-2 rounded-md text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -130,7 +130,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
       <!-- Mobile Menu -->
       @if (isMenuOpen()) {
       <div
-        class="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 animate-in slide-in-from-top-2 duration-200"
+        class="lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 animate-in slide-in-from-top-2 duration-200"
         id="mobile-menu"
       >
         <div class="space-y-1 px-2 pb-3 pt-2">
