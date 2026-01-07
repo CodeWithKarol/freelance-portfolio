@@ -112,9 +112,9 @@ export class NavbarSection {
 
   navItems = [
     { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'cases', label: 'Case Studies' },
-    { id: 'stack', label: 'Tech Stack' },
+    { id: 'services', label: 'Services' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'cases', label: 'Work' },
     { id: 'contact', label: 'Contact' },
   ];
 

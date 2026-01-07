@@ -7,7 +7,7 @@ import { Skill, CaseStudy, Testimonial, BlogPost } from './portfolio.model';
 export class PortfolioStore {
   readonly skills = signal<Skill[]>([
     {
-      name: 'Angular 17+',
+      name: 'Angular 19+',
       icon: 'angular',
       category: 'Frameworks',
       proficiency: 'Expert',
@@ -20,16 +20,27 @@ export class PortfolioStore {
       proficiency: 'Expert',
       years: 6,
     },
-    { name: 'RxJS / NgRx', icon: 'rxjs', category: 'State', proficiency: 'Expert', years: 6 },
     {
-      name: 'Angular Signals',
-      icon: 'signals',
-      category: 'State',
+      name: 'RxJS / NgRx',
+      icon: 'rxjs',
+      category: 'State & Rx',
       proficiency: 'Expert',
-      years: 1,
+      years: 6,
     },
-    { name: 'React', icon: 'react', category: 'Frameworks', proficiency: 'Advanced', years: 4 },
-    { name: 'Next.js', icon: 'nextjs', category: 'Frameworks', proficiency: 'Advanced', years: 3 },
+    {
+      name: 'Nx Monorepo',
+      icon: 'nx',
+      category: 'Tools',
+      proficiency: 'Expert',
+      years: 4,
+    },
+    {
+      name: 'React / Native',
+      icon: 'react',
+      category: 'Frameworks',
+      proficiency: 'Advanced',
+      years: 3,
+    },
     {
       name: 'Node.js / NestJS',
       icon: 'nodejs',
@@ -38,11 +49,18 @@ export class PortfolioStore {
       years: 4,
     },
     {
-      name: 'Tailwind CSS',
+      name: 'Tailwind / Styled',
       icon: 'tailwind',
       category: 'Styling',
       proficiency: 'Expert',
       years: 4,
+    },
+    {
+      name: 'Jest / Cypress',
+      icon: 'testing',
+      category: 'Tools',
+      proficiency: 'Expert',
+      years: 5,
     },
   ]);
 

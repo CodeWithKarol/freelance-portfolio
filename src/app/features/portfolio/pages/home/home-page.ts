@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { AboutSection } from '../../components/about/about-section';
+import { ServicesSection } from '../../components/services/services-section';
+import { ExperienceSection } from '../../components/experience/experience-section';
 import { SkillsSection } from '../../components/skills/skills-section';
 import { TechStackSection } from '../../components/tech-stack/tech-stack-section';
 import { CaseStudiesSection } from '../../components/case-studies/case-studies-section';
@@ -11,6 +13,8 @@ import { ContactSection } from '../../components/contact/contact-section';
   standalone: true,
   imports: [
     AboutSection,
+    ServicesSection,
+    ExperienceSection,
     SkillsSection,
     TechStackSection,
     CaseStudiesSection,
@@ -21,6 +25,14 @@ import { ContactSection } from '../../components/contact/contact-section';
     <app-about-section />
 
     @defer (on viewport) {
+    <app-services-section />
+    } @placeholder {
+    <div class="h-96 bg-slate-50 dark:bg-slate-900/50 animate-pulse"></div>
+    } @defer (on viewport) {
+    <app-experience-section />
+    } @placeholder {
+    <div class="h-96 bg-white dark:bg-slate-950 animate-pulse"></div>
+    } @defer (on viewport) {
     <app-skills-section />
     } @placeholder {
     <div class="h-96 bg-gray-50 dark:bg-gray-800 animate-pulse"></div>

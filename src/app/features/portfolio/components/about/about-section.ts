@@ -11,13 +11,16 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
           <h1
             class="text-4xl tracking-tight font-bold text-slate-900 dark:text-white sm:text-5xl md:text-6xl"
           >
-            <span class="block">Senior JavaScript Developer</span>
+            <span class="block">Senior Angular Developer</span>
             <span class="block text-slate-500 dark:text-slate-400 mt-3 font-normal"
-              >Angular & React Architect</span
+              >Frontend Architect & MVP Builder</span
             >
           </h1>
           <p class="mt-6 max-w-2xl mx-auto text-xl text-slate-600 dark:text-slate-400">
-            Enterprise App Modernization | Performance Expert | Founder of ScaleSail
+            Experienced in designing and delivering scalable, high-performance web applications with
+            expertise in Angular, RxJS, and NgRx. Proven track record in enterprise Angular
+            migrations, React legacy modernization, and building cross-platform mobile solutions
+            with React Native.
           </p>
 
           <div class="mt-10 flex justify-center gap-4">
@@ -69,9 +72,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
                 </p>
                 <p class="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                   I master the modern Angular ecosystem—including NgRx, RxJS, Signals, and zoneless
-                  change detection—to push the limits of web performance. Beyond code, I am a
-                  passionate tech entrepreneur and content creator (Medium/Dev.to), helping
-                  developers master modern web standards.
+                  change detection—while also bringing robust experience in React and React Native
+                  development. Beyond code, I am a passionate tech entrepreneur and content creator
+                  (Medium/Dev.to), helping developers master modern web standards.
                 </p>
                 <ul class="space-y-3">
                   <li class="flex items-center text-slate-600 dark:text-slate-400">
