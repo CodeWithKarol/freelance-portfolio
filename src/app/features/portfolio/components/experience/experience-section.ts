@@ -13,84 +13,113 @@ interface ExperienceItem {
   standalone: true,
   imports: [],
   template: `
-    <section id="experience" class="py-24 bg-white dark:bg-slate-950">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+    <section id="experience" class="py-24 sm:py-32 bg-white dark:bg-slate-950">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
           <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Work Experience
+            Experience
           </h2>
-          <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-500 dark:text-slate-400">
-            A track record of delivering value for companies ranging from startups to enterprise.
+          <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">
+            My professional journey supercharging development teams.
           </p>
         </div>
 
-        <div class="relative max-w-4xl mx-auto">
-          <!-- Geometric line -->
-          <div
-            class="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-800 -translate-x-1/2"
-          ></div>
+        <div class="mx-auto max-w-3xl">
+          <nav aria-label="Progress">
+            <ol role="list" class="overflow-visible">
+              @for (job of jobs; track job.company; let first = $first; let last = $last) {
+              <li class="relative pb-16">
+                <!-- Vertical Line Logic: Connects dots continuously -->
+                @if (!last) {
+                <!-- Line going down -->
+                <div
+                  class="absolute left-6 -ml-px w-0.5 bg-slate-200 dark:bg-slate-800 bottom-0"
+                  [class.top-6]="first"
+                  [class.top-0]="!first"
+                  aria-hidden="true"
+                ></div>
+                } @if (last && !first) {
+                <!-- Final line segment from top to dot -->
+                <div
+                  class="absolute left-6 top-0 -ml-px h-6 w-0.5 bg-slate-200 dark:bg-slate-800"
+                  aria-hidden="true"
+                ></div>
+                }
 
-          <div class="space-y-12">
-            @for (job of jobs; track job.company) {
-            <div class="relative flex flex-col md:flex-row gap-8 items-start group">
-              <!-- Dot -->
-              <div
-                class="absolute left-8 md:left-1/2 w-4 h-4 rounded-full border-4 border-white dark:border-slate-950 bg-indigo-600 -translate-x-1/2 mt-1.5 z-10 shadow-sm"
-              ></div>
-
-              <!-- Date (Left for desktop) -->
-              <div class="md:w-1/2 md:text-right pl-20 md:pl-0 md:pr-16">
-                <span
-                  class="inline-flex items-center rounded-full bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 text-sm font-medium text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-700/10"
-                >
-                  {{ job.period }}
-                </span>
-              </div>
-
-              <!-- Content (Right) -->
-              <div class="md:w-1/2 pl-20 md:pl-16">
-                <h3
-                  class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors"
-                >
-                  {{ job.role }}
-                </h3>
-                <div class="text-base font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                  {{ job.company }}
-                </div>
-                <p class="text-base text-slate-600 dark:text-slate-400 mb-4">
-                  {{ job.description }}
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  @for (tech of job.technologies; track tech) {
-                  <span
-                    class="inline-flex items-center rounded-md bg-slate-100 dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400"
+                <div class="relative flex items-start group">
+                  <!-- Marker -->
+                  <div
+                    class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-800 z-10 group-hover:ring-blue-500 transition-colors duration-300"
                   >
-                    {{ tech }}
-                  </span>
-                  }
-                </div>
-              </div>
-            </div>
-            }
-          </div>
+                    @if (first) {
+                    <!-- Current/Active Indicator -->
+                    <div
+                      class="h-4 w-4 rounded-full bg-blue-600 relative flex items-center justify-center"
+                    >
+                      <div
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
+                      ></div>
+                    </div>
+                    } @else {
+                    <!-- Past Indicator -->
+                    <div
+                      class="h-3 w-3 rounded-full bg-slate-400 dark:bg-slate-600 group-hover:bg-blue-500 transition-colors"
+                    ></div>
+                    }
+                  </div>
 
-          <div class="mt-16 text-center">
-            <a
-              href="cv.pdf"
-              download
-              class="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 font-semibold"
-            >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Download Full Resume
-            </a>
-          </div>
+                  <!-- Content Card -->
+                  <div
+                    class="ml-6 flex-auto rounded-xl p-6 ring-1 ring-slate-200 dark:ring-slate-800 bg-slate-50/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-900 hover:shadow-md transition-all duration-300"
+                  >
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-x-4 mb-2"
+                    >
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                        {{ job.role }}
+                      </h3>
+                      <time
+                        class="flex-none py-0.5 text-xs leading-5 text-slate-500 dark:text-slate-400 font-mono bg-white dark:bg-slate-800 px-2 rounded-md border border-slate-200 dark:border-slate-700"
+                        >{{ job.period }}</time
+                      >
+                    </div>
+
+                    <p
+                      class="text-sm font-semibold leading-6 text-blue-600 dark:text-blue-400 mb-4"
+                    >
+                      {{ job.company }}
+                    </p>
+
+                    <p class="text-base leading-7 text-slate-600 dark:text-slate-300 mb-6">
+                      {{ job.description }}
+                    </p>
+
+                    <!-- Tech Stack Pills -->
+                    <div class="flex flex-wrap gap-2">
+                      @for (tech of job.technologies; track tech) {
+                      <span
+                        class="inline-flex items-center rounded-md bg-blue-50 dark:bg-slate-800 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-400/20"
+                      >
+                        {{ tech }}
+                      </span>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </li>
+              }
+            </ol>
+          </nav>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a
+            href="cv.pdf"
+            download
+            class="text-sm font-semibold leading-6 text-blue-600 dark:text-blue-400 hover:text-blue-500"
+          >
+            Download full resume <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

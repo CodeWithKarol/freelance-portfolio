@@ -114,6 +114,7 @@ export class NavbarSection {
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
     { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Expertise' },
     { id: 'cases', label: 'Work' },
     { id: 'contact', label: 'Contact' },
   ];

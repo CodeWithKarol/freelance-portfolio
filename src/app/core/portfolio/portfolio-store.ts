@@ -62,6 +62,34 @@ export class PortfolioStore {
       proficiency: 'Expert',
       years: 5,
     },
+    {
+      name: 'Technical Leadership',
+      icon: 'leadership',
+      category: 'Soft Skills',
+      proficiency: 'Expert',
+      years: 6,
+    },
+    {
+      name: 'Cross-functional Collaboration',
+      icon: 'collaboration',
+      category: 'Soft Skills',
+      proficiency: 'Expert',
+      years: 6,
+    },
+    {
+      name: 'Problem Solving',
+      icon: 'problem-solving',
+      category: 'Soft Skills',
+      proficiency: 'Expert',
+      years: 6,
+    },
+    {
+      name: 'Agile & Scrum',
+      icon: 'agile',
+      category: 'Soft Skills',
+      proficiency: 'Expert',
+      years: 6,
+    },
   ]);
 
   readonly caseStudies = signal<CaseStudy[]>([

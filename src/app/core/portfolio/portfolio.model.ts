@@ -9,7 +9,8 @@ export interface Skill {
     | 'Other'
     | 'Languages'
     | 'Backend'
-    | 'State';
+    | 'State'
+    | 'Soft Skills';
   proficiency: 'Expert' | 'Advanced' | 'Intermediate';
   years: number;
 }
