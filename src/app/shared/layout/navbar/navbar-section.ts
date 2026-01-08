@@ -13,7 +13,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
       >
         <div class="flex lg:flex-1">
           <a
-            (click)="scrollTo('hero')"
+            (click)="scrollTo('about')"
             class="-m-1.5 p-1.5 flex items-center gap-3 cursor-pointer group"
           >
             <span class="sr-only">Karol Modelski</span>
@@ -117,7 +117,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
         >
           <div class="flex items-center justify-between">
             <a
-              (click)="scrollTo('hero'); toggleMenu()"
+              (click)="scrollTo('about'); toggleMenu()"
               class="-m-1.5 p-1.5 flex items-center gap-2"
             >
               <span class="sr-only">Karol Modelski</span>
