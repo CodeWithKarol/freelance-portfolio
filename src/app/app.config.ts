@@ -5,7 +5,7 @@ import {
   withViewTransitions,
   withInMemoryScrolling,
 } from '@angular/router';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { routes } from './app.routes';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
@@ -16,6 +16,6 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding(),
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })
     ),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch()), provideClientHydration(withEventReplay()),
   ],
 };
