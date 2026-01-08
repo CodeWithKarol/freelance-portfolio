@@ -13,11 +13,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             Career History
           </h2>
           <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
             Experience
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
             My professional journey supercharging development teams.
           </p>
         </div>
@@ -75,11 +75,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     <div
                       class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-x-4 mb-2"
                     >
-                      <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">
                         {{ job.role }}
                       </h3>
                       <time
-                        class="flex-none py-0.5 text-xs leading-5 text-slate-500 dark:text-slate-300 font-mono bg-white dark:bg-slate-800 px-2 rounded-md border border-slate-200 dark:border-slate-700"
+                        class="flex-none py-0.5 text-xs leading-5 text-slate-500 dark:text-slate-400 font-mono bg-white dark:bg-slate-800 px-2 rounded-md border border-slate-200 dark:border-slate-700"
                         >{{ job.period }}</time
                       >
                     </div>
@@ -90,7 +90,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                       {{ job.company }}
                     </p>
 
-                    <p class="text-base leading-7 text-slate-600 dark:text-slate-300 mb-6">
+                    <p class="text-base leading-7 text-slate-600 dark:text-slate-400 mb-6">
                       {{ job.description }}
                     </p>
 

@@ -10,6 +10,7 @@ import {
   ContactInfo,
   Experience,
 } from './portfolio.model';
+import { CASE_STUDIES, BLOG_POSTS } from './portfolio-data';
 
 @Injectable({
   providedIn: 'root',
@@ -49,7 +50,7 @@ export class PortfolioStore {
       icon: 'react',
       category: 'Frameworks',
       proficiency: 'Advanced',
-      years: 3,
+      years: 1,
     },
     {
       name: 'Node.js / NestJS',
@@ -104,11 +105,11 @@ export class PortfolioStore {
 
   readonly services = signal<Service[]>([
     {
-      title: 'Web Application Development',
+      title: 'Angular Application Development',
       description:
-        'I build robust, scalable Single Page Applications (SPAs) from scratch. Specializing in complex enterprise dashboards, real-time data visualization, and high-performance customer-facing portals.',
+        'I build robust, scalable Angular SPAs from scratch. Specializing in complex enterprise dashboards, real-time data visualization, and high-performance customer-facing portals.',
       icon: 'code',
-      features: ['Angular 18+', 'React Integration', 'Enterprise Dashboards'],
+      features: ['Angular 19+', 'React Integration', 'Enterprise Dashboards'],
     },
     {
       title: 'Performance Optimization',
@@ -133,33 +134,7 @@ export class PortfolioStore {
     },
   ]);
 
-  readonly caseStudies = signal<CaseStudy[]>([
-    {
-      id: '1',
-      title: 'ScaleSail.io',
-      tagline: 'High-Performance SaaS Templates',
-      heroImage: 'assets/images/scalesail.png',
-      challenge:
-        'Founders need high-converting, SEO-optimized landing pages without technical debt.',
-      solution:
-        'Built a suite of premium Angular 18+ templates with perfect Lighthouse scores and zero-config deployment.',
-      results: ['100/100 Lighthouse', 'Zero CLS', 'Mobile-First Design'],
-      techStack: ['Angular 18', 'Tailwind', 'Signals'],
-      demoUrl: 'https://scale-sail.io',
-      repoUrl: 'https://github.com',
-    },
-    {
-      id: '2',
-      title: 'Enterprise Migration',
-      tagline: 'Legacy to Modern Angular',
-      heroImage: 'assets/images/enterprise.png',
-      challenge: 'Migrating a massive monolithic AngularJS/Angular 5 app to modern standards.',
-      solution:
-        'Implemented incremental migration strategies, NX monorepo, and Zoneless architecture.',
-      results: ['Reduced build time by 60%', 'Improved runtime perf by 40%'],
-      techStack: ['Angular', 'Nx', 'Micro Frontends'],
-    },
-  ]);
+  readonly caseStudies = signal<CaseStudy[]>(CASE_STUDIES);
 
   readonly testimonials = signal<Testimonial[]>([
     {
@@ -180,24 +155,7 @@ export class PortfolioStore {
     },
   ]);
 
-  readonly blogPosts = signal<BlogPost[]>([
-    {
-      id: '1',
-      title: 'Mastering Angular Signals',
-      excerpt: 'A deep dive into the new reactivity primitive in Angular.',
-      date: '2025-10-15',
-      url: 'https://medium.com',
-      imageUrl: 'assets/images/blog1.jpg',
-    },
-    {
-      id: '2',
-      title: 'React vs Angular in 2026',
-      excerpt: 'Comparing the giants for enterprise development.',
-      date: '2025-11-20',
-      url: 'https://dev.to',
-      imageUrl: 'assets/images/blog2.jpg',
-    },
-  ]);
+  readonly blogPosts = signal<BlogPost[]>(BLOG_POSTS);
 
   readonly socialLinks = signal<SocialLink[]>([
     {
@@ -207,13 +165,13 @@ export class PortfolioStore {
     },
     {
       platform: 'LinkedIn',
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/in/karolmodelski',
       icon: 'linkedin',
     },
     {
-      platform: 'Twitter',
-      url: 'https://twitter.com',
-      icon: 'twitter',
+      platform: 'Gumroad',
+      url: 'https://karolmodelski.gumroad.com',
+      icon: 'website',
     },
   ]);
 
@@ -246,8 +204,8 @@ export class PortfolioStore {
   ]);
 
   readonly contactInfo = signal<ContactInfo>({
-    email: 'hello@scale-sail.io',
-    location: 'Ząbki, Poland (Remote)',
+    email: 'kmodelski93@gmail.com',
+    location: 'Warsaw, Mazowieckie, Poland',
     availability: 'Available for new projects',
     calendlyUrl: 'https://calendly.com',
   });
@@ -258,7 +216,7 @@ export class PortfolioStore {
       role: 'Senior Angular Developer',
       period: 'Mar 2025 - Present',
       description:
-        'Architecting scalable, high-performance web applications for Citibank. Championed reactive brokerage app development, supercharged productivity with Nx monorepo, and led technical hiring.',
+        'Architecting scalable, high-performance Angular applications for Citibank. Championed reactive brokerage app development, supercharged productivity with Nx monorepo, and led technical hiring.',
       technologies: ['Angular', 'RxJS', 'NgRx', 'Nx', 'React Native', 'TypeScript'],
     },
     {

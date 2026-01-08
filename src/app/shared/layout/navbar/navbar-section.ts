@@ -1,10 +1,11 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: `
     <header class="fixed inset-x-0 top-0 z-50">
       <nav
@@ -23,7 +24,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               KM
             </div>
             <span
-              class="text-slate-900 dark:text-white font-bold tracking-tight text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
+              class="text-slate-900 dark:text-slate-100 font-bold tracking-tight text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200"
             >
               Karol Modelski
             </span>
@@ -63,6 +64,13 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             {{ item.label }}
           </a>
           }
+          <!-- Blog Link -->
+          <a
+            routerLink="/blog"
+            class="text-sm font-semibold leading-6 text-slate-900 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 cursor-pointer transition-colors duration-200"
+          >
+            Blog
+          </a>
         </div>
 
         <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-4 items-center">
@@ -126,7 +134,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               >
                 KM
               </div>
-              <span class="font-bold text-slate-900 dark:text-white">Karol Modelski</span>
+              <span class="font-bold text-slate-900 dark:text-slate-100">Karol Modelski</span>
             </a>
             <button
               (click)="toggleMenu()"
@@ -153,15 +161,22 @@ import { CommonModule, ViewportScroller } from '@angular/common';
                 @for (item of navItems; track item.id) {
                 <a
                   (click)="scrollTo(item.id); toggleMenu()"
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {{ item.label }}
                 </a>
                 }
+                <a
+                  routerLink="/blog"
+                  (click)="toggleMenu()"
+                  class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-900 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400"
+                >
+                  Blog
+                </a>
               </div>
               <div class="py-6 flex flex-col gap-4">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-semibold text-slate-900 dark:text-white"
+                  <span class="text-sm font-semibold text-slate-900 dark:text-slate-200"
                     >Switch Theme</span
                   >
                   <button
@@ -238,6 +253,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
 export class NavbarSection {
   isDark = signal(false);
   isMenuOpen = signal(false);
+  private router = inject(Router);
 
   navItems = [
     { id: 'about', label: 'About' },
@@ -272,7 +288,13 @@ export class NavbarSection {
   }
 
   scrollTo(anchor: string) {
-    this.scroller.scrollToAnchor(anchor);
+    if (this.router.url !== '/') {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => this.scroller.scrollToAnchor(anchor), 100);
+      });
+    } else {
+      this.scroller.scrollToAnchor(anchor);
+    }
   }
 
   private updateTheme() {

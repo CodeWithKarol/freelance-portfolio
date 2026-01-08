@@ -46,15 +46,15 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             </div>
           </div>
           <h1
-            class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl"
+            class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl"
           >
-            Senior Angular Architect & Performance Specialist
+            Senior Angular Developer & Frontend Architect
           </h1>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
-            I help enterprise teams build scalable, high-performance web applications. Specializing
-            in legacy migrations,
-            <span class="text-blue-600 dark:text-blue-400 font-semibold">Nx Monorepos</span>, and
-            complex state management.
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+            Turning Ideas Into Scalable Angular Magic. I help enterprise teams build scalable,
+            high-performance web applications. Specializing in
+            <span class="text-blue-600 dark:text-blue-400 font-semibold">Angular</span> migrations,
+            Nx Monorepos, and complex state management.
           </p>
           <div class="mt-10 flex items-center justify-center xl:justify-start gap-x-6">
             <a
@@ -99,9 +99,9 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               <dd
                 class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
               >
-                100%
+                3.5M+
               </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Delivery Rate</dt>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Readers Inspired</dt>
             </div>
           </div>
         </div>

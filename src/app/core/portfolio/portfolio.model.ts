@@ -42,7 +42,9 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   date: string;
-  url: string;
+  slug: string;
+  content?: string; // HTML or Markdown content
+  url?: string; // External fallback
   imageUrl?: string;
 }
 

@@ -52,6 +52,14 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
                     d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                   />
                 </svg>
+                } @else if (social.icon === 'website') {
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
                 }
               </a>
               }
@@ -61,7 +69,7 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
             class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 xl:col-span-2 xl:mt-0 text-center xl:text-left"
           >
             <div>
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100">
                 {{ store.footerColumns()[0].title }}
               </h3>
               <ul role="list" class="mt-6 space-y-4">
@@ -78,7 +86,7 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
               </ul>
             </div>
             <div>
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100">
                 {{ store.footerColumns()[1].title }}
               </h3>
               <ul role="list" class="mt-6 space-y-4">
@@ -95,7 +103,7 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
               </ul>
             </div>
             <div>
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100">
                 {{ store.footerColumns()[2].title }}
               </h3>
               <ul role="list" class="mt-6 space-y-4">

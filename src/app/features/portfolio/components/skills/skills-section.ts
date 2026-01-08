@@ -14,11 +14,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             Expertise
           </h2>
           <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
             Skills & Competencies
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
             A battle-tested arsenal of technologies and methodologies refined over years of
             production leadership.
           </p>
@@ -43,7 +43,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 />
               </svg>
             </div>
-            <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Technical Arsenal
             </h3>
           </div>
@@ -69,20 +69,20 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     ></span>
                   </span>
                   <span
-                    class="text-xs font-medium text-slate-500 dark:text-slate-300 uppercase tracking-wider"
+                    class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
                   >
                     {{ skill.category }}
                   </span>
                 </div>
                 <span
-                  class="inline-flex items-center rounded-md bg-slate-50 dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 ring-1 ring-inset ring-slate-500/10"
+                  class="inline-flex items-center rounded-md bg-slate-50 dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10"
                 >
                   {{ skill.years }}+ years
                 </span>
               </div>
 
               <h4
-                class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
               >
                 {{ skill.name }}
               </h4>
@@ -90,9 +90,9 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <div
                 class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800"
               >
-                <span class="text-sm text-slate-500 dark:text-slate-300">Proficiency</span>
+                <span class="text-sm text-slate-500 dark:text-slate-400">Proficiency</span>
                 <span
-                  class="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-1"
+                  class="text-sm font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-1"
                 >
                   {{ skill.proficiency }}
                   @if(skill.proficiency === 'Expert') {
@@ -130,7 +130,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 />
               </svg>
             </div>
-            <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Professional Soft Skills
             </h3>
           </div>
@@ -141,11 +141,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               class="group relative flex flex-col p-6 bg-white dark:bg-slate-900 rounded-2xl ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm hover:ring-2 hover:ring-indigo-600 dark:hover:ring-indigo-500 transition-all duration-300 hover:-translate-y-1"
             >
               <h4
-                class="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
               >
                 {{ skill.name }}
               </h4>
-              <p class="text-sm text-slate-500 dark:text-slate-300 mb-4 line-clamp-2">
+              <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
                 demonstrated in high-velocity agile environments.
               </p>
               <div class="mt-auto flex items-center gap-2">
