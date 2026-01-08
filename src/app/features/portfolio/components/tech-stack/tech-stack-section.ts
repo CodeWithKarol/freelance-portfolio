@@ -18,7 +18,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
           >
             Tech Stack
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
             Powering next-generation applications with best-in-class technologies
           </p>
         </div>
@@ -45,7 +45,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               >
                 {{ tech.name.split('/')[0].trim() }}
               </span>
-              <span class="text-xs text-slate-500 dark:text-slate-400">
+              <span class="text-xs text-slate-500 dark:text-slate-300">
                 {{ tech.category }}
               </span>
             </div>
@@ -93,6 +93,6 @@ export class TechStackSection {
       return 'bg-sky-100 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400';
     if (n.includes('rxjs'))
       return 'bg-pink-100 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400';
-    return 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400';
+    return 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300';
   }
 }

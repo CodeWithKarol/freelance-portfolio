@@ -18,7 +18,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
           >
             Skills & Competencies
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
             A battle-tested arsenal of technologies and methodologies refined over years of
             production leadership.
           </p>
@@ -69,7 +69,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     ></span>
                   </span>
                   <span
-                    class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider"
+                    class="text-xs font-medium text-slate-500 dark:text-slate-300 uppercase tracking-wider"
                   >
                     {{ skill.category }}
                   </span>
@@ -90,7 +90,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <div
                 class="mt-auto pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800"
               >
-                <span class="text-sm text-slate-500 dark:text-slate-400">Proficiency</span>
+                <span class="text-sm text-slate-500 dark:text-slate-300">Proficiency</span>
                 <span
                   class="text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-1"
                 >
@@ -145,7 +145,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               >
                 {{ skill.name }}
               </h4>
-              <p class="text-sm text-slate-500 dark:text-slate-400 mb-4 line-clamp-2">
+              <p class="text-sm text-slate-500 dark:text-slate-300 mb-4 line-clamp-2">
                 demonstrated in high-velocity agile environments.
               </p>
               <div class="mt-auto flex items-center gap-2">

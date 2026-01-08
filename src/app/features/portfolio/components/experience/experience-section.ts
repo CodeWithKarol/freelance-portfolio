@@ -17,7 +17,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
           >
             Experience
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
             My professional journey supercharging development teams.
           </p>
         </div>
@@ -79,7 +79,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                         {{ job.role }}
                       </h3>
                       <time
-                        class="flex-none py-0.5 text-xs leading-5 text-slate-500 dark:text-slate-400 font-mono bg-white dark:bg-slate-800 px-2 rounded-md border border-slate-200 dark:border-slate-700"
+                        class="flex-none py-0.5 text-xs leading-5 text-slate-500 dark:text-slate-300 font-mono bg-white dark:bg-slate-800 px-2 rounded-md border border-slate-200 dark:border-slate-700"
                         >{{ job.period }}</time
                       >
                     </div>

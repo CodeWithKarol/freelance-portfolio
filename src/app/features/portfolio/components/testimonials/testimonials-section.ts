@@ -49,13 +49,13 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   <div
                     class="h-10 w-10 flex-none rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center ring-1 ring-slate-200 dark:ring-slate-700"
                   >
-                    <span class="font-bold text-slate-500 dark:text-slate-400 text-xs">{{
+                    <span class="font-bold text-slate-500 dark:text-slate-300 text-xs">{{
                       test.name.charAt(0)
                     }}</span>
                   </div>
                   <div>
                     <div class="font-semibold text-slate-900 dark:text-white">{{ test.name }}</div>
-                    <div class="text-slate-600 dark:text-slate-400 text-xs">
+                    <div class="text-slate-600 dark:text-slate-300 text-xs">
                       {{ test.role }} @ {{ test.company }}
                     </div>
                   </div>

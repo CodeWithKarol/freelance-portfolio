@@ -251,13 +251,19 @@ export class NavbarSection {
   constructor(private scroller: ViewportScroller) {
     // Check system preference provided we are in browser
     if (typeof window !== 'undefined') {
-      this.isDark.set(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) {
+        this.isDark.set(storedTheme === 'dark');
+      } else {
+        this.isDark.set(window.matchMedia('(prefers-color-scheme: dark)').matches);
+      }
       this.updateTheme();
     }
   }
 
   toggleTheme() {
     this.isDark.update((d) => !d);
+    localStorage.setItem('theme', this.isDark() ? 'dark' : 'light');
     this.updateTheme();
   }
 

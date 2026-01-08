@@ -85,7 +85,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               >
                 6+
               </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-400">Years Exp</dt>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Years Exp</dt>
             </div>
             <div class="flex flex-col">
               <dd
@@ -93,7 +93,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               >
                 20+
               </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-400">Projects</dt>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Projects</dt>
             </div>
             <div class="flex flex-col">
               <dd
@@ -101,7 +101,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               >
                 100%
               </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-400">Delivery Rate</dt>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Delivery Rate</dt>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
           >
             Everything you need to build world-class apps
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
             From greenfield development to complex legacy migrations, I bring specialist Angular
             expertise to your engineering team.
           </p>
@@ -96,7 +96,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 {{ service.title }}
               </dt>
               <dd
-                class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600 dark:text-slate-400"
+                class="mt-4 flex flex-auto flex-col text-base leading-7 text-slate-600 dark:text-slate-300"
               >
                 <p class="flex-auto">{{ service.description }}</p>
                 @if (service.metric) {
@@ -105,7 +105,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     class="text-2xl font-bold tracking-tight text-blue-600 dark:text-blue-400"
                     >{{ service.metric.value }}</span
                   >
-                  <span class="text-sm text-slate-500 dark:text-slate-400 ml-2">{{
+                  <span class="text-sm text-slate-500 dark:text-slate-300 ml-2">{{
                     service.metric.label
                   }}</span>
                 </p>

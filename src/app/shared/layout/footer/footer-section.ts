@@ -18,7 +18,7 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
               >Karol Modelski</span
             >
             <p
-              class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs mx-auto xl:mx-0"
+              class="text-sm leading-6 text-slate-600 dark:text-slate-300 max-w-xs mx-auto xl:mx-0"
             >
               Building robust, scalable, and high-performance web applications with modern Angular
               architecture.
@@ -114,7 +114,7 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
           </div>
         </div>
         <div class="mt-16 border-t border-slate-900/10 dark:border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p class="text-xs leading-5 text-slate-500 dark:text-slate-400">
+          <p class="text-xs leading-5 text-slate-500 dark:text-slate-300 text-center xl:text-left">
             &copy; {{ currentYear() }} Karol Modelski. All rights reserved.
           </p>
         </div>
