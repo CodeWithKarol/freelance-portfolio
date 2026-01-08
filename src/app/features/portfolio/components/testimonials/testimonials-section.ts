@@ -14,7 +14,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             Testimonials
           </h2>
           <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
             Trusted by Engineering Leaders
           </p>
@@ -49,13 +49,15 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   <div
                     class="h-10 w-10 flex-none rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center ring-1 ring-slate-200 dark:ring-slate-700"
                   >
-                    <span class="font-bold text-slate-500 dark:text-slate-300 text-xs">{{
+                    <span class="font-bold text-slate-500 dark:text-slate-400 text-xs">{{
                       test.name.charAt(0)
                     }}</span>
                   </div>
                   <div>
-                    <div class="font-semibold text-slate-900 dark:text-white">{{ test.name }}</div>
-                    <div class="text-slate-600 dark:text-slate-300 text-xs">
+                    <div class="font-semibold text-slate-900 dark:text-slate-100">
+                      {{ test.name }}
+                    </div>
+                    <div class="text-slate-600 dark:text-slate-400 text-xs">
                       {{ test.role }} @ {{ test.company }}
                     </div>
                   </div>

@@ -13,11 +13,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             Services
           </h2>
           <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
             Everything you need to build world-class apps
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
             From greenfield development to complex legacy migrations, I bring specialist Angular
             expertise to your engineering team.
           </p>
@@ -32,7 +32,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               class="flex flex-col h-full bg-white dark:bg-slate-900 rounded-3xl p-8 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm hover:shadow-md transition-shadow"
             >
               <dt
-                class="flex items-center gap-x-3 text-base font-semibold leading-7 text-slate-900 dark:text-white"
+                class="flex items-center gap-x-3 text-base font-semibold leading-7 text-slate-900 dark:text-slate-100"
               >
                 <div class="h-10 w-10 flex items-center justify-center rounded-lg bg-blue-600">
                   @if (service.icon === 'code') {

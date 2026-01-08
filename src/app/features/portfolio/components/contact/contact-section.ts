@@ -53,16 +53,16 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               Contact
             </h2>
             <p
-              class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+              class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
             >
               Let's work together
             </p>
-            <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+            <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
               I'm available for freelance projects and consulting. Let's build something amazing for
               your business.
             </p>
             <dl
-              class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-300 inline-block text-left"
+              class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400 inline-block text-left"
             >
               <div class="flex gap-x-4">
                 <dt class="flex-none">
@@ -84,7 +84,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 </dt>
                 <dd>
                   <a
-                    class="hover:text-slate-900 dark:hover:text-white"
+                    class="hover:text-slate-900 dark:hover:text-slate-100"
                     [href]="'mailto:' + store.contactInfo().email"
                     >{{ store.contactInfo().email }}</a
                   >
@@ -118,7 +118,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             </dl>
 
             <div class="mt-10 pt-10 border-t border-slate-200 dark:border-slate-800">
-              <h3 class="text-base font-semibold leading-7 text-slate-900 dark:text-white">
+              <h3 class="text-base font-semibold leading-7 text-slate-900 dark:text-slate-100">
                 Schedule a call
               </h3>
               <p class="mt-2 text-base leading-7">
@@ -144,7 +144,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <div class="sm:col-span-2">
                 <label
                   for="name"
-                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100"
                   >Name</label
                 >
                 <div class="relative mt-2.5">
@@ -165,7 +165,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     formControlName="name"
                     id="name"
                     autocomplete="name"
-                    class="block w-full rounded-md border-0 py-2 pl-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
+                    class="block w-full rounded-md border-0 py-2 pl-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-slate-100"
                     placeholder="John Doe"
                   />
                 </div>
@@ -176,7 +176,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <div class="sm:col-span-2">
                 <label
                   for="email"
-                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100"
                   >Email</label
                 >
                 <div class="relative mt-2.5">
@@ -200,7 +200,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     formControlName="email"
                     id="email"
                     autocomplete="email"
-                    class="block w-full rounded-md border-0 py-2 pl-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
+                    class="block w-full rounded-md border-0 py-2 pl-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-slate-100"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -211,14 +211,14 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <div class="sm:col-span-2">
                 <label
                   for="project-type"
-                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100"
                   >Project Type</label
                 >
                 <div class="relative mt-2.5">
                   <select
                     formControlName="projectType"
                     id="project-type"
-                    class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
+                    class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-slate-100"
                   >
                     <option value="angular">Angular Enterprise App</option>
                     <option value="react">React Dashboard</option>
@@ -246,7 +246,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <div class="sm:col-span-2">
                 <label
                   for="message"
-                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-slate-100"
                   >Message</label
                 >
                 <div class="mt-2.5">
@@ -254,7 +254,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     formControlName="message"
                     id="message"
                     rows="4"
-                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-white"
+                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-slate-900/50 dark:ring-slate-700 dark:text-slate-100"
                   ></textarea>
                   @if (contactForm.get('message')?.touched && contactForm.get('message')?.invalid) {
                   <p class="mt-1 text-sm text-red-600">Message is required.</p>

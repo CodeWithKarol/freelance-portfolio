@@ -1,11 +1,12 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 
 @Component({
   selector: 'app-case-studies-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: `
     <section id="cases" class="py-24 sm:py-32 bg-white dark:bg-slate-950 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -14,11 +15,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             Portfolio
           </h2>
           <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
             Selected Case Studies
           </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
             Deep dives into complex challenges solved with modern architecture and engineering best
             practices.
           </p>
@@ -77,6 +78,13 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   <div
                     class="absolute inset-0 bg-slate-950/60 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-4"
                   >
+                    <a
+                      [routerLink]="['/case-studies', case.id]"
+                      class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-blue-500 transition-colors shadow-lg cursor-pointer"
+                    >
+                      View Case Study
+                    </a>
+
                     @if (case.demoUrl) {
                     <a
                       [href]="case.demoUrl"
@@ -130,13 +138,13 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   class="inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 text-xs font-semibold text-blue-700 dark:text-blue-300 ring-1 ring-inset ring-blue-700/10"
                   >Case Study</span
                 >
-                <span class="text-sm text-slate-500 dark:text-slate-300 font-mono">{{
+                <span class="text-sm text-slate-500 dark:text-slate-400 font-mono">{{
                   i + 1 | number : '2.0'
                 }}</span>
               </div>
 
               <h3
-                class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+                class="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
               >
                 {{ case.title }}
               </h3>
@@ -144,9 +152,9 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 {{ case.tagline }}
               </p>
 
-              <dl class="mt-8 space-y-8 text-base leading-7 text-slate-600 dark:text-slate-300">
+              <dl class="mt-8 space-y-8 text-base leading-7 text-slate-600 dark:text-slate-400">
                 <div class="relative pl-9">
-                  <dt class="inline font-semibold text-slate-900 dark:text-white">
+                  <dt class="inline font-semibold text-slate-900 dark:text-slate-100">
                     <svg
                       class="absolute left-1 top-1 h-5 w-5 text-indigo-600 dark:text-indigo-400"
                       viewBox="0 0 20 20"
@@ -162,7 +170,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   <dd class="inline pl-2">{{ case.challenge }}</dd>
                 </div>
                 <div class="relative pl-9">
-                  <dt class="inline font-semibold text-slate-900 dark:text-white">
+                  <dt class="inline font-semibold text-slate-900 dark:text-slate-100">
                     <svg
                       class="absolute left-1 top-1 h-5 w-5 text-emerald-600 dark:text-emerald-400"
                       viewBox="0 0 20 20"
@@ -182,7 +190,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               </dl>
 
               <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
-                <h4 class="text-sm font-semibold text-slate-900 dark:text-white mb-4">
+                <h4 class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-4">
                   Impact & Results
                 </h4>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
