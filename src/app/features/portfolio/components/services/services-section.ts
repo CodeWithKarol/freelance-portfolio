@@ -10,16 +10,17 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
-            Services
+            What I Deliver
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Everything you need to build world-class apps
+            Bank-Grade Quality at Startup Speed
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            From greenfield development to complex legacy migrations, I bring specialist Angular
-            expertise to your engineering team.
+            I don't just write code—I engineer solutions. Whether you need to rescue a legacy system
+            or launch a scalable specialized SaaS, I deliver production-ready architecture from day
+            one.
           </p>
         </div>
 

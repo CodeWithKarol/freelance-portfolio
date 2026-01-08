@@ -10,7 +10,10 @@ export interface Skill {
     | 'Languages'
     | 'Backend'
     | 'State'
-    | 'Soft Skills';
+    | 'Soft Skills'
+    | 'Core Stack'
+    | 'Architecture'
+    | 'Founder';
   proficiency: 'Expert' | 'Advanced' | 'Intermediate';
   years: number;
 }
@@ -51,7 +54,7 @@ export interface BlogPost {
 export interface Service {
   title: string;
   description: string;
-  icon: 'code' | 'performance' | 'migration' | 'architecture';
+  icon: 'code' | 'performance' | 'migration' | 'architecture' | 'leadership';
   features?: string[];
   metric?: {
     value: string;

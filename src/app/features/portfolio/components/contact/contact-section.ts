@@ -50,16 +50,16 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               </svg>
             </div>
             <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
-              Contact
+              Start Your Project
             </h2>
             <p
               class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
             >
-              Let's work together
+              Ready to Scale?
             </p>
             <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-              I'm available for freelance projects and consulting. Let's build something amazing for
-              your business.
+              Whether you need to rescue a legacy codebase or launch an MVP in 4 weeks. I bring the
+              rigor of big tech to your startup.
             </p>
             <dl
               class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400 inline-block text-left"

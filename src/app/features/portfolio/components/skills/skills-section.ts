@@ -11,16 +11,16 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center mb-16">
           <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
-            Expertise
+            Technical Arsenal
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Skills & Competencies
+            Bank-Grade Tech Stack
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            A battle-tested arsenal of technologies and methodologies refined over years of
-            production leadership.
+            The exact tools I use to build secure, audit-ready applications for Citibank and
+            fast-moving startups.
           </p>
         </div>
 

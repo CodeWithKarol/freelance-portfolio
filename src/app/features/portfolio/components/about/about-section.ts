@@ -41,27 +41,27 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             <div class="inline-flex space-x-6">
               <span
                 class="rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 dark:text-blue-400 dark:ring-blue-400/20"
-                >Available for projects</span
+                >Accepting New Clients</span
               >
             </div>
           </div>
           <h1
             class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl"
           >
-            Senior Angular Developer & Frontend Architect
+            Senior Angular Architect &
+            <span class="text-blue-600 dark:text-blue-400">SaaS Founder</span>
           </h1>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            Turning Ideas Into Scalable Angular Magic. I help enterprise teams build scalable,
-            high-performance web applications. Specializing in
-            <span class="text-blue-600 dark:text-blue-400 font-semibold">Angular</span> migrations,
-            Nx Monorepos, and complex state management.
+            I bridge the gap between enterprise rigor and startup velocity. With a background in
+            banking (Citibank) and my own Micro-SaaS ventures, I build software that scales securely
+            and ships fast.
           </p>
           <div class="mt-10 flex items-center justify-center xl:justify-start gap-x-6">
             <a
               (click)="scrollTo('contact')"
               class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer transition-colors"
             >
-              Hire Me
+              Start Your Project
             </a>
             <a
               (click)="scrollTo('cases')"

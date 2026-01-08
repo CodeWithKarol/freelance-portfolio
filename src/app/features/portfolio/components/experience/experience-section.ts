@@ -10,15 +10,16 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl mb-16 text-center">
           <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
-            Career History
+            Professional Journey
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Experience
+            Enterprise & Founder Experience
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            My professional journey supercharging development teams.
+            From building compliance tools for global banks to launching independent micro-SaaS
+            ventures.
           </p>
         </div>
 

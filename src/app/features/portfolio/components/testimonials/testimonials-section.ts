@@ -11,12 +11,12 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-xl text-center">
           <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
-            Testimonials
+            Client Feedback
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Trusted by Engineering Leaders
+            Trusted by CTOs & Founders
           </p>
         </div>
 

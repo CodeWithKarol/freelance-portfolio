@@ -6,8 +6,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'ScaleSail.io',
     tagline: 'High-Performance SaaS Templates',
     heroImage: 'assets/images/scalesail.png',
-    challenge:
-      'Founders need high-converting, SEO-optimized landing pages without technical debt.',
+    challenge: 'Founders need high-converting, SEO-optimized landing pages without technical debt.',
     solution:
       'Built a suite of premium Angular 18+ templates with perfect Lighthouse scores and zero-config deployment.',
     results: ['100/100 Lighthouse', 'Zero CLS', 'Mobile-First Design'],

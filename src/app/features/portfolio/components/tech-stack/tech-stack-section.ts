@@ -11,15 +11,16 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center mb-16">
           <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
-            Technologies
+            Engineering Backbone
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Tech Stack
+            Modern Angular & Cloud Native
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            Powering next-generation applications with best-in-class technologies
+            A curated stack optimized for performance, SEO, and rapid scalability. No legacy code,
+            just modern standards.
           </p>
         </div>
         <div
