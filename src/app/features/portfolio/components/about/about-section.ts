@@ -1,119 +1,251 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { CommonModule, ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-    <section id="about" class="relative isolate overflow-hidden bg-white dark:bg-slate-950 pt-14">
-      <div
-        class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white dark:bg-slate-950 shadow-xl shadow-blue-600/10 ring-1 ring-blue-50 dark:ring-blue-900/10 sm:-mr-80 lg:-mr-96"
+    <section id="hero" class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
+      <svg
+        class="absolute inset-0 -z-10 h-full w-full stroke-slate-200 dark:stroke-slate-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
-      ></div>
-
-      <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-        <div
-          class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-16 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8"
-        >
-          <h1
-            class="max-w-2xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:col-span-2 xl:col-auto"
+      >
+        <defs>
+          <pattern
+            id="0787a7c5-9781-4f66-8381-37d53061646d"
+            width="200"
+            height="200"
+            x="50%"
+            y="-1"
+            patternUnits="userSpaceOnUse"
           >
-            Senior Angular Developer & Frontend Architect
-          </h1>
-          <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-            <p class="text-lg leading-8 text-slate-600 dark:text-slate-300">
-              I help companies build scalable, high-performance web applications. Specializing in
-              <span class="font-semibold text-blue-600 dark:text-blue-400">Angular</span>,
-              <span class="font-semibold text-blue-600 dark:text-blue-400">RxJS</span>, and legacy
-              migrations.
-            </p>
-            <div class="mt-10 flex items-center gap-x-6">
-              <a
-                href="#contact"
-                class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-              >
-                Hire Me
-              </a>
-              <a
-                href="#cases"
-                class="text-sm font-semibold leading-6 text-slate-900 dark:text-white"
-              >
-                View Projects <span aria-hidden="true">→</span>
-              </a>
-            </div>
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <rect
+          width="100%"
+          height="100%"
+          stroke-width="0"
+          fill="url(#0787a7c5-9781-4f66-8381-37d53061646d)"
+        />
+      </svg>
 
-            <div class="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 flex gap-8">
-              <div>
-                <div class="text-2xl font-bold text-slate-900 dark:text-white">6+</div>
-                <div class="text-sm text-slate-500 dark:text-slate-400">Years Experience</div>
-              </div>
-              <div>
-                <div class="text-2xl font-bold text-slate-900 dark:text-white">20+</div>
-                <div class="text-sm text-slate-500 dark:text-slate-400">Projects Delivered</div>
-              </div>
-              <div>
-                <div class="text-2xl font-bold text-slate-900 dark:text-white">100%</div>
-                <div class="text-sm text-slate-500 dark:text-slate-400">Client Satisfaction</div>
-              </div>
-            </div>
+      <div
+        class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:items-center lg:px-8 lg:py-24"
+      >
+        <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
+          <div class="mt-24 sm:mt-32 lg:mt-0">
+            <a href="#" class="inline-flex space-x-6">
+              <span
+                class="rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 dark:text-blue-400 dark:ring-blue-400/20"
+                >Available for projects</span
+              >
+              <span
+                class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-slate-600 dark:text-slate-300"
+              >
+                <span>View latest case study</span>
+                <svg
+                  class="h-5 w-5 text-slate-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <h1
+            class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
+          >
+            Senior Angular Architect & Performance Specialist
+          </h1>
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+            I help enterprise teams build scalable, high-performance web applications. Specializing
+            in legacy migrations,
+            <span class="text-blue-600 dark:text-blue-400 font-semibold">Nx Monorepos</span>, and
+            complex state management.
+          </p>
+          <div class="mt-10 flex items-center gap-x-6">
+            <a
+              (click)="scrollTo('contact')"
+              class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
+            >
+              Hire Me
+            </a>
+            <a
+              (click)="scrollTo('cases')"
+              class="text-sm font-semibold leading-6 text-slate-900 dark:text-white cursor-pointer group"
+            >
+              View Work
+              <span
+                aria-hidden="true"
+                class="inline-block transition-transform group-hover:translate-x-1"
+                >→</span
+              >
+            </a>
           </div>
 
           <div
-            class="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
+            class="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-8 sm:gap-12"
           >
-            <div
-              class="relative w-full h-full bg-slate-100 dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-800"
-            >
-              <!-- Abstract Code Visual -->
-              <div class="absolute inset-0 p-8 opacity-90">
-                <div class="space-y-4">
-                  <div class="h-4 w-1/3 bg-slate-300 dark:bg-slate-700 rounded animate-pulse"></div>
-                  <div
-                    class="h-4 w-2/3 bg-slate-300 dark:bg-slate-700 rounded animate-pulse delay-75"
-                  ></div>
-                  <div
-                    class="h-4 w-1/2 bg-slate-300 dark:bg-slate-700 rounded animate-pulse delay-150"
-                  ></div>
-                  <div
-                    class="h-4 w-3/4 bg-slate-300 dark:bg-slate-700 rounded animate-pulse delay-200"
-                  ></div>
-                  <div
-                    class="h-4 w-2/3 bg-slate-300 dark:bg-slate-700 rounded animate-pulse delay-300"
-                  ></div>
-                </div>
-                <div class="mt-8 space-y-4">
-                  <div
-                    class="h-4 w-1/4 bg-blue-300 dark:bg-blue-900/50 rounded animate-pulse"
-                  ></div>
-                  <div
-                    class="h-4 w-3/4 bg-slate-300 dark:bg-slate-700 rounded animate-pulse delay-100"
-                  ></div>
-                  <div
-                    class="h-4 w-1/2 bg-slate-300 dark:bg-slate-700 rounded animate-pulse delay-200"
-                  ></div>
-                </div>
-              </div>
-
-              <!-- Floating Card -->
-              <div
-                class="absolute bottom-8 right-8 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 max-w-[200px]"
+            <div class="flex flex-col">
+              <dd
+                class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
               >
-                <div class="flex items-center gap-3">
-                  <div
-                    class="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400"
-                  >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                6+
+              </dd>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-400">Years Exp</dt>
+            </div>
+            <div class="flex flex-col">
+              <dd
+                class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
+              >
+                20+
+              </dd>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-400">Projects</dt>
+            </div>
+            <div class="flex flex-col">
+              <dd
+                class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
+              >
+                100%
+              </dd>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-400">Delivery Rate</dt>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32"
+        >
+          <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+            <div
+              class="-m-2 rounded-xl bg-slate-900/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:bg-white/5 dark:ring-white/10 lg:-m-4 lg:rounded-2xl lg:p-4"
+            >
+              <!-- Code Browser Mockup -->
+              <div
+                class="rounded-lg shadow-2xl bg-slate-900 ring-1 ring-white/10 w-[90vw] sm:w-[600px] md:w-[700px] overflow-hidden"
+              >
+                <div
+                  class="flex items-center gap-2 px-4 py-3 bg-slate-800/50 border-b border-white/5"
+                >
+                  <div class="flex gap-1.5">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                  </div>
+                  <div class="ml-4 text-xs font-mono text-slate-400 flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        d="M5 13l4 4L19 7"
+                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                       />
                     </svg>
+                    src/app/core/architecture.ts
                   </div>
-                  <div>
-                    <div class="text-sm font-bold text-slate-900 dark:text-white">System Audit</div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400">Completed</div>
+                </div>
+                <div
+                  class="p-6 font-mono text-xs sm:text-sm text-blue-300 leading-relaxed overflow-x-auto"
+                >
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">1</span
+                    ><span class="text-purple-400">import</span>&nbsp;{{ '{' }}&nbsp;<span
+                      class="text-yellow-300"
+                      >Injectable</span
+                    >,&nbsp;<span class="text-yellow-300">signal</span>&nbsp;{{ '}' }}&nbsp;<span
+                      class="text-purple-400"
+                      >from</span
+                    >&nbsp;<span class="text-green-400">'@angular/core'</span>;
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">2</span>
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">3</span
+                    ><span class="text-purple-400">@Injectable</span>({{ '{' }}
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">4</span>
+                    &nbsp;&nbsp;<span class="text-blue-300">providedIn:</span>&nbsp;<span
+                      class="text-green-400"
+                      >'root'</span
+                    >
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">5</span>{{ '}' }})
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">6</span
+                    ><span class="text-purple-400">export&nbsp;class</span>&nbsp;<span
+                      class="text-yellow-300"
+                      >EnterpriseArchitecture</span
+                    >&nbsp;{{ '{' }}
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">7</span>
+                    &nbsp;&nbsp;<span class="text-slate-400"
+                      >//&nbsp;Reactive&nbsp;State&nbsp;Management</span
+                    >
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">8</span>
+                    &nbsp;&nbsp;<span class="text-purple-400">readonly</span>&nbsp;<span
+                      class="text-blue-300"
+                      >state</span
+                    >&nbsp;=&nbsp;<span class="text-yellow-300">signal</span>&lt;<span
+                      class="text-yellow-300"
+                      >AppState</span
+                    >&gt;({{ '{' }}
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">9</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">performance:</span
+                    >&nbsp;<span class="text-green-400">'optimized'</span>,
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">10</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">architecture:</span
+                    >&nbsp;<span class="text-green-400">'scalable'</span>,
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">11</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">techDebt:</span>&nbsp;<span
+                      class="text-purple-400"
+                      >null</span
+                    >
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">12</span>
+                    &nbsp;&nbsp;{{ '}' }});
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">13</span>
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">14</span>
+                    &nbsp;&nbsp;<span class="text-purple-400">constructor</span>()&nbsp;{{ '{' }}
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">15</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">this</span>.<span
+                      class="text-yellow-300"
+                      >shipHighQualityCode</span
+                    >();
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">16</span
+                    >&nbsp;&nbsp;{{ '}' }}
+                  </div>
+                  <div class="flex">
+                    <span class="text-slate-500 w-8 text-right mr-4 select-none">17</span>{{ '}' }}
                   </div>
                 </div>
               </div>
@@ -121,14 +253,16 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
           </div>
         </div>
       </div>
-
-      <div
-        class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white dark:from-slate-950 sm:h-32"
-      ></div>
     </section>
   `,
   styles: [],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutSection {}
+export class AboutSection {
+  private scroller = inject(ViewportScroller);
+
+  scrollTo(anchor: string) {
+    this.scroller.scrollToAnchor(anchor);
+  }
+}
