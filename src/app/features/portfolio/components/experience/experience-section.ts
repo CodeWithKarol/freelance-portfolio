@@ -1,12 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-
-interface ExperienceItem {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-  technologies: string[];
-}
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 
 @Component({
   selector: 'app-experience-section',
@@ -27,7 +20,8 @@ interface ExperienceItem {
         <div class="mx-auto max-w-3xl">
           <nav aria-label="Progress">
             <ol role="list" class="overflow-visible">
-              @for (job of jobs; track job.company; let first = $first; let last = $last) {
+              @for (job of store.experience(); track job.company; let first = $first; let last =
+              $last) {
               <li class="relative pb-16">
                 <!-- Vertical Line Logic: Connects dots continuously -->
                 @if (!last) {
@@ -127,38 +121,5 @@ interface ExperienceItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExperienceSection {
-  jobs: ExperienceItem[] = [
-    {
-      company: 'GFT Technologies',
-      role: 'Senior Angular Developer',
-      period: 'Mar 2025 - Present',
-      description:
-        'Architecting scalable, high-performance web applications for Citibank. Championed reactive brokerage app development, supercharged productivity with Nx monorepo, and led technical hiring.',
-      technologies: ['Angular', 'RxJS', 'NgRx', 'Nx', 'React Native', 'TypeScript'],
-    },
-    {
-      company: 'Silent Eight',
-      role: 'Javascript Developer',
-      period: 'Dec 2023 - Feb 2025',
-      description:
-        'Developed AI-driven compliance platform (IRIS). Modernized Angular 14 to 19 and transformed legacy React code to modern hooks-based architecture with TanStack Query.',
-      technologies: ['Angular 19', 'React', 'TanStack Query', 'NgRx', 'RxJS', 'Tailwind'],
-    },
-    {
-      company: 'BNP Paribas Bank Polska',
-      role: 'Software Developer',
-      period: 'Nov 2021 - Nov 2023',
-      description:
-        'Contributed to GOonline banking platform. Migrated AngularJS to Angular 15, implemented modular NgRx store, and managed Nx monorepo structure.',
-      technologies: ['Angular 15', 'AngularJS', 'Nx', 'NgRx', 'RxJS', 'SASS'],
-    },
-    {
-      company: 'Amway',
-      role: 'Javascript Developer',
-      period: 'Apr 2019 - Oct 2021',
-      description:
-        'Enhanced Back Office Support System (BOSS) for business owners. Created dynamic UI components and optimized performance with RxJS.',
-      technologies: ['Angular', 'RxJS', 'TypeScript', 'SASS', 'Jasmine'],
-    },
-  ];
+  readonly store = inject(PortfolioStore);
 }

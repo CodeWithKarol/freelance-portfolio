@@ -1,27 +1,34 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
+import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
 
 @Component({
   selector: 'app-footer-section',
   standalone: true,
+  imports: [],
   template: `
-    <footer class="bg-white dark:bg-slate-950" aria-labelledby="footer-heading">
+    <footer
+      class="bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800"
+      aria-labelledby="footer-heading"
+    >
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div class="space-y-8">
-            <span class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+            <span class="text-2xl font-bold tracking-tight text-blue-600 dark:text-blue-500"
               >Karol Modelski</span
             >
-            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400">
-              Building scalable, high-performance web applications with Angular & modern frontend
+            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs">
+              Building robust, scalable, and high-performance web applications with modern Angular
               architecture.
             </p>
             <div class="flex space-x-6">
+              @for (social of store.socialLinks(); track social.platform) {
               <a
-                href="https://github.com"
+                [href]="social.url"
                 class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
               >
-                <span class="sr-only">GitHub</span>
+                <span class="sr-only">{{ social.platform }}</span>
+                @if (social.icon === 'github') {
                 <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill-rule="evenodd"
@@ -29,12 +36,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
                     clip-rule="evenodd"
                   />
                 </svg>
-              </a>
-              <a
-                href="https://linkedin.com"
-                class="text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
-              >
-                <span class="sr-only">LinkedIn</span>
+                } @else if (social.icon === 'linkedin') {
                 <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
                     fill-rule="evenodd"
@@ -42,126 +44,70 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
                     clip-rule="evenodd"
                   />
                 </svg>
+                } @else if (social.icon === 'twitter') {
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  />
+                </svg>
+                }
               </a>
+              }
             </div>
           </div>
           <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div class="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  Services
+                  {{ store.footerColumns()[0].title }}
                 </h3>
                 <ul role="list" class="mt-6 space-y-4">
+                  @for (link of store.footerColumns()[0].links; track link.label) {
                   <li>
                     <a
-                      href="#services"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Web Development</a
+                      [href]="link.href"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
+                      {{ link.label }}
+                    </a>
                   </li>
-                  <li>
-                    <a
-                      href="#services"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Performance Audit</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#services"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Angular Migration</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#services"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Consulting</a
-                    >
-                  </li>
+                  }
                 </ul>
               </div>
               <div class="mt-10 md:mt-0">
                 <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  Portfolio
+                  {{ store.footerColumns()[1].title }}
                 </h3>
                 <ul role="list" class="mt-6 space-y-4">
+                  @for (link of store.footerColumns()[1].links; track link.label) {
                   <li>
                     <a
-                      href="#cases"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Case Studies</a
+                      [href]="link.href"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
+                      {{ link.label }}
+                    </a>
                   </li>
-                  <li>
-                    <a
-                      href="#experience"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Experience</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#skills"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Tech Stack</a
-                    >
-                  </li>
+                  }
                 </ul>
               </div>
             </div>
             <div class="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  Open Source
+                  {{ store.footerColumns()[2].title }}
                 </h3>
                 <ul role="list" class="mt-6 space-y-4">
+                  @for (link of store.footerColumns()[2].links; track link.label) {
                   <li>
                     <a
-                      href="https://github.com/angular/angular"
-                      target="_blank"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Angular</a
+                      [href]="link.href"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
+                      {{ link.label }}
+                    </a>
                   </li>
-                  <li>
-                    <a
-                      href="https://github.com/nrwl/nx"
-                      target="_blank"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Nx</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/ngrx/platform"
-                      target="_blank"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >NgRx</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="mt-10 md:mt-0">
-                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  Legal
-                </h3>
-                <ul role="list" class="mt-6 space-y-4">
-                  <li>
-                    <a
-                      href="#"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                      >Terms of Service</a
-                    >
-                  </li>
+                  }
                 </ul>
               </div>
             </div>
@@ -169,7 +115,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         </div>
         <div class="mt-16 border-t border-slate-900/10 dark:border-white/10 pt-8 sm:mt-20 lg:mt-24">
           <p class="text-xs leading-5 text-slate-500 dark:text-slate-400">
-            &copy; {{ year }} Karol Modelski. All rights reserved.
+            &copy; {{ currentYear() }} Karol Modelski. All rights reserved.
           </p>
         </div>
       </div>
@@ -178,5 +124,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterSection {
-  year = new Date().getFullYear();
+  readonly store = inject(PortfolioStore);
+  readonly currentYear = computed(() => new Date().getFullYear());
 }

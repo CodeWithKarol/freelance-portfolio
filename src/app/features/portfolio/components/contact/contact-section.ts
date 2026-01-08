@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 
 @Component({
   selector: 'app-contact-section',
@@ -77,8 +78,8 @@ import { CommonModule } from '@angular/common';
                 <dd>
                   <a
                     class="hover:text-slate-900 dark:hover:text-white"
-                    href="mailto:hello@scale-sail.io"
-                    >hello&#64;scale-sail.io</a
+                    [href]="'mailto:' + store.contactInfo().email"
+                    >{{ store.contactInfo().email }}</a
                   >
                 </dd>
               </div>
@@ -105,7 +106,7 @@ import { CommonModule } from '@angular/common';
                     />
                   </svg>
                 </dt>
-                <dd>Ząbki, Poland (Remote)</dd>
+                <dd>{{ store.contactInfo().location }}</dd>
               </div>
             </dl>
 
@@ -115,7 +116,7 @@ import { CommonModule } from '@angular/common';
               </h3>
               <p class="mt-2 text-base leading-7">
                 <a
-                  href="https://calendly.com"
+                  [href]="store.contactInfo().calendlyUrl"
                   target="_blank"
                   class="font-semibold text-blue-600 hover:text-blue-500"
                 >
@@ -278,6 +279,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactSection {
+  readonly store = inject(PortfolioStore);
   isSubmitting = signal(false);
   isSuccess = signal(false);
   contactForm;

@@ -19,6 +19,12 @@ describe('PortfolioStore', () => {
     expect(skills[0].name).toContain('Angular');
   });
 
+  it('should have services signal populated', () => {
+    const services = store.services();
+    expect(services.length).toBeGreaterThan(0);
+    expect(services[0].title).toBeDefined();
+  });
+
   it('should have case studies signal populated', () => {
     const cases = store.caseStudies();
     expect(cases.length).toBeGreaterThan(0);

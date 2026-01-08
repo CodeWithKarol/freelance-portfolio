@@ -46,8 +46,44 @@ export interface BlogPost {
   imageUrl?: string;
 }
 
+export interface Service {
+  title: string;
+  description: string;
+  icon: 'code' | 'performance' | 'migration' | 'architecture';
+  features?: string[];
+  metric?: {
+    value: string;
+    label: string;
+  };
+}
+
 export interface SocialLink {
   platform: string;
   url: string;
-  icon: string;
+  icon: string; // SVG path or icon name
+}
+
+export interface FooterLink {
+  label: string;
+  href: string;
+}
+
+export interface FooterColumn {
+  title: string;
+  links: FooterLink[];
+}
+
+export interface ContactInfo {
+  email: string;
+  location: string;
+  availability: string;
+  calendlyUrl: string;
+}
+
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  technologies: string[];
 }
