@@ -24,7 +24,9 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
         </div>
 
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+          <dl
+            class="mx-auto grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+          >
             @for (service of store.services(); track service.title) {
             <div
               class="flex flex-col h-full bg-white dark:bg-slate-900 rounded-3xl p-8 ring-1 ring-slate-200 dark:ring-slate-800 shadow-sm hover:shadow-md transition-shadow"

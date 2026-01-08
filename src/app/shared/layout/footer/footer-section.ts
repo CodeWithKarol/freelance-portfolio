@@ -13,15 +13,17 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div class="space-y-8">
+          <div class="space-y-8 text-center xl:text-left">
             <span class="text-2xl font-bold tracking-tight text-blue-600 dark:text-blue-500"
               >Karol Modelski</span
             >
-            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs">
+            <p
+              class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs mx-auto xl:mx-0"
+            >
               Building robust, scalable, and high-performance web applications with modern Angular
               architecture.
             </p>
-            <div class="flex space-x-6">
+            <div class="flex space-x-6 justify-center xl:justify-start">
               @for (social of store.socialLinks(); track social.platform) {
               <a
                 [href]="social.url"
@@ -55,61 +57,59 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
               }
             </div>
           </div>
-          <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div class="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  {{ store.footerColumns()[0].title }}
-                </h3>
-                <ul role="list" class="mt-6 space-y-4">
-                  @for (link of store.footerColumns()[0].links; track link.label) {
-                  <li>
-                    <a
-                      [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {{ link.label }}
-                    </a>
-                  </li>
-                  }
-                </ul>
-              </div>
-              <div class="mt-10 md:mt-0">
-                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  {{ store.footerColumns()[1].title }}
-                </h3>
-                <ul role="list" class="mt-6 space-y-4">
-                  @for (link of store.footerColumns()[1].links; track link.label) {
-                  <li>
-                    <a
-                      [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {{ link.label }}
-                    </a>
-                  </li>
-                  }
-                </ul>
-              </div>
+          <div
+            class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 xl:col-span-2 xl:mt-0 text-center xl:text-left"
+          >
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                {{ store.footerColumns()[0].title }}
+              </h3>
+              <ul role="list" class="mt-6 space-y-4">
+                @for (link of store.footerColumns()[0].links; track link.label) {
+                <li>
+                  <a
+                    [href]="link.href"
+                    class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {{ link.label }}
+                  </a>
+                </li>
+                }
+              </ul>
             </div>
-            <div class="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
-                  {{ store.footerColumns()[2].title }}
-                </h3>
-                <ul role="list" class="mt-6 space-y-4">
-                  @for (link of store.footerColumns()[2].links; track link.label) {
-                  <li>
-                    <a
-                      [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {{ link.label }}
-                    </a>
-                  </li>
-                  }
-                </ul>
-              </div>
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                {{ store.footerColumns()[1].title }}
+              </h3>
+              <ul role="list" class="mt-6 space-y-4">
+                @for (link of store.footerColumns()[1].links; track link.label) {
+                <li>
+                  <a
+                    [href]="link.href"
+                    class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {{ link.label }}
+                  </a>
+                </li>
+                }
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+                {{ store.footerColumns()[2].title }}
+              </h3>
+              <ul role="list" class="mt-6 space-y-4">
+                @for (link of store.footerColumns()[2].links; track link.label) {
+                <li>
+                  <a
+                    [href]="link.href"
+                    class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {{ link.label }}
+                  </a>
+                </li>
+                }
+              </ul>
             </div>
           </div>
         </div>

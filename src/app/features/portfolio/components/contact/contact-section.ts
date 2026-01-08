@@ -11,7 +11,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
     <section id="contact" class="relative isolate bg-white dark:bg-slate-950 py-24 sm:py-32">
       <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
-          <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+          <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg text-center lg:text-left">
             <div
               class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-slate-50 dark:bg-slate-900 ring-1 ring-slate-900/10 lg:w-1/2"
             >
@@ -49,14 +49,21 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 />
               </svg>
             </div>
-            <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Let's work together
+            <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
+              Contact
             </h2>
+            <p
+              class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            >
+              Let's work together
+            </p>
             <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
               I'm available for freelance projects and consulting. Let's build something amazing for
               your business.
             </p>
-            <dl class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-300">
+            <dl
+              class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-300 inline-block text-left"
+            >
               <div class="flex gap-x-4">
                 <dt class="flex-none">
                   <span class="sr-only">Email</span>

@@ -10,9 +10,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
     <section class="py-24 sm:py-32 bg-slate-50 dark:bg-slate-900/50">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-xl text-center">
-          <h2
-            class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500 uppercase tracking-wide"
-          >
+          <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
             Testimonials
           </h2>
           <p

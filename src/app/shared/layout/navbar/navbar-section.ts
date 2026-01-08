@@ -8,7 +8,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   template: `
     <header class="fixed inset-x-0 top-0 z-50">
       <nav
-        class="flex items-center justify-between p-6 lg:px-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300"
+        class="flex items-center justify-between p-4 sm:p-6 lg:px-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 transition-all duration-300"
         aria-label="Global"
       >
         <div class="flex lg:flex-1">

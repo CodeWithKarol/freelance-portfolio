@@ -32,36 +32,21 @@ import { CommonModule, ViewportScroller } from '@angular/common';
       </svg>
 
       <div
-        class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:items-center lg:px-8 lg:py-24"
+        class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 xl:flex xl:items-center lg:px-8 lg:py-40"
       >
-        <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0">
-          <div class="mt-24 sm:mt-32 lg:mt-0">
-            <a href="#" class="inline-flex space-x-6">
+        <div
+          class="mx-auto max-w-2xl xl:mx-0 xl:max-w-xl xl:flex-shrink-0 text-center xl:text-left"
+        >
+          <div class="mt-24 sm:mt-32 xl:mt-0">
+            <div class="inline-flex space-x-6">
               <span
                 class="rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 dark:text-blue-400 dark:ring-blue-400/20"
                 >Available for projects</span
               >
-              <span
-                class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-slate-600 dark:text-slate-300"
-              >
-                <span>View latest case study</span>
-                <svg
-                  class="h-5 w-5 text-slate-400"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </span>
-            </a>
+            </div>
           </div>
           <h1
-            class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl"
+            class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl"
           >
             Senior Angular Architect & Performance Specialist
           </h1>
@@ -71,10 +56,10 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             <span class="text-blue-600 dark:text-blue-400 font-semibold">Nx Monorepos</span>, and
             complex state management.
           </p>
-          <div class="mt-10 flex items-center gap-x-6">
+          <div class="mt-10 flex items-center justify-center xl:justify-start gap-x-6">
             <a
               (click)="scrollTo('contact')"
-              class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
+              class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer transition-colors"
             >
               Hire Me
             </a>
@@ -92,7 +77,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
           </div>
 
           <div
-            class="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-8 sm:gap-12"
+            class="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap justify-center xl:justify-start gap-8 sm:gap-12"
           >
             <div class="flex flex-col">
               <dd
@@ -122,7 +107,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
         </div>
 
         <div
-          class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mt-0 lg:mr-0 lg:max-w-none lg:flex-none xl:ml-32"
+          class="mx-auto mt-16 flex max-w-2xl sm:mt-24 justify-center xl:ml-10 xl:mt-0 xl:mr-0 xl:max-w-none xl:flex-none xl:ml-32"
         >
           <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <div
@@ -130,7 +115,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             >
               <!-- Code Browser Mockup -->
               <div
-                class="rounded-lg shadow-2xl bg-slate-900 ring-1 ring-white/10 w-[90vw] sm:w-[600px] md:w-[700px] overflow-hidden"
+                class="rounded-lg shadow-2xl bg-slate-900 ring-1 ring-white/10 w-full max-w-[90vw] sm:max-w-[34rem] md:max-w-[40rem] overflow-hidden"
               >
                 <div
                   class="flex items-center gap-2 px-4 py-3 bg-slate-800/50 border-b border-white/5"
