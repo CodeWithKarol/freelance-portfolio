@@ -17,7 +17,7 @@ import type { Skill } from '../../../../core/portfolio/portfolio.model';
       </div>
 
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
+        <div class="mx-auto max-w-2xl md:mx-0 mb-16">
           <h2 class="text-base font-semibold leading-7 text-blue-600 dark:text-blue-500">
             Expertise & Capabilities
           </h2>
@@ -89,7 +89,7 @@ import type { Skill } from '../../../../core/portfolio/portfolio.model';
 
         <!-- Soft Skills: "Feature List" Style -->
         <div
-          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 md:mx-0 lg:mx-0 lg:max-w-none lg:grid-cols-3"
         >
           <div>
             <h2 class="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">
