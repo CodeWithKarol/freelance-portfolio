@@ -53,21 +53,6 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
           </div>
           }
         </div>
-
-        <div class="mt-16 flex justify-center">
-          <p
-            class="relative rounded-full bg-slate-50 dark:bg-slate-900 px-4 py-1.5 text-sm leading-6 text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-900/5 dark:ring-white/10 text-center"
-          >
-            <span class="hidden md:inline">Constantly expanding my toolkit.</span>
-            <a
-              href="https://github.com"
-              target="_blank"
-              class="font-semibold text-blue-600 dark:text-blue-500 hover:underline ml-1"
-            >
-              Check out my GitHub
-            </a>
-          </p>
-        </div>
       </div>
     </section>
   `,
