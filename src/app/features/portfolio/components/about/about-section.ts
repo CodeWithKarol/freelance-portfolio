@@ -8,58 +8,62 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   template: `
     <section
       id="about"
-      class="relative isolate overflow-hidden bg-white dark:bg-slate-950 pt-16 pb-20 lg:pt-32 lg:pb-40"
+      class="relative overflow-hidden bg-slate-50 dark:bg-slate-950 pt-16 pb-24 lg:pt-32 lg:pb-40"
     >
-      <!-- Decorative background effects -->
+      <!-- Grid Background Pattern -->
       <div
-        class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-      >
-        <div
-          class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3b82f6] to-[#93c5fd] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-        ></div>
-      </div>
+        class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      ></div>
+      <div
+        class="absolute inset-0 -z-10 bg-[radial-gradient(circle_800px_at_100%_200px,theme(colors.indigo.500/0.1),transparent)]"
+      ></div>
 
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div
-          class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8"
+          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 xl:mx-0 xl:max-w-none xl:grid-cols-2 xl:items-center xl:gap-y-10"
         >
           <!-- Text Content -->
-          <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-            <div class="flex items-center gap-x-4 mb-8">
-              <div
-                class="rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 dark:text-blue-400 dark:ring-blue-400/20"
-              >
-                Accepting New Clients
-              </div>
+          <div class="xl:row-start-1 xl:max-w-lg">
+            <!-- Availability Badge -->
+            <div
+              class="inline-flex items-center gap-x-2 rounded-full bg-emerald-50 dark:bg-emerald-500/10 px-3 py-1 text-sm font-medium leading-6 text-emerald-700 dark:text-emerald-400 ring-1 ring-inset ring-emerald-600/20 mb-8"
+            >
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                ></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              Accepting New Clients
             </div>
 
             <h1
-              class="max-w-2xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:col-span-2 xl:col-auto"
+              class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl leading-[1.1]"
             >
               Senior Angular Architect &
-              <span class="text-blue-600 dark:text-blue-400">SaaS Founder</span>
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-primary-600 dark:from-sky-400 dark:to-primary-400"
+              >
+                SaaS Founder
+              </span>
             </h1>
 
-            <div class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
-              <p>
-                Delivering bank-grade, audit-ready applications with startup velocity. I combine the
-                architectural rigor of Citibank & BNP Paribas with the product mindset of a SaaS
-                founder to help you ship secure, scalable software fast.
-              </p>
-            </div>
+            <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+              Delivering bank-grade, audit-ready applications with startup velocity. I combine the
+              architectural rigor of Citibank & BNP Paribas with the product mindset of a SaaS
+              founder to help you ship secure, scalable software fast.
+            </p>
 
-            <div class="mt-10 flex items-center gap-x-6">
+            <div class="mt-10 flex flex-wrap items-center gap-6">
               <a
                 (click)="scrollTo('contact')"
-                class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer transition-all hover:scale-105 active:scale-95"
+                class="cursor-pointer rounded-xl bg-slate-900 dark:bg-white px-6 py-3.5 text-sm font-semibold text-white dark:text-slate-900 shadow-sm hover:bg-slate-700 dark:hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 transition-all"
               >
                 Start Your Project
               </a>
               <a
                 (click)="scrollTo('cases')"
-                class="group text-sm font-semibold leading-6 text-slate-900 dark:text-white cursor-pointer flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                class="cursor-pointer text-sm font-semibold leading-6 text-slate-900 dark:text-white group flex items-center gap-2"
               >
                 View Work
                 <span aria-hidden="true" class="group-hover:translate-x-1 transition-transform"
@@ -68,71 +72,111 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               </a>
             </div>
 
-            <!-- Stats -->
+            <!-- Stats Grid -->
             <div
-              class="mt-12 border-t border-slate-200 dark:border-slate-800 pt-8 flex gap-8 sm:gap-12"
+              class="mt-14 grid grid-cols-3 border-t border-slate-200 dark:border-slate-800 pt-8 gap-8"
             >
-              <div class="flex flex-col gap-y-1">
-                <dd class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">6+</dd>
-                <dt
-                  class="text-xs sm:text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400"
-                >
+              <div>
+                <div class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  6+
+                </div>
+                <div class="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">
                   Years Exp
-                </dt>
+                </div>
               </div>
-              <div class="flex flex-col gap-y-1">
-                <dd class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <div>
+                <div class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
                   10+
-                </dd>
-                <dt
-                  class="text-xs sm:text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400"
-                >
+                </div>
+                <div class="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">
                   Projects
-                </dt>
+                </div>
               </div>
-              <div class="flex flex-col gap-y-1">
-                <dd class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <div>
+                <div class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
                   100+
-                </dd>
-                <dt
-                  class="text-xs sm:text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400"
-                >
-                  Days Saved via Automation
-                </dt>
+                </div>
+                <div class="mt-1 text-sm font-medium text-slate-600 dark:text-slate-400">
+                  Days Saved
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Image -->
-          <div
-            class="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36 relative"
-          >
+          <!-- Visual / Image -->
+          <div class="relative xl:row-start-1 xl:col-start-2">
             <div
-              class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2rem] opacity-20 blur-lg -z-10 dark:opacity-30"
-            ></div>
-            <img
-              src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2669&auto=format&fit=crop"
-              alt="Professional workflow"
-              class="aspect-[6/5] w-full rounded-2xl object-cover shadow-2xl bg-slate-50 dark:bg-slate-800 ring-1 ring-slate-900/10 dark:ring-white/10"
-            />
+              class="relative rounded-2xl bg-slate-900/5 dark:bg-white/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:ring-white/10 xl:-m-4 xl:rounded-2xl xl:p-4"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2670&auto=format&fit=crop"
+                alt="Development workflow"
+                class="aspect-[4/3] w-full rounded-lg shadow-2xl ring-1 ring-slate-900/10 object-cover"
+              />
+
+              <!-- Floating Badge 1 (Top Left) -->
+              <div
+                class="absolute -top-6 -left-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 hidden sm:block animate-bounce-slow"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-lg text-blue-600 dark:text-blue-400"
+                  >
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                      Verified
+                    </div>
+                    <div class="text-sm font-bold text-slate-900 dark:text-white">Code Quality</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Badge 2 (Bottom Right) -->
+              <div
+                class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-xl ring-1 ring-slate-200 dark:ring-slate-700 hidden sm:block"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="bg-primary-50 dark:bg-primary-900/30 p-2 rounded-lg text-primary-600 dark:text-primary-400"
+                  >
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                      Performance
+                    </div>
+                    <div class="text-sm font-bold text-slate-900 dark:text-white">100% Score</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Bottom decorative gradient -->
-      <div
-        class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white dark:from-slate-950 sm:h-32"
-        aria-hidden="true"
-      ></div>
     </section>
   `,
-  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutSection {
   private scroller = inject(ViewportScroller);
 
-  scrollTo(anchor: string) {
-    this.scroller.scrollToAnchor(anchor);
+  scrollTo(id: string) {
+    this.scroller.scrollToAnchor(id);
   }
 }

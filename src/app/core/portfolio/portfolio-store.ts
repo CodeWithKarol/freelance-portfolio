@@ -161,32 +161,39 @@ export class PortfolioStore {
 
   readonly services = signal<Service[]>([
     {
-      title: 'Fractional CTO / Tech Lead',
+      title: 'Enterprise Migration & Modernization',
       description:
-        'I step in to lead your engineering efforts. From architectural decisions (Nx, Signals) to establishing CI/CD pipelines and code review standards. I bring bank-grade rigor to your chaotic startup environment.',
-      icon: 'leadership',
-      features: ['Team Leadership', 'Tech Strategy', 'Process Optimization'],
-    },
-    {
-      title: 'Enterprise to SaaS Migration',
-      description:
-        'Transform heavy legacy systems into high-velocity SaaS products. I specialize in untangling monolithic Angular or React applications and rebuilding them with modern, performant architecture.',
+        'Transform legacy monoliths into high-velocity modern applications. I specialize in complex Angular migrations, implementing "Zoneless" architecture, Micro-Frontends (Nx), and reducing technical debt without halting feature work.',
       icon: 'migration',
-      features: ['Legacy Modernization', 'Performance Tuning', 'Cloud Native'],
+      features: ['Angular/React Migration', 'Nx Monorepo', 'Legacy Rescue'],
     },
     {
-      title: 'Rapid MVP Development',
+      title: 'SaaS Product Engineering',
       description:
-        'Zero to One in weeks, not months. Using my proprietary "SaaS Starter" architecture (Angular or React, Tailwind, Firebase), I deliver audit-ready code that scales from day one.',
+        'End-to-end development for scalable SaaS products. From architectural blueprint to production deployment. I combine deep technical expertise with a product mindset to build systems that are easy to maintain and cheap to scale.',
       icon: 'code',
-      features: ['4-Week Launch', 'Scalable Day 1', 'Mobile First'],
+      features: ['Full-Cycle Dev', 'Cloud Native', 'MVP to Scale'],
     },
     {
-      title: 'Performance & Audit',
+      title: 'Performance Audit & Optimization',
       description:
-        'Your app is slow? I fix it. Deep dive analysis of Core Web Vitals, Change Detection cycles, and bundle size. I typically reduce load times by 40%+. ',
+        'Deep-dive technical audits to identify bottlenecks. I optimize Core Web Vitals, reduce bundle sizes, and fix reactivity issues. Expect measurable improvements in load times and runtime performance.',
       icon: 'performance',
-      metric: { value: '98/100', label: 'Lighthouse Score' },
+      metric: { value: '40%+', label: 'Faster load times' },
+    },
+    {
+      title: 'Custom Design Systems',
+      description:
+        'Bridge the gap between design and engineering. I build accessible, themeable, and versioned UI component libraries (Tailwind, CDK) that accelerate team velocity and ensure brand consistency.',
+      icon: 'architecture',
+      features: ['Component Library', 'Accessibility (a11y)', 'Storybook'],
+    },
+    {
+      title: 'Fractional Tech Lead / Mentorship',
+      description:
+        "Elevate your team's capabilities. I provide code reviews, set up best practices (CI/CD, Testing), and mentor developers on advanced architectural patterns like Signals and RxJS.",
+      icon: 'leadership',
+      features: ['Code Reviews', 'Team Upskilling', 'Process Setup'],
     },
   ]);
 
