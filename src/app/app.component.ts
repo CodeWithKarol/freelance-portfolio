@@ -12,7 +12,7 @@ import { FooterSection } from './shared/layout/footer/footer-section';
       class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 transition-colors duration-300"
     >
       <app-navbar-section />
-      <main class="flex-grow pt-[69px] sm:pt-[85px]">
+      <main class="flex-grow pt-16">
         <router-outlet />
       </main>
       <app-footer-section />
