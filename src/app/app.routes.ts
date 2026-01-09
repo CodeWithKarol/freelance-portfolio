@@ -12,10 +12,16 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'case-studies/:id',
+    path: 'work/:id',
     loadComponent: () =>
       import('./features/portfolio/pages/case-study/case-study-page').then((m) => m.CaseStudyPage),
-    title: 'Case Study | Portfolio',
+    title: 'Work | Portfolio',
+  },
+  {
+    path: 'work',
+    loadComponent: () =>
+      import('./features/portfolio/pages/work/work-page').then((m) => m.WorkPage),
+    title: 'Work | Portfolio',
   },
   {
     path: 'blog',

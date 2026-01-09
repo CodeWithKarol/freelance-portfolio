@@ -28,7 +28,7 @@ import { Meta } from '@angular/platform-browser';
       >
         <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
           <a
-            routerLink="/"
+            routerLink="/work"
             class="group inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
           >
             <svg
@@ -42,7 +42,7 @@ import { Meta } from '@angular/platform-browser';
                 clip-rule="evenodd"
               />
             </svg>
-            Back to Portfolio
+            Back to Projects
           </a>
 
           <div class="flex items-center gap-4">

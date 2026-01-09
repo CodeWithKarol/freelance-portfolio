@@ -101,7 +101,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               <!-- CTA -->
               <div class="mt-8 flex items-center gap-6">
                 <a
-                  [routerLink]="['/case-studies', case.id]"
+                  [routerLink]="['/work', case.id]"
                   class="text-sm font-semibold leading-6 text-blue-600 dark:text-blue-400 hover:text-blue-500 flex items-center gap-1 group/link"
                 >
                   Read full case study
@@ -170,7 +170,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center"
                   >
                     <a
-                      [routerLink]="['/case-studies', case.id]"
+                      [routerLink]="['/work', case.id]"
                       class="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     >
                       View Project
@@ -181,16 +181,6 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
             </div>
           </div>
           }
-        </div>
-
-        <!-- Bottom Link -->
-        <div class="mt-20 text-center">
-          <a
-            routerLink="/case-studies"
-            class="text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-          >
-            See all projects <span aria-hidden="true">→</span>
-          </a>
         </div>
       </div>
     </section>

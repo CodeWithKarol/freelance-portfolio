@@ -3,7 +3,7 @@ import { CASE_STUDIES, BLOG_POSTS } from './core/portfolio/portfolio-data';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'case-studies/:id',
+    path: 'work/:id',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => {
       return CASE_STUDIES.map((c) => ({ id: c.id }));
