@@ -91,7 +91,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               <dd
                 class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
               >
-                20+
+                10+
               </dd>
               <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Projects</dt>
             </div>
@@ -99,9 +99,11 @@ import { CommonModule, ViewportScroller } from '@angular/common';
               <dd
                 class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
               >
-                3.5M+
+                100+
               </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Readers Inspired</dt>
+              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                Days Saved via Automation
+              </dt>
             </div>
           </div>
         </div>
