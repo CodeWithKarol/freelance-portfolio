@@ -251,7 +251,7 @@ export class PortfolioStore {
     {
       title: 'Portfolio',
       links: [
-        { label: 'Case Studies', href: '#cases' },
+        { label: 'Selected Work', href: '/work' },
         { label: 'Testimonials', href: '#testimonials' },
         { label: 'Open Source', href: 'https://github.com' },
       ],

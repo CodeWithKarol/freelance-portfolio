@@ -49,6 +49,7 @@ export interface BlogPost {
   content?: string; // HTML or Markdown content
   url?: string; // External fallback
   imageUrl?: string;
+  category?: string;
 }
 
 export interface Service {

@@ -1,61 +1,92 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 
 @Component({
   selector: 'app-blog-list-page',
   standalone: true,
-  imports: [DatePipe, RouterLink],
+  imports: [CommonModule, DatePipe, RouterLink],
   template: `
     <div
-      class="pt-32 pb-20 bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors duration-300"
+      class="bg-white dark:bg-slate-950 min-h-screen py-24 sm:py-32 relative isolate overflow-hidden"
     >
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h1 class="text-4xl font-extrabold text-slate-900 dark:text-slate-100 sm:text-5xl">
-            Thoughts & Articles
+      <!-- Background Pattern -->
+      <div
+        class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"
+      ></div>
+      <div
+        class="absolute inset-0 -z-10 bg-[radial-gradient(circle_800px_at_100%_200px,theme(colors.indigo.500/0.1),transparent)]"
+      ></div>
+
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-500">
+            The Blog
+          </h2>
+          <h1
+            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
+          >
+            Thoughts & Insights
           </h1>
-          <p class="mt-4 text-xl text-slate-500 dark:text-slate-400">
-            Sharing knowledge on Angular, React, and Software Architecture.
+          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+            Expert analysis on Angular architecture, state management, and modern web development.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        >
           @for (post of posts(); track post.id) {
-          <article
-            class="bg-white dark:bg-slate-900 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-slate-100 dark:border-slate-800"
-          >
-            <div class="h-48 bg-indigo-100 dark:bg-slate-800 w-full relative">
-              <!-- <img [src]="post.imageUrl" class="w-full h-full object-cover"> -->
-              <div class="absolute inset-0 flex items-center justify-center text-slate-400">
-                <span>Blog Image</span>
-              </div>
+          <article class="flex flex-col items-start justify-between group">
+            <div class="relative w-full">
+              <img
+                [src]="post.imageUrl"
+                [alt]="post.title"
+                class="aspect-[16/9] w-full rounded-2xl bg-slate-100 dark:bg-slate-800 object-cover sm:aspect-[2/1] lg:aspect-[3/2] shadow-lg ring-1 ring-slate-900/10 dark:ring-white/10 transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+              <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10"></div>
             </div>
-            <div class="p-6">
-              <div class="text-sm text-indigo-600 dark:text-indigo-400 font-semibold mb-2">
-                {{ post.date | date : 'longDate' }}
+            <div class="max-w-xl">
+              <div class="mt-8 flex items-center gap-x-4 text-xs">
+                <time [attr.datetime]="post.date" class="text-slate-500 dark:text-slate-400">
+                  {{ post.date | date : 'mediumDate' }}
+                </time>
+                <span
+                  class="relative z-10 rounded-full bg-primary-50 dark:bg-primary-900/30 px-3 py-1.5 font-medium text-primary-600 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors"
+                >
+                  {{ post.category || 'Engineering' }}
+                </span>
               </div>
-              <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
-                <a [routerLink]="['/blog', post.slug]" class="hover:underline">{{ post.title }}</a>
-              </h3>
-              <p class="text-slate-600 dark:text-slate-400 mb-4">
-                {{ post.excerpt }}
-              </p>
-              <a
-                [routerLink]="['/blog', post.slug]"
-                class="text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-800 dark:hover:text-indigo-300 inline-flex items-center cursor-pointer"
-              >
-                Read Article
-                <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
+              <div class="group relative">
+                <h3
+                  class="mt-3 text-lg font-semibold leading-6 text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+                >
+                  <a [routerLink]="['/blog', post.slug]">
+                    <span class="absolute inset-0"></span>
+                    {{ post.title }}
+                  </a>
+                </h3>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  {{ post.excerpt }}
+                </p>
+              </div>
+              <div class="relative mt-8 flex items-center gap-x-4">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  alt=""
+                  class="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-900/10 dark:ring-white/10"
+                />
+                <div class="text-sm leading-6">
+                  <p class="font-semibold text-slate-900 dark:text-white">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      Karol Modelski
+                    </a>
+                  </p>
+                  <p class="text-slate-600 dark:text-slate-400">Senior Angular Maven</p>
+                </div>
+              </div>
             </div>
           </article>
           }

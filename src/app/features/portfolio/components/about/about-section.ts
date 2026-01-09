@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   template: `
     <section
       id="about"
@@ -62,8 +63,8 @@ import { CommonModule, ViewportScroller } from '@angular/common';
                 Start Your Project
               </a>
               <a
-                (click)="scrollTo('cases')"
-                class="cursor-pointer text-sm font-semibold leading-6 text-slate-900 dark:text-white group flex items-center gap-2"
+                routerLink="/work"
+                class="text-sm font-semibold leading-6 text-slate-900 dark:text-white group flex items-center gap-2"
               >
                 View Work
                 <span aria-hidden="true" class="group-hover:translate-x-1 transition-transform"

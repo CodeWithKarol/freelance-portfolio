@@ -5,7 +5,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: '1',
     title: 'ScaleSail.io',
     tagline: 'High-Performance SaaS Templates',
-    heroImage: 'assets/images/scalesail.png',
+    heroImage:
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
     challenge: 'Founders need high-converting, SEO-optimized landing pages without technical debt.',
     solution:
       'Built a suite of premium Angular 18+ templates with perfect Lighthouse scores and zero-config deployment.',
@@ -18,7 +19,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: '2',
     title: 'Enterprise Migration',
     tagline: 'Legacy to Modern Angular',
-    heroImage: 'assets/images/enterprise.png',
+    heroImage:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop',
     challenge: 'Migrating a massive monolithic AngularJS/Angular 5 app to modern standards.',
     solution:
       'Implemented incremental migration strategies, NX monorepo, and Zoneless architecture.',
@@ -39,7 +41,9 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Why Signals?</h2>
       <p>They provide fine-grained reactivity without the overhead of Zone.js...</p>
     `,
-    imageUrl: 'assets/images/blog1.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2669&auto=format&fit=crop',
+    category: 'Architecture',
   },
   {
     id: '2',
@@ -50,6 +54,8 @@ export const BLOG_POSTS: BlogPost[] = [
     content: `
       <p>The debate continues, but the gap is narrowing...</p>
     `,
-    imageUrl: 'assets/images/blog2.jpg',
+    imageUrl:
+      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2670&auto=format&fit=crop',
+    category: 'Frameworks',
   },
 ];
