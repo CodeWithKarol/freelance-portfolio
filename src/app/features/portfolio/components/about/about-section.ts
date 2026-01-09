@@ -52,9 +52,9 @@ import { CommonModule, ViewportScroller } from '@angular/common';
             <span class="text-blue-600 dark:text-blue-400">SaaS Founder</span>
           </h1>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            I bridge the gap between enterprise rigor and startup velocity. With a background in
-            banking (Citibank) and my own Micro-SaaS ventures, I build software that scales securely
-            and ships fast.
+            Delivering bank-grade, audit-ready applications with startup velocity. I combine the
+            architectural rigor of Citibank & BNP Paribas with the product mindset of a SaaS founder
+            to help you ship secure, scalable software fast.
           </p>
           <div class="mt-10 flex items-center justify-center xl:justify-start gap-x-6">
             <a
