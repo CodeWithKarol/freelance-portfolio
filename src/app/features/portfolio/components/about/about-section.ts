@@ -6,244 +6,127 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="about" class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
-      <svg
-        class="absolute inset-0 -z-10 h-full w-full stroke-slate-200 dark:stroke-slate-800 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+    <section
+      id="about"
+      class="relative isolate overflow-hidden bg-white dark:bg-slate-950 pt-16 pb-20 lg:pt-32 lg:pb-40"
+    >
+      <!-- Decorative background effects -->
+      <div
+        class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true"
       >
-        <defs>
-          <pattern
-            id="0787a7c5-9781-4f66-8381-37d53061646d"
-            width="200"
-            height="200"
-            x="50%"
-            y="-1"
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none" />
-          </pattern>
-        </defs>
-        <rect
-          width="100%"
-          height="100%"
-          stroke-width="0"
-          fill="url(#0787a7c5-9781-4f66-8381-37d53061646d)"
-        />
-      </svg>
-
-      <div
-        class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 xl:flex xl:items-center lg:px-8 lg:py-40"
-      >
         <div
-          class="mx-auto max-w-2xl xl:mx-0 xl:max-w-xl xl:flex-shrink-0 text-center xl:text-left"
-        >
-          <div class="mt-24 sm:mt-32 xl:mt-0">
-            <div class="inline-flex space-x-6">
-              <span
-                class="rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 dark:text-blue-400 dark:ring-blue-400/20"
-                >Accepting New Clients</span
-              >
-            </div>
-          </div>
-          <h1
-            class="mt-10 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-5xl md:text-6xl"
-          >
-            Senior Angular Architect &
-            <span class="text-blue-600 dark:text-blue-400">SaaS Founder</span>
-          </h1>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            Delivering bank-grade, audit-ready applications with startup velocity. I combine the
-            architectural rigor of Citibank & BNP Paribas with the product mindset of a SaaS founder
-            to help you ship secure, scalable software fast.
-          </p>
-          <div class="mt-10 flex items-center justify-center xl:justify-start gap-x-6">
-            <a
-              (click)="scrollTo('contact')"
-              class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer transition-colors"
-            >
-              Start Your Project
-            </a>
-            <a
-              (click)="scrollTo('cases')"
-              class="text-sm font-semibold leading-6 text-slate-900 dark:text-white cursor-pointer group"
-            >
-              View Work
-              <span
-                aria-hidden="true"
-                class="inline-block transition-transform group-hover:translate-x-1"
-                >→</span
-              >
-            </a>
-          </div>
+          class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#3b82f6] to-[#93c5fd] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+        ></div>
+      </div>
 
-          <div
-            class="mt-10 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-wrap justify-center xl:justify-start gap-8 sm:gap-12"
-          >
-            <div class="flex flex-col">
-              <dd
-                class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
-              >
-                6+
-              </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Years Exp</dt>
-            </div>
-            <div class="flex flex-col">
-              <dd
-                class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
-              >
-                10+
-              </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">Projects</dt>
-            </div>
-            <div class="flex flex-col">
-              <dd
-                class="text-2xl font-bold leading-9 tracking-tight text-slate-900 dark:text-white"
-              >
-                100+
-              </dd>
-              <dt class="text-sm leading-7 text-slate-600 dark:text-slate-300">
-                Days Saved via Automation
-              </dt>
-            </div>
-          </div>
-        </div>
-
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div
-          class="mx-auto mt-16 flex max-w-2xl sm:mt-24 justify-center xl:ml-10 xl:mt-0 xl:mr-0 xl:max-w-none xl:flex-none xl:ml-32"
+          class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8"
         >
-          <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <div
-              class="-m-2 rounded-xl bg-slate-900/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:bg-white/5 dark:ring-white/10 lg:-m-4 lg:rounded-2xl lg:p-4"
-            >
-              <!-- Code Browser Mockup -->
+          <!-- Text Content -->
+          <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
+            <div class="flex items-center gap-x-4 mb-8">
               <div
-                class="rounded-lg shadow-2xl bg-slate-900 ring-1 ring-white/10 w-full max-w-[90vw] sm:max-w-[34rem] md:max-w-[40rem] overflow-hidden"
+                class="rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 dark:text-blue-400 dark:ring-blue-400/20"
               >
-                <div
-                  class="flex items-center gap-2 px-4 py-3 bg-slate-800/50 border-b border-white/5"
+                Accepting New Clients
+              </div>
+            </div>
+
+            <h1
+              class="max-w-2xl text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl lg:col-span-2 xl:col-auto"
+            >
+              Senior Angular Architect &
+              <span class="text-blue-600 dark:text-blue-400">SaaS Founder</span>
+            </h1>
+
+            <div class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+              <p>
+                Delivering bank-grade, audit-ready applications with startup velocity. I combine the
+                architectural rigor of Citibank & BNP Paribas with the product mindset of a SaaS
+                founder to help you ship secure, scalable software fast.
+              </p>
+            </div>
+
+            <div class="mt-10 flex items-center gap-x-6">
+              <a
+                (click)="scrollTo('contact')"
+                class="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer transition-all hover:scale-105 active:scale-95"
+              >
+                Start Your Project
+              </a>
+              <a
+                (click)="scrollTo('cases')"
+                class="group text-sm font-semibold leading-6 text-slate-900 dark:text-white cursor-pointer flex items-center gap-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                View Work
+                <span aria-hidden="true" class="group-hover:translate-x-1 transition-transform"
+                  >→</span
                 >
-                  <div class="flex gap-1.5">
-                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                    <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                  </div>
-                  <div class="ml-4 text-xs font-mono text-slate-400 flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
-                      />
-                    </svg>
-                    src/app/core/architecture.ts
-                  </div>
-                </div>
-                <div
-                  class="p-6 font-mono text-xs sm:text-sm text-blue-300 leading-relaxed overflow-x-auto"
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div
+              class="mt-12 border-t border-slate-200 dark:border-slate-800 pt-8 flex gap-8 sm:gap-12"
+            >
+              <div class="flex flex-col gap-y-1">
+                <dd class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">6+</dd>
+                <dt
+                  class="text-xs sm:text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400"
                 >
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">1</span
-                    ><span class="text-purple-400">import</span>&nbsp;{{ '{' }}&nbsp;<span
-                      class="text-yellow-300"
-                      >Injectable</span
-                    >,&nbsp;<span class="text-yellow-300">signal</span>&nbsp;{{ '}' }}&nbsp;<span
-                      class="text-purple-400"
-                      >from</span
-                    >&nbsp;<span class="text-green-400">'@angular/core'</span>;
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">2</span>
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">3</span
-                    ><span class="text-purple-400">@Injectable</span>({{ '{' }}
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">4</span>
-                    &nbsp;&nbsp;<span class="text-blue-300">providedIn:</span>&nbsp;<span
-                      class="text-green-400"
-                      >'root'</span
-                    >
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">5</span>{{ '}' }})
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">6</span
-                    ><span class="text-purple-400">export&nbsp;class</span>&nbsp;<span
-                      class="text-yellow-300"
-                      >EnterpriseArchitecture</span
-                    >&nbsp;{{ '{' }}
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">7</span>
-                    &nbsp;&nbsp;<span class="text-slate-400"
-                      >//&nbsp;Reactive&nbsp;State&nbsp;Management</span
-                    >
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">8</span>
-                    &nbsp;&nbsp;<span class="text-purple-400">readonly</span>&nbsp;<span
-                      class="text-blue-300"
-                      >state</span
-                    >&nbsp;=&nbsp;<span class="text-yellow-300">signal</span>&lt;<span
-                      class="text-yellow-300"
-                      >AppState</span
-                    >&gt;({{ '{' }}
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">9</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">performance:</span
-                    >&nbsp;<span class="text-green-400">'optimized'</span>,
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">10</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">architecture:</span
-                    >&nbsp;<span class="text-green-400">'scalable'</span>,
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">11</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">techDebt:</span>&nbsp;<span
-                      class="text-purple-400"
-                      >null</span
-                    >
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">12</span>
-                    &nbsp;&nbsp;{{ '}' }});
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">13</span>
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">14</span>
-                    &nbsp;&nbsp;<span class="text-purple-400">constructor</span>()&nbsp;{{ '{' }}
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">15</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">this</span>.<span
-                      class="text-yellow-300"
-                      >shipHighQualityCode</span
-                    >();
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">16</span
-                    >&nbsp;&nbsp;{{ '}' }}
-                  </div>
-                  <div class="flex">
-                    <span class="text-slate-500 w-8 text-right mr-4 select-none">17</span>{{ '}' }}
-                  </div>
-                </div>
+                  Years Exp
+                </dt>
+              </div>
+              <div class="flex flex-col gap-y-1">
+                <dd class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  10+
+                </dd>
+                <dt
+                  class="text-xs sm:text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400"
+                >
+                  Projects
+                </dt>
+              </div>
+              <div class="flex flex-col gap-y-1">
+                <dd class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  100+
+                </dd>
+                <dt
+                  class="text-xs sm:text-sm font-semibold leading-6 text-slate-600 dark:text-slate-400"
+                >
+                  Days Saved via Automation
+                </dt>
               </div>
             </div>
           </div>
+
+          <!-- Image -->
+          <div
+            class="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36 relative"
+          >
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2rem] opacity-20 blur-lg -z-10 dark:opacity-30"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=2669&auto=format&fit=crop"
+              alt="Professional workflow"
+              class="aspect-[6/5] w-full rounded-2xl object-cover shadow-2xl bg-slate-50 dark:bg-slate-800 ring-1 ring-slate-900/10 dark:ring-white/10"
+            />
+          </div>
         </div>
       </div>
+
+      <!-- Bottom decorative gradient -->
+      <div
+        class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white dark:from-slate-950 sm:h-32"
+        aria-hidden="true"
+      ></div>
     </section>
   `,
   styles: [],
-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutSection {
