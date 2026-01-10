@@ -2,11 +2,12 @@ import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { LucideAngularModule, ArrowRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-work-page',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, LucideAngularModule],
   template: `
     <div
       class="bg-white dark:bg-slate-950 min-h-screen py-24 sm:py-32 relative isolate overflow-hidden"
@@ -85,19 +86,10 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 class="mt-8 flex items-center gap-4 text-sm font-semibold text-primary-600 dark:text-primary-400"
               >
                 Read Case Study
-                <svg
+                <lucide-icon
+                  [img]="ArrowRight"
                   class="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                ></lucide-icon>
               </div>
             </div>
           </div>
@@ -110,4 +102,5 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 })
 export class WorkPage {
   store = inject(PortfolioStore);
+  readonly ArrowRight = ArrowRight;
 }

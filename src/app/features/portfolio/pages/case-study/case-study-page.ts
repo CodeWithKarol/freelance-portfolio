@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import { Meta } from '@angular/platform-browser';
+import { LucideAngularModule, ArrowLeft, ExternalLink, Trophy, Cpu, Github } from 'lucide-angular';
 
 @Component({
   selector: 'app-case-study-page',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, LucideAngularModule],
   template: `
     @if (caseStudy(); as study) {
     <div class="relative bg-white dark:bg-slate-950 min-h-screen">
@@ -31,17 +32,10 @@ import { Meta } from '@angular/platform-browser';
             routerLink="/work"
             class="group inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
           >
-            <svg
+            <lucide-icon
+              [img]="ArrowLeft"
               class="h-4 w-4 text-slate-400 dark:text-slate-500 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            ></lucide-icon>
             All Work
           </a>
 
@@ -52,7 +46,7 @@ import { Meta } from '@angular/platform-browser';
               target="_blank"
               class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-500 flex items-center gap-1"
             >
-              Visit Site <span aria-hidden="true">&rarr;</span>
+              Visit Site <lucide-icon [img]="ExternalLink" class="h-4 w-4"></lucide-icon>
             </a>
             }
           </div>
@@ -130,19 +124,10 @@ import { Meta } from '@angular/platform-browser';
                   <h3
                     class="flex items-center gap-3 text-lg font-semibold text-slate-900 dark:text-white"
                   >
-                    <svg
+                    <lucide-icon
+                      [img]="Cpu"
                       class="h-6 w-6 text-primary-600 dark:text-primary-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                      />
-                    </svg>
+                    ></lucide-icon>
                     Technical Approach
                   </h3>
                   <p class="mt-4 text-slate-600 dark:text-slate-400">
@@ -165,19 +150,7 @@ import { Meta } from '@angular/platform-browser';
                   <h3
                     class="font-semibold text-slate-900 dark:text-white mb-6 flex items-center gap-2"
                   >
-                    <svg
-                      class="w-5 h-5 text-emerald-500"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
+                    <lucide-icon [img]="Trophy" class="w-5 h-5 text-emerald-500"></lucide-icon>
                     Key Outcomes
                   </h3>
                   <ul class="space-y-4">
@@ -217,14 +190,7 @@ import { Meta } from '@angular/platform-browser';
                     class="flex items-center justify-center gap-2 w-full rounded-xl bg-slate-900 dark:bg-white px-4 py-3 text-sm font-semibold text-white dark:text-slate-900 shadow-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all"
                   >
                     Launch Live Demo
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
+                    <lucide-icon [img]="ExternalLink" class="w-4 h-4"></lucide-icon>
                   </a>
                   } @if (study.repoUrl) {
                   <a
@@ -232,13 +198,7 @@ import { Meta } from '@angular/platform-browser';
                     target="_blank"
                     class="flex items-center justify-center gap-2 w-full rounded-xl bg-white dark:bg-slate-950 px-4 py-3 text-sm font-semibold text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all"
                   >
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                      />
-                    </svg>
+                    <lucide-icon [img]="Github" class="w-4 h-4"></lucide-icon>
                     Source Code
                   </a>
                   }
@@ -261,4 +221,10 @@ export class CaseStudyPage {
   caseStudy = computed(() => {
     return this.store.caseStudies().find((c) => c.id === this.id());
   });
+
+  readonly ArrowLeft = ArrowLeft;
+  readonly ExternalLink = ExternalLink;
+  readonly Trophy = Trophy;
+  readonly Cpu = Cpu;
+  readonly Github = Github;
 }

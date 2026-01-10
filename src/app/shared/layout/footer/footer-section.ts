@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
+import { LucideAngularModule, Github, Linkedin, Globe, AtSign } from 'lucide-angular';
 
 @Component({
   selector: 'app-footer-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LucideAngularModule],
   template: `
     <footer
       class="relative bg-slate-50 dark:bg-slate-950 pt-16 pb-8 overflow-hidden z-10"
@@ -45,29 +46,14 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
                 class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               >
                 <span class="sr-only">{{ social.platform }}</span>
-                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <!-- Icon Logic -->
-                  @if (social.icon === 'github') {
-                  <path
-                    fill-rule="evenodd"
-                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                    clip-rule="evenodd"
-                  />
-                  } @else if (social.icon === 'linkedin') {
-                  <path
-                    fill-rule="evenodd"
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                    clip-rule="evenodd"
-                  />
-                  } @else {
-                  <!-- Website/Gumroad -->
-                  <path
-                    fill-rule="evenodd"
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-                    clip-rule="evenodd"
-                  />
-                  }
-                </svg>
+                <!-- Icon Logic -->
+                @if (social.icon === 'github') {
+                <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
+                } @else if (social.icon === 'linkedin') {
+                <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
+                } @else {
+                <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                }
               </a>
               }
             </div>
@@ -137,18 +123,10 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
                 <li
                   class="flex items-start gap-2 text-sm leading-6 text-slate-600 dark:text-slate-400"
                 >
-                  <svg
+                  <lucide-icon
+                    [img]="AtSign"
                     class="h-6 w-5 flex-none text-primary-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M5.404 14.596A6.5 6.5 0 1116.5 10a1.25 1.25 0 01-2.5 0 4 4 0 10-.571 2.06A2.75 2.75 0 0018 10a8 8 0 10-2.343 5.657.75.75 0 00-1.06-1.06 6.5 6.5 0 01-9.193 0zM10 7.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
+                  ></lucide-icon>
                   {{ store.contactInfo().email }}
                 </li>
                 <li
@@ -186,4 +164,9 @@ import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
 export class FooterSection {
   store = inject(PortfolioStore);
   currentYear = new Date().getFullYear();
+
+  readonly Github = Github;
+  readonly Linkedin = Linkedin;
+  readonly Globe = Globe;
+  readonly AtSign = AtSign;
 }

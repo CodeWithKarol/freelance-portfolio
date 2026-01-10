@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { LucideAngularModule, Download } from 'lucide-angular';
 
 @Component({
   selector: 'app-experience-section',
   standalone: true,
-  imports: [],
+  imports: [LucideAngularModule],
   template: `
     <section id="experience" class="py-24 sm:py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
       <!-- Background subtle pattern -->
@@ -42,9 +43,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 
                 <div class="mt-8">
                   <a href="cv.pdf" download class="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-primary-50 transition-colors">
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M12 9.75V1.5m0 0 3 3m-3-3-3 3" />
-                    </svg>
+                    <lucide-icon [img]="Download" class="h-4 w-4"></lucide-icon>
                     Download Resume
                   </a>
                 </div>
@@ -122,4 +121,5 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 })
 export class ExperienceSection {
   readonly store = inject(PortfolioStore);
+  readonly Download = Download;
 }

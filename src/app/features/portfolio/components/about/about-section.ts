@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { LucideAngularModule, CheckCircle, Zap } from 'lucide-angular';
 
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, LucideAngularModule],
   template: `
     <section
       id="about"
@@ -123,14 +124,7 @@ import { RouterLink } from '@angular/router';
                   <div
                     class="bg-blue-50 dark:bg-blue-900/30 p-2 rounded-lg text-blue-600 dark:text-blue-400"
                   >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
+                    <lucide-icon [img]="CheckCircle" class="w-6 h-6"></lucide-icon>
                   </div>
                   <div>
                     <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -149,14 +143,7 @@ import { RouterLink } from '@angular/router';
                   <div
                     class="bg-primary-50 dark:bg-primary-900/30 p-2 rounded-lg text-primary-600 dark:text-primary-400"
                   >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
+                    <lucide-icon [img]="Zap" class="w-6 h-6"></lucide-icon>
                   </div>
                   <div>
                     <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -175,6 +162,8 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutSection {
+  readonly CheckCircle = CheckCircle;
+  readonly Zap = Zap;
   private scroller = inject(ViewportScroller);
 
   scrollTo(id: string) {

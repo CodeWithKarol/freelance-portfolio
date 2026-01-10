@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule],
   template: `
     <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       <!-- Background & Blur Layer -->
@@ -52,13 +53,9 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
           >
             <span class="sr-only">Open main menu</span>
             @if (!isMenuOpen()) {
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
+              <lucide-icon [img]="Menu" class="h-6 w-6"></lucide-icon>
             } @else {
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <lucide-icon [img]="X" class="h-6 w-6"></lucide-icon>
             }
           </button>
         </div>
@@ -98,17 +95,15 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
             aria-label="Toggle theme"
           >
             <!-- Sun icon (shows in dark mode) -->
-            <svg 
-              class="h-5 w-5 transition-transform duration-500 rotate-90 dark:rotate-0 hidden dark:block" 
-              fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-            </svg>
+            <lucide-icon 
+              [img]="Sun"
+              class="h-5 w-5 transition-transform duration-500 rotate-90 dark:rotate-0 hidden dark:block"
+            ></lucide-icon>
             <!-- Moon icon (shows in light mode) -->
-            <svg 
-              class="h-5 w-5 transition-transform duration-500 rotate-0 dark:-rotate-90 dark:hidden block" 
-              fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-            </svg>
+            <lucide-icon 
+              [img]="Moon"
+              class="h-5 w-5 transition-transform duration-500 rotate-0 dark:-rotate-90 dark:hidden block"
+            ></lucide-icon>
           </button>
 
           <a
@@ -116,9 +111,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
             class="hidden sm:inline-flex items-center justify-center gap-2 h-9 rounded-full bg-slate-900 dark:bg-white/10 dark:hover:bg-white/20 px-4 text-sm font-semibold text-white transition-all hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 cursor-pointer"
           >
             <span>Let's Talk</span>
-            <svg class="h-3.5 w-3.5 text-slate-300" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
+            <lucide-icon [img]="ArrowUpRight" class="h-3.5 w-3.5 text-slate-300"></lucide-icon>
           </a>
         </div>
       </nav>
@@ -159,9 +152,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
               (click)="toggleMenu()"
             >
               <span class="sr-only">Close menu</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <lucide-icon [img]="X" class="h-6 w-6"></lucide-icon>
             </button>
           </div>
           
@@ -225,6 +216,12 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarSection {
+  readonly Menu = Menu;
+  readonly X = X;
+  readonly Sun = Sun;
+  readonly Moon = Moon;
+  readonly ArrowUpRight = ArrowUpRight;
+
   isDark = signal(false);
   isMenuOpen = signal(false);
   isScrolled = signal(false);

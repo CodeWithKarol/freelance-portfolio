@@ -2,14 +2,22 @@ import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/cor
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import {
+  LucideAngularModule,
+  Mail,
+  MapPin,
+  ChevronDown,
+  Loader2,
+  CheckCircle,
+} from 'lucide-angular';
 
 @Component({
   selector: 'app-contact-section',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule],
   template: `
     <section id="contact" class="relative bg-white dark:bg-slate-950 isolate">
-      <div class="lg:absolute lg:inset-0 lg:left-1/2">
+      <div class="relative lg:absolute lg:inset-0 lg:left-1/2">
         <img
           class="h-64 w-full bg-slate-50 object-cover sm:h-80 lg:absolute lg:h-full transition-opacity duration-500 hover:opacity-90"
           src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
@@ -17,7 +25,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
         />
         <!-- Overlay/Gradient for better text contrast if needed or just mood -->
         <div
-          class="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-primary-400/10 mix-blend-multiply"
+          class="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-primary-400/10 mix-blend-multiply pointer-events-none"
         ></div>
       </div>
 
@@ -49,19 +57,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 <div class="flex gap-x-4">
                   <dt class="flex-none">
                     <span class="sr-only">Email</span>
-                    <svg
-                      class="h-7 w-6 text-slate-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                      />
-                    </svg>
+                    <lucide-icon [img]="Mail" class="h-7 w-6 text-slate-400"></lucide-icon>
                   </dt>
                   <dd>
                     <a
@@ -75,24 +71,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 <div class="flex gap-x-4">
                   <dt class="flex-none">
                     <span class="sr-only">Address</span>
-                    <svg
-                      class="h-7 w-6 text-slate-400"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                      />
-                    </svg>
+                    <lucide-icon [img]="MapPin" class="h-7 w-6 text-slate-400"></lucide-icon>
                   </dt>
                   <dd>{{ store.contactInfo().location }}</dd>
                 </div>
@@ -186,18 +165,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                     <div
                       class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
                     >
-                      <svg
-                        class="h-5 w-5 text-slate-400"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
+                      <lucide-icon [img]="ChevronDown" class="h-5 w-5 text-slate-400"></lucide-icon>
                     </div>
                   </div>
                 </div>
@@ -233,25 +201,10 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 >
                   @if (isSubmitting()) {
                   <span class="inline-flex items-center">
-                    <svg
+                    <lucide-icon
+                      [img]="Loader2"
                       class="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        class="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        stroke-width="4"
-                      ></circle>
-                      <path
-                        class="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
+                    ></lucide-icon>
                     Sending...
                   </span>
                   } @else { Send Message }
@@ -264,13 +217,7 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               >
                 <div class="flex">
                   <div class="flex-shrink-0">
-                    <svg class="h-5 w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
+                    <lucide-icon [img]="CheckCircle" class="h-5 w-5 text-emerald-400"></lucide-icon>
                   </div>
                   <div class="ml-3">
                     <p class="text-sm font-medium text-emerald-800 dark:text-emerald-200">
@@ -290,6 +237,13 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 })
 export class ContactSection {
   readonly store = inject(PortfolioStore);
+
+  readonly Mail = Mail;
+  readonly MapPin = MapPin;
+  readonly ChevronDown = ChevronDown;
+  readonly Loader2 = Loader2;
+  readonly CheckCircle = CheckCircle;
+
   isSubmitting = signal(false);
   isSuccess = signal(false);
   contactForm;

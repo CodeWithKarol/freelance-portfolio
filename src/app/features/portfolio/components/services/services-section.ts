@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { LucideAngularModule, ArrowRightLeft, CodeXml, Zap, Landmark, Users } from 'lucide-angular';
 
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [],
+  imports: [LucideAngularModule],
   template: `
     <section id="services" class="py-24 sm:py-32 bg-slate-50 dark:bg-slate-950 overflow-hidden">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -45,47 +46,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                 >
                   <!-- Icon rendering based on service.icon -->
                   @if (service.icon === 'migration') {
-                  <svg
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"
-                    />
-                  </svg>
+                  <lucide-icon [img]="ArrowRightLeft" class="h-6 w-6"></lucide-icon>
                   } @else if (service.icon === 'code') {
-                  <svg
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
-                    />
-                  </svg>
+                  <lucide-icon [img]="CodeXml" class="h-6 w-6"></lucide-icon>
                   } @else if (service.icon === 'performance') {
-                  <svg
-                    class="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-                    />
-                  </svg>
+                  <lucide-icon [img]="Zap" class="h-6 w-6"></lucide-icon>
                   }
                 </div>
               </div>
@@ -149,33 +114,9 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
                   class="p-1.5 rounded-lg bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400"
                 >
                   @if (service.icon === 'architecture') {
-                  <svg
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"
-                    />
-                  </svg>
+                  <lucide-icon [img]="Landmark" class="h-5 w-5"></lucide-icon>
                   } @else if (service.icon === 'leadership') {
-                  <svg
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
-                    />
-                  </svg>
+                  <lucide-icon [img]="Users" class="h-5 w-5"></lucide-icon>
                   }
                 </div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white">
@@ -208,6 +149,12 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 })
 export class ServicesSection {
   readonly store = inject(PortfolioStore);
+
+  readonly ArrowRightLeft = ArrowRightLeft;
+  readonly CodeXml = CodeXml;
+  readonly Zap = Zap;
+  readonly Landmark = Landmark;
+  readonly Users = Users;
 
   getServiceImage(icon: string): string {
     const images: Record<string, string> = {
