@@ -5,10 +5,10 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./features/portfolio/pages/home/home-page').then((m) => m.HomePage),
-    title: 'Angular Architect & SaaS Founder | Karol Modelski',
+    title: 'Senior Frontend Developer & SaaS Founder | Karol Modelski',
     data: {
       description:
-        'Senior Angular Architect & Micro-SaaS Founder. I combine enterprise architecture experience with a product-first mindset to build high-performance web applications.',
+        'Senior Frontend Developer & Micro-SaaS Founder. I combine enterprise architecture experience with a product-first mindset to build high-performance web applications.',
     },
   },
   {

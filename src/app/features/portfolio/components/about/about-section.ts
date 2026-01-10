@@ -42,7 +42,7 @@ import { LucideAngularModule, CheckCircle, Zap } from 'lucide-angular';
             <h1
               class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl leading-[1.1]"
             >
-              Senior Angular Architect &
+              Senior Frontend Developer &
               <span
                 class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-primary-600 dark:from-sky-400 dark:to-primary-400"
               >

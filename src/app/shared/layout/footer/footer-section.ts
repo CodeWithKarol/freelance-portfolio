@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
 import { LucideAngularModule, Github, Linkedin, Globe, AtSign } from 'lucide-angular';
 
 @Component({
   selector: 'app-footer-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, NgOptimizedImage],
   template: `
     <footer
       class="relative bg-slate-50 dark:bg-slate-950 pt-16 pb-8 overflow-hidden z-10"
@@ -24,18 +24,19 @@ import { LucideAngularModule, Github, Linkedin, Globe, AtSign } from 'lucide-ang
           <!-- Brand Column -->
           <div class="space-y-8">
             <div class="flex items-center gap-2">
-              <!-- Abstract Logo Placeholder using Tailwind shapes -->
-              <div
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-600 shadow-lg shadow-primary-600/20"
-              >
-                <span class="text-white font-bold text-xl">K</span>
-              </div>
+              <img
+                ngSrc="images/karol-modelski.webp"
+                alt="Karol Modelski"
+                width="40"
+                height="40"
+                class="h-10 w-10 rounded-xl shadow-lg shadow-primary-600/20 object-cover"
+              />
               <span class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight"
                 >Karol Modelski</span
               >
             </div>
             <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs">
-              Senior Angular Architect & SaaS Founder. Building high-performance, audit-ready web
+              Senior Frontend Developer & SaaS Founder. Building high-performance, audit-ready web
               applications for enterprise and startups.
             </p>
             <div class="flex space-x-6">

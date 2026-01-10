@@ -40,7 +40,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                 Karol Modelski
               </span>
               <span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider leading-none">
-                Senior Architect
+                Senior Frontend Developer
               </span>
             </div>
           </a>
