@@ -130,11 +130,13 @@ import { LucideAngularModule, ArrowLeft, ExternalLink, Trophy, Cpu, Github } fro
                     ></lucide-icon>
                     Technical Approach
                   </h3>
-                  <p class="mt-4 text-slate-600 dark:text-slate-400">
-                    Built with <strong>zoneless Angular architecture</strong> leveraging Signals for
-                    granular reactivity. The state management strategy uses a custom SignalStore
-                    implementation, ensuring type-safe, predictable data flow while maintaining
-                    exceptional runtime performance.
+                  <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    @if (study.technicalApproach) {
+                    {{ study.technicalApproach }}
+                    } @else { Built with <strong>modern Angular architecture</strong> leveraging
+                    Signals for granular reactivity. The state management strategy ensures
+                    type-safe, predictable data flow while maintaining exceptional runtime
+                    performance. }
                   </p>
                 </div>
               </div>

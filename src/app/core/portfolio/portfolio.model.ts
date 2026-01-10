@@ -25,6 +25,7 @@ export interface CaseStudy {
   heroImage: string;
   challenge: string;
   solution: string;
+  technicalApproach?: string; // New field for detailed architectural explanation
   results: string[];
   techStack: string[];
   demoUrl?: string;
