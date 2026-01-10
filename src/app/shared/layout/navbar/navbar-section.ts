@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { CommonModule, NgOptimizedImage, ViewportScroller } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule, NgOptimizedImage],
   template: `
     <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       <!-- Background & Blur Layer -->
@@ -28,7 +28,9 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             <span class="sr-only">Karol Modelski</span>
             <div class="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-slate-100 dark:ring-slate-800 group-hover:ring-indigo-500 transition-all duration-300">
               <img 
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
+                ngSrc="images/karol-modelski.webp" 
+                width="36"
+                height="36"
                 alt="" 
                 class="h-full w-full object-cover"
               />
@@ -140,9 +142,11 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
           <div class="flex items-center justify-between">
             <a (click)="scrollTo('about')" class="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
               <img 
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
+                ngSrc="images/karol-modelski.webp" 
+                width="32"
+                height="32"
                 alt="" 
-                class="h-8 w-8 rounded-full ring-1 ring-slate-200 dark:ring-slate-800"
+                class="rounded-full ring-1 ring-slate-200 dark:ring-slate-800"
               />
               <span class="text-sm font-bold text-slate-900 dark:text-white">Karol Modelski</span>
             </a>

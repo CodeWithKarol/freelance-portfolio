@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule, DatePipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 
 @Component({
   selector: 'app-blog-list-page',
   standalone: true,
-  imports: [CommonModule, DatePipe, RouterLink],
+  imports: [CommonModule, DatePipe, RouterLink, NgOptimizedImage],
   template: `
     <div
       class="bg-white dark:bg-slate-950 min-h-screen py-24 sm:py-32 relative isolate overflow-hidden"
@@ -73,9 +73,11 @@ import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
               </div>
               <div class="relative mt-8 flex items-center gap-x-4">
                 <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  ngSrc="images/karol-modelski.webp"
+                  width="40"
+                  height="40"
                   alt=""
-                  class="h-10 w-10 rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-900/10 dark:ring-white/10"
+                  class="rounded-full bg-slate-100 dark:bg-slate-800 ring-1 ring-slate-900/10 dark:ring-white/10"
                 />
                 <div class="text-sm leading-6">
                   <p class="font-semibold text-slate-900 dark:text-white">
