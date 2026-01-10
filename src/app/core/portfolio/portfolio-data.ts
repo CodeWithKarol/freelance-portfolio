@@ -2,11 +2,11 @@ import { CaseStudy, BlogPost } from './portfolio.model';
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: '3',
+    id: '1',
     title: 'Modern Enterprise Admin Dashboard',
     tagline: 'High-Performance Real-Time Analytics',
     heroImage:
-      'https://images.unsplash.com/photo-1543286386-713df548e9cc?auto=format&fit=crop&q=80&w=2670',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
     challenge:
       'Developed as an advanced architectural proof-of-concept, this project tackles the common pitfalls of enterprise dashboards: "spaghetti code," slow rendering of real-time data, and brittle testing environments. The goal was to engineer a production-grade reference architecture from scratch, proving that complex real-time analytics can be both lightning fast and maintainable without legacy dependencies.',
     solution:
@@ -28,11 +28,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    id: '4',
+    id: '2',
     title: 'QuickCart E-Commerce',
     tagline: 'Next-Gen Angular E-Commerce Architecture',
     heroImage:
-      'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=2670',
+      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80',
     challenge:
       'In the domain of high-scale e-commerce, many platforms suffer from "black box" legacy code, dependencies on bloated UI libraries, and fragile state synchronization that leads to cart errors. My goal was to build a reference implementation that proves it is possible to achieve perfect Core Web Vitals and native-like responsiveness on the web without relying on heavy external frameworks or complex state management libraries.',
     solution:
