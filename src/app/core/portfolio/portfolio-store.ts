@@ -18,22 +18,71 @@ import { CASE_STUDIES, BLOG_POSTS } from './portfolio-data';
 export class PortfolioStore {
   readonly skills = signal<Skill[]>([
     {
-      name: 'Angular 19+',
+      name: 'Angular',
       icon: 'angular',
       category: 'Core Stack',
       proficiency: 'Expert',
       years: 6,
     },
     {
-      name: 'React 19',
+      name: 'React',
       icon: 'react',
       category: 'Core Stack',
       proficiency: 'Advanced',
       years: 1,
     },
     {
+      name: 'TanStack Query',
+      icon: 'react',
+      category: 'State',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
+      name: 'Context API',
+      icon: 'react',
+      category: 'State',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
+      name: 'React Hook Form',
+      icon: 'react',
+      category: 'Tools',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
+      name: 'Styled Components',
+      icon: 'react',
+      category: 'Styling',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
+      name: 'Node.js / NestJS',
+      icon: 'nodejs',
+      category: 'Backend',
+      proficiency: 'Intermediate',
+      years: 2,
+    },
+    {
+      name: 'TanStack Table',
+      icon: 'react',
+      category: 'Tools',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
       name: 'TypeScript',
       icon: 'typescript',
+      category: 'Languages',
+      proficiency: 'Expert',
+      years: 6,
+    },
+    {
+      name: 'JavaScript',
+      icon: 'javascript',
       category: 'Languages',
       proficiency: 'Expert',
       years: 6,
@@ -163,28 +212,28 @@ export class PortfolioStore {
     {
       title: 'Enterprise Migration & Modernization',
       description:
-        'Transform legacy monoliths into high-velocity modern applications. I specialize in complex Angular migrations, implementing "Zoneless" architecture, Micro-Frontends (Nx), and reducing technical debt without halting feature work.',
+        'Transform legacy monoliths into high-velocity modern applications. I specialize in complex Angular migrations, implementing "Zoneless" architecture, and Micro-Frontends (Nx). I also undertake React modernization initiatives.',
       icon: 'migration',
-      features: ['Angular/React Migration', 'Nx Monorepo', 'Legacy Rescue'],
+      features: ['Angular Migration Expert', 'React Modernization', 'Nx Monorepo'],
     },
     {
       title: 'SaaS Product Engineering',
       description:
-        'End-to-end development for scalable SaaS products. From architectural blueprint to production deployment. I combine deep technical expertise with a product mindset to build systems that are easy to maintain and cheap to scale.',
+        'End-to-end development for scalable SaaS products. While my primary expertise is Angular, I effectively ship production-grade React applications. I focus on maintainable, cost-effective architectures tailored to your stack preference.',
       icon: 'code',
-      features: ['Full-Cycle Dev', 'Cloud Native', 'MVP to Scale'],
+      features: ['Full-Cycle Dev', 'Cloud Native', 'Angular or React'],
     },
     {
       title: 'Performance Audit & Optimization',
       description:
-        'Deep-dive technical audits to identify bottlenecks. I optimize Core Web Vitals, reduce bundle sizes, and fix reactivity issues. Expect measurable improvements in load times and runtime performance.',
+        'Deep-dive technical audits to identify bottlenecks. I optimize Core Web Vitals, reduce bundle sizes, and fix reactivity issues in Angular apps. For React, I focus on render optimization and hook best practices.',
       icon: 'performance',
       metric: { value: '40%+', label: 'Faster load times' },
     },
     {
       title: 'Custom Design Systems',
       description:
-        'Bridge the gap between design and engineering. I build accessible, themeable, and versioned UI component libraries (Tailwind, CDK) that accelerate team velocity and ensure brand consistency.',
+        'Bridge the gap between design and engineering. I build accessible, themeable, and versioned UI component libraries (Tailwind, CDK) that accelerate team velocity and ensure brand consistency across frameworks.',
       icon: 'architecture',
       features: ['Component Library', 'Accessibility (a11y)', 'Storybook'],
     },

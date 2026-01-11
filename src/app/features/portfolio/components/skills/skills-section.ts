@@ -174,7 +174,9 @@ export class SkillsSection {
   coreStack = computed(() =>
     this.skills()
       .filter(
-        (s) => ['Core Stack', 'Architecture'].includes(s.category) && s.proficiency === 'Expert'
+        (s) =>
+          ['Core Stack', 'Architecture'].includes(s.category) &&
+          (s.proficiency === 'Expert' || s.name.includes('React'))
       )
       .slice(0, 8)
   );
