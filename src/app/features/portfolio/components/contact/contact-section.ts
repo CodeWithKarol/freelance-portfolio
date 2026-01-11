@@ -1,6 +1,9 @@
 import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { tap, catchError, finalize, take } from 'rxjs/operators';
+import { throwError, of } from 'rxjs';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import {
   LucideAngularModule,
@@ -237,6 +240,7 @@ import {
 })
 export class ContactSection {
   readonly store = inject(PortfolioStore);
+  private http = inject(HttpClient);
 
   readonly Mail = Mail;
   readonly MapPin = MapPin;
@@ -261,15 +265,43 @@ export class ContactSection {
     if (this.contactForm.valid) {
       this.isSubmitting.set(true);
 
-      // Simulate API call
-      setTimeout(() => {
-        this.isSubmitting.set(false);
-        this.isSuccess.set(true);
-        this.contactForm.reset({ projectType: 'enterprise-migration' });
+      // Web3Forms Setup
+      // 1. Get your Access Key at https://web3forms.com/
+      // 2. Replace 'YOUR_ACCESS_KEY_HERE' below
+      const payload = {
+        ...this.contactForm.value,
+        access_key: '7522df11-e5cf-4285-b128-bfdf0fb03e97',
+        subject: 'New Portfolio Contact Form Submission',
+      };
 
-        // Hide success message after 5 seconds
-        setTimeout(() => this.isSuccess.set(false), 5000);
-      }, 1500);
+      const formEndpoint = 'https://api.web3forms.com/submit';
+
+      this.http
+        .post(formEndpoint, payload)
+        .pipe(
+          take(1),
+          tap(() => {
+            this.isSuccess.set(true);
+            this.contactForm.reset({ projectType: 'enterprise-migration' });
+
+            // Hide success message after 5 seconds
+            setTimeout(() => this.isSuccess.set(false), 5000);
+          }),
+          catchError((err) => {
+            console.error('Form submission error:', err);
+
+            if (payload.access_key === 'YOUR_ACCESS_KEY_HERE') {
+              alert('Please configure your Web3Forms Access Key in contact-section.ts');
+            } else {
+              alert('There was a problem sending your message. Please try again.');
+            }
+            return of(null);
+          }),
+          finalize(() => {
+            this.isSubmitting.set(false);
+          })
+        )
+        .subscribe();
     } else {
       this.contactForm.markAllAsTouched();
     }
