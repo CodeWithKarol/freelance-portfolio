@@ -12,6 +12,7 @@ import {
   Palette,
   Wrench,
   Check,
+  Smartphone,
 } from 'lucide-angular';
 
 @Component({
@@ -190,6 +191,7 @@ export class SkillsSection {
 
   private categoryIcons: Record<string, any> = {
     'Core Stack': Terminal,
+    Frameworks: Smartphone,
     Languages: CodeXml,
     State: Zap,
     Architecture: Box,

@@ -32,6 +32,13 @@ export class PortfolioStore {
       years: 1,
     },
     {
+      name: 'React Native / Expo',
+      icon: 'react',
+      category: 'Frameworks',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
       name: 'TanStack Query',
       icon: 'react',
       category: 'State',
@@ -60,7 +67,7 @@ export class PortfolioStore {
       years: 1,
     },
     {
-      name: 'Node.js / NestJS',
+      name: 'Node.js / NestJS / Express',
       icon: 'nodejs',
       category: 'Backend',
       proficiency: 'Intermediate',
@@ -95,7 +102,7 @@ export class PortfolioStore {
       years: 6,
     },
     {
-      name: 'NgRx',
+      name: 'NgRx / Signal Store',
       icon: 'ngrx',
       category: 'State',
       proficiency: 'Expert',
@@ -107,6 +114,13 @@ export class PortfolioStore {
       category: 'Architecture',
       proficiency: 'Expert',
       years: 4,
+    },
+    {
+      name: 'Microservices',
+      icon: 'database',
+      category: 'Architecture',
+      proficiency: 'Advanced',
+      years: 3,
     },
     {
       name: 'Zoneless API',
@@ -130,6 +144,13 @@ export class PortfolioStore {
       years: 4,
     },
     {
+      name: 'SCSS',
+      icon: 'sass',
+      category: 'Styling',
+      proficiency: 'Expert',
+      years: 6,
+    },
+    {
       name: 'Angular Material',
       icon: 'angular',
       category: 'Styling',
@@ -142,6 +163,13 @@ export class PortfolioStore {
       category: 'Tools',
       proficiency: 'Advanced',
       years: 3,
+    },
+    {
+      name: 'Git',
+      icon: 'git',
+      category: 'Tools',
+      proficiency: 'Expert',
+      years: 6,
     },
     {
       name: 'Jasmine / Jest',

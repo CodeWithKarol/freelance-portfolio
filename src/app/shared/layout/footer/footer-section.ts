@@ -153,7 +153,7 @@ import { LucideAngularModule, Github, Linkedin, Globe, AtSign } from 'lucide-ang
           </p>
           <div class="flex items-center gap-4">
             <span class="text-xs text-slate-400"
-              >Built with Angular 19 & Zoneless Architecture</span
+              >Built with Angular 21 & Zoneless Architecture</span
             >
           </div>
         </div>
