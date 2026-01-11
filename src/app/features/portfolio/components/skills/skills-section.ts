@@ -19,146 +19,130 @@ import {
   standalone: true,
   imports: [CommonModule, LucideAngularModule],
   template: `
-    <section
-      id="skills"
-      class="py-24 sm:py-32 relative overflow-hidden bg-slate-50 dark:bg-slate-950"
-    >
-      <!-- Background Decorative Elements -->
-      <div
-        class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-primary-100),white)] dark:bg-[radial-gradient(45rem_50rem_at_top,var(--color-primary-950),theme(colors.slate.950))] opacity-20"
-      ></div>
-      <div
-        class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white/40 dark:bg-slate-900/40 shadow-xl shadow-primary-600/10 ring-1 ring-primary-50 dark:ring-primary-900 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"
-      ></div>
-
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <!-- Header -->
-        <div class="mx-auto max-w-2xl text-center mb-20">
-          <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400">
-            Technical Expertise
+    <section id="skills" class="py-24 sm:py-32 bg-white dark:bg-slate-950">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="mx-auto max-w-2xl text-center mb-16 sm:mb-20">
+          <h2 class="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">
+            Technical Proficiency
           </h2>
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
           >
-            Battle-Tested Tech Stack
+            Engineering for Scale & Performance
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            A comprehensive toolset refined over years of building enterprise-scale applications. I
-            choose specific technologies for their ability to deliver scalability, maintainability,
-            and performance.
+            I select tools that provide the best balance of developer experience, performance, and
+            long-term maintainability.
           </p>
         </div>
 
-        <!-- Core Stack - Highlighted Row -->
-        <div class="mb-20">
-          <div class="text-center mb-8">
-            <span
-              class="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-950/30 px-3 py-1 text-sm font-medium text-primary-700 dark:text-primary-300 ring-1 ring-inset ring-primary-700/10"
-            >
-              Daily Drivers
-            </span>
-          </div>
-
-          <div
-            class="mx-auto grid max-w-lg grid-cols-1 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-2 lg:mx-auto lg:max-w-none lg:grid-cols-3"
+        <!-- Core Stack (Featured) -->
+        <div class="mx-auto max-w-7xl mb-24">
+          <h3
+            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider"
           >
+            primary Stack
+          </h3>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             @for(tech of coreStack(); track tech.name) {
             <div
-              class="relative group h-full bg-white dark:bg-slate-900 rounded-2xl p-6 shadow-sm ring-1 ring-slate-900/5 dark:ring-white/10 hover:shadow-md hover:ring-primary-500/20 transition-all duration-300"
+              class="relative flex items-center space-x-3 rounded-lg border border-slate-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-slate-400 dark:bg-slate-900 dark:border-slate-800 dark:hover:border-slate-700 transition-colors"
             >
-              <div class="flex flex-col items-center gap-3">
-                <!-- Icon Placeholder -->
+              <div class="flex-shrink-0">
                 <div
-                  class="h-12 w-12 flex items-center justify-center rounded-lg bg-slate-50 dark:bg-slate-800 text-primary-600 dark:text-primary-400 group-hover:bg-primary-50 dark:group-hover:bg-primary-900/20 transition-colors"
+                  class="h-10 w-10 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400"
                 >
-                  <lucide-icon [img]="getCategoryIcon(tech.category)" class="w-7 h-7"></lucide-icon>
-                </div>
-                <div class="text-center">
-                  <h3 class="font-semibold text-slate-900 dark:text-white">{{ tech.name }}</h3>
-                  <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    {{ tech.years }}+ years
-                  </p>
+                  <lucide-icon [img]="getCategoryIcon(tech.category)" class="h-6 w-6"></lucide-icon>
                 </div>
               </div>
+              <div class="min-w-0 flex-1">
+                <span class="absolute inset-0" aria-hidden="true"></span>
+                <p class="text-sm font-medium text-slate-900 dark:text-white">{{ tech.name }}</p>
+                <p class="truncate text-xs text-slate-500 dark:text-slate-400">
+                  {{ tech.years }}+ years exp.
+                </p>
+              </div>
+              @if(tech.proficiency === 'Expert') {
+              <span
+                class="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 dark:bg-green-900/30 dark:text-green-400"
+                >Expert</span
+              >
+              }
             </div>
             }
           </div>
         </div>
 
-        <!-- Detailed Tech Grid (Bento Style) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          @for (group of groupedTechnicalSkills(); track group.category) {
-          <div
-            class="flex flex-col bg-white dark:bg-slate-900/50 rounded-2xl p-8 ring-1 ring-slate-900/5 dark:ring-white/10 hover:ring-primary-600/20 transition-all"
-          >
-            <div class="flex items-center gap-3 mb-6">
-              <div
-                class="p-2 rounded-lg bg-primary-600/10 dark:bg-primary-400/10 text-primary-600 dark:text-primary-400"
+        <!-- Secondary/Categorized Skills (Clean List Design) -->
+        <div class="mx-auto max-w-7xl mb-24">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            @for (group of groupedTechnicalSkills(); track group.category) {
+            <div>
+              <h3
+                class="text-sm font-semibold leading-6 text-slate-900 dark:text-white mb-4 flex items-center gap-2"
               >
-                <lucide-icon [img]="getCategoryIcon(group.category)" class="h-6 w-6"></lucide-icon>
-              </div>
-              <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                <lucide-icon
+                  [img]="getCategoryIcon(group.category)"
+                  class="h-4 w-4 text-indigo-500"
+                ></lucide-icon>
                 {{ group.category }}
               </h3>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-              @for (skill of group.skills; track skill.name) {
-              <span
-                class="inline-flex items-center rounded-md bg-slate-50 dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-600/10 dark:ring-slate-700/30"
+              <ul
+                role="list"
+                class="divide-y divide-slate-100 dark:divide-slate-800 border-t border-b border-slate-100 dark:border-slate-800"
               >
-                {{ skill.name }}
-                @if(skill.proficiency === 'Expert') {
-                <span class="ml-1.5 h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                @for (skill of group.skills; track skill.name) {
+                <li class="flex items-center justify-between py-3">
+                  <span class="text-sm text-slate-600 dark:text-slate-400">{{ skill.name }}</span>
+                  @if(skill.proficiency === 'Expert') {
+                  <div class="h-1.5 w-1.5 rounded-full bg-indigo-500"></div>
+                  }
+                </li>
                 }
-              </span>
-              }
+              </ul>
             </div>
+            }
           </div>
-          }
         </div>
 
-        <!-- Soft Skills / Leadership Feature -->
+        <!-- Leadership / Soft Skills (Feature Section) -->
         <div
-          class="relative isolate overflow-hidden bg-slate-900 dark:bg-slate-900 py-16 sm:py-24 lg:py-32 rounded-3xl"
+          class="overflow-hidden bg-slate-50 dark:bg-slate-900 rounded-3xl lg:grid lg:grid-cols-2 lg:gap-4"
         >
-          <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div
-              class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2"
-            >
-              <div class="max-w-xl lg:max-w-lg">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Leadership & Strategy
-                </h2>
-                <p class="mt-4 text-lg leading-8 text-slate-300">
-                  Beyond code, I specialize in building high-performing engineering cultures. I
-                  bridge the gap between business requirements and technical implementation.
-                </p>
-                <ul
-                  class="mt-10 grid grid-cols-1 gap-8 text-base leading-7 text-slate-300 sm:grid-cols-2"
-                >
-                  @for (skill of softSkills(); track skill.name) {
-                  <li class="relative pl-9">
-                    <span class="font-semibold text-white">
-                      <lucide-icon
-                        [img]="Check"
-                        class="absolute left-1 top-1 h-5 w-5 text-primary-500"
-                      ></lucide-icon>
-                      {{ skill.name }}
-                    </span>
-                  </li>
-                  }
-                </ul>
-              </div>
-              <div class="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
-                  alt="Team collaboration"
-                  class="bg-slate-50/5 aspect-[7/5] w-full rounded-2xl object-cover shadow-2xl ring-1 ring-white/10"
-                />
-                <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10"></div>
-              </div>
+          <div class="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:px-20 xl:py-20">
+            <div class="lg:self-center">
+              <h2
+                class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+              >
+                <span class="block">More than just code.</span>
+                <span class="block text-indigo-600 dark:text-indigo-400">Tech Leadership.</span>
+              </h2>
+              <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+                Software is built by people. I foster environments where technical excellence meets
+                product vision.
+              </p>
+              <dl class="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 sm:gap-y-6">
+                @for (skill of softSkills(); track skill.name) {
+                <div class="relative pl-9">
+                  <dt class="font-semibold text-slate-900 dark:text-white text-sm">
+                    <lucide-icon
+                      [img]="Check"
+                      class="absolute left-0 top-1 h-5 w-5 text-indigo-600 dark:text-indigo-400"
+                    ></lucide-icon>
+                    {{ skill.name }}
+                  </dt>
+                </div>
+                }
+              </dl>
             </div>
+          </div>
+          <div class="aspect-h-9 aspect-w-16 lg:aspect-auto lg:h-full">
+            <img
+              class="translate-x-6 translate-y-6 transform rounded-tl-3xl bg-gray-50 object-cover object-center lg:h-full lg:w-full lg:translate-x-8 lg:translate-y-8"
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
+              alt="Team collaboration"
+            />
           </div>
         </div>
       </div>
