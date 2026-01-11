@@ -221,7 +221,7 @@ export class PortfolioStore {
       description:
         'End-to-end development for scalable SaaS products. While my primary expertise is Angular, I effectively ship production-grade React applications. I focus on maintainable, cost-effective architectures tailored to your stack preference.',
       icon: 'code',
-      features: ['Full-Cycle Dev', 'Cloud Native', 'Angular or React'],
+      features: ['Full-Cycle Dev', 'Scalable Architecture', 'Angular or React'],
     },
     {
       title: 'Performance Audit & Optimization',
@@ -325,7 +325,7 @@ export class PortfolioStore {
   readonly experience = signal<Experience[]>([
     {
       company: 'GFT Technologies (Citi)',
-      role: 'Senior Angular Architect',
+      role: 'Senior Frontend Developer',
       period: 'Mar 2025 - Present',
       description:
         'Leading architecture for mission-critical trading platforms. Enforcing 100% test coverage policies while migrating legacy micro-frontends to a coherent Nx monorepo. Balancing enterprise compliance with developer velocity.',
@@ -333,7 +333,7 @@ export class PortfolioStore {
     },
     {
       company: 'Silent Eight',
-      role: 'Senior Frontend Engineer',
+      role: 'Frontend Developer',
       period: 'Dec 2023 - Feb 2025',
       description:
         'AI Compliance SaaS. Led the frontend modernization initiative (Angular 14 → 19) and introduced "Zoneless" architecture for 50% performance gains. Worked directly with Product Owners to accelerate feature delivery.',
@@ -341,7 +341,7 @@ export class PortfolioStore {
     },
     {
       company: 'BNP Paribas',
-      role: 'Software Engineer',
+      role: 'Software Developer',
       period: 'Nov 2021 - Nov 2023',
       description:
         'GOonline Platform. Delivered features for 1M+ active users. Managed the complex migration of core banking modules from AngularJS, ensuring zero downtime during high-traffic windows.',
