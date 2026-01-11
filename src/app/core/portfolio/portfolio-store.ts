@@ -299,19 +299,24 @@ export class PortfolioStore {
 
   readonly socialLinks = signal<SocialLink[]>([
     {
-      platform: 'GitHub',
-      url: 'https://github.com',
-      icon: 'github',
-    },
-    {
       platform: 'LinkedIn',
       url: 'https://www.linkedin.com/in/karolmodelski',
       icon: 'linkedin',
     },
     {
-      platform: 'Gumroad',
-      url: 'https://karolmodelski.gumroad.com',
-      icon: 'website',
+      platform: 'GitHub',
+      url: 'https://github.com/karolmodelski',
+      icon: 'github',
+    },
+    {
+      platform: 'Medium',
+      url: 'https://medium.com/@karolmodelski',
+      icon: 'medium',
+    },
+    {
+      platform: 'Scale Sail',
+      url: 'https://scale-sail.io/',
+      icon: 'rocket',
     },
   ]);
 

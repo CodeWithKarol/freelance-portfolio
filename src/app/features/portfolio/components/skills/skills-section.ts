@@ -13,6 +13,8 @@ import {
   Wrench,
   Check,
   Smartphone,
+  Plus,
+  Minus,
 } from 'lucide-angular';
 
 @Component({
@@ -39,11 +41,11 @@ import {
         </div>
 
         <!-- Core Stack (Featured) -->
-        <div class="mx-auto max-w-7xl mb-24">
+        <div class="mx-auto max-w-7xl mb-20">
           <h3
-            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider"
+            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider text-center sm:text-left"
           >
-            primary Stack
+            Primary Stack
           </h3>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             @for(tech of coreStack(); track tech.name) {
@@ -75,33 +77,58 @@ import {
           </div>
         </div>
 
-        <!-- Secondary/Categorized Skills (Clean List Design) -->
-        <div class="mx-auto max-w-7xl mb-24">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <!-- Expandable Detailed Skills (Accordion) -->
+        <div class="mx-auto max-w-3xl mb-24">
+          <h3
+            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider"
+          >
+            Detailed Expertise
+          </h3>
+          <div
+            class="divide-y divide-slate-200 dark:divide-slate-800 border-t border-b border-slate-200 dark:border-slate-800"
+          >
             @for (group of groupedTechnicalSkills(); track group.category) {
-            <div>
-              <h3
-                class="text-sm font-semibold leading-6 text-slate-900 dark:text-white mb-4 flex items-center gap-2"
+            <div class="py-4">
+              <button
+                (click)="toggleCategory(group.category)"
+                class="flex w-full items-center justify-between py-2 text-left text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors focus:outline-none group"
               >
-                <lucide-icon
-                  [img]="getCategoryIcon(group.category)"
-                  class="h-4 w-4 text-indigo-500"
-                ></lucide-icon>
-                {{ group.category }}
-              </h3>
-              <ul
-                role="list"
-                class="divide-y divide-slate-100 dark:divide-slate-800 border-t border-b border-slate-100 dark:border-slate-800"
-              >
-                @for (skill of group.skills; track skill.name) {
-                <li class="flex items-center justify-between py-3">
-                  <span class="text-sm text-slate-600 dark:text-slate-400">{{ skill.name }}</span>
-                  @if(skill.proficiency === 'Expert') {
-                  <div class="h-1.5 w-1.5 rounded-full bg-indigo-500"></div>
+                <span class="text-base font-semibold flex items-center gap-3">
+                  <lucide-icon
+                    [img]="getCategoryIcon(group.category)"
+                    class="h-5 w-5 text-slate-400 group-hover:text-indigo-500 transition-colors"
+                  ></lucide-icon>
+                  {{ group.category }}
+                </span>
+                <span class="ml-6 flex items-center">
+                  @if(isCategoryOpen(group.category)) {
+                  <lucide-icon
+                    [img]="Minus"
+                    class="h-5 w-5 text-indigo-600 dark:text-indigo-400"
+                  ></lucide-icon>
+                  } @else {
+                  <lucide-icon [img]="Plus" class="h-5 w-5 text-slate-400"></lucide-icon>
                   }
-                </li>
-                }
-              </ul>
+                </span>
+              </button>
+              @if (isCategoryOpen(group.category)) {
+              <div class="mt-4 pb-2 animate-in slide-in-from-top-2 fade-in duration-200">
+                <div class="flex flex-wrap gap-2">
+                  @for (skill of group.skills; track skill.name) {
+                  <span
+                    class="inline-flex items-center rounded-md bg-slate-50 dark:bg-slate-800 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-600/10 dark:ring-slate-700/30"
+                  >
+                    {{ skill.name }}
+                    @if(skill.proficiency === 'Expert') {
+                    <div
+                      class="ml-2 h-1.5 w-1.5 rounded-full bg-green-500 ring-2 ring-white dark:ring-slate-900"
+                    ></div>
+                    }
+                  </span>
+                  }
+                </div>
+              </div>
+              }
             </div>
             }
           </div>
@@ -187,7 +214,26 @@ export class SkillsSection {
     return Object.entries(groups).map(([category, skills]) => ({ category, skills }));
   });
 
+  // Accordion State
+  openCategories = signal<Set<string>>(new Set([]));
+
+  toggleCategory(category: string) {
+    const current = new Set(this.openCategories());
+    if (current.has(category)) {
+      current.delete(category);
+    } else {
+      current.add(category);
+    }
+    this.openCategories.set(current);
+  }
+
+  isCategoryOpen(category: string) {
+    return this.openCategories().has(category);
+  }
+
   readonly Check = Check;
+  readonly Plus = Plus;
+  readonly Minus = Minus;
 
   private categoryIcons: Record<string, any> = {
     'Core Stack': Terminal,

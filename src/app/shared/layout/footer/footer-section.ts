@@ -1,7 +1,15 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
-import { LucideAngularModule, Github, Linkedin, Globe, AtSign } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  Github,
+  Linkedin,
+  Globe,
+  AtSign,
+  BookOpen,
+  Rocket,
+} from 'lucide-angular';
 
 @Component({
   selector: 'app-footer-section',
@@ -52,6 +60,10 @@ import { LucideAngularModule, Github, Linkedin, Globe, AtSign } from 'lucide-ang
                 <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
                 } @else if (social.icon === 'linkedin') {
                 <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
+                } @else if (social.icon === 'medium') {
+                <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
+                } @else if (social.icon === 'rocket') {
+                <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
                 } @else {
                 <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
                 }
@@ -170,4 +182,6 @@ export class FooterSection {
   readonly Linkedin = Linkedin;
   readonly Globe = Globe;
   readonly AtSign = AtSign;
+  readonly BookOpen = BookOpen;
+  readonly Rocket = Rocket;
 }
