@@ -8,9 +8,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     heroImage:
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
     challenge:
-      'Developed as an advanced architectural proof-of-concept, this project tackles the common pitfalls of enterprise dashboards: "spaghetti code," slow rendering of real-time data, and brittle testing environments. The goal was to engineer a production-grade reference architecture from scratch, proving that complex real-time analytics can be both lightning fast and maintainable without legacy dependencies.',
+      'Enterprise dashboards often collapse under scale: "spaghetti code," slow real-time rendering, and brittle test suites that block delivery. The goal was to define a production-grade reference architecture that stays fast and maintainable as data volume and feature complexity grow.',
     solution:
-      'I architected a "bleeding edge" Single Page Application (SPA) using Angular 21 and Signals to decouple state management from the rendering cycle. I implemented a utility-first design system with Tailwind CSS 4 to manage high-density data layouts and replaced standard testing tools with Vitest for sub-second feedback loops. The project serves as a comprehensive "Frontend Developer Handbook" for modern, strict-mode application development.',
+      'I built a modern Angular application using Signals to keep state changes predictable and UI updates fine-grained. A Tailwind CSS 4 design system supports dense data layouts without UI bloat, and Vitest enables fast, reliable feedback loops so teams can ship with confidence.',
     technicalApproach:
       'The architecture follows a strictly typed, feature-based modular structure using Angular 21 Standalone Components. We employed a hybrid state management strategy: Angular Signals for synchronous, fine-grained UI state (like filters and toggles) to ensure instant feedback, and RxJS for complex asynchronous data orchestration (WebSockets and API streams). This "Zoneless-ready" approach allows for sub-second updates without triggering global change detection cycles. Testing is handled exclusively via Vitest in JSDOM, providing instant feedback loops.',
     results: [
@@ -34,9 +34,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     heroImage:
       'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80',
     challenge:
-      'In the domain of high-scale e-commerce, many platforms suffer from "black box" legacy code, dependencies on bloated UI libraries, and fragile state synchronization that leads to cart errors. My goal was to build a reference implementation that proves it is possible to achieve perfect Core Web Vitals and native-like responsiveness on the web without relying on heavy external frameworks or complex state management libraries.',
+      'High-scale e-commerce platforms often suffer from "black box" legacy code, bloated UI dependencies, and fragile state sync that causes cart errors. The goal was to demonstrate an approach that keeps Core Web Vitals strong and interactions smooth without heavy frameworks or unnecessary state complexity.',
     solution:
-      'I engineered "QuickCart" as a definitive "New Reality" architectural proof-of-concept. Instead of untangling existing debt, I built a clean-slate "Smart Shell" architecture from the ground up. I utilized Angular Signals for rock-solid global state (removing the need for NgRx in this scope) and a custom Tailwind design system to eliminate layout thrashing. The project output includes a "Frontend Architecture Guide" and ADRs, serving as a template for modernizing enterprise retail platforms.',
+      'I engineered "QuickCart" using a clean-slate "Smart Shell" architecture. Angular Signals provide stable global state without the overhead of heavy state libraries in this scope, and a custom Tailwind design system eliminates layout thrashing for a consistently smooth user experience.',
     technicalApproach:
       'Demonstrating a "Zero-Boilerplate" philosophy, I utilized the "Smart Shell, Dumb Views" pattern with Standalone Components. The core innovation is the Signal-based reactivity system that syncs cart state globally without RxJS subscription overhead, combined with explicitly configured OnPush change detection that puts the rendering engine to "sleep" until specific updates occur. I also implemented a custom "Backdrop" mobile menu using purely CSS transitions and ARIA roles for accessibility, ensuring a 60fps experience on low-end devices.',
     results: [

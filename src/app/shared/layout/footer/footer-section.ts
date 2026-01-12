@@ -44,8 +44,8 @@ import {
               >
             </div>
             <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs">
-              Senior Frontend Developer & SaaS Founder. Building high-performance, audit-ready web
-              applications for enterprise and startups.
+              Senior Frontend Developer & SaaS Founder. Modernizing legacy frontends and building
+              performance-first, audit-ready web applications for enterprise and startups.
             </p>
             <div class="flex space-x-6">
               @for (social of store.socialLinks(); track social.platform) {
@@ -64,6 +64,8 @@ import {
                 <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
                 } @else if (social.icon === 'rocket') {
                 <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
+                } @else if (social.icon === 'globe') {
+                <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
                 } @else {
                 <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
                 }
@@ -138,9 +140,14 @@ import {
                 >
                   <lucide-icon
                     [img]="AtSign"
-                    class="h-6 w-5 flex-none text-primary-500"
+                    class="h-6 w-5 flex-none text-primary-500 mt-0.5"
                   ></lucide-icon>
-                  {{ store.contactInfo().email }}
+                  <a
+                    href="mailto:{{ store.contactInfo().email }}"
+                    class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors break-all"
+                  >
+                    {{ store.contactInfo().email }}
+                  </a>
                 </li>
                 <li
                   class="flex items-start gap-2 text-sm leading-6 text-slate-600 dark:text-slate-400"
@@ -165,7 +172,7 @@ import {
           </p>
           <div class="flex items-center gap-4">
             <span class="text-xs text-slate-400"
-              >Built with Angular 21 & Zoneless Architecture</span
+              >Built with Angular 21, Signals & SSR-ready performance</span
             >
           </div>
         </div>

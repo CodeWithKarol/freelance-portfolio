@@ -27,7 +27,7 @@ export class PortfolioStore {
     {
       name: 'React',
       icon: 'react',
-      category: 'Core Stack',
+      category: 'Frameworks',
       proficiency: 'Advanced',
       years: 1,
     },
@@ -47,6 +47,20 @@ export class PortfolioStore {
     },
     {
       name: 'Context API',
+      icon: 'react',
+      category: 'State',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
+      name: 'Redux',
+      icon: 'react',
+      category: 'State',
+      proficiency: 'Advanced',
+      years: 1,
+    },
+    {
+      name: 'Zustand',
       icon: 'react',
       category: 'State',
       proficiency: 'Advanced',
@@ -240,30 +254,30 @@ export class PortfolioStore {
     {
       title: 'Enterprise Migration & Modernization',
       description:
-        'Transform legacy monoliths into high-velocity modern applications. I specialize in complex Angular migrations, implementing "Zoneless" architecture, and Micro-Frontends (Nx). I also undertake React modernization initiatives.',
+        'Transform slow, tangled legacy frontends into clean, modular Angular systems. I specialize in Angular migrations (AngularJS/legacy → modern), refactoring strategies that remove technical debt, and scalable architectures that keep delivery moving.',
       icon: 'migration',
-      features: ['Angular Migration Expert', 'React Modernization', 'Nx Monorepo'],
+      features: ['Angular Migration Expert', 'Codebase Refactoring', 'Nx Monorepo'],
     },
     {
       title: 'SaaS Product Engineering',
       description:
-        'End-to-end development for scalable SaaS products. While my primary expertise is Angular, I effectively ship production-grade React applications. I focus on maintainable, cost-effective architectures tailored to your stack preference.',
+        'End-to-end delivery for scalable SaaS products. I design maintainable UI architectures, predictable state management, and performance-first frontends that support rapid iteration without regressions.',
       icon: 'code',
-      features: ['Full-Cycle Dev', 'Scalable Architecture', 'Angular or React'],
+      features: ['Full-Cycle Dev', 'Scalable Architecture', 'Reactive State'],
     },
     {
-      title: 'Performance Audit & Optimization',
+      title: 'Architecture Audits & Performance',
       description:
-        'Deep-dive technical audits to identify bottlenecks. I optimize Core Web Vitals, reduce bundle sizes, and fix reactivity issues in Angular apps. For React, I focus on render optimization and hook best practices.',
+        'Deep-dive audits into your codebase structure and runtime performance. I identify scaling bottlenecks, optimize Core Web Vitals, and turn spaghetti code into feature-based modules with clear ownership.',
       icon: 'performance',
       metric: { value: '40%+', label: 'Faster load times' },
     },
     {
-      title: 'Custom Design Systems',
+      title: 'Feature Delivery',
       description:
-        'Bridge the gap between design and engineering. I build accessible, themeable, and versioned UI component libraries (Tailwind, CDK) that accelerate team velocity and ensure brand consistency across frameworks.',
-      icon: 'architecture',
-      features: ['Component Library', 'Accessibility (a11y)', 'Storybook'],
+        'Turn product requirements into deployed reality. I execute end-to-end feature development—from architectural planning to pixel-perfect UI—ensuring new capabilities launch smoothly and integrate seamlessly with your existing system.',
+      icon: 'feature',
+      features: ['End-to-End Implementation', 'Complex State Management', 'API Integration'],
     },
     {
       title: 'Fractional Tech Lead / Mentorship',
@@ -300,23 +314,23 @@ export class PortfolioStore {
   readonly socialLinks = signal<SocialLink[]>([
     {
       platform: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/karolmodelski',
+      url: 'https://www.linkedin.com/in/karol-modelski',
       icon: 'linkedin',
     },
     {
       platform: 'GitHub',
-      url: 'https://github.com/karolmodelski',
+      url: 'https://github.com/CodeWithKarol',
       icon: 'github',
     },
     {
       platform: 'Medium',
-      url: 'https://medium.com/@karolmodelski',
+      url: 'https://karol-modelski.medium.com/',
       icon: 'medium',
     },
     {
       platform: 'Scale Sail',
       url: 'https://scale-sail.io/',
-      icon: 'rocket',
+      icon: 'globe',
     },
   ]);
 
@@ -324,24 +338,24 @@ export class PortfolioStore {
     {
       title: 'Services',
       links: [
-        { label: 'Web Development', href: '#services' },
-        { label: 'Performance Audit', href: '#services' },
-        { label: 'Angular Migration', href: '#services' },
-        { label: 'Consulting', href: '#services' },
+        { label: 'Modernization & Migration', href: '#services' },
+        { label: 'Architecture Audit', href: '#services' },
+        { label: 'Performance Optimization', href: '#services' },
+        { label: 'Fractional Tech Lead', href: '#services' },
       ],
     },
     {
       title: 'Portfolio',
       links: [
         { label: 'Selected Work', href: '/work' },
-        { label: 'Testimonials', href: '#testimonials' },
-        { label: 'Open Source', href: 'https://github.com' },
+        { label: 'Contact', href: '#contact' },
+        { label: 'GitHub', href: 'https://github.com/CodeWithKarol' },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { label: 'Blog', href: '#blog' },
+        { label: 'Blog', href: '/blog' },
         { label: 'Tech Stack', href: '#skills' },
         { label: 'Contact', href: '#contact' },
       ],
@@ -349,7 +363,7 @@ export class PortfolioStore {
   ]);
 
   readonly contactInfo = signal<ContactInfo>({
-    email: 'kmodelski93@gmail.com',
+    email: 'karol-modelski@scale-sail.io',
     location: 'Warsaw, Mazowieckie, Poland',
     availability: 'Available for new projects',
     calendlyUrl: 'https://calendly.com',

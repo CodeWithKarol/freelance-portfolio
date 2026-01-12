@@ -19,7 +19,8 @@ import { LucideAngularModule, Download } from 'lucide-angular';
             Professional Experience
           </p>
           <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">
-             Delivering impact at scale. From enterprise transformations to startup growth.
+            Delivering modernization and performance improvements at scale—from regulated enterprise
+            platforms to high-velocity product teams.
           </p>
         </div>
 

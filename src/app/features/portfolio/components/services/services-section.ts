@@ -1,6 +1,14 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { LucideAngularModule, ArrowRightLeft, CodeXml, Zap, Landmark, Users } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  ArrowRightLeft,
+  CodeXml,
+  Zap,
+  Landmark,
+  Users,
+  Rocket,
+} from 'lucide-angular';
 
 @Component({
   selector: 'app-services-section',
@@ -16,12 +24,12 @@ import { LucideAngularModule, ArrowRightLeft, CodeXml, Zap, Landmark, Users } fr
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Bank-Grade Quality at Startup Speed
+            Bank-Grade Engineering. Startup-Speed Delivery.
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            I don't just write code—I engineer solutions. Whether you need to rescue a legacy system
-            or launch a scalable specialized SaaS, I deliver production-ready architecture from day
-            one.
+            For enterprise teams and ambitious startups, I modernize legacy frontends, fix
+            performance bottlenecks, and build modular Angular systems that stay maintainable as
+            your product grows. Clear outcomes, measurable wins, and audit-ready quality.
           </p>
         </div>
 
@@ -117,6 +125,8 @@ import { LucideAngularModule, ArrowRightLeft, CodeXml, Zap, Landmark, Users } fr
                   <lucide-icon [img]="Landmark" class="h-5 w-5"></lucide-icon>
                   } @else if (service.icon === 'leadership') {
                   <lucide-icon [img]="Users" class="h-5 w-5"></lucide-icon>
+                  } @else if (service.icon === 'feature') {
+                  <lucide-icon [img]="Rocket" class="h-5 w-5"></lucide-icon>
                   }
                 </div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white">
@@ -155,6 +165,7 @@ export class ServicesSection {
   readonly Zap = Zap;
   readonly Landmark = Landmark;
   readonly Users = Users;
+  readonly Rocket = Rocket;
 
   getServiceImage(icon: string): string {
     const images: Record<string, string> = {
@@ -165,6 +176,8 @@ export class ServicesSection {
         'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800', // Charts
       architecture:
         'https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80&w=800', // Blueprint/Draft
+      feature:
+        'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800', // Modern collaborative working/shipping
       leadership:
         'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800', // Team
     };

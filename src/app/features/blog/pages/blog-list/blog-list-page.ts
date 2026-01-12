@@ -60,8 +60,8 @@ interface MediumPost {
             Insights & Engineering
           </h1>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            Deep dives into Angular architecture, state management patterns, and the future of web
-            development.
+            Practical writing on Angular architecture, Signals/RxJS patterns, performance tuning,
+            and engineering decisions that keep teams shipping.
           </p>
         </div>
       </div>

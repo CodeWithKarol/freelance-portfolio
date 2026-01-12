@@ -47,12 +47,12 @@ import {
               <p
                 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
               >
-                Let's work together
+                Book a Call
               </p>
               <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
-                Ready to transform your technical vision into reality? Whether it's an enterprise
-                Angular migration or a new SaaS product, let's discuss how we can achieve your
-                goals.
+                If you're dealing with a slow, hard-to-change frontend (or planning a new SaaS
+                build), I can help you ship with confidence. Share your goals and constraints—I'll
+                reply with a clear recommendation and next steps.
               </p>
 
               <!-- Contact Info Details -->
@@ -64,7 +64,7 @@ import {
                   </dt>
                   <dd>
                     <a
-                      class="hover:text-slate-900 dark:hover:text-white transition-colors"
+                      class="hover:text-slate-900 dark:hover:text-white transition-colors break-all"
                       [href]="'mailto:' + store.contactInfo().email"
                     >
                       {{ store.contactInfo().email }}
@@ -81,13 +81,15 @@ import {
               </dl>
 
               <div class="mt-8 border-t border-slate-200 dark:border-slate-800 pt-8">
-                <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Prefer a call?</h3>
+                <h3 class="text-sm font-semibold text-slate-900 dark:text-white">
+                  Prefer a quick call?
+                </h3>
                 <a
                   [href]="store.contactInfo().calendlyUrl"
                   target="_blank"
                   class="mt-2 text-sm font-semibold leading-6 text-primary-600 dark:text-primary-400 hover:text-primary-500 inline-flex items-center gap-1 group"
                 >
-                  Book a free 15-min consultation
+                  Book a 15-min call
                   <span aria-hidden="true" class="group-hover:translate-x-1 transition-transform"
                     >→</span
                   >
@@ -154,15 +156,15 @@ import {
                       class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 [&_option]:text-slate-900"
                     >
                       <option value="enterprise-migration">
-                        Enterprise Migration (Legacy to Clean Arch)
+                        Legacy Modernization (Upgrade + Clean Architecture)
                       </option>
-                      <option value="design-system">Custom Design System / UI Library</option>
-                      <option value="saas-development">SaaS Product Development</option>
+                      <option value="design-system">Design System / UI Library</option>
+                      <option value="saas-development">New SaaS Build</option>
                       <option value="performance">Performance Audit & Optimization</option>
-                      <option value="feature-development">Feature / Component Development</option>
-                      <option value="code-review">Code Review & Mentorship</option>
-                      <option value="consulting">Architecture Consulting</option>
-                      <option value="staff-augmentation">Staff Augmentation / Team Lead</option>
+                      <option value="feature-development">Feature Delivery</option>
+                      <option value="code-review">Code Review / Mentorship</option>
+                      <option value="consulting">Architecture Review & Roadmap</option>
+                      <option value="staff-augmentation">Staff Augmentation / Tech Lead</option>
                       <option value="other">Other Inquiry</option>
                     </select>
                     <div

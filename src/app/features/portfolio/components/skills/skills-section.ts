@@ -35,8 +35,8 @@ import {
             Engineering for Scale & Performance
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            I select tools that provide the best balance of developer experience, performance, and
-            long-term maintainability.
+            This is the stack I use to modernize frontends, improve Core Web Vitals, and keep large
+            codebases maintainable under real-world delivery pressure.
           </p>
         </div>
 
@@ -73,6 +73,24 @@ import {
               >
               }
             </div>
+            }
+          </div>
+        </div>
+
+        <!-- Secondary Stack -->
+        <div class="mx-auto max-w-7xl mb-20">
+          <h3
+            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider text-center sm:text-left"
+          >
+            Additional Tools
+          </h3>
+          <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+            @for (tech of secondaryStack(); track tech.name) {
+            <span
+              class="inline-flex items-center rounded-full bg-slate-50 dark:bg-slate-900 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-800"
+            >
+              {{ tech.name }}
+            </span>
             }
           </div>
         </div>
@@ -185,12 +203,24 @@ export class SkillsSection {
   // core stack defined as specific high-impact items
   coreStack = computed(() =>
     this.skills()
+      .filter((s) => s.proficiency === 'Expert' && s.category !== 'Soft Skills')
+      .sort((a, b) => b.years - a.years)
+      .slice(0, 8)
+  );
+
+  secondaryStack = computed(() =>
+    this.skills()
       .filter(
         (s) =>
-          ['Core Stack', 'Architecture'].includes(s.category) &&
-          (s.proficiency === 'Expert' || s.name.includes('React'))
+          s.proficiency !== 'Expert' &&
+          (s.icon === 'react' ||
+            s.name.includes('React') ||
+            s.name.includes('TanStack') ||
+            ['Redux', 'Zustand'].includes(s.name)) &&
+          !s.name.includes('Native')
       )
-      .slice(0, 8)
+      .sort((a, b) => b.years - a.years)
+      .slice(0, 10)
   );
 
   technicalSkills = computed(() =>
