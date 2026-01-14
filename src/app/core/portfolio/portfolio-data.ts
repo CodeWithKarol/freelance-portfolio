@@ -26,6 +26,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Chart.js (ng2-charts)',
       'Lucide Icons (Tree-shaken)',
     ],
+    demoUrl: 'https://www.admin-panel.scale-sail.io/',
+    repoUrl: 'https://github.com/CodeWithKarol/admin-panel',
   },
   {
     id: '2',
@@ -52,6 +54,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Angular Router',
       'WCAG 2.1',
     ],
+    demoUrl: 'https://www.quick-cart.scale-sail.io/',
+    repoUrl: 'https://github.com/CodeWithKarol/quick-cart',
   },
 ];
 

@@ -48,6 +48,14 @@ import { LucideAngularModule, ArrowLeft, ExternalLink, Trophy, Cpu, Github } fro
             >
               View Live Site <lucide-icon [img]="ExternalLink" class="h-4 w-4"></lucide-icon>
             </a>
+            } @if (study.repoUrl) {
+            <a
+              [href]="study.repoUrl"
+              target="_blank"
+              class="text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1"
+            >
+              View Code <lucide-icon [img]="Github" class="h-4 w-4"></lucide-icon>
+            </a>
             }
           </div>
         </div>
