@@ -112,7 +112,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             (click)="scrollTo('contact')"
             class="hidden sm:inline-flex items-center justify-center gap-2 h-9 rounded-full bg-slate-900 dark:bg-white/10 dark:hover:bg-white/20 px-4 text-sm font-semibold text-white transition-all hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 cursor-pointer"
           >
-            <span>Let's Talk</span>
+            <span>Book a Call</span>
             <lucide-icon [img]="ArrowUpRight" class="h-3.5 w-3.5 text-slate-300"></lucide-icon>
           </a>
         </div>
@@ -207,7 +207,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                   (click)="scrollTo('contact')"
                   class="-mx-3 block rounded-xl px-3 py-3 text-center text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition-colors cursor-pointer"
                 >
-                   Start a Project
+                   Book a Call
                 </a>
               </div>
             </div>
@@ -235,6 +235,8 @@ export class NavbarSection {
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
     { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   constructor(private scroller: ViewportScroller) {

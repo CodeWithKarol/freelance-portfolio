@@ -19,11 +19,11 @@ import { LucideAngularModule, CheckCircle } from 'lucide-angular';
           <p
             class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
           >
-            Engineering Business Growth
+            Measurable Outcomes
           </p>
           <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            I don't just write code; I architect solutions that drive measurable business outcomes.
-            Here are a few diverse examples of my work.
+            Real examples of modernization, performance wins, and scalable frontend
+            architecture—built to reduce risk and keep delivery moving.
           </p>
         </div>
 
@@ -167,7 +167,7 @@ import { LucideAngularModule, CheckCircle } from 'lucide-angular';
                       [routerLink]="['/work', case.id]"
                       class="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                     >
-                      View Project
+                      View Case Study
                     </a>
                   </div>
                 </div>

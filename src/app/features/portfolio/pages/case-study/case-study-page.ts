@@ -46,7 +46,7 @@ import { LucideAngularModule, ArrowLeft, ExternalLink, Trophy, Cpu, Github } fro
               target="_blank"
               class="text-sm font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-500 flex items-center gap-1"
             >
-              Visit Site <lucide-icon [img]="ExternalLink" class="h-4 w-4"></lucide-icon>
+              View Live Site <lucide-icon [img]="ExternalLink" class="h-4 w-4"></lucide-icon>
             </a>
             }
           </div>

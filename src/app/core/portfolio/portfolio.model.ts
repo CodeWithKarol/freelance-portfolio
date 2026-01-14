@@ -56,7 +56,7 @@ export interface BlogPost {
 export interface Service {
   title: string;
   description: string;
-  icon: 'code' | 'performance' | 'migration' | 'architecture' | 'leadership';
+  icon: 'code' | 'performance' | 'migration' | 'architecture' | 'leadership' | 'feature';
   features?: string[];
   metric?: {
     value: string;
