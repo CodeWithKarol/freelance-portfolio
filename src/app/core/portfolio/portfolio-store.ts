@@ -329,7 +329,7 @@ export class PortfolioStore {
     },
     {
       platform: 'Scale Sail',
-      url: 'https://scale-sail.io/',
+      url: 'https://www.shop.scale-sail.io/',
       icon: 'globe',
     },
   ]);
