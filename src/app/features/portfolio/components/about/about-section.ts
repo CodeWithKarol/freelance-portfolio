@@ -80,7 +80,7 @@ import {
               <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <span>Senior Frontend Developer</span>
                 <a
-                  href="https://scale-sail.io"
+                  href="https://www.shop.scale-sail.io/"
                   target="_blank"
                   class="inline-flex items-center gap-x-2 rounded-full bg-white dark:bg-slate-900/50 px-3 py-1 text-sm font-medium text-slate-600 dark:text-slate-300 shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:ring-indigo-500 dark:hover:ring-indigo-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all group"
                 >
