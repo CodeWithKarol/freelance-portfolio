@@ -43,7 +43,7 @@ import { LucideAngularModule, Download } from 'lucide-angular';
                 </p>
                 
                 <div class="mt-8">
-                  <a href="cv.pdf" download class="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-primary-50 transition-colors">
+                  <a href="https://drive.google.com/file/d/1ZAtoLBrbP-suftqfzVAdJD2welSEzoVR/view?usp=sharing" target="_blank" class="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-primary-50 transition-colors">
                     <lucide-icon [img]="Download" class="h-4 w-4"></lucide-icon>
                     Download Resume
                   </a>

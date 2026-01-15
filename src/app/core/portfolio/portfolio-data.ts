@@ -5,8 +5,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: '1',
     title: 'Modern Enterprise Admin Dashboard',
     tagline: 'High-Performance Real-Time Analytics',
-    heroImage:
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80',
+    heroImage: '/images/www.admin-panel.scale-sail.io_dashboard.webp',
     challenge:
       'Enterprise dashboards often collapse under scale: "spaghetti code," slow real-time rendering, and brittle test suites that block delivery. The goal was to define a production-grade reference architecture that stays fast and maintainable as data volume and feature complexity grow.',
     solution:
@@ -33,8 +32,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: '2',
     title: 'QuickCart E-Commerce',
     tagline: 'Next-Gen Angular E-Commerce Architecture',
-    heroImage:
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80',
+    heroImage: '/images/www.quick-cart.scale-sail.io_.webp',
     challenge:
       'High-scale e-commerce platforms often suffer from "black box" legacy code, bloated UI dependencies, and fragile state sync that causes cart errors. The goal was to demonstrate an approach that keeps Core Web Vitals strong and interactions smooth without heavy frameworks or unnecessary state complexity.',
     solution:
