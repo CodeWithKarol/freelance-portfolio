@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { CommonModule, ViewportScroller, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {
   LucideAngularModule,
@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule, NgOptimizedImage],
   template: `
     <section class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
       <!-- Sophisticated Background Gradient -->
@@ -214,12 +214,14 @@ import {
                 ></div>
 
                 <div
-                  class="relative overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-900 shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10"
+                  class="relative overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-900 shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 aspect-[6/7]"
                 >
                   <img
-                    src="/images/karol-modelski.webp"
+                    ngSrc="images/karol-modelski.webp"
+                    priority
+                    fill
                     alt="Karol Modelski"
-                    class="aspect-[6/7] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </div>

@@ -29,6 +29,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             <div class="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-slate-100 dark:ring-slate-800 group-hover:ring-indigo-500 transition-all duration-300">
               <img 
                 ngSrc="images/karol-modelski.webp" 
+                priority
                 width="36"
                 height="36"
                 alt="" 
@@ -143,6 +144,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             <a (click)="scrollTo('about')" class="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
               <img 
                 ngSrc="images/karol-modelski.webp" 
+                priority
                 width="32"
                 height="32"
                 alt="" 
