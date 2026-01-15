@@ -13,11 +13,12 @@ import {
   Loader2,
   CheckCircle,
 } from 'lucide-angular';
+import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
 
 @Component({
   selector: 'app-contact-section',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, SectionHeaderComponent],
   template: `
     <section id="contact" class="isolate relative bg-white dark:bg-slate-950 sm:pt-16 lg:pt-0">
       <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8">
@@ -68,19 +69,12 @@ import {
               </div>
             </div>
 
-            <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400">
-              Get in Touch
-            </h2>
-            <p
-              class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
-            >
-              Start a Project
-            </p>
-            <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
-              If you're dealing with a slow, hard-to-change frontend (or planning a new SaaS build),
-              I can help you ship with confidence. Share your goals and constraints—I'll review your
-              inquiry and if it's a good fit, I'll send you a link to book a discovery call.
-            </p>
+            <app-section-header
+              preTitle="Get in Touch"
+              title="Start a Project"
+              description="If you're dealing with a slow, hard-to-change frontend (or planning a new SaaS build), I can help you ship with confidence. Share your goals and constraints—I'll review your inquiry and if it's a good fit, I'll send you a link to book a discovery call."
+              alignment="left"
+            />
 
             <dl class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400">
               <div class="flex gap-x-4">

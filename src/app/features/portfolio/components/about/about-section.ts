@@ -17,7 +17,7 @@ import {
   standalone: true,
   imports: [CommonModule, RouterLink, LucideAngularModule, NgOptimizedImage],
   template: `
-    <section class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
+    <section id="about" class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
       <!-- Sophisticated Background Gradient -->
       <svg
         class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-slate-200 dark:stroke-slate-800 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"

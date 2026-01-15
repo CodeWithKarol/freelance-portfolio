@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import { LucideAngularModule, Download } from 'lucide-angular';
+import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
 
 @Component({
   selector: 'app-experience-section',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, SectionHeaderComponent],
   template: `
     <section id="experience" class="py-24 sm:py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
       <!-- Background subtle pattern -->
@@ -14,14 +15,11 @@ import { LucideAngularModule, Download } from 'lucide-angular';
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-16 lg:mb-24">
-          <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400">Work History</h2>
-          <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Professional Experience
-          </p>
-          <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            Delivering modernization and performance improvements at scale—from regulated enterprise
-            platforms to high-velocity product teams.
-          </p>
+          <app-section-header
+            preTitle="Work History"
+            title="Professional Experience"
+            description="Delivering modernization and performance improvements at scale—from regulated enterprise platforms to high-velocity product teams."
+          />
         </div>
 
         <div class="lg:grid lg:grid-cols-12 lg:gap-16">

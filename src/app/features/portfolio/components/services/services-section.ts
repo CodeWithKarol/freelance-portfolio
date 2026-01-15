@@ -9,28 +9,21 @@ import {
   Users,
   Rocket,
 } from 'lucide-angular';
+import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
 
 @Component({
   selector: 'app-services-section',
   standalone: true,
-  imports: [LucideAngularModule],
+  imports: [LucideAngularModule, SectionHeaderComponent],
   template: `
     <section id="services" class="py-24 sm:py-32 bg-slate-50 dark:bg-slate-950 overflow-hidden">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center mb-16">
-          <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-500">
-            What I Deliver
-          </h2>
-          <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
-          >
-            Bank-Grade Engineering. Startup-Speed Delivery.
-          </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            For enterprise teams and ambitious startups, I modernize legacy frontends, fix
-            performance bottlenecks, and build modular Angular systems that stay maintainable as
-            your product grows. Clear outcomes, measurable wins, and audit-ready quality.
-          </p>
+          <app-section-header
+            preTitle="What I Deliver"
+            title="Bank-Grade Engineering. Startup-Speed Delivery."
+            description="For enterprise teams and ambitious startups, I modernize legacy frontends, fix performance bottlenecks, and build modular Angular systems that stay maintainable as your product grows. Clear outcomes, measurable wins, and audit-ready quality."
+          />
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">

@@ -16,28 +16,22 @@ import {
   Plus,
   Minus,
 } from 'lucide-angular';
+import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
 
 @Component({
   selector: 'app-skills-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, SectionHeaderComponent],
   template: `
     <section id="skills" class="py-24 sm:py-32 bg-white dark:bg-slate-950">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-16 sm:mb-20">
-          <h2 class="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400">
-            Technical Proficiency
-          </h2>
-          <p
-            class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
-          >
-            Engineering for Scale & Performance
-          </p>
-          <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-            This is the stack I use to modernize frontends, improve Core Web Vitals, and keep large
-            codebases maintainable under real-world delivery pressure.
-          </p>
+          <app-section-header
+            preTitle="Technical Proficiency"
+            title="Engineering for Scale & Performance"
+            description="This is the stack I use to modernize frontends, improve Core Web Vitals, and keep large codebases maintainable under real-world delivery pressure."
+          />
         </div>
 
         <!-- Core Stack (Featured) -->
