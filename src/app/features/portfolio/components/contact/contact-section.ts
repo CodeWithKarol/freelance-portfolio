@@ -19,222 +19,279 @@ import {
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, LucideAngularModule],
   template: `
-    <section id="contact" class="relative bg-white dark:bg-slate-950 isolate">
-      <div class="relative lg:absolute lg:inset-0 lg:left-1/2">
-        <img
-          class="h-64 w-full bg-slate-50 object-cover sm:h-80 lg:absolute lg:h-full transition-opacity duration-500 hover:opacity-90"
-          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-          alt="Office collaboration meeting"
-        />
-        <!-- Overlay/Gradient for better text contrast if needed or just mood -->
-        <div
-          class="absolute inset-0 bg-gradient-to-tr from-primary-600/10 to-primary-400/10 mix-blend-multiply pointer-events-none"
-        ></div>
-      </div>
-
-      <div
-        class="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32"
-      >
-        <div class="px-6 lg:px-8">
+    <section id="contact" class="isolate relative bg-white dark:bg-slate-950 sm:pt-16 lg:pt-0">
+      <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <!-- Left Column: Info & Context -->
+        <div class="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-0 lg:py-48">
           <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <!-- Header Section -->
-            <div class="mb-10">
-              <h2
-                class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400 mb-2"
+            <!-- Branding/Decorative Background for Mobile/Tablet context (optional) or just white space -->
+            <div
+              class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-slate-100 ring-1 ring-slate-900/10 lg:w-1/2 dark:bg-slate-900 dark:ring-white/10"
+            >
+              <svg
+                class="absolute inset-0 h-full w-full stroke-slate-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-slate-800"
+                aria-hidden="true"
               >
-                Get in Touch
-              </h2>
-              <p
-                class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
-              >
-                Book a Call
-              </p>
-              <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
-                If you're dealing with a slow, hard-to-change frontend (or planning a new SaaS
-                build), I can help you ship with confidence. Share your goals and constraints—I'll
-                reply with a clear recommendation and next steps.
-              </p>
-
-              <!-- Contact Info Details -->
-              <dl class="mt-8 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400">
-                <div class="flex gap-x-4">
-                  <dt class="flex-none">
-                    <span class="sr-only">Email</span>
-                    <lucide-icon [img]="Mail" class="h-7 w-6 text-slate-400"></lucide-icon>
-                  </dt>
-                  <dd>
-                    <a
-                      class="hover:text-slate-900 dark:hover:text-white transition-colors break-all"
-                      [href]="'mailto:' + store.contactInfo().email"
-                    >
-                      {{ store.contactInfo().email }}
-                    </a>
-                  </dd>
-                </div>
-                <div class="flex gap-x-4">
-                  <dt class="flex-none">
-                    <span class="sr-only">Address</span>
-                    <lucide-icon [img]="MapPin" class="h-7 w-6 text-slate-400"></lucide-icon>
-                  </dt>
-                  <dd>{{ store.contactInfo().location }}</dd>
-                </div>
-              </dl>
-
-              <div class="mt-8 border-t border-slate-200 dark:border-slate-800 pt-8">
-                <h3 class="text-sm font-semibold text-slate-900 dark:text-white">
-                  Prefer a quick call?
-                </h3>
-                <a
-                  [href]="store.contactInfo().calendlyUrl"
-                  target="_blank"
-                  class="mt-2 text-sm font-semibold leading-6 text-primary-600 dark:text-primary-400 hover:text-primary-500 inline-flex items-center gap-1 group"
-                >
-                  Book a 15-min call
-                  <span aria-hidden="true" class="group-hover:translate-x-1 transition-transform"
-                    >→</span
+                <defs>
+                  <pattern
+                    id="hex-pattern"
+                    width="200"
+                    height="200"
+                    x="100%"
+                    y="-1"
+                    patternUnits="userSpaceOnUse"
                   >
-                </a>
+                    <path d="M130 200V.5M.5 .5H200" fill="none" />
+                  </pattern>
+                </defs>
+                <rect
+                  width="100%"
+                  height="100%"
+                  stroke-width="0"
+                  fill="white"
+                  class="dark:fill-slate-900"
+                />
+                <svg x="100%" y="-1" class="overflow-visible fill-slate-50 dark:fill-slate-800/20">
+                  <path d="M-470.5 0h201v201h-201Z" stroke-width="0" />
+                </svg>
+                <rect width="100%" height="100%" stroke-width="0" fill="url(#hex-pattern)" />
+              </svg>
+              <!-- Decorative Image Blur -->
+              <div
+                class="absolute -left-56 top-[calc(100%-13rem)] transform-gpu blur-3xl lg:left-[max(-14rem,calc(100%-59rem))] lg:top-[calc(50%-7rem)]"
+                aria-hidden="true"
+              >
+                <div
+                  class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-br from-primary-400 to-indigo-600 opacity-20"
+                  style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
+                ></div>
               </div>
             </div>
 
-            <!-- Form -->
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="mt-8 space-y-6">
-              <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                <!-- Name Field -->
-                <div class="sm:col-span-2">
-                  <label
-                    for="name"
-                    class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
-                    >Name</label
-                  >
-                  <div class="mt-2.5">
-                    <input
-                      type="text"
-                      formControlName="name"
-                      id="name"
-                      autocomplete="name"
-                      class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500"
-                    />
-                    @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
-                    <p class="mt-1 text-sm text-red-600">Name is required.</p>
-                    }
-                  </div>
-                </div>
+            <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400">
+              Get in Touch
+            </h2>
+            <p
+              class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
+            >
+              Start a Project
+            </p>
+            <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300">
+              If you're dealing with a slow, hard-to-change frontend (or planning a new SaaS build),
+              I can help you ship with confidence. Share your goals and constraints—I'll review your
+              inquiry and if it's a good fit, I'll send you a link to book a discovery call.
+            </p>
 
-                <!-- Email Field -->
-                <div class="sm:col-span-2">
-                  <label
-                    for="email"
-                    class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
-                    >Email</label
+            <dl class="mt-10 space-y-4 text-base leading-7 text-slate-600 dark:text-slate-400">
+              <div class="flex gap-x-4">
+                <dt class="flex-none">
+                  <span class="sr-only">Email</span>
+                  <lucide-icon [img]="Mail" class="h-7 w-6 text-slate-400"></lucide-icon>
+                </dt>
+                <dd>
+                  <a
+                    class="hover:text-slate-900 dark:hover:text-white transition-colors break-all"
+                    [href]="'mailto:' + store.contactInfo().email"
                   >
-                  <div class="mt-2.5">
-                    <input
-                      type="email"
-                      formControlName="email"
-                      id="email"
-                      autocomplete="email"
-                      class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500"
-                    />
-                    @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
-                    <p class="mt-1 text-sm text-red-600">Valid email is required.</p>
-                    }
-                  </div>
-                </div>
-
-                <!-- Project Type Field -->
-                <div class="sm:col-span-2">
-                  <label
-                    for="project-type"
-                    class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
-                    >Project Type</label
-                  >
-                  <div class="relative mt-2.5">
-                    <select
-                      formControlName="projectType"
-                      id="project-type"
-                      class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 pr-10 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 [&_option]:text-slate-900"
-                    >
-                      <option value="enterprise-migration">
-                        Legacy Modernization (Upgrade + Clean Architecture)
-                      </option>
-                      <option value="design-system">Design System / UI Library</option>
-                      <option value="saas-development">New SaaS Build</option>
-                      <option value="performance">Performance Audit & Optimization</option>
-                      <option value="feature-development">Feature Delivery</option>
-                      <option value="code-review">Code Review / Mentorship</option>
-                      <option value="consulting">Architecture Review & Roadmap</option>
-                      <option value="staff-augmentation">Staff Augmentation / Tech Lead</option>
-                      <option value="other">Other Inquiry</option>
-                    </select>
-                    <div
-                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
-                    >
-                      <lucide-icon [img]="ChevronDown" class="h-5 w-5 text-slate-400"></lucide-icon>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Message Field -->
-                <div class="sm:col-span-2">
-                  <label
-                    for="message"
-                    class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
-                    >Message</label
-                  >
-                  <div class="mt-2.5">
-                    <textarea
-                      formControlName="message"
-                      id="message"
-                      rows="4"
-                      class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500"
-                    ></textarea>
-                    @if (contactForm.get('message')?.touched && contactForm.get('message')?.invalid)
-                    {
-                    <p class="mt-1 text-sm text-red-600">Message is required (min 10 chars).</p>
-                    }
-                  </div>
-                </div>
+                    {{ store.contactInfo().email }}
+                  </a>
+                </dd>
               </div>
-
-              <!-- Submit Button & Success Message -->
-              <div class="mt-8">
-                <button
-                  type="submit"
-                  [disabled]="contactForm.invalid || isSubmitting()"
-                  class="block w-full rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                >
-                  @if (isSubmitting()) {
-                  <span class="inline-flex items-center">
-                    <lucide-icon
-                      [img]="Loader2"
-                      class="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                    ></lucide-icon>
-                    Sending...
-                  </span>
-                  } @else { Send Message }
-                </button>
+              <div class="flex gap-x-4">
+                <dt class="flex-none">
+                  <span class="sr-only">Address</span>
+                  <lucide-icon [img]="MapPin" class="h-7 w-6 text-slate-400"></lucide-icon>
+                </dt>
+                <dd>{{ store.contactInfo().location }}</dd>
               </div>
-
-              @if (isSuccess()) {
-              <div
-                class="rounded-md bg-emerald-50 dark:bg-emerald-900/30 p-4 border border-emerald-200 dark:border-emerald-800 animate-in fade-in slide-in-from-bottom-2"
-              >
-                <div class="flex">
-                  <div class="flex-shrink-0">
-                    <lucide-icon [img]="CheckCircle" class="h-5 w-5 text-emerald-400"></lucide-icon>
-                  </div>
-                  <div class="ml-3">
-                    <p class="text-sm font-medium text-emerald-800 dark:text-emerald-200">
-                      Message sent successfully! I'll be in touch soon.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              }
-            </form>
+            </dl>
           </div>
         </div>
+
+        <!-- Right Column: Form -->
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
+          class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48"
+        >
+          <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            @if (isSuccess()) {
+            <div
+              class="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-6 border border-emerald-100 dark:border-emerald-800 animate-in fade-in slide-in-from-bottom-2 text-center"
+            >
+              <div
+                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900 mb-4"
+              >
+                <lucide-icon
+                  [img]="CheckCircle"
+                  class="h-6 w-6 text-emerald-600 dark:text-emerald-400"
+                ></lucide-icon>
+              </div>
+              <h3 class="text-lg font-semibold text-emerald-900 dark:text-emerald-100 mb-2">
+                Inquiry received!
+              </h3>
+              <p class="text-sm text-emerald-700 dark:text-emerald-300 leading-relaxed">
+                I'll review your details to ensure I can help. If it's a match, look out for an
+                email with a booking link within 24 hours.
+              </p>
+            </div>
+            } @else {
+            <div class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
+              <!-- Name -->
+              <div class="sm:col-span-2">
+                <label
+                  for="name"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  >Name</label
+                >
+                <div class="mt-2.5">
+                  <input
+                    type="text"
+                    formControlName="name"
+                    id="name"
+                    autocomplete="name"
+                    [class.ring-red-500]="
+                      contactForm.get('name')?.touched && contactForm.get('name')?.invalid
+                    "
+                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 transition-shadow"
+                  />
+                  @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
+                  <p class="mt-1 text-xs text-red-500">Name is required.</p>
+                  }
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="sm:col-span-2">
+                <label
+                  for="email"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  >Email</label
+                >
+                <div class="mt-2.5">
+                  <input
+                    type="email"
+                    formControlName="email"
+                    id="email"
+                    autocomplete="email"
+                    [class.ring-red-500]="
+                      contactForm.get('email')?.touched && contactForm.get('email')?.invalid
+                    "
+                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 transition-shadow"
+                  />
+                  @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
+                  <p class="mt-1 text-xs text-red-500">Valid email is required.</p>
+                  }
+                </div>
+              </div>
+
+              <!-- Project Type -->
+              <div class="sm:col-span-2">
+                <label
+                  for="project-type"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  >Project Type</label
+                >
+                <div class="relative mt-2.5">
+                  <select
+                    formControlName="projectType"
+                    id="project-type"
+                    class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 [&_option]:text-slate-900"
+                  >
+                    <option value="enterprise-migration">
+                      Legacy Modernization (Upgrade + Clean Architecture)
+                    </option>
+                    <option value="design-system">Design System / UI Library</option>
+                    <option value="saas-development">New SaaS Build</option>
+                    <option value="performance">Performance Audit & Optimization</option>
+                    <option value="feature-development">Feature Delivery</option>
+                    <option value="code-review">Code Review / Mentorship</option>
+                    <option value="consulting">Architecture Review & Roadmap</option>
+                    <option value="staff-augmentation">Staff Augmentation / Tech Lead</option>
+                    <option value="other">Other Inquiry</option>
+                  </select>
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
+                  >
+                    <lucide-icon [img]="ChevronDown" class="h-4 w-4 text-slate-400"></lucide-icon>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Budget -->
+              <div class="sm:col-span-2">
+                <label
+                  for="budget"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  >Estimated Budget (Optional)</label
+                >
+                <div class="relative mt-2.5">
+                  <select
+                    formControlName="budget"
+                    id="budget"
+                    class="appearance-none block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 [&_option]:text-slate-900"
+                  >
+                    <option value="">Select a range</option>
+                    <option value="small">&lt; $1k</option>
+                    <option value="medium">$1k - $5k</option>
+                    <option value="large">$5k - $10k</option>
+                    <option value="enterprise">$10k+</option>
+                  </select>
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3"
+                  >
+                    <lucide-icon [img]="ChevronDown" class="h-4 w-4 text-slate-400"></lucide-icon>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Details -->
+              <div class="sm:col-span-2">
+                <label
+                  for="message"
+                  class="block text-sm font-semibold leading-6 text-slate-900 dark:text-white"
+                  >Project Details & Goals</label
+                >
+                <div class="mt-2.5">
+                  <textarea
+                    formControlName="message"
+                    id="message"
+                    rows="4"
+                    [class.ring-red-500]="
+                      contactForm.get('message')?.touched && contactForm.get('message')?.invalid
+                    "
+                    class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 transition-shadow"
+                  ></textarea>
+                  @if (contactForm.get('message')?.touched && contactForm.get('message')?.invalid) {
+                  <p class="mt-1 text-xs text-red-500">
+                    Please provide at least 20 chars about your project goal.
+                  </p>
+                  }
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="mt-8 flex justify-end">
+              <button
+                type="submit"
+                [disabled]="contactForm.invalid || isSubmitting()"
+                class="rounded-md bg-primary-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all w-full sm:w-auto min-w-[140px]"
+              >
+                @if (isSubmitting()) {
+                <span class="inline-flex items-center">
+                  <lucide-icon
+                    [img]="Loader2"
+                    class="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                  ></lucide-icon>
+                  Sending...
+                </span>
+                } @else { Send Message }
+              </button>
+            </div>
+            }
+          </div>
+        </form>
       </div>
     </section>
   `,
@@ -259,7 +316,8 @@ export class ContactSection {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       projectType: ['enterprise-migration'],
-      message: ['', [Validators.required, Validators.minLength(10)]],
+      budget: [''],
+      message: ['', [Validators.required, Validators.minLength(20)]],
     });
   }
 
@@ -284,10 +342,10 @@ export class ContactSection {
           take(1),
           tap(() => {
             this.isSuccess.set(true);
-            this.contactForm.reset({ projectType: 'enterprise-migration' });
+            this.contactForm.reset({ projectType: 'enterprise-migration', budget: '' });
 
             // Hide success message after 5 seconds
-            setTimeout(() => this.isSuccess.set(false), 5000);
+            setTimeout(() => this.isSuccess.set(false), 8000);
           }),
           catchError((err) => {
             console.error('Form submission error:', err);
