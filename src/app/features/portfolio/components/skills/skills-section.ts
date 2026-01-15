@@ -148,9 +148,9 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
 
         <!-- Leadership / Soft Skills (Feature Section) -->
         <div
-          class="overflow-hidden bg-slate-50 dark:bg-slate-900 rounded-3xl lg:grid lg:grid-cols-2 lg:gap-4"
+          class="overflow-hidden bg-slate-50 dark:bg-slate-900 rounded-3xl lg:grid lg:grid-cols-2"
         >
-          <div class="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-0 xl:px-20 xl:py-20">
+          <div class="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-8 xl:px-20 xl:py-20">
             <div class="lg:self-center">
               <h2
                 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
@@ -164,12 +164,12 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
               </p>
               <dl class="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 sm:gap-y-6">
                 @for (skill of softSkills(); track skill.name) {
-                <div class="relative pl-9">
-                  <dt class="font-semibold text-slate-900 dark:text-white text-sm">
-                    <lucide-icon
-                      [img]="Check"
-                      class="absolute left-0 top-1 h-5 w-5 text-indigo-600 dark:text-indigo-400"
-                    ></lucide-icon>
+                <div class="flex items-start gap-3">
+                  <lucide-icon
+                    [img]="Check"
+                    class="h-5 w-5 flex-none text-indigo-600 dark:text-indigo-400"
+                  ></lucide-icon>
+                  <dt class="font-semibold text-slate-900 dark:text-white text-sm leading-5">
                     {{ skill.name }}
                   </dt>
                 </div>
@@ -177,9 +177,9 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
               </dl>
             </div>
           </div>
-          <div class="aspect-h-9 aspect-w-16 lg:aspect-auto lg:h-full">
+          <div class="relative min-h-[300px] w-full lg:h-full">
             <img
-              class="translate-x-6 translate-y-6 transform rounded-tl-3xl bg-gray-50 object-cover object-center lg:h-full lg:w-full lg:translate-x-8 lg:translate-y-8"
+              class="absolute inset-0 h-full w-full bg-slate-50 object-cover object-center"
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
               alt="Team collaboration"
             />
