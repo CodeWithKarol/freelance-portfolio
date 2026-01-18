@@ -25,7 +25,7 @@ import {
       >
         <defs>
           <pattern
-            id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+            id="pattern-about-bg"
             width="200"
             height="200"
             x="50%"
@@ -41,12 +41,7 @@ import {
             stroke-width="0"
           />
         </svg>
-        <rect
-          width="100%"
-          height="100%"
-          stroke-width="0"
-          fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
-        />
+        <rect width="100%" height="100%" stroke-width="0" fill="url(#pattern-about-bg)" />
       </svg>
       <div
         class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
@@ -224,11 +219,9 @@ import {
                   class="relative overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-900 shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 aspect-[6/7]"
                 >
                   <img
-                    [ngSrc]="'images/karol-modelski.webp'"
-                    [priority]="true"
-                    [fill]="true"
+                    src="images/karol-modelski.webp"
                     alt="Karol Modelski"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </div>
