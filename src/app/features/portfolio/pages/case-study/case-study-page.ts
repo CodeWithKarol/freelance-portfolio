@@ -258,10 +258,10 @@ export class CaseStudyPage {
   store = inject(PortfolioStore);
 
   // Input from router parameter
-  id = input.required<string>();
+  slug = input.required<string>();
 
   caseStudy = computed(() => {
-    return this.store.caseStudies().find((c) => c.id === this.id());
+    return this.store.caseStudies().find((c) => c.id === this.slug());
   });
 
   readonly ArrowLeft = ArrowLeft;

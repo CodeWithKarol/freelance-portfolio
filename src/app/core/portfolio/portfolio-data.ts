@@ -2,7 +2,7 @@ import { CaseStudy, BlogPost } from './portfolio.model';
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: '1',
+    id: 'modern-enterprise-admin-dashboard',
     title: 'Modern Enterprise Admin Dashboard',
     tagline: 'High-Performance Real-Time Analytics',
     heroImage: '/images/www.admin-panel.scale-sail.io_dashboard.webp',
@@ -29,7 +29,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     repoUrl: 'https://github.com/CodeWithKarol/admin-panel',
   },
   {
-    id: '2',
+    id: 'quickcart-ecommerce',
     title: 'QuickCart E-Commerce',
     tagline: 'Next-Gen Angular E-Commerce Architecture',
     heroImage: '/images/www.quick-cart.scale-sail.io_.webp',
@@ -57,33 +57,4 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
-export const BLOG_POSTS: BlogPost[] = [
-  {
-    id: '1',
-    title: 'Mastering Angular Signals',
-    excerpt: 'A deep dive into the new reactivity primitive in Angular.',
-    date: '2025-10-15',
-    slug: 'mastering-angular-signals',
-    content: `
-      <p>Signals are the cornerstone of modern Angular reactivity...</p>
-      <h2>Why Signals?</h2>
-      <p>They provide fine-grained reactivity without the overhead of Zone.js...</p>
-    `,
-    imageUrl:
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2669&auto=format&fit=crop',
-    category: 'Architecture',
-  },
-  {
-    id: '2',
-    title: 'React vs Angular in 2026',
-    excerpt: 'Comparing the giants for enterprise development.',
-    date: '2025-11-20',
-    slug: 'react-vs-angular-2026',
-    content: `
-      <p>The debate continues, but the gap is narrowing...</p>
-    `,
-    imageUrl:
-      'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2670&auto=format&fit=crop',
-    category: 'Frameworks',
-  },
-];
+export const BLOG_POSTS: BlogPost[] = [];

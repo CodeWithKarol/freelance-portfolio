@@ -12,7 +12,7 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'work/:id',
+    path: 'work/:slug',
     loadComponent: () =>
       import('./features/portfolio/pages/case-study/case-study-page').then((m) => m.CaseStudyPage),
     title: 'Work | Portfolio',
