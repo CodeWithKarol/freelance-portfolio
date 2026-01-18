@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from '@angular/core';
-import { CommonModule, NgOptimizedImage, ViewportScroller } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-angular';
 
 @Component({
   selector: 'app-navbar-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule, NgOptimizedImage],
+  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule],
   template: `
     <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       <!-- Background & Blur Layer -->
@@ -27,7 +27,9 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         <!-- Logo Area -->
         <div class="flex lg:flex-1">
           <a
-            (click)="scrollTo('about')"
+            [routerLink]="['/']"
+            fragment="about"
+            (click)="isMenuOpen.set(false)"
             class="-m-1.5 p-1.5 flex items-center gap-3 cursor-pointer group"
           >
             <span class="sr-only">Karol Modelski</span>
@@ -77,7 +79,15 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         <div class="hidden lg:flex lg:gap-x-2">
           @for (item of navItems; track item.id) {
             <a
-              (click)="scrollTo(item.id)"
+              [routerLink]="['/']"
+              [fragment]="item.id"
+              routerLinkActive="text-indigo-600 dark:text-indigo-400 bg-slate-100 dark:bg-slate-800"
+              [routerLinkActiveOptions]="{
+                fragment: 'exact',
+                paths: 'exact',
+                queryParams: 'ignored',
+                matrixParams: 'ignored',
+              }"
               class="px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
             >
               {{ item.label }}
@@ -122,9 +132,9 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
               class="h-5 w-5 transition-transform duration-500 rotate-0 dark:-rotate-90 dark:hidden block"
             ></lucide-icon>
           </button>
-
           <a
-            (click)="scrollTo('contact')"
+            [routerLink]="['/']"
+            fragment="contact"
             class="hidden sm:inline-flex items-center justify-center gap-2 h-9 rounded-full bg-slate-900 dark:bg-white/10 dark:hover:bg-white/20 px-4 text-sm font-semibold text-white transition-all hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 cursor-pointer"
           >
             <span>Book a Call</span>
@@ -156,7 +166,9 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         >
           <div class="flex items-center justify-between">
             <a
-              (click)="scrollTo('about')"
+              [routerLink]="['/']"
+              fragment="about"
+              (click)="toggleMenu()"
               class="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
             >
               <img
@@ -183,7 +195,9 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
               <div class="space-y-1 py-6">
                 @for (item of navItems; track item.id) {
                   <a
-                    (click)="scrollTo(item.id)"
+                    [routerLink]="['/']"
+                    [fragment]="item.id"
+                    (click)="toggleMenu()"
                     class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
                   >
                     {{ item.label }}
@@ -226,7 +240,9 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                   </button>
                 </div>
                 <a
-                  (click)="scrollTo('contact')"
+                  [routerLink]="['/']"
+                  fragment="contact"
+                  (click)="toggleMenu()"
                   class="-mx-3 block rounded-xl px-3 py-3 text-center text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition-colors cursor-pointer"
                 >
                   Book a Call
@@ -261,7 +277,7 @@ export class NavbarSection {
     { id: 'contact', label: 'Contact' },
   ];
 
-  constructor(private scroller: ViewportScroller) {
+  constructor() {
     if (typeof window !== 'undefined') {
       const storedTheme = localStorage.getItem('theme');
       if (storedTheme) {
@@ -293,19 +309,6 @@ export class NavbarSection {
       } else {
         document.body.style.overflow = '';
       }
-    }
-  }
-
-  scrollTo(anchor: string) {
-    this.isMenuOpen.set(false);
-    if (typeof document !== 'undefined') document.body.style.overflow = '';
-
-    if (this.router.url !== '/') {
-      this.router.navigate(['/']).then(() => {
-        setTimeout(() => this.scroller.scrollToAnchor(anchor), 100);
-      });
-    } else {
-      this.scroller.scrollToAnchor(anchor);
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule, ViewportScroller, NgOptimizedImage } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {
   LucideAngularModule,
@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, LucideAngularModule, NgOptimizedImage],
+  imports: [CommonModule, RouterLink, LucideAngularModule],
   template: `
     <section id="about" class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
       <!-- Sophisticated Background Gradient -->
@@ -132,7 +132,8 @@ import {
               <!-- Action Buttons -->
               <div class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-4">
                 <a
-                  (click)="scrollTo('contact')"
+                  [routerLink]="['/']"
+                  fragment="contact"
                   class="rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer transition-all flex items-center gap-2"
                 >
                   Book a Call

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
 import {
   LucideAngularModule,
@@ -14,7 +14,7 @@ import {
 @Component({
   selector: 'app-footer-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, NgOptimizedImage],
+  imports: [CommonModule, LucideAngularModule],
   template: `
     <footer
       class="relative bg-slate-50 dark:bg-slate-950 pt-16 pb-8 overflow-hidden z-10"
