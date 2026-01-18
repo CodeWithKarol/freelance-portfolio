@@ -111,7 +111,7 @@ import {
               </div>
 
               <!-- Tech Stack Pills -->
-              <div class="mt-8 flex flex-wrap gap-2">
+              <ul class="mt-8 flex flex-wrap gap-2 list-none p-0">
                 @for (
                   tech of [
                     'Angular 21',
@@ -121,13 +121,15 @@ import {
                   ];
                   track tech
                 ) {
-                  <span
-                    class="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-400 ring-1 ring-inset ring-indigo-700/10 dark:ring-indigo-700/20"
-                  >
-                    {{ tech }}
-                  </span>
+                  <li>
+                    <span
+                      class="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-400 ring-1 ring-inset ring-indigo-700/10 dark:ring-indigo-700/20"
+                    >
+                      {{ tech }}
+                    </span>
+                  </li>
                 }
-              </div>
+              </ul>
 
               <!-- Action Buttons -->
               <div class="mt-10 flex flex-wrap items-center gap-x-4 gap-y-4">

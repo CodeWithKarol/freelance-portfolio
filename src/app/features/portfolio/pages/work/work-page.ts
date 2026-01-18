@@ -26,30 +26,35 @@ import { ProjectCardComponent } from '../../components/ui/project-card/project-c
 
         <!-- Projects List -->
         <div class="mt-24 sm:mt-32">
-          @if (hasProjects()) { @for (project of visibleProjects(); track project.id; let i =
-          $index; let last = $last) {
-          <app-project-card
-            [project]="project"
-            [reverseLayout]="i % 2 !== 0"
-            [class.mb-32]="!last"
-            [class.lg:mb-40]="!last"
-          />
-          }
+          @if (hasProjects()) {
+            <ul class="list-none p-0">
+              @for (
+                project of visibleProjects();
+                track project.id;
+                let i = $index;
+                let last = $last
+              ) {
+                <li [class.mb-32]="!last" [class.lg:mb-40]="!last">
+                  <app-project-card [project]="project" [reverseLayout]="i % 2 !== 0" />
+                </li>
+              }
+            </ul>
 
-          <!-- Load More -->
-          @if (hasMoreProjects()) {
-          <div class="mt-32 flex justify-center">
-            <button
-              (click)="loadMore()"
-              class="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 dark:bg-slate-800 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-700 transition-all"
-            >
-              Load more projects
-            </button>
-          </div>
-          } } @else {
-          <div class="text-center py-24">
-            <p class="text-slate-500 dark:text-slate-400">Coming soon.</p>
-          </div>
+            <!-- Load More -->
+            @if (hasMoreProjects()) {
+              <div class="mt-32 flex justify-center">
+                <button
+                  (click)="loadMore()"
+                  class="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 dark:bg-slate-800 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-700 transition-all"
+                >
+                  Load more projects
+                </button>
+              </div>
+            }
+          } @else {
+            <div class="text-center py-24">
+              <p class="text-slate-500 dark:text-slate-400">Coming soon.</p>
+            </div>
           }
         </div>
       </div>

@@ -64,68 +64,72 @@ interface MediumPost {
         <div class="mt-16 sm:mt-24 space-y-20">
           <!-- Loading State -->
           @if (feedResource.isLoading()) {
-          <div class="flex flex-col justify-center items-center h-64 animate-pulse">
-            <lucide-icon
-              [img]="Loader2"
-              class="h-10 w-10 text-primary-600 animate-spin mb-4"
-            ></lucide-icon>
-            <p class="text-sm text-slate-500">Loading articles...</p>
-          </div>
+            <div class="flex flex-col justify-center items-center h-64 animate-pulse">
+              <lucide-icon
+                [img]="Loader2"
+                class="h-10 w-10 text-primary-600 animate-spin mb-4"
+              ></lucide-icon>
+              <p class="text-sm text-slate-500">Loading articles...</p>
+            </div>
           }
 
           <!-- Error State -->
           @else if (feedResource.error()) {
-          <div
-            class="mx-auto max-w-lg rounded-2xl bg-red-50 dark:bg-red-900/10 p-8 text-center border border-red-100 dark:border-red-900/20"
-          >
-            <lucide-icon
-              [img]="AlertCircle"
-              class="mx-auto h-10 w-10 text-red-500 mb-4 opacity-80"
-            ></lucide-icon>
-            <h3 class="text-base font-semibold text-red-700 dark:text-red-400">
-              Failed to load content
-            </h3>
-            <p class="mt-2 text-sm text-red-600 dark:text-red-300 mb-6">
-              We couldn't reach Medium.com at this moment.
-            </p>
-            <a
-              href="https://karol-modelski.medium.com/"
-              target="_blank"
-              class="inline-flex items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            <div
+              class="mx-auto max-w-lg rounded-2xl bg-red-50 dark:bg-red-900/10 p-8 text-center border border-red-100 dark:border-red-900/20"
             >
-              Read on Medium <lucide-icon [img]="ArrowRight" class="h-4 w-4"></lucide-icon>
-            </a>
-          </div>
+              <lucide-icon
+                [img]="AlertCircle"
+                class="mx-auto h-10 w-10 text-red-500 mb-4 opacity-80"
+              ></lucide-icon>
+              <h3 class="text-base font-semibold text-red-700 dark:text-red-400">
+                Failed to load content
+              </h3>
+              <p class="mt-2 text-sm text-red-600 dark:text-red-300 mb-6">
+                We couldn't reach Medium.com at this moment.
+              </p>
+              <a
+                href="https://karol-modelski.medium.com/"
+                target="_blank"
+                class="inline-flex items-center justify-center gap-2 rounded-full bg-white dark:bg-slate-900 px-5 py-2.5 text-sm font-semibold text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+              >
+                Read on Medium <lucide-icon [img]="ArrowRight" class="h-4 w-4"></lucide-icon>
+              </a>
+            </div>
           }
 
           <!-- Posts List -->
           @else {
-
-          <!-- Featured Post -->
-          @if (featuredPost(); as featured) {
-          <app-featured-blog-post [post]="featured" />
-          }
-
-          <!-- Post Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-            @for (post of visiblePosts(); track post.id) {
-            <app-blog-post-card [post]="post" class="h-full" />
+            <!-- Featured Post -->
+            @if (featuredPost(); as featured) {
+              <app-featured-blog-post [post]="featured" />
             }
-          </div>
 
-          <!-- Pagination -->
-          @if (hasMorePosts()) {
-          <div
-            class="flex justify-center border-t border-slate-200 dark:border-slate-800 pt-10 mt-16"
-          >
-            <button
-              (click)="loadMore()"
-              class="rounded-full bg-white dark:bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+            <!-- Post Grid -->
+            <ul
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 list-none p-0"
             >
-              Load more articles
-            </button>
-          </div>
-          } }
+              @for (post of visiblePosts(); track post.id) {
+                <li>
+                  <app-blog-post-card [post]="post" class="h-full" />
+                </li>
+              }
+            </ul>
+
+            <!-- Pagination -->
+            @if (hasMorePosts()) {
+              <div
+                class="flex justify-center border-t border-slate-200 dark:border-slate-800 pt-10 mt-16"
+              >
+                <button
+                  (click)="loadMore()"
+                  class="rounded-full bg-white dark:bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
+                >
+                  Load more articles
+                </button>
+              </div>
+            }
+          }
         </div>
       </div>
     </div>

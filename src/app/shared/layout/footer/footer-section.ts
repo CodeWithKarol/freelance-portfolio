@@ -47,31 +47,33 @@ import {
               Senior Frontend Developer & SaaS Founder. Modernizing legacy frontends and building
               performance-first, audit-ready web applications for enterprise and startups.
             </p>
-            <div class="flex space-x-6">
+            <ul class="flex space-x-6 list-none p-0">
               @for (social of store.socialLinks(); track social.platform) {
-                <a
-                  [href]="social.url"
-                  target="_blank"
-                  class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                >
-                  <span class="sr-only">{{ social.platform }}</span>
-                  <!-- Icon Logic -->
-                  @if (social.icon === 'github') {
-                    <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
-                  } @else if (social.icon === 'linkedin') {
-                    <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
-                  } @else if (social.icon === 'medium') {
-                    <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
-                  } @else if (social.icon === 'rocket') {
-                    <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
-                  } @else if (social.icon === 'globe') {
-                    <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
-                  } @else {
-                    <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
-                  }
-                </a>
+                <li>
+                  <a
+                    [href]="social.url"
+                    target="_blank"
+                    class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  >
+                    <span class="sr-only">{{ social.platform }}</span>
+                    <!-- Icon Logic -->
+                    @if (social.icon === 'github') {
+                      <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
+                    } @else if (social.icon === 'linkedin') {
+                      <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
+                    } @else if (social.icon === 'medium') {
+                      <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
+                    } @else if (social.icon === 'rocket') {
+                      <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
+                    } @else if (social.icon === 'globe') {
+                      <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                    } @else {
+                      <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                    }
+                  </a>
+                </li>
               }
-            </div>
+            </ul>
           </div>
 
           <!-- Column Links -->

@@ -51,9 +51,9 @@ import { CaseStudy } from '../../../../../core/portfolio/portfolio.model';
             Case Study
           </div>
           @if (project().techStack.length > 0) {
-          <span class="text-xs font-medium text-slate-500 dark:text-slate-400">
-            {{ project().techStack[0] }}
-          </span>
+            <span class="text-xs font-medium text-slate-500 dark:text-slate-400">
+              {{ project().techStack[0] }}
+            </span>
           }
         </div>
 
@@ -72,23 +72,28 @@ import { CaseStudy } from '../../../../../core/portfolio/portfolio.model';
         </div>
 
         <!-- Tech Stack Tags -->
-        <div
-          class="mt-10 flex flex-wrap gap-2 pt-8 border-t border-slate-200 dark:border-slate-800"
+        <ul
+          class="mt-10 flex flex-wrap gap-2 pt-8 border-t border-slate-200 dark:border-slate-800 list-none p-0"
         >
           @for (tech of project().techStack.slice(0, 4); track tech) {
-          <span
-            class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-slate-50 text-slate-700 ring-1 ring-inset ring-slate-200/50 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700"
-          >
-            {{ tech }}
-          </span>
-          } @if (project().techStack.length > 4) {
-          <span
-            class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400"
-          >
-            +{{ project().techStack.length - 4 }} more
-          </span>
+            <li>
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-slate-50 text-slate-700 ring-1 ring-inset ring-slate-200/50 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700"
+              >
+                {{ tech }}
+              </span>
+            </li>
           }
-        </div>
+          @if (project().techStack.length > 4) {
+            <li>
+              <span
+                class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium text-slate-500 dark:text-slate-400"
+              >
+                +{{ project().techStack.length - 4 }} more
+              </span>
+            </li>
+          }
+        </ul>
 
         <!-- Call to Action -->
         <div class="mt-8 flex items-center gap-x-6">

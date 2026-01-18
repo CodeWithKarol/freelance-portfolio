@@ -77,40 +77,48 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
 
         <!-- Desktop Nav -->
         <div class="hidden lg:flex lg:gap-x-2">
-          @for (item of navItems; track item.id) {
-            <a
-              [routerLink]="['/']"
-              [fragment]="item.id"
-              routerLinkActive="text-indigo-600 dark:text-indigo-400 bg-slate-100 dark:bg-slate-800"
-              [routerLinkActiveOptions]="{
-                fragment: 'exact',
-                paths: 'exact',
-                queryParams: 'ignored',
-                matrixParams: 'ignored',
-              }"
-              class="px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
-            >
-              {{ item.label }}
-            </a>
-          }
-          <a
-            [routerLink]="'/work'"
-            [routerLinkActive]="
-              'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
-            "
-            class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200"
-          >
-            Work
-          </a>
-          <a
-            [routerLink]="'/blog'"
-            [routerLinkActive]="
-              'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
-            "
-            class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200"
-          >
-            Blog
-          </a>
+          <ul class="flex gap-x-2 list-none m-0 p-0">
+            @for (item of navItems; track item.id) {
+              <li>
+                <a
+                  [routerLink]="['/']"
+                  [fragment]="item.id"
+                  routerLinkActive="text-indigo-600 dark:text-indigo-400 bg-slate-100 dark:bg-slate-800"
+                  [routerLinkActiveOptions]="{
+                    fragment: 'exact',
+                    paths: 'exact',
+                    queryParams: 'ignored',
+                    matrixParams: 'ignored',
+                  }"
+                  class="px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white block"
+                >
+                  {{ item.label }}
+                </a>
+              </li>
+            }
+            <li>
+              <a
+                [routerLink]="'/work'"
+                [routerLinkActive]="
+                  'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
+                "
+                class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200 block"
+              >
+                Work
+              </a>
+            </li>
+            <li>
+              <a
+                [routerLink]="'/blog'"
+                [routerLinkActive]="
+                  'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
+                "
+                class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200 block"
+              >
+                Blog
+              </a>
+            </li>
+          </ul>
         </div>
 
         <!-- Desktop Actions -->
@@ -149,6 +157,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         [class.pointer-events-none]="!isMenuOpen()"
         role="dialog"
         aria-modal="true"
+        aria-label="Mobile Navigation Menu"
       >
         <!-- Backdrop -->
         <div
@@ -192,32 +201,38 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
 
           <div class="mt-8 flow-root">
             <div class="-my-6 divide-y divide-slate-100 dark:divide-slate-800">
-              <div class="space-y-1 py-6">
+              <ul class="space-y-1 py-6 list-none p-0">
                 @for (item of navItems; track item.id) {
+                  <li>
+                    <a
+                      [routerLink]="['/']"
+                      [fragment]="item.id"
+                      (click)="toggleMenu()"
+                      class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+                    >
+                      {{ item.label }}
+                    </a>
+                  </li>
+                }
+                <li>
                   <a
-                    [routerLink]="['/']"
-                    [fragment]="item.id"
+                    [routerLink]="'/work'"
                     (click)="toggleMenu()"
                     class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
                   >
-                    {{ item.label }}
+                    Work
                   </a>
-                }
-                <a
-                  [routerLink]="'/work'"
-                  (click)="toggleMenu()"
-                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
-                >
-                  Work
-                </a>
-                <a
-                  [routerLink]="'/blog'"
-                  (click)="toggleMenu()"
-                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
-                >
-                  Blog
-                </a>
-              </div>
+                </li>
+                <li>
+                  <a
+                    [routerLink]="'/blog'"
+                    (click)="toggleMenu()"
+                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+                  >
+                    Blog
+                  </a>
+                </li>
+              </ul>
               <div class="py-6">
                 <div
                   class="flex items-center justify-between mb-6 p-3 rounded-lg bg-slate-50 dark:bg-slate-900"

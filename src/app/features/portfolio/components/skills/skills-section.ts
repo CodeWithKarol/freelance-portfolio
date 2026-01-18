@@ -41,9 +41,9 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
           >
             Primary Stack
           </h3>
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-0 list-none">
             @for (tech of coreStack(); track tech.name) {
-              <div
+              <li
                 class="relative flex items-center space-x-3 rounded-lg border border-slate-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-slate-400 dark:bg-slate-900 dark:border-slate-800 dark:hover:border-slate-700 transition-colors"
               >
                 <div class="flex-shrink-0">
@@ -69,9 +69,9 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                     >Expert</span
                   >
                 }
-              </div>
+              </li>
             }
-          </div>
+          </ul>
         </div>
 
         <!-- Secondary Stack -->
@@ -81,15 +81,17 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
           >
             Additional Tools
           </h3>
-          <div class="flex flex-wrap justify-center sm:justify-start gap-2">
+          <ul class="flex flex-wrap justify-center sm:justify-start gap-2 p-0 list-none">
             @for (tech of secondaryStack(); track tech.name) {
-              <span
-                class="inline-flex items-center rounded-full bg-slate-50 dark:bg-slate-900 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-800"
-              >
-                {{ tech.name }}
-              </span>
+              <li class="contents">
+                <span
+                  class="inline-flex items-center rounded-full bg-slate-50 dark:bg-slate-900 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-800"
+                >
+                  {{ tech.name }}
+                </span>
+              </li>
             }
-          </div>
+          </ul>
         </div>
 
         <!-- Expandable Detailed Skills (Accordion) -->
