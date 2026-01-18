@@ -33,9 +33,8 @@ import {
           <div class="space-y-8">
             <div class="flex items-center gap-2">
               <img
-                [ngSrc]="'images/karol-modelski.webp'"
+                src="images/karol-modelski.webp"
                 alt="Karol Modelski"
-                [priority]="true"
                 width="40"
                 height="40"
                 class="h-10 w-10 rounded-xl shadow-lg shadow-primary-600/20 object-cover"
