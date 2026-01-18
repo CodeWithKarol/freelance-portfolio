@@ -226,7 +226,7 @@ import {
                   <img
                     [ngSrc]="'images/karol-modelski.webp'"
                     [priority]="true"
-                    fill
+                    [fill]="true"
                     alt="Karol Modelski"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

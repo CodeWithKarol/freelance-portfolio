@@ -83,7 +83,7 @@ import {
               <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
                 {{ store.footerColumns()[0].title }}
               </h3>
-              <ul role="list" class="mt-6 space-y-4">
+              <ul class="mt-6 space-y-4">
                 @for (link of store.footerColumns()[0].links; track link.label) {
                   <li>
                     <a
@@ -100,7 +100,7 @@ import {
               <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
                 {{ store.footerColumns()[1].title }}
               </h3>
-              <ul role="list" class="mt-6 space-y-4">
+              <ul class="mt-6 space-y-4">
                 @for (link of store.footerColumns()[1].links; track link.label) {
                   <li>
                     <a
@@ -117,7 +117,7 @@ import {
               <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
                 {{ store.footerColumns()[2].title }}
               </h3>
-              <ul role="list" class="mt-6 space-y-4">
+              <ul class="mt-6 space-y-4">
                 @for (link of store.footerColumns()[2].links; track link.label) {
                   <li>
                     <a
@@ -135,7 +135,7 @@ import {
               <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
                 Contact
               </h3>
-              <ul role="list" class="mt-6 space-y-4">
+              <ul class="mt-6 space-y-4">
                 <li
                   class="flex items-start gap-2 text-sm leading-6 text-slate-600 dark:text-slate-400"
                 >
