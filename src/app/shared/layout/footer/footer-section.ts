@@ -33,9 +33,9 @@ import {
           <div class="space-y-8">
             <div class="flex items-center gap-2">
               <img
-                ngSrc="images/karol-modelski.webp"
+                [ngSrc]="'images/karol-modelski.webp'"
                 alt="Karol Modelski"
-                priority
+                [priority]="true"
                 width="40"
                 height="40"
                 class="h-10 w-10 rounded-xl shadow-lg shadow-primary-600/20 object-cover"
@@ -50,27 +50,27 @@ import {
             </p>
             <div class="flex space-x-6">
               @for (social of store.socialLinks(); track social.platform) {
-              <a
-                [href]="social.url"
-                target="_blank"
-                class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              >
-                <span class="sr-only">{{ social.platform }}</span>
-                <!-- Icon Logic -->
-                @if (social.icon === 'github') {
-                <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
-                } @else if (social.icon === 'linkedin') {
-                <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
-                } @else if (social.icon === 'medium') {
-                <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
-                } @else if (social.icon === 'rocket') {
-                <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
-                } @else if (social.icon === 'globe') {
-                <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
-                } @else {
-                <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
-                }
-              </a>
+                <a
+                  [href]="social.url"
+                  target="_blank"
+                  class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                >
+                  <span class="sr-only">{{ social.platform }}</span>
+                  <!-- Icon Logic -->
+                  @if (social.icon === 'github') {
+                    <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
+                  } @else if (social.icon === 'linkedin') {
+                    <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
+                  } @else if (social.icon === 'medium') {
+                    <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
+                  } @else if (social.icon === 'rocket') {
+                    <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
+                  } @else if (social.icon === 'globe') {
+                    <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                  } @else {
+                    <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                  }
+                </a>
               }
             </div>
           </div>
@@ -85,14 +85,14 @@ import {
               </h3>
               <ul role="list" class="mt-6 space-y-4">
                 @for (link of store.footerColumns()[0].links; track link.label) {
-                <li>
-                  <a
-                    [href]="link.href"
-                    class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  >
-                    {{ link.label }}
-                  </a>
-                </li>
+                  <li>
+                    <a
+                      [href]="link.href"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    >
+                      {{ link.label }}
+                    </a>
+                  </li>
                 }
               </ul>
             </div>
@@ -102,14 +102,14 @@ import {
               </h3>
               <ul role="list" class="mt-6 space-y-4">
                 @for (link of store.footerColumns()[1].links; track link.label) {
-                <li>
-                  <a
-                    [href]="link.href"
-                    class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  >
-                    {{ link.label }}
-                  </a>
-                </li>
+                  <li>
+                    <a
+                      [href]="link.href"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    >
+                      {{ link.label }}
+                    </a>
+                  </li>
                 }
               </ul>
             </div>
@@ -119,14 +119,14 @@ import {
               </h3>
               <ul role="list" class="mt-6 space-y-4">
                 @for (link of store.footerColumns()[2].links; track link.label) {
-                <li>
-                  <a
-                    [href]="link.href"
-                    class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-                  >
-                    {{ link.label }}
-                  </a>
-                </li>
+                  <li>
+                    <a
+                      [href]="link.href"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    >
+                      {{ link.label }}
+                    </a>
+                  </li>
                 }
               </ul>
             </div>

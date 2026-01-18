@@ -8,21 +8,21 @@ import { CommonModule } from '@angular/common';
   template: `
     <div [class]="containerClasses()">
       @if (preTitle()) {
-      <h2
-        class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400 uppercase tracking-widest"
-      >
-        {{ preTitle() }}
-      </h2>
+        <div
+          class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400 uppercase tracking-widest"
+        >
+          {{ preTitle() }}
+        </div>
       }
-      <h1
+      <h2
         class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl text-balance"
       >
         {{ title() }}
-      </h1>
+      </h2>
       @if (description()) {
-      <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
-        {{ description() }}
-      </p>
+        <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-400">
+          {{ description() }}
+        </p>
       }
     </div>
   `,

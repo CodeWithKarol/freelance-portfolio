@@ -10,6 +10,11 @@
     "dist": true,
     ".angular": true
   },
+  "files.watcherExclude": {
+    "**/dist/**": true,
+    "**/.angular/**": true,
+    "**/node_modules/**": true
+  },
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.unknownAtRules": "ignore",
   "less.lint.unknownAtRules": "ignore"

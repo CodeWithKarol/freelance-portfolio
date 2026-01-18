@@ -10,7 +10,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
   template: `
     <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       <!-- Background & Blur Layer -->
-      <div 
+      <div
         class="absolute inset-0 border-b border-transparent transition-all duration-300"
         [class.bg-white/80]="isScrolled()"
         [class.dark:bg-slate-950/80]="isScrolled()"
@@ -20,27 +20,38 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         [class.shadow-sm]="isScrolled()"
       ></div>
 
-      <nav class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8" aria-label="Global">
-        
+      <nav
+        class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8"
+        aria-label="Global"
+      >
         <!-- Logo Area -->
         <div class="flex lg:flex-1">
-          <a (click)="scrollTo('about')" class="-m-1.5 p-1.5 flex items-center gap-3 cursor-pointer group">
+          <a
+            (click)="scrollTo('about')"
+            class="-m-1.5 p-1.5 flex items-center gap-3 cursor-pointer group"
+          >
             <span class="sr-only">Karol Modelski</span>
-            <div class="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-slate-100 dark:ring-slate-800 group-hover:ring-indigo-500 transition-all duration-300">
-              <img 
-                ngSrc="images/karol-modelski.webp" 
-                priority
+            <div
+              class="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-slate-100 dark:ring-slate-800 group-hover:ring-indigo-500 transition-all duration-300"
+            >
+              <img
+                [ngSrc]="'images/karol-modelski.webp'"
+                [priority]="true"
                 width="36"
                 height="36"
-                alt="" 
+                alt=""
                 class="h-full w-full object-cover"
               />
             </div>
             <div class="hidden sm:flex flex-col">
-              <span class="text-sm font-bold text-slate-900 dark:text-white leading-none mb-0.5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              <span
+                class="text-sm font-bold text-slate-900 dark:text-white leading-none mb-0.5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+              >
                 Karol Modelski
               </span>
-              <span class="text-[10px] font-medium text-slate-500 uppercase tracking-wider leading-none">
+              <span
+                class="text-[10px] font-medium text-slate-500 uppercase tracking-wider leading-none"
+              >
                 Senior Frontend Developer
               </span>
             </div>
@@ -74,15 +85,19 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             </a>
           }
           <a
-            routerLink="/work"
-            routerLinkActive="bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300"
+            [routerLink]="'/work'"
+            [routerLinkActive]="
+              'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
+            "
             class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200"
           >
             Work
           </a>
           <a
-            routerLink="/blog"
-            routerLinkActive="bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300"
+            [routerLink]="'/blog'"
+            [routerLinkActive]="
+              'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
+            "
             class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200"
           >
             Blog
@@ -98,12 +113,12 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             aria-label="Toggle theme"
           >
             <!-- Sun icon (shows in dark mode) -->
-            <lucide-icon 
+            <lucide-icon
               [img]="Sun"
               class="h-5 w-5 transition-transform duration-500 rotate-90 dark:rotate-0 hidden dark:block"
             ></lucide-icon>
             <!-- Moon icon (shows in light mode) -->
-            <lucide-icon 
+            <lucide-icon
               [img]="Moon"
               class="h-5 w-5 transition-transform duration-500 rotate-0 dark:-rotate-90 dark:hidden block"
             ></lucide-icon>
@@ -120,14 +135,14 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
       </nav>
 
       <!-- Mobile Menu Overlay -->
-      <div 
-        class="lg:hidden" 
+      <div
+        class="lg:hidden"
         [class.pointer-events-none]="!isMenuOpen()"
-        role="dialog" 
+        role="dialog"
         aria-modal="true"
       >
         <!-- Backdrop -->
-        <div 
+        <div
           class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300"
           [class.opacity-100]="isMenuOpen()"
           [class.opacity-0]="!isMenuOpen()"
@@ -135,19 +150,22 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         ></div>
 
         <!-- Panel -->
-        <div 
+        <div
           class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-900/10 transition-transform duration-300 ease-in-out"
           [class.translate-x-0]="isMenuOpen()"
           [class.translate-x-full]="!isMenuOpen()"
         >
           <div class="flex items-center justify-between">
-            <a (click)="scrollTo('about')" class="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
-              <img 
-                ngSrc="images/karol-modelski.webp" 
-                priority
+            <a
+              (click)="scrollTo('about')"
+              class="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
+            >
+              <img
+                [ngSrc]="'images/karol-modelski.webp'"
+                [priority]="true"
                 width="32"
                 height="32"
-                alt="" 
+                alt=""
                 class="rounded-full ring-1 ring-slate-200 dark:ring-slate-800"
               />
               <span class="text-sm font-bold text-slate-900 dark:text-white">Karol Modelski</span>
@@ -161,7 +179,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
               <lucide-icon [img]="X" class="h-6 w-6"></lucide-icon>
             </button>
           </div>
-          
+
           <div class="mt-8 flow-root">
             <div class="-my-6 divide-y divide-slate-100 dark:divide-slate-800">
               <div class="space-y-1 py-6">
@@ -174,14 +192,14 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                   </a>
                 }
                 <a
-                  routerLink="/work"
+                  [routerLink]="'/work'"
                   (click)="toggleMenu()"
                   class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
                 >
                   Work
                 </a>
                 <a
-                  routerLink="/blog"
+                  [routerLink]="'/blog'"
                   (click)="toggleMenu()"
                   class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
                 >
@@ -189,27 +207,31 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                 </a>
               </div>
               <div class="py-6">
-                 <div class="flex items-center justify-between mb-6 p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
-                    <span class="text-sm font-medium text-slate-900 dark:text-slate-200">Dark Appearance</span>
-                    <button 
-                      (click)="toggleTheme()"
-                      class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
-                      [class.bg-indigo-600]="isDark()"
-                      [class.bg-slate-200]="!isDark()"
-                    >
-                      <span class="sr-only">Toggle theme</span>
-                      <span
-                        class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
-                        [class.translate-x-5]="isDark()"
-                        [class.translate-x-0]="!isDark()"
-                      ></span>
-                    </button>
-                  </div>
+                <div
+                  class="flex items-center justify-between mb-6 p-3 rounded-lg bg-slate-50 dark:bg-slate-900"
+                >
+                  <span class="text-sm font-medium text-slate-900 dark:text-slate-200"
+                    >Dark Appearance</span
+                  >
+                  <button
+                    (click)="toggleTheme()"
+                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+                    [class.bg-indigo-600]="isDark()"
+                    [class.bg-slate-200]="!isDark()"
+                  >
+                    <span class="sr-only">Toggle theme</span>
+                    <span
+                      class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                      [class.translate-x-5]="isDark()"
+                      [class.translate-x-0]="!isDark()"
+                    ></span>
+                  </button>
+                </div>
                 <a
                   (click)="scrollTo('contact')"
                   class="-mx-3 block rounded-xl px-3 py-3 text-center text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition-colors cursor-pointer"
                 >
-                   Book a Call
+                  Book a Call
                 </a>
               </div>
             </div>

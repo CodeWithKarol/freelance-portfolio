@@ -117,13 +117,20 @@ import {
 
               <!-- Tech Stack Pills -->
               <div class="mt-8 flex flex-wrap gap-2">
-                @for (tech of ['Angular 21', 'Signals Architecture', 'SSR-Ready Performance',
-                'Tailwind CSS 4']; track tech) {
-                <span
-                  class="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-400 ring-1 ring-inset ring-indigo-700/10 dark:ring-indigo-700/20"
-                >
-                  {{ tech }}
-                </span>
+                @for (
+                  tech of [
+                    'Angular 21',
+                    'Signals Architecture',
+                    'SSR-Ready Performance',
+                    'Tailwind CSS 4',
+                  ];
+                  track tech
+                ) {
+                  <span
+                    class="inline-flex items-center rounded-md bg-indigo-50 dark:bg-indigo-500/10 px-2 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-400 ring-1 ring-inset ring-indigo-700/10 dark:ring-indigo-700/20"
+                  >
+                    {{ tech }}
+                  </span>
                 }
               </div>
 
@@ -149,7 +156,7 @@ import {
                 </a>
 
                 <a
-                  routerLink="/work"
+                  [routerLink]="'/work'"
                   class="text-sm font-semibold leading-6 text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1 ml-2"
                 >
                   View Case Studies <span aria-hidden="true">→</span>
@@ -157,7 +164,7 @@ import {
               </div>
 
               <!-- Key Metrics/Points -->
-              <div
+              <dl
                 class="mt-14 pt-10 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 gap-8 sm:grid-cols-3"
               >
                 <div>
@@ -202,7 +209,7 @@ import {
                     Ship faster, safer
                   </dd>
                 </div>
-              </div>
+              </dl>
             </div>
 
             <!-- Right Image Column -->
@@ -217,8 +224,8 @@ import {
                   class="relative overflow-hidden rounded-2xl bg-slate-50 dark:bg-slate-900 shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 aspect-[6/7]"
                 >
                   <img
-                    ngSrc="images/karol-modelski.webp"
-                    priority
+                    [ngSrc]="'images/karol-modelski.webp'"
+                    [priority]="true"
                     fill
                     alt="Karol Modelski"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
