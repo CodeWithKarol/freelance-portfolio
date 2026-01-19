@@ -165,6 +165,10 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
           [class.opacity-100]="isMenuOpen()"
           [class.opacity-0]="!isMenuOpen()"
           (click)="toggleMenu()"
+          (keydown)="toggleMenu()"
+          tabindex="0"
+          role="button"
+          aria-label="Close menu"
         ></div>
 
         <!-- Panel -->

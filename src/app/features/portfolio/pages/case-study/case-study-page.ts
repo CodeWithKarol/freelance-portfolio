@@ -2,7 +2,6 @@ import { Component, inject, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { Meta } from '@angular/platform-browser';
 import {
   LucideAngularModule,
   ArrowLeft,

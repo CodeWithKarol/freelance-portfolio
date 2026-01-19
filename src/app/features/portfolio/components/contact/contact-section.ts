@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError, finalize, take } from 'rxjs/operators';
-import { throwError, of } from 'rxjs';
+import { of } from 'rxjs';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import {
   LucideAngularModule,
@@ -308,8 +308,9 @@ export class ContactSection {
   isSubmitting = signal(false);
   isSuccess = signal(false);
   contactForm;
+  private fb = inject(FormBuilder);
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],

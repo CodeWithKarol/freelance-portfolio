@@ -264,6 +264,7 @@ export class SkillsSection {
   readonly Plus = Plus;
   readonly Minus = Minus;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private categoryIcons: Record<string, any> = {
     'Core Stack': Terminal,
     Frameworks: Smartphone,
