@@ -16,7 +16,13 @@ import { BlogPost } from '../../../../../core/portfolio/portfolio.model';
         <div
           class="aspect-[16/9] w-full overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 shadow-sm ring-1 ring-inset ring-slate-200 dark:ring-slate-800 transition-all hover:ring-slate-300 dark:hover:ring-slate-700 group"
         >
-          <a [href]="post().url" target="_blank" class="block h-full w-full focus:outline-none">
+          <a
+            [href]="post().url"
+            target="_blank"
+            class="block h-full w-full focus:outline-none"
+            aria-hidden="true"
+            tabindex="-1"
+          >
             <img
               [src]="
                 post().imageUrl ||
@@ -38,7 +44,7 @@ import { BlogPost } from '../../../../../core/portfolio/portfolio.model';
             {{ post().category }}
           </span>
           <time [attr.datetime]="post().date" class="text-slate-500 dark:text-slate-400">
-            {{ post().date | date : 'longDate' }}
+            {{ post().date | date: 'longDate' }}
           </time>
         </div>
 

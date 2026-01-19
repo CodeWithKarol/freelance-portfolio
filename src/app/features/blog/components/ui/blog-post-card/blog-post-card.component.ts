@@ -27,10 +27,15 @@ import { BlogPost } from '../../../../../core/portfolio/portfolio.model';
               post().imageUrl ||
               'https://images.unsplash.com/photo-1499750310159-5254f4cc1555?q=80&w=2670&auto=format&fit=crop'
             "
-            [alt]="post().title"
+            alt=""
             class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-105"
           />
-          <a [href]="post().url" target="_blank" class="absolute inset-0 focus:outline-none"
+          <a
+            [href]="post().url"
+            target="_blank"
+            class="absolute inset-0 focus:outline-none"
+            aria-hidden="true"
+            tabindex="-1"
             ><span class="sr-only">Read post</span></a
           >
         </div>
@@ -41,7 +46,7 @@ import { BlogPost } from '../../../../../core/portfolio/portfolio.model';
         <div
           class="flex items-center gap-x-4 text-xs font-medium text-slate-500 dark:text-slate-400 mb-3"
         >
-          <time [attr.datetime]="post().date">{{ post().date | date : 'mediumDate' }}</time>
+          <time [attr.datetime]="post().date">{{ post().date | date: 'mediumDate' }}</time>
           <span
             class="rounded-full bg-slate-50 dark:bg-slate-800/50 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
           >

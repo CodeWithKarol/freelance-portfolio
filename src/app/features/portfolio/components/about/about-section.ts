@@ -62,6 +62,7 @@ import {
               <div class="mb-8 flex">
                 <div
                   class="relative flex items-center gap-x-2 rounded-full px-4 py-1.5 text-sm leading-6 text-slate-600 dark:text-slate-300 ring-1 ring-slate-900/10 dark:ring-white/10 hover:ring-slate-900/20 dark:hover:ring-white/20 transition-all bg-white/50 dark:bg-white/5 backdrop-blur-sm"
+                  role="status"
                 >
                   <span class="relative flex h-2 w-2">
                     <span

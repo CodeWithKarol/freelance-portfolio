@@ -104,11 +104,14 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
           <div
             class="divide-y divide-slate-200 dark:divide-slate-800 border-t border-b border-slate-200 dark:border-slate-800"
           >
-            @for (group of groupedTechnicalSkills(); track group.category) {
+            @for (group of groupedTechnicalSkills(); track group.category; let i = $index) {
               <div class="py-4">
                 <button
                   (click)="toggleCategory(group.category)"
-                  class="flex w-full items-center justify-between py-2 text-left text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors focus:outline-none group"
+                  [attr.aria-expanded]="isCategoryOpen(group.category)"
+                  [attr.aria-controls]="'skill-group-' + i"
+                  [id]="'skill-button-' + i"
+                  class="flex w-full items-center justify-between py-2 text-left text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg -mx-2 px-2 group"
                 >
                   <span class="text-base font-semibold flex items-center gap-3">
                     <lucide-icon
@@ -129,7 +132,12 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                   </span>
                 </button>
                 @if (isCategoryOpen(group.category)) {
-                  <div class="mt-4 pb-2 animate-in slide-in-from-top-2 fade-in duration-200">
+                  <div
+                    [id]="'skill-group-' + i"
+                    role="region"
+                    [attr.aria-labelledby]="'skill-button-' + i"
+                    class="mt-4 pb-2 animate-in slide-in-from-top-2 fade-in duration-200"
+                  >
                     <div class="flex flex-wrap gap-2">
                       @for (skill of group.skills; track skill.name) {
                         <span

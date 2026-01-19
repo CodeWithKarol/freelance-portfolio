@@ -65,6 +65,8 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             type="button"
             class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             (click)="toggleMenu()"
+            [attr.aria-expanded]="isMenuOpen()"
+            aria-controls="mobile-menu"
           >
             <span class="sr-only">Open main menu</span>
             @if (!isMenuOpen()) {
@@ -153,6 +155,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
 
       <!-- Mobile Menu Overlay -->
       <div
+        id="mobile-menu"
         class="lg:hidden"
         [class.pointer-events-none]="!isMenuOpen()"
         role="dialog"

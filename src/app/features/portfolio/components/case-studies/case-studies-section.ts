@@ -111,6 +111,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                 [class.lg:order-1]="i % 2 === 0"
                 [class.lg:order-2]="i % 2 !== 0"
                 class="relative"
+                aria-hidden="true"
               >
                 <!-- Background Shape -->
                 <div
@@ -167,6 +168,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                     >
                       <a
                         [routerLink]="['/work', case.id]"
+                        tabindex="-1"
                         class="inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                       >
                         View Case Study

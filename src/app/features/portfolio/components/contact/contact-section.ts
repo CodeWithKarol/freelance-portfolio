@@ -112,6 +112,8 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
             @if (isSuccess()) {
               <div
                 class="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-6 border border-emerald-100 dark:border-emerald-800 animate-in fade-in slide-in-from-bottom-2 text-center"
+                role="status"
+                aria-live="polite"
               >
                 <div
                   class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900 mb-4"
@@ -144,13 +146,25 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                       [formControlName]="'name'"
                       id="name"
                       autocomplete="name"
+                      [attr.aria-invalid]="
+                        contactForm.get('name')?.touched && contactForm.get('name')?.invalid
+                          ? 'true'
+                          : null
+                      "
+                      [attr.aria-describedby]="
+                        contactForm.get('name')?.touched && contactForm.get('name')?.invalid
+                          ? 'name-error'
+                          : null
+                      "
                       [class.ring-red-500]="
                         contactForm.get('name')?.touched && contactForm.get('name')?.invalid
                       "
                       class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 transition-shadow"
                     />
                     @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
-                      <p class="mt-1 text-xs text-red-500">Name is required.</p>
+                      <p id="name-error" class="mt-1 text-xs text-red-500" role="alert">
+                        Name is required.
+                      </p>
                     }
                   </div>
                 </div>
@@ -168,13 +182,25 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                       [formControlName]="'email'"
                       id="email"
                       autocomplete="email"
+                      [attr.aria-invalid]="
+                        contactForm.get('email')?.touched && contactForm.get('email')?.invalid
+                          ? 'true'
+                          : null
+                      "
+                      [attr.aria-describedby]="
+                        contactForm.get('email')?.touched && contactForm.get('email')?.invalid
+                          ? 'email-error'
+                          : null
+                      "
                       [class.ring-red-500]="
                         contactForm.get('email')?.touched && contactForm.get('email')?.invalid
                       "
                       class="block w-full rounded-md border-0 px-3.5 py-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6 dark:bg-white/5 dark:ring-white/10 dark:text-white dark:focus:ring-primary-500 transition-shadow"
                     />
                     @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
-                      <p class="mt-1 text-xs text-red-500">Valid email is required.</p>
+                      <p id="email-error" class="mt-1 text-xs text-red-500" role="alert">
+                        Valid email is required.
+                      </p>
                     }
                   </div>
                 </div>
@@ -251,6 +277,16 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                       [formControlName]="'message'"
                       id="message"
                       rows="4"
+                      [attr.aria-invalid]="
+                        contactForm.get('message')?.touched && contactForm.get('message')?.invalid
+                          ? 'true'
+                          : null
+                      "
+                      [attr.aria-describedby]="
+                        contactForm.get('message')?.touched && contactForm.get('message')?.invalid
+                          ? 'message-error'
+                          : null
+                      "
                       [class.ring-red-500]="
                         contactForm.get('message')?.touched && contactForm.get('message')?.invalid
                       "
@@ -259,7 +295,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                     @if (
                       contactForm.get('message')?.touched && contactForm.get('message')?.invalid
                     ) {
-                      <p class="mt-1 text-xs text-red-500">
+                      <p id="message-error" class="mt-1 text-xs text-red-500" role="alert">
                         Please provide at least 20 chars about your project goal.
                       </p>
                     }
