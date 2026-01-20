@@ -1,7 +1,8 @@
-import { Component, inject, computed, input } from '@angular/core';
+import { Component, inject, computed, input, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { SeoService } from '../../../../core/seo/seo.service';
 import {
   LucideAngularModule,
   ArrowLeft,
@@ -255,6 +256,7 @@ import {
 })
 export class CaseStudyPage {
   store = inject(PortfolioStore);
+  seo = inject(SeoService);
 
   // Input from router parameter
   slug = input.required<string>();
@@ -262,6 +264,35 @@ export class CaseStudyPage {
   caseStudy = computed(() => {
     return this.store.caseStudies().find((c) => c.id === this.slug());
   });
+
+  constructor() {
+    effect(() => {
+      const study = this.caseStudy();
+      if (study) {
+        this.seo.updateSeo({
+          title: study.title,
+          description: study.challenge.substring(0, 150) + '...', // Create a meta description from component data
+          image: study.heroImage,
+          url: '/work/' + study.id,
+          keywords: study.techStack,
+        });
+
+        // Structured Data for Portfolio/Project
+        this.seo.setJsonLd({
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          headline: study.title,
+          image: [study.heroImage],
+          author: {
+            '@type': 'Person',
+            name: 'Karol Modelski',
+          },
+          keywords: study.techStack.join(', '),
+          description: study.challenge,
+        });
+      }
+    });
+  }
 
   readonly ArrowLeft = ArrowLeft;
   readonly ExternalLink = ExternalLink;

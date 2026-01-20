@@ -56,5 +56,3 @@ export const CASE_STUDIES: CaseStudy[] = [
     repoUrl: 'https://github.com/CodeWithKarol/quick-cart',
   },
 ];
-
-export const BLOG_POSTS: BlogPost[] = [];

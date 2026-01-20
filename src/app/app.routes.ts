@@ -30,12 +30,6 @@ export const routes: Routes = [
     title: 'Blog | Angular Insights',
   },
   {
-    path: 'blog/:slug',
-    loadComponent: () =>
-      import('./features/blog/pages/blog-post/blog-post-page').then((m) => m.BlogPostPage),
-    title: 'Post | Angular Insights',
-  },
-  {
     path: '**',
     redirectTo: '',
   },

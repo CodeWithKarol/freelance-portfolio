@@ -35,9 +35,4 @@ describe('PortfolioStore', () => {
     const testimonials = store.testimonials();
     expect(testimonials.length).toBeGreaterThan(0);
   });
-
-  it('should have blog posts signal populated', () => {
-    const posts = store.blogPosts();
-    expect(posts.length).toBeGreaterThan(0);
-  });
 });

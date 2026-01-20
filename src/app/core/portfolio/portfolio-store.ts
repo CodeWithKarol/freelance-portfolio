@@ -10,7 +10,7 @@ import {
   ContactInfo,
   Experience,
 } from './portfolio.model';
-import { CASE_STUDIES, BLOG_POSTS } from './portfolio-data';
+import { CASE_STUDIES } from './portfolio-data';
 
 @Injectable({
   providedIn: 'root',
@@ -308,8 +308,6 @@ export class PortfolioStore {
       avatarUrl: 'assets/images/john.jpg',
     },
   ]);
-
-  readonly blogPosts = signal<BlogPost[]>(BLOG_POSTS);
 
   readonly socialLinks = signal<SocialLink[]>([
     {

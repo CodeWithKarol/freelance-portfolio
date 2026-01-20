@@ -1,9 +1,17 @@
-import { Component, ChangeDetectionStrategy, inject, computed, signal } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  inject,
+  computed,
+  signal,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import { BackgroundPatternComponent } from '../../../../shared/ui/background-pattern/background-pattern.component';
 import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
 import { ProjectCardComponent } from '../../components/ui/project-card/project-card.component';
+import { SeoService } from '../../../../core/seo/seo.service';
 
 @Component({
   selector: 'app-work-page',
@@ -62,12 +70,22 @@ import { ProjectCardComponent } from '../../components/ui/project-card/project-c
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkPage {
+export class WorkPage implements OnInit {
   store = inject(PortfolioStore);
+  seo = inject(SeoService);
 
   // State
   private readonly batchSize = 3;
   protected visibleCount = signal(4);
+
+  ngOnInit() {
+    this.seo.updateSeo({
+      title: 'Selected Work',
+      description:
+        'Explore my portfolio of enterprise Angular modernization projects, performance optimizations, and scalable SaaS architectures.',
+      url: '/work',
+    });
+  }
 
   // Derived
   hasProjects = computed(() => this.store.caseStudies().length > 0);

@@ -1,4 +1,11 @@
-import { Component, ChangeDetectionStrategy, computed, signal } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  computed,
+  signal,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { httpResource } from '@angular/common/http';
 import { BlogPost } from '../../../../core/portfolio/portfolio.model';
@@ -7,6 +14,7 @@ import { BackgroundPatternComponent } from '../../../../shared/ui/background-pat
 import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
 import { FeaturedBlogPostComponent } from '../../components/ui/featured-blog-post/featured-blog-post.component';
 import { BlogPostCardComponent } from '../../components/ui/blog-post-card/blog-post-card.component';
+import { SeoService } from '../../../../core/seo/seo.service';
 
 interface MediumFeedResponse {
   status: string;
@@ -136,9 +144,11 @@ interface MediumPost {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BlogListPage {
+export class BlogListPage implements OnInit {
   private readonly rssUrl = 'https://karol-modelski.medium.com/feed';
   private readonly apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${this.rssUrl}`;
+
+  private seo = inject(SeoService);
 
   readonly ArrowRight = ArrowRight;
   readonly Loader2 = Loader2;
@@ -191,5 +201,36 @@ export class BlogListPage {
 
   loadMore() {
     this.visibleCount.update((c) => c + this.displayBatchSize);
+  }
+
+  ngOnInit() {
+    this.seo.updateSeo({
+      title: 'Engineering Blog & Angular Insights',
+      description:
+        'Practical articles on Angular architecture, Signals, RxJS patterns, and performance tuning. Deep dives into real-world engineering problems and solutions.',
+      url: '/blog',
+      keywords: [
+        'Angular Blog',
+        'Frontend Engineering',
+        'Web Performance',
+        'Software Architecture',
+        'RxJS',
+        'Signals',
+      ],
+      type: 'website',
+    });
+
+    this.seo.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Engineering Insights by Karol Modelski',
+      description:
+        'Practical writing on Angular architecture, Signals/RxJS patterns, and performance tuning.',
+      url: 'https://www.karol-modelski.scale-sail.io/blog',
+      author: {
+        '@type': 'Person',
+        name: 'Karol Modelski',
+      },
+    });
   }
 }
