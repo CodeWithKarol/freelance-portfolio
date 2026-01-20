@@ -34,29 +34,23 @@ export class HomePage implements OnInit {
 
     this.seo.setJsonLd({
       '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebSite',
-          name: 'Karol Modelski Portfolio',
-          url: 'https://www.karol-modelski.scale-sail.io',
-          author: {
-            '@id': 'https://www.karol-modelski.scale-sail.io/#identity',
-          },
-        },
-        {
-          '@type': 'Person',
-          '@id': 'https://www.karol-modelski.scale-sail.io/#identity',
-          name: 'Karol Modelski',
-          jobTitle: 'Senior Frontend Developer',
-          url: 'https://www.karol-modelski.scale-sail.io',
-          image: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
-          sameAs: [
-            'https://www.linkedin.com/in/karol-modelski',
-            'https://github.com/CodeWithKarol',
-            'https://karol-modelski.medium.com/',
-          ],
-        },
-      ],
+      '@type': 'ProfilePage',
+      dateCreated: '2024-01-01T12:00:00+00:00',
+      dateModified: new Date().toISOString(),
+      mainEntity: {
+        '@type': 'Person',
+        name: 'Karol Modelski',
+        jobTitle: 'Senior Frontend Developer',
+        description:
+          'Senior Frontend Developer specialized in modernizing legacy Angular applications.',
+        image: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
+        url: 'https://www.karol-modelski.scale-sail.io',
+        sameAs: [
+          'https://www.linkedin.com/in/karol-modelski',
+          'https://github.com/CodeWithKarol',
+          'https://karol-modelski.medium.com/',
+        ],
+      },
     });
   }
 }
