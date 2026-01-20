@@ -30,7 +30,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
           <app-section-header
             preTitle="Technical Proficiency"
             title="Engineering for Scale & Performance"
-            description="This is the stack I use to modernize frontends, improve Core Web Vitals, and keep large codebases maintainable under real-world delivery pressure."
+            description="A comprehensive Frontend toolchain. While Angular is my specialty for enterprise scale, I maintain deep proficiency in React and the broader JavaScript ecosystem to architect the right solution for the problem."
           />
         </div>
 
@@ -210,8 +210,17 @@ export class SkillsSection {
   // core stack defined as specific high-impact items
   coreStack = computed(() =>
     this.skills()
-      .filter((s) => s.proficiency === 'Expert' && s.category !== 'Soft Skills')
-      .sort((a, b) => b.years - a.years)
+      .filter(
+        (s) => (s.proficiency === 'Expert' || s.name === 'React') && s.category !== 'Soft Skills',
+      )
+      .sort((a, b) => {
+        // Force Angular then React to appear, generally sort by years/proficiency
+        if (a.name === 'Angular') return -1;
+        if (b.name === 'Angular') return 1;
+        if (a.name === 'React') return -1;
+        if (b.name === 'React') return 1;
+        return b.years - a.years;
+      })
       .slice(0, 8),
   );
 

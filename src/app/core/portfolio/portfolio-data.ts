@@ -30,7 +30,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: 'quickcart-ecommerce',
-    title: 'QuickCart E-Commerce',
+    title: 'QuickCart: High-Performance E-Commerce Architecture',
     tagline: 'Next-Gen Angular E-Commerce Architecture',
     heroImage: '/images/www.quick-cart.scale-sail.io_.webp',
     challenge:

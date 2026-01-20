@@ -90,10 +90,10 @@ import {
               <p
                 class="relative mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300 sm:max-w-md lg:max-w-none"
               >
-                I help enterprise teams and ambitious startups turn slow, tangled Angular frontends
-                into clean, modular systems that ship faster and stay fast. Expect measurable
-                performance wins, audit-ready engineering practices, and architecture that scales
-                with your product.
+                I help enterprise teams and ambitious startups turn slow, tangled frontends
+                (specializing in Angular) into clean, modular systems that ship faster and stay
+                fast. Expect measurable performance wins, audit-ready engineering practices, and
+                architecture that scales with your product.
                 <br /><br />
                 Angular is my specialty. I can also ship React when your stack or roadmap requires
                 it.
@@ -102,7 +102,7 @@ import {
               <!-- Founder Link -->
               <div class="mt-4">
                 <a
-                  href="https://www.shop.scale-sail.io/"
+                  href="https://www.scale-sail.io/"
                   target="_blank"
                   class="inline-flex items-center gap-x-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
                 >
@@ -161,6 +161,13 @@ import {
                   View Case Studies <span aria-hidden="true">→</span>
                 </a>
               </div>
+
+              <!-- Trust Anchor -->
+              <p class="mt-6 text-xs font-medium text-slate-500 dark:text-slate-400">
+                Trusted by engineering leaders at companies like
+                <span class="text-slate-700 dark:text-slate-300 font-semibold">Citi</span> and
+                <span class="text-slate-700 dark:text-slate-300 font-semibold">BNP Paribas</span>.
+              </p>
 
               <!-- Key Metrics/Points -->
               <dl

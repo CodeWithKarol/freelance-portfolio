@@ -304,7 +304,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
               </div>
 
               <!-- Submit -->
-              <div class="mt-8 flex justify-end">
+              <div class="mt-8 flex flex-col items-center sm:items-end gap-3">
                 <button
                   type="submit"
                   [disabled]="contactForm.invalid || isSubmitting()"
@@ -322,6 +322,14 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                     Send Message
                   }
                 </button>
+
+                <a
+                  [href]="store.contactInfo().calendlyUrl"
+                  target="_blank"
+                  class="text-xs text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                >
+                  Short on time? View my Calendar →
+                </a>
               </div>
             }
           </div>

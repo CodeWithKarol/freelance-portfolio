@@ -20,7 +20,7 @@ export class PortfolioStore {
     {
       name: 'Angular',
       icon: 'angular',
-      category: 'Core Stack',
+      category: 'Frameworks',
       proficiency: 'Expert',
       years: 6,
     },
@@ -329,7 +329,7 @@ export class PortfolioStore {
     },
     {
       platform: 'Scale Sail',
-      url: 'https://www.shop.scale-sail.io/',
+      url: 'https://www.scale-sail.io/',
       icon: 'globe',
     },
   ]);
