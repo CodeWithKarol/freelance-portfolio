@@ -34,23 +34,42 @@ export class HomePage implements OnInit {
 
     this.seo.setJsonLd({
       '@context': 'https://schema.org',
-      '@type': 'ProfilePage',
-      dateCreated: '2024-01-01T12:00:00+00:00',
-      dateModified: new Date().toISOString(),
-      mainEntity: {
-        '@type': 'Person',
-        name: 'Karol Modelski',
-        jobTitle: 'Senior Frontend Developer',
-        description:
-          'Senior Frontend Developer specialized in modernizing legacy Angular applications.',
-        image: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
-        url: 'https://www.karol-modelski.scale-sail.io',
-        sameAs: [
-          'https://www.linkedin.com/in/karol-modelski',
-          'https://github.com/CodeWithKarol',
-          'https://karol-modelski.medium.com/',
-        ],
-      },
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#website',
+          url: 'https://www.karol-modelski.scale-sail.io',
+          name: 'Karol Modelski Portfolio',
+          alternateName: 'Karol Modelski',
+          description: 'Senior Frontend Developer & Legacy Modernization',
+          inLanguage: 'en-US',
+        },
+        {
+          '@type': 'ProfilePage',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#profile',
+          url: 'https://www.karol-modelski.scale-sail.io',
+          isPartOf: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#website',
+          },
+          dateCreated: '2024-01-01T12:00:00+00:00',
+          dateModified: '2026-01-20T12:00:00+00:00',
+          mainEntity: {
+            '@type': 'Person',
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+            name: 'Karol Modelski',
+            jobTitle: 'Senior Frontend Developer',
+            description:
+              'Senior Frontend Developer specialized in modernizing legacy Angular applications.',
+            image: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
+            url: 'https://www.karol-modelski.scale-sail.io',
+            sameAs: [
+              'https://www.linkedin.com/in/karol-modelski',
+              'https://github.com/CodeWithKarol',
+              'https://karol-modelski.medium.com/',
+            ],
+          },
+        },
+      ],
     });
   }
 }
