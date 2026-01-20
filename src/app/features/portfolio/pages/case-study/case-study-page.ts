@@ -280,15 +280,23 @@ export class CaseStudyPage {
         // Structured Data for Portfolio/Project
         this.seo.setJsonLd({
           '@context': 'https://schema.org',
-          '@type': 'CreativeWork',
+          '@type': 'CreativeWork', // Or 'SoftwareSourceCode' if open source
+          name: study.title,
           headline: study.title,
-          image: [study.heroImage],
+          image: study.heroImage
+            ? [`https://www.karol-modelski.scale-sail.io${study.heroImage}`]
+            : [],
           author: {
             '@type': 'Person',
             name: 'Karol Modelski',
           },
           keywords: study.techStack.join(', '),
           description: study.challenge,
+          discussionUrl: study.repoUrl,
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://www.karol-modelski.scale-sail.io/work/${study.id}`,
+          },
         });
       }
     });

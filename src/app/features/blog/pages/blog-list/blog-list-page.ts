@@ -5,6 +5,7 @@ import {
   signal,
   inject,
   OnInit,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { httpResource } from '@angular/common/http';
@@ -203,6 +204,16 @@ export class BlogListPage implements OnInit {
     this.visibleCount.update((c) => c + this.displayBatchSize);
   }
 
+  constructor() {
+    // Dynamically update schema when blog posts are fetched
+    effect(() => {
+      const posts = this.allPosts();
+      if (posts.length > 0) {
+        this.updateSchema(posts);
+      }
+    });
+  }
+
   ngOnInit() {
     this.seo.updateSeo({
       title: 'Engineering Blog & Angular Insights',
@@ -220,6 +231,11 @@ export class BlogListPage implements OnInit {
       type: 'website',
     });
 
+    // Provide an initial schema structure (skeleton) immediately
+    this.updateSchema([]);
+  }
+
+  private updateSchema(posts: BlogPost[]) {
     this.seo.setJsonLd({
       '@context': 'https://schema.org',
       '@type': 'Blog',
@@ -227,10 +243,32 @@ export class BlogListPage implements OnInit {
       description:
         'Practical writing on Angular architecture, Signals/RxJS patterns, and performance tuning.',
       url: 'https://www.karol-modelski.scale-sail.io/blog',
+      publisher: {
+        '@type': 'Organization',
+        name: 'Scale Sail',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
+        },
+      },
       author: {
         '@type': 'Person',
         name: 'Karol Modelski',
+        url: 'https://www.karol-modelski.scale-sail.io',
       },
+      // Maps fetched posts to schema.org BlogPosting objects
+      blogPost: posts.map((p) => ({
+        '@type': 'BlogPosting',
+        headline: p.title,
+        description: p.excerpt,
+        image: p.imageUrl ? [p.imageUrl] : [],
+        datePublished: p.date,
+        url: p.url,
+        author: {
+          '@type': 'Person',
+          name: 'Karol Modelski',
+        },
+      })),
     });
   }
 }
