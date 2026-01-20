@@ -85,13 +85,17 @@ export class SeoService {
   }
 
   // Method to inject JSON-LD Structured Data
-  setJsonLd(data: Record<string, unknown>) {
-    let script = this.document.querySelector("script[type='application/ld+json']");
+  setJsonLd(data: any) {
+    const scriptId = 'seo-json-ld';
+    let script = this.document.getElementById(scriptId) as HTMLScriptElement;
+
     if (!script) {
       script = this.document.createElement('script');
-      script.setAttribute('type', 'application/ld+json');
+      script.id = scriptId;
+      script.type = 'application/ld+json';
       this.document.head.appendChild(script);
     }
+
     script.textContent = JSON.stringify(data);
   }
 }

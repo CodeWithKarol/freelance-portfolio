@@ -34,14 +34,28 @@ export class HomePage implements OnInit {
 
     this.seo.setJsonLd({
       '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Karol Modelski',
-      jobTitle: 'Senior Frontend Developer',
-      url: 'https://www.karol-modelski.scale-sail.io',
-      sameAs: [
-        'https://www.linkedin.com/in/karol-modelski',
-        'https://github.com/CodeWithKarol',
-        'https://karol-modelski.medium.com/',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          name: 'Karol Modelski Portfolio',
+          url: 'https://www.karol-modelski.scale-sail.io',
+          author: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#identity',
+          },
+        },
+        {
+          '@type': 'Person',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#identity',
+          name: 'Karol Modelski',
+          jobTitle: 'Senior Frontend Developer',
+          url: 'https://www.karol-modelski.scale-sail.io',
+          image: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
+          sameAs: [
+            'https://www.linkedin.com/in/karol-modelski',
+            'https://github.com/CodeWithKarol',
+            'https://karol-modelski.medium.com/',
+          ],
+        },
       ],
     });
   }

@@ -118,18 +118,39 @@ export class WorkPage implements OnInit {
 
     this.seo.setJsonLd({
       '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Portfolio Work - Karol Modelski',
-      description: 'Selected case studies and engineering projects.',
-      url: 'https://www.karol-modelski.scale-sail.io/work',
-      mainEntity: {
-        '@type': 'ItemList',
-        itemListElement: summaries.map((item, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          item: item,
-        })),
-      },
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://www.karol-modelski.scale-sail.io',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Work',
+              item: 'https://www.karol-modelski.scale-sail.io/work',
+            },
+          ],
+        },
+        {
+          '@type': 'CollectionPage',
+          name: 'Portfolio Work - Karol Modelski',
+          description: 'Selected case studies and engineering projects.',
+          url: 'https://www.karol-modelski.scale-sail.io/work',
+          mainEntity: {
+            '@type': 'ItemList',
+            itemListElement: summaries.map((item, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              item: item,
+            })),
+          },
+        },
+      ],
     });
   }
 
