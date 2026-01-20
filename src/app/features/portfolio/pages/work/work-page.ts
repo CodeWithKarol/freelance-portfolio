@@ -5,6 +5,7 @@ import {
   computed,
   signal,
   effect,
+  OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
@@ -70,7 +71,7 @@ import { SeoService } from '../../../../core/seo/seo.service';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkPage {
+export class WorkPage implements OnInit {
   store = inject(PortfolioStore);
   seo = inject(SeoService);
 
@@ -78,7 +79,7 @@ export class WorkPage {
   private readonly batchSize = 3;
   protected visibleCount = signal(4);
 
-  constructor() {
+  ngOnInit() {
     this.seo.updateSeo({
       title: 'Work & Case Studies',
       description:
@@ -93,31 +94,42 @@ export class WorkPage {
       ],
     });
 
-    effect(() => {
-      // Generate JSON-LD for the collection of works
-      const summaries = this.visibleProjects().map((p) => ({
-        '@type': 'CreativeWork',
-        name: p.title,
-        description: p.tagline,
-        url: `https://www.karol-modelski.scale-sail.io/work/${p.id}`,
-        image: p.heroImage ? `https://www.karol-modelski.scale-sail.io${p.heroImage}` : undefined,
-      }));
+    // Provide initial schema
+    this.updateSchema();
+  }
 
-      this.seo.setJsonLd({
-        '@context': 'https://schema.org',
-        '@type': 'CollectionPage',
-        name: 'Portfolio Work - Karol Modelski',
-        description: 'Selected case studies and engineering projects.',
-        url: 'https://www.karol-modelski.scale-sail.io/work',
-        mainEntity: {
-          '@type': 'ItemList',
-          itemListElement: summaries.map((item, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: item,
-          })),
-        },
-      });
+  constructor() {
+    effect(() => {
+      // Allow signal dependency tracking
+      this.visibleProjects();
+      this.updateSchema();
+    });
+  }
+
+  private updateSchema() {
+    // Generate JSON-LD for the collection of works
+    const summaries = this.visibleProjects().map((p) => ({
+      '@type': 'CreativeWork',
+      name: p.title,
+      description: p.tagline,
+      url: `https://www.karol-modelski.scale-sail.io/work/${p.id}`,
+      image: p.heroImage ? `https://www.karol-modelski.scale-sail.io${p.heroImage}` : undefined,
+    }));
+
+    this.seo.setJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Portfolio Work - Karol Modelski',
+      description: 'Selected case studies and engineering projects.',
+      url: 'https://www.karol-modelski.scale-sail.io/work',
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: summaries.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: item,
+        })),
+      },
     });
   }
 

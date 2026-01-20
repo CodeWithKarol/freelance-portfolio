@@ -268,37 +268,37 @@ export class CaseStudyPage {
   constructor() {
     effect(() => {
       const study = this.caseStudy();
-      if (study) {
-        this.seo.updateSeo({
-          title: study.title,
-          description: study.challenge.substring(0, 150) + '...', // Create a meta description from component data
-          image: study.heroImage,
-          url: '/work/' + study.id,
-          keywords: study.techStack,
-        });
+      if (!study) return;
 
-        // Structured Data for Portfolio/Project
-        this.seo.setJsonLd({
-          '@context': 'https://schema.org',
-          '@type': 'CreativeWork', // Or 'SoftwareSourceCode' if open source
-          name: study.title,
-          headline: study.title,
-          image: study.heroImage
-            ? [`https://www.karol-modelski.scale-sail.io${study.heroImage}`]
-            : [],
-          author: {
-            '@type': 'Person',
-            name: 'Karol Modelski',
-          },
-          keywords: study.techStack.join(', '),
-          description: study.challenge,
-          discussionUrl: study.repoUrl,
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': `https://www.karol-modelski.scale-sail.io/work/${study.id}`,
-          },
-        });
-      }
+      this.seo.updateSeo({
+        title: study.title,
+        description: study.challenge.substring(0, 150) + '...', // Create a meta description from component data
+        image: study.heroImage,
+        url: '/work/' + study.id,
+        keywords: study.techStack,
+      });
+
+      // Structured Data for Portfolio/Project
+      this.seo.setJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork', // Or 'SoftwareSourceCode' if open source
+        name: study.title,
+        headline: study.title,
+        image: study.heroImage
+          ? [`https://www.karol-modelski.scale-sail.io${study.heroImage}`]
+          : [],
+        author: {
+          '@type': 'Person',
+          name: 'Karol Modelski',
+        },
+        keywords: study.techStack.join(', '),
+        description: study.challenge,
+        discussionUrl: study.repoUrl,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `https://www.karol-modelski.scale-sail.io/work/${study.id}`,
+        },
+      });
     });
   }
 
