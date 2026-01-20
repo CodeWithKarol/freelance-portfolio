@@ -109,11 +109,18 @@ export class WorkPage implements OnInit {
   private updateSchema() {
     // Generate JSON-LD for the collection of works
     const summaries = this.visibleProjects().map((p) => ({
-      '@type': 'CreativeWork',
+      '@type': 'Article',
+      headline: p.title,
       name: p.title,
       description: p.tagline,
+      image: p.heroImage ? [`https://www.karol-modelski.scale-sail.io${p.heroImage}`] : [],
       url: `https://www.karol-modelski.scale-sail.io/work/${p.id}`,
-      image: p.heroImage ? `https://www.karol-modelski.scale-sail.io${p.heroImage}` : undefined,
+      author: {
+        '@type': 'Person',
+        name: 'Karol Modelski',
+        url: 'https://www.karol-modelski.scale-sail.io',
+      },
+      datePublished: '2024-01-01T08:00:00+00:00', // Portfolio items usually don't have exact dates
     }));
 
     this.seo.setJsonLd({
@@ -138,9 +145,13 @@ export class WorkPage implements OnInit {
         },
         {
           '@type': 'CollectionPage',
+          '@id': 'https://www.karol-modelski.scale-sail.io/work',
           name: 'Portfolio Work - Karol Modelski',
           description: 'Selected case studies and engineering projects.',
           url: 'https://www.karol-modelski.scale-sail.io/work',
+          isPartOf: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#website',
+          },
           mainEntity: {
             '@type': 'ItemList',
             itemListElement: summaries.map((item, index) => ({

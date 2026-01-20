@@ -315,9 +315,15 @@ export class CaseStudyPage {
             author: {
               '@type': 'Person',
               name: 'Karol Modelski',
+              url: 'https://www.karol-modelski.scale-sail.io',
             },
             keywords: study.techStack.join(', '),
             description: study.challenge,
+            isPartOf: {
+              '@id': 'https://www.karol-modelski.scale-sail.io/#website',
+            },
+            datePublished: '2024-01-01T08:00:00+00:00',
+            dateModified: '2026-01-20T08:00:00+00:00',
             mainEntityOfPage: {
               '@type': 'WebPage',
               '@id': `https://www.karol-modelski.scale-sail.io/work/${study.id}`,
