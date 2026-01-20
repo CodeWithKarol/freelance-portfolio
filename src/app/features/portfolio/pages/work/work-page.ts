@@ -4,7 +4,7 @@ import {
   inject,
   computed,
   signal,
-  OnInit,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
@@ -70,7 +70,7 @@ import { SeoService } from '../../../../core/seo/seo.service';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkPage implements OnInit {
+export class WorkPage {
   store = inject(PortfolioStore);
   seo = inject(SeoService);
 
@@ -78,7 +78,7 @@ export class WorkPage implements OnInit {
   private readonly batchSize = 3;
   protected visibleCount = signal(4);
 
-  ngOnInit() {
+  constructor() {
     this.seo.updateSeo({
       title: 'Work & Case Studies',
       description:
@@ -93,29 +93,31 @@ export class WorkPage implements OnInit {
       ],
     });
 
-    // Generate JSON-LD for the collection of works
-    const summaries = this.visibleProjects().map((p) => ({
-      '@type': 'CreativeWork',
-      name: p.title,
-      description: p.tagline,
-      url: `https://www.karol-modelski.scale-sail.io/work/${p.id}`,
-      image: p.heroImage ? `https://www.karol-modelski.scale-sail.io${p.heroImage}` : undefined,
-    }));
+    effect(() => {
+      // Generate JSON-LD for the collection of works
+      const summaries = this.visibleProjects().map((p) => ({
+        '@type': 'CreativeWork',
+        name: p.title,
+        description: p.tagline,
+        url: `https://www.karol-modelski.scale-sail.io/work/${p.id}`,
+        image: p.heroImage ? `https://www.karol-modelski.scale-sail.io${p.heroImage}` : undefined,
+      }));
 
-    this.seo.setJsonLd({
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Portfolio Work - Karol Modelski',
-      description: 'Selected case studies and engineering projects.',
-      url: 'https://www.karol-modelski.scale-sail.io/work',
-      mainEntity: {
-        '@type': 'ItemList',
-        itemListElement: summaries.map((item, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          item: item,
-        })),
-      },
+      this.seo.setJsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Portfolio Work - Karol Modelski',
+        description: 'Selected case studies and engineering projects.',
+        url: 'https://www.karol-modelski.scale-sail.io/work',
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: summaries.map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: item,
+          })),
+        },
+      });
     });
   }
 

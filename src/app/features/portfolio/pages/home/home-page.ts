@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { AboutSection } from '../../components/about/about-section';
 import { ServicesSection } from '../../components/services/services-section';
 import { ExperienceSection } from '../../components/experience/experience-section';
@@ -20,10 +20,10 @@ import { SeoService } from '../../../../core/seo/seo.service';
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePage implements OnInit {
+export class HomePage {
   private seo = inject(SeoService);
 
-  ngOnInit() {
+  constructor() {
     this.seo.updateSeo({
       title: 'Senior Frontend Developer & Legacy Modernization',
       description:
