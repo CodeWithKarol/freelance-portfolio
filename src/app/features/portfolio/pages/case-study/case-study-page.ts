@@ -14,113 +14,140 @@ import {
   Layers,
   Globe,
 } from 'lucide-angular';
+import { ProjectScreenshotsComponent } from '../../components/ui/project-screenshots/project-screenshots.component';
 
 @Component({
   selector: 'app-case-study-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule, ProjectScreenshotsComponent],
   template: `
     @if (caseStudy(); as study) {
-      <!-- Main wrapper with subtle pattern background -->
-      <div class="relative min-h-screen bg-slate-50 dark:bg-slate-950">
-        <!-- Top Navigation (Sticky) -->
+      <!-- Main wrapper -->
+      <div
+        class="relative min-h-screen bg-white dark:bg-slate-950 font-sans selection:bg-indigo-500/30"
+      >
+        <!-- Navbar -->
         <nav
-          class="sticky top-0 z-50 w-full border-b border-slate-200/50 dark:border-slate-800/50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md"
+          class="sticky top-0 z-50 w-full border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md"
         >
           <div
             class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
           >
-            <div class="flex items-center gap-4">
-              <a
-                [routerLink]="'/work'"
-                class="group inline-flex items-center justify-center rounded-full w-8 h-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
-                aria-label="Back to projects"
+            <a
+              [routerLink]="'/work'"
+              class="group inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              <div
+                class="p-1.5 rounded-md bg-slate-100 dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-800 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-950/30 group-hover:ring-indigo-200 dark:group-hover:ring-indigo-800 transition-all"
               >
-                <lucide-icon
-                  [img]="ArrowLeft"
-                  class="h-4 w-4 text-slate-600 dark:text-slate-300 transition-transform group-hover:-translate-x-0.5"
-                ></lucide-icon>
-              </a>
-              <span
-                class="text-sm font-semibold text-slate-900 dark:text-white hidden sm:block opacity-0 lg:opacity-100 transition-opacity"
-              >
-                {{ study.title }}
-              </span>
-            </div>
+                <lucide-icon [img]="ArrowLeft" class="h-4 w-4"></lucide-icon>
+              </div>
+              <span class="hidden sm:inline">Back to Work</span>
+            </a>
 
             <div class="flex items-center gap-3">
+              @if (study.repoUrl) {
+                <a
+                  [href]="study.repoUrl"
+                  target="_blank"
+                  class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                  aria-label="View Source"
+                >
+                  <lucide-icon [img]="Github" class="h-5 w-5"></lucide-icon>
+                </a>
+              }
               @if (study.demoUrl) {
                 <a
                   [href]="study.demoUrl"
                   target="_blank"
-                  class="inline-flex items-center gap-2 rounded-full bg-slate-900 dark:bg-white px-4 py-1.5 text-xs font-semibold text-white dark:text-slate-900 shadow-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all"
+                  class="inline-flex items-center gap-2 rounded-full bg-slate-900 dark:bg-white px-4 py-2 text-sm font-semibold text-white dark:text-slate-900 shadow-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Visit Site <lucide-icon [img]="ExternalLink" class="h-3 w-3"></lucide-icon>
+                  <span>Visit Site</span>
+                  <lucide-icon
+                    [img]="ExternalLink"
+                    class="h-4 w-4 text-white/70 dark:text-slate-900/70"
+                  ></lucide-icon>
                 </a>
               }
             </div>
           </div>
         </nav>
 
-        <main class="relative pt-12 pb-24 lg:pt-20 lg:pb-32">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header / Hero Section -->
-            <div class="max-w-4xl mx-auto text-center mb-16 lg:mb-24">
+        <main>
+          <!-- Hero Section -->
+          <section class="relative pt-20 pb-32 overflow-hidden">
+            <!-- Background Texture -->
+            <div
+              class="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+            ></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div
+                class="inline-flex items-center rounded-full border border-indigo-200 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700"
+              >
+                Case Study
+              </div>
               <h1
-                class="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl mb-6"
+                class="text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100"
               >
                 {{ study.title }}
               </h1>
               <p
-                class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed"
+                class="text-balance max-w-2xl mx-auto text-lg leading-8 text-slate-600 dark:text-slate-400 mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200"
               >
                 {{ study.tagline }}
               </p>
 
-              <!-- Tech Stack Pills (Centered) -->
-              <div class="mt-8 flex flex-wrap justify-center gap-2">
+              <!-- Tech Stack Strip -->
+              <div
+                class="flex flex-wrap justify-center gap-x-8 gap-y-4 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300"
+              >
                 @for (tech of study.techStack; track tech) {
-                  <span
-                    class="inline-flex items-center rounded-full bg-white dark:bg-slate-900 px-3 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-800 shadow-sm"
+                  <div
+                    class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400"
                   >
+                    <div class="h-1.5 w-1.5 rounded-full bg-indigo-500"></div>
                     {{ tech }}
-                  </span>
+                  </div>
                 }
               </div>
             </div>
+          </section>
 
-            <!-- Hero Image (Full width wrapper with constraint) -->
-            <div class="relative w-full max-w-6xl mx-auto mb-20 lg:mb-28 perspective-1000">
-              <!-- Glossy effect overlay -->
+          <!-- Main Visual (Overlapping) -->
+          <div
+            class="relative z-10 -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 animate-in fade-in zoom-in-95 duration-1000 delay-300"
+          >
+            <div
+              class="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 ring-1 ring-slate-900/10 dark:ring-white/10 aspect-[16/9] md:aspect-[21/9]"
+            >
+              <img
+                [src]="study.heroImage"
+                [alt]="study.title"
+                class="w-full h-full object-cover object-top"
+              />
               <div
-                class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl blur opacity-20 dark:opacity-40"
+                class="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.2)] pointer-events-none"
               ></div>
-
-              <div
-                class="relative rounded-xl overflow-hidden shadow-2xl bg-slate-900 ring-1 ring-slate-900/5 aspect-video"
-              >
-                <img
-                  [src]="study.heroImage"
-                  [alt]="study.title"
-                  class="w-full h-full object-cover object-top"
-                />
-              </div>
             </div>
+          </div>
 
-            <!-- Two Column Grid Layout for Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 max-w-6xl mx-auto">
-              <!-- Left Column: Main Narrative -->
-              <div class="lg:col-span-8 space-y-16">
+          <!-- Content Grid -->
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+              <!-- Left: Narrative -->
+              <div class="lg:col-span-8 space-y-20">
                 <!-- Challenge -->
-                <section>
-                  <div class="flex items-center gap-3 mb-6">
-                    <div class="p-2 bg-rose-50 dark:bg-rose-950/30 rounded-lg">
-                      <lucide-icon
-                        [img]="Layers"
-                        class="w-6 h-6 text-rose-600 dark:text-rose-400"
-                      ></lucide-icon>
-                    </div>
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">The Challenge</h2>
+                <section class="group">
+                  <div class="flex items-center gap-4 mb-6">
+                    <span
+                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-md group-hover:bg-indigo-500 transition-colors"
+                    >
+                      <lucide-icon [img]="Layers" class="h-5 w-5"></lucide-icon>
+                    </span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                      The Challenge
+                    </h2>
                   </div>
                   <div
                     class="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400"
@@ -130,15 +157,16 @@ import {
                 </section>
 
                 <!-- Solution -->
-                <section>
-                  <div class="flex items-center gap-3 mb-6">
-                    <div class="p-2 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg">
-                      <lucide-icon
-                        [img]="Globe"
-                        class="w-6 h-6 text-indigo-600 dark:text-indigo-400"
-                      ></lucide-icon>
-                    </div>
-                    <h2 class="text-2xl font-bold text-slate-900 dark:text-white">The Solution</h2>
+                <section class="group">
+                  <div class="flex items-center gap-4 mb-6">
+                    <span
+                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-md group-hover:bg-emerald-500 transition-colors"
+                    >
+                      <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
+                    </span>
+                    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+                      The Solution
+                    </h2>
                   </div>
                   <div
                     class="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400"
@@ -146,109 +174,112 @@ import {
                     <p>{{ study.solution }}</p>
                   </div>
                 </section>
-
-                <!-- Technical Deep Dive (Featured Box) -->
-                <section
-                  class="relative overflow-hidden rounded-2xl bg-slate-900 dark:bg-slate-900 border border-slate-800 p-8 shadow-xl"
-                >
-                  <div class="absolute top-0 right-0 p-3 opacity-10">
-                    <lucide-icon [img]="Cpu" class="w-32 h-32 text-indigo-500"></lucide-icon>
-                  </div>
-
-                  <h3
-                    class="relative text-lg font-semibold text-white mb-4 flex items-center gap-2"
-                  >
-                    <lucide-icon [img]="Cpu" class="w-5 h-5 text-indigo-400"></lucide-icon>
-                    Technical Architecture
-                  </h3>
-
-                  <div class="relative text-slate-300 leading-relaxed">
-                    @if (study.technicalApproach) {
-                      {{ study.technicalApproach }}
-                    } @else {
-                      Built with modern Angular architecture leveraging Signals for granular
-                      reactivity. The state management strategy ensures type-safe, predictable data
-                      flow while maintaining exceptional runtime performance.
-                    }
-                  </div>
-                </section>
               </div>
 
-              <!-- Right Column: Sidebar (Sticky) -->
+              <!-- Right: Key Outcomes (Sticky) -->
               <div class="lg:col-span-4">
-                <div class="sticky top-24 space-y-8">
-                  <!-- Actions Card -->
+                <div class="sticky top-28">
                   <div
-                    class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 shadow-sm"
+                    class="rounded-2xl bg-slate-50 dark:bg-slate-900 p-8 ring-1 ring-slate-900/5 dark:ring-white/10"
                   >
                     <h3
-                      class="text-sm font-semibold text-slate-900 dark:text-white uppercase tracking-wider mb-6"
+                      class="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400 mb-6 flex items-center gap-2"
                     >
-                      Project Links
-                    </h3>
-                    <div class="flex flex-col gap-3">
-                      @if (study.demoUrl) {
-                        <a
-                          [href]="study.demoUrl"
-                          target="_blank"
-                          class="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all"
-                        >
-                          View Live Site
-                          <lucide-icon [img]="ExternalLink" class="w-4 h-4"></lucide-icon>
-                        </a>
-                      }
-                      @if (study.repoUrl) {
-                        <a
-                          [href]="study.repoUrl"
-                          target="_blank"
-                          class="flex w-full items-center justify-center gap-2 rounded-lg bg-white dark:bg-slate-800 px-4 py-3 text-sm font-semibold text-slate-900 dark:text-white ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
-                        >
-                          <lucide-icon [img]="Github" class="w-4 h-4"></lucide-icon>
-                          View Source Code
-                        </a>
-                      }
-                    </div>
-                  </div>
-
-                  <!-- Key Outcomes Card -->
-                  <div
-                    class="rounded-2xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 p-6"
-                  >
-                    <h3
-                      class="flex items-center gap-2 text-sm font-semibold text-emerald-900 dark:text-emerald-400 uppercase tracking-wider mb-6"
-                    >
-                      <lucide-icon [img]="Trophy" class="w-4 h-4"></lucide-icon>
+                      <lucide-icon [img]="Trophy" class="h-5 w-5"></lucide-icon>
                       Key Outcomes
                     </h3>
-                    <ul class="space-y-4">
+                    <ul class="space-y-6">
                       @for (result of study.results; track result) {
-                        <li class="flex gap-3">
-                          <lucide-icon
-                            [img]="CheckCircle2"
-                            class="w-5 h-5 text-emerald-600 dark:text-emerald-500 shrink-0"
-                          ></lucide-icon>
-                          <span class="text-sm text-slate-700 dark:text-slate-300">{{
-                            result
-                          }}</span>
+                        <li class="relative pl-9">
+                          <div
+                            class="absolute left-0 top-1 h-5 w-5 text-emerald-600 dark:text-emerald-500"
+                          >
+                            <lucide-icon [img]="CheckCircle2" class="h-5 w-5"></lucide-icon>
+                          </div>
+                          <span
+                            class="text-sm leading-6 text-slate-600 dark:text-slate-300 font-medium"
+                            >{{ result }}</span
+                          >
                         </li>
                       }
                     </ul>
+
+                    <div
+                      class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-3"
+                    >
+                      <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                        Technologies
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        @for (tech of study.techStack; track tech) {
+                          <span
+                            class="inline-flex items-center rounded-md bg-white dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-700"
+                          >
+                            {{ tech }}
+                          </span>
+                        }
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Bottom Navigation -->
-            <div class="mt-24 border-t border-slate-200 dark:border-slate-800 pt-12">
+          <!-- Application Interface (Screenshots) -->
+          @if (study.screenshots?.length) {
+            <app-project-screenshots [screenshots]="study.screenshots!" />
+          }
+
+          <!-- Technical Architecture (Dark Section) -->
+          <section class="bg-slate-900 py-24 relative overflow-hidden">
+            <!-- Decorative elements -->
+            <div
+              class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"
+            ></div>
+            <div
+              class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+            ></div>
+
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="max-w-3xl">
+                <div
+                  class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-semibold mb-6 border border-indigo-500/20"
+                >
+                  <lucide-icon [img]="Cpu" class="h-3.5 w-3.5"></lucide-icon>
+                  Under The Hood
+                </div>
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
+                  Technical Architecture
+                </h2>
+                <div class="prose prose-lg prose-invert text-slate-300 max-w-none">
+                  @if (study.technicalApproach) {
+                    {{ study.technicalApproach }}
+                  } @else {
+                    Built with modern Angular architecture leveraging Signals for granular
+                    reactivity. The state management strategy ensures type-safe, predictable data
+                    flow while maintaining exceptional runtime performance.
+                  }
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer/Next Steps -->
+          <section class="py-24 bg-white dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">
+                Ready to see more?
+              </h2>
               <a
                 [routerLink]="'/work'"
-                class="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-semibold hover:gap-3 transition-all"
+                class="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-900 px-8 py-4 text-base font-semibold text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-all"
               >
-                <lucide-icon [img]="ArrowLeft" class="w-4 h-4"></lucide-icon>
-                View Other Projects
+                <lucide-icon [img]="ArrowLeft" class="h-5 w-5"></lucide-icon>
+                Back to All Projects
               </a>
             </div>
-          </div>
+          </section>
         </main>
       </div>
     }

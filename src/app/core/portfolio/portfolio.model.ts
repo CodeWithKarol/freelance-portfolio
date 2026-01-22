@@ -28,6 +28,7 @@ export interface CaseStudy {
   technicalApproach?: string; // New field for detailed architectural explanation
   results: string[];
   techStack: string[];
+  screenshots?: string[];
   demoUrl?: string;
   repoUrl?: string;
 }
