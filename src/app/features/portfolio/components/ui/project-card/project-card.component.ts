@@ -29,7 +29,7 @@ import { CaseStudy } from '../../../../../core/portfolio/portfolio.model';
               'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80'
             "
             alt=""
-            class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            class="absolute inset-0 h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
           />
           <!-- Subtle overlay for better text contrast if needed, mostly for cleanup -->
           <div
@@ -39,7 +39,6 @@ import { CaseStudy } from '../../../../../core/portfolio/portfolio.model';
           <a
             [routerLink]="['/work', project().id]"
             class="absolute inset-0 focus:outline-none"
-            aria-hidden="true"
             tabindex="-1"
           >
             <span class="sr-only">View Case Study</span>

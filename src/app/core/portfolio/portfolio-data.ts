@@ -32,7 +32,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: 'quickcart-ecommerce',
     title: 'QuickCart: High-Performance E-Commerce Architecture',
     tagline: 'Next-Gen Angular E-Commerce Architecture',
-    heroImage: '/images/www.quick-cart.scale-sail.io_.webp',
+    heroImage: '/images/quick-cart/quick-cart.webp',
     challenge:
       'High-scale e-commerce platforms often suffer from "black box" legacy code, bloated UI dependencies, and fragile state sync that causes cart errors. The goal was to demonstrate an approach that keeps Core Web Vitals strong and interactions smooth without heavy frameworks or unnecessary state complexity.',
     solution:
@@ -51,6 +51,15 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Tailwind CSS',
       'Angular Router',
       'WCAG 2.1',
+    ],
+    screenshots: [
+      '/images/quick-cart/quick-cart-1.webp',
+      '/images/quick-cart/quick-cart-2.webp',
+      '/images/quick-cart/quick-cart-3.webp',
+      '/images/quick-cart/quick-cart-4.webp',
+      '/images/quick-cart/quick-cart-5.webp',
+      '/images/quick-cart/quick-cart-6.webp',
+      '/images/quick-cart/quick-cart-7.webp',
     ],
     demoUrl: 'https://www.quick-cart.scale-sail.io/',
     repoUrl: 'https://github.com/CodeWithKarol/quick-cart',
