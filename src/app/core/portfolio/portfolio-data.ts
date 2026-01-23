@@ -5,7 +5,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     id: 'modern-enterprise-admin-dashboard',
     title: 'Modern Enterprise Admin Dashboard',
     tagline: 'High-Performance Real-Time Analytics',
-    heroImage: '/images/www.admin-panel.scale-sail.io_dashboard.webp',
+    heroImage: '/images/admin-panel/admin-panel.webp',
     challenge:
       'Enterprise dashboards often collapse under scale: "spaghetti code," slow real-time rendering, and brittle test suites that block delivery. The goal was to define a production-grade reference architecture that stays fast and maintainable as data volume and feature complexity grow.',
     solution:
@@ -24,6 +24,17 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Vitest (JSDOM)',
       'Chart.js (ng2-charts)',
       'Lucide Icons (Tree-shaken)',
+    ],
+    screenshots: [
+      '/images/admin-panel/admin-panel-1.webp',
+      '/images/admin-panel/admin-panel-2.webp',
+      '/images/admin-panel/admin-panel-3.webp',
+      '/images/admin-panel/admin-panel-4.webp',
+      '/images/admin-panel/admin-panel-5.webp',
+      '/images/admin-panel/admin-panel-6.webp',
+      '/images/admin-panel/admin-panel-7.webp',
+      '/images/admin-panel/admin-panel-8.webp',
+      '/images/admin-panel/admin-panel-9.webp',
     ],
     demoUrl: 'https://www.admin-panel.scale-sail.io/',
     repoUrl: 'https://github.com/CodeWithKarol/admin-panel',
