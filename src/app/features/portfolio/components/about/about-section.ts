@@ -102,7 +102,7 @@ import {
               <!-- Founder Link -->
               <div class="mt-4">
                 <a
-                  href="https://www.scale-sail.io/"
+                  href="https://scale-sail.io/"
                   target="_blank"
                   class="inline-flex items-center gap-x-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
                 >
