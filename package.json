@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=false",
     "serve:ssr:freelance-portfolio": "node dist/freelance-portfolio/server/server.mjs",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "build:ci": "npm run test && npm run build"
   },
   "prettier": {
     "printWidth": 100,
