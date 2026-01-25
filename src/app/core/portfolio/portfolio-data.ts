@@ -1,4 +1,4 @@
-import { CaseStudy, BlogPost } from './portfolio.model';
+import { CaseStudy } from './portfolio.model';
 
 export const CASE_STUDIES: CaseStudy[] = [
   {

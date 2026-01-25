@@ -85,7 +85,7 @@ export class SeoService {
   }
 
   // Method to inject JSON-LD Structured Data
-  setJsonLd(data: any) {
+  setJsonLd(data: object) {
     const scriptId = 'seo-json-ld';
     let script = this.document.getElementById(scriptId) as HTMLScriptElement;
 

@@ -61,7 +61,9 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
           class="fixed inset-0 z-[100] overflow-y-auto overflow-x-hidden"
           role="dialog"
           aria-modal="true"
-          (click)="closeZoom()"
+          tabindex="-1"
+          (click)="onBackdropClick($event)"
+          (keydown.escape)="closeZoom()"
         >
           <!-- Fixed Backdrop -->
           <div
@@ -94,10 +96,7 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
             }
 
             <!-- Image Wrapper -->
-            <div
-              class="relative transition-all duration-300 ease-out flex justify-center w-full"
-              (click)="$event.stopPropagation()"
-            >
+            <div class="relative transition-all duration-300 ease-out flex justify-center w-full">
               <img
                 [src]="img"
                 class="rounded-lg shadow-2xl ring-1 ring-white/10 select-none object-contain transition-all duration-300 bg-slate-900"
@@ -106,7 +105,10 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
                   'w-full max-w-7xl cursor-zoom-out': isZoomed(),
                 }"
                 alt="Enlarged screenshot"
+                role="button"
+                tabindex="0"
                 (click)="toggleZoom($event)"
+                (keyup.enter)="toggleZoom($event)"
               />
             </div>
           </div>
@@ -137,8 +139,14 @@ export class ProjectScreenshotsComponent {
     document.body.style.overflow = ''; // Restore scrolling
   }
 
-  toggleZoom(event: MouseEvent) {
-    event.stopPropagation();
+  onBackdropClick(event: MouseEvent) {
+    if (event.target === event.currentTarget) {
+      this.closeZoom();
+    }
+  }
+
+  toggleZoom(event?: Event) {
+    event?.stopPropagation();
     this.isZoomed.update((z) => !z);
   }
 

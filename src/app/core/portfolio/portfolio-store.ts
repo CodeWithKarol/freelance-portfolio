@@ -3,7 +3,6 @@ import {
   Skill,
   CaseStudy,
   Testimonial,
-  BlogPost,
   Service,
   SocialLink,
   FooterColumn,
@@ -354,6 +353,7 @@ export class PortfolioStore {
       title: 'Resources',
       links: [
         { label: 'Blog', href: '/blog' },
+        { label: 'FAQ', href: '/#faq' },
         { label: 'Tech Stack', href: '#skills' },
         { label: 'Contact', href: '#contact' },
       ],

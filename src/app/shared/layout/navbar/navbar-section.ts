@@ -60,7 +60,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         </div>
 
         <!-- Mobile Menu Button -->
-        <div class="flex lg:hidden">
+        <div class="flex xl:hidden">
           <button
             type="button"
             class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -78,7 +78,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         </div>
 
         <!-- Desktop Nav -->
-        <div class="hidden lg:flex lg:gap-x-2">
+        <div class="hidden xl:flex xl:gap-x-2">
           <ul class="flex gap-x-2 list-none m-0 p-0">
             @for (item of navItems; track item.id) {
               <li>
@@ -124,7 +124,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
         </div>
 
         <!-- Desktop Actions -->
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center gap-3">
+        <div class="hidden xl:flex xl:flex-1 xl:justify-end xl:items-center gap-3">
           <!-- Theme Toggle -->
           <button
             (click)="toggleTheme()"
@@ -156,7 +156,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
       <!-- Mobile Menu Overlay -->
       <div
         id="mobile-menu"
-        class="lg:hidden"
+        class="xl:hidden"
         [class.pointer-events-none]="!isMenuOpen()"
         role="dialog"
         aria-modal="true"
@@ -296,6 +296,7 @@ export class NavbarSection {
     { id: 'services', label: 'Services' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
+    { id: 'faq', label: 'FAQ' },
     { id: 'contact', label: 'Contact' },
   ];
 
