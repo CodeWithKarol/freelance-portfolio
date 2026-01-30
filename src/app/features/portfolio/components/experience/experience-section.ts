@@ -1,16 +1,20 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import { LucideAngularModule, Download } from 'lucide-angular';
-import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
+import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
+import { Card } from '../../../../shared/ui/card/card';
+import { Badge } from '../../../../shared/ui/badge/badge';
+import { Button } from '../../../../shared/ui/button/button';
 
 @Component({
   selector: 'app-experience-section',
   standalone: true,
-  imports: [LucideAngularModule, SectionHeaderComponent],
+  imports: [CommonModule, LucideAngularModule, SectionHeader, Card, Badge, Button],
   template: `
     <section
       id="experience"
-      class="py-24 sm:py-32 bg-white dark:bg-slate-950 relative overflow-hidden"
+      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden"
     >
       <!-- Background subtle pattern -->
       <div
@@ -18,11 +22,11 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
         style="background-image: radial-gradient(#6366f1 1px, transparent 1px); background-size: 32px 32px;"
       ></div>
 
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="layout-container">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-16 lg:mb-24">
           <app-section-header
-            preTitle="Work History"
+            subtitle="Work History"
             title="Professional Experience"
             description="Delivering modernization and performance improvements at scale—from regulated enterprise platforms to high-velocity product teams."
           />
@@ -34,32 +38,32 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
             class="lg:col-span-5 lg:sticky lg:top-24 lg:h-[calc(100vh-6rem)] flex flex-col mb-16 lg:mb-0"
           >
             <div
-              class="relative rounded-3xl overflow-hidden aspect-[4/5] lg:aspect-auto lg:flex-1 shadow-2xl ring-1 ring-slate-900/10"
+              class="relative rounded-3xl overflow-hidden aspect-[4/5] lg:aspect-auto lg:flex-1 shadow-2xl ring-1 ring-slate-900/10 group"
             >
               <img
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"
                 alt="Modern Architecture"
-                class="absolute inset-0 h-full w-full object-cover"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"
               ></div>
 
-              <div class="absolute bottom-0 left-0 p-8 text-white">
-                <p class="text-3xl font-bold tracking-tight sm:text-4xl">Built for Scale</p>
-                <p class="mt-4 text-lg text-slate-300 leading-relaxed">
+              <div class="absolute bottom-0 left-0 p-8 text-white z-10">
+                <p class="heading-2 !text-white mb-4">Built for Scale</p>
+                <p class="text-lg text-slate-300 leading-relaxed mb-8">
                   Combining architectural rigor with product velocity.
                 </p>
 
-                <div class="mt-8">
-                  <a
+                <div>
+                  <app-button
                     href="https://drive.google.com/file/d/1ZAtoLBrbP-suftqfzVAdJD2welSEzoVR/view?usp=sharing"
-                    target="_blank"
-                    class="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-primary-50 transition-colors"
+                    variant="ghost"
+                    styleClass="bg-white text-secondary hover:bg-slate-100 border-none w-full sm:w-auto justify-center"
                   >
-                    <lucide-icon [img]="Download" class="h-4 w-4"></lucide-icon>
+                    <lucide-icon [img]="Download" class="h-4 w-4 mr-2"></lucide-icon>
                     Download Resume
-                  </a>
+                  </app-button>
                 </div>
               </div>
             </div>
@@ -84,7 +88,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                     <!-- Timeline Dot -->
                     <div
                       class="absolute -left-8 sm:-left-12 top-9 h-4 w-4 rounded-full border-2 border-white dark:border-slate-950 transition-all duration-300 z-10"
-                      [class.bg-primary-600]="first"
+                      [class.bg-primary]="first"
                       [class.bg-slate-300]="!first"
                       [class.dark:bg-slate-700]="!first"
                       [class.scale-125]="first"
@@ -94,8 +98,10 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                     ></div>
 
                     <!-- Card -->
-                    <div
-                      class="relative rounded-2xl bg-slate-50 dark:bg-slate-900 p-6 ring-1 ring-slate-200 dark:ring-slate-800 transition-all duration-300 hover:shadow-lg hover:ring-primary-500/30 dark:hover:ring-primary-500/30"
+                    <app-card
+                      variant="default"
+                      [interactive]="true"
+                      class="block bg-slate-50 dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800"
                     >
                       <!-- Date Badge (Mobile: Above, Desktop: Absolute corner or inline) -->
                       <div
@@ -104,45 +110,38 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
                         <div class="flex items-center gap-3">
                           <!-- Company Logo Placeholder -->
                           <div
-                            class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white dark:bg-slate-800 ring-1 ring-slate-200 dark:ring-slate-700"
+                            class="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-white dark:bg-slate-800 ring-1 ring-slate-200 dark:ring-slate-700 text-secondary dark:text-white font-bold"
                           >
-                            <span class="text-lg font-bold text-slate-700 dark:text-slate-200">{{
-                              job.company.charAt(0)
-                            }}</span>
+                            {{ job.company.charAt(0) }}
                           </div>
                           <div>
-                            <h3
-                              class="text-base font-bold leading-6 text-slate-900 dark:text-white"
-                            >
+                            <h3 class="text-lg font-bold text-secondary dark:text-white">
                               {{ job.role }}
                             </h3>
-                            <p class="text-sm font-medium text-slate-500 dark:text-slate-400">
+                            <p class="text-small font-medium">
                               {{ job.company }}
                             </p>
                           </div>
                         </div>
-                        <span
-                          class="inline-flex items-center rounded-md bg-white dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-600 dark:text-slate-400 ring-1 ring-inset ring-slate-500/10 whitespace-nowrap shadow-sm"
-                        >
+
+                        <app-badge variant="outline" color="neutral">
                           {{ job.period }}
-                        </span>
+                        </app-badge>
                       </div>
 
-                      <p class="text-sm leading-6 text-slate-600 dark:text-slate-300 mb-6">
+                      <p class="text-body mb-6">
                         {{ job.description }}
                       </p>
 
                       <!-- Tags -->
                       <div class="flex flex-wrap gap-2">
                         @for (tech of job.technologies; track tech) {
-                          <span
-                            class="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-900/20 px-2 py-1 text-xs font-medium text-primary-700 dark:text-primary-300 ring-1 ring-inset ring-primary-700/10"
-                          >
+                          <app-badge variant="soft" color="primary">
                             {{ tech }}
-                          </span>
+                          </app-badge>
                         }
                       </div>
-                    </div>
+                    </app-card>
                   </li>
                 }
               </ul>

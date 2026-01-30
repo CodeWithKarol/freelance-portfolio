@@ -9,11 +9,14 @@
     "test": "ng test --watch=false",
     "serve:ssr:freelance-portfolio": "node dist/freelance-portfolio/server/server.mjs",
     "lint": "ng lint",
-    "build:ci": "npm run test && npm run build"
+    "lint:fix": "ng lint --fix",
+    "format": "prettier --write .",
+    "build:ci": "npm run lint && npm run test && npm run build"
   },
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
+    "endOfLine": "auto",
     "overrides": [
       {
         "files": "*.html",
@@ -49,8 +52,11 @@
     "@types/node": "^20.17.19",
     "angular-eslint": "21.1.0",
     "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "jsdom": "^27.1.0",
     "postcss": "^8.5.3",
+    "prettier": "^3.8.1",
     "tailwindcss": "^4.1.12",
     "typescript": "~5.9.2",
     "typescript-eslint": "8.47.0",

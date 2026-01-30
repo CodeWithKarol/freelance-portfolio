@@ -10,14 +10,14 @@ import {
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import { BackgroundPatternComponent } from '../../../../shared/ui/background-pattern/background-pattern.component';
-import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
+import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
 import { ProjectCardComponent } from '../../components/ui/project-card/project-card.component';
 import { SeoService } from '../../../../core/seo/seo.service';
 
 @Component({
   selector: 'app-work-page',
   standalone: true,
-  imports: [CommonModule, BackgroundPatternComponent, SectionHeaderComponent, ProjectCardComponent],
+  imports: [CommonModule, BackgroundPatternComponent, SectionHeader, ProjectCardComponent],
   template: `
     <div
       class="min-h-screen bg-white dark:bg-slate-950 font-sans text-slate-900 dark:text-white pb-24 sm:pb-32 relative isolate"
@@ -28,7 +28,7 @@ import { SeoService } from '../../../../core/seo/seo.service';
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32">
         <!-- Header -->
         <app-section-header
-          preTitle="Portfolio"
+          subtitle="Portfolio"
           title="Selected Work"
           description="Case studies focused on modernization, performance wins, and scalable architecture—built to reduce risk and deliver measurable outcomes."
         />

@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
+import { BrandLogo } from '../../ui/brand-logo/brand-logo';
 import {
   LucideAngularModule,
   Github,
@@ -14,10 +15,10 @@ import {
 @Component({
   selector: 'app-footer-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, BrandLogo],
   template: `
     <footer
-      class="relative bg-slate-50 dark:bg-slate-950 pt-16 pb-8 overflow-hidden z-10"
+      class="relative bg-white dark:bg-slate-950 pt-20 pb-12 overflow-hidden z-10 border-t border-slate-200 dark:border-slate-800"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" class="sr-only">Footer</h2>
@@ -31,19 +32,8 @@ import {
         <div class="xl:grid xl:grid-cols-3 xl:gap-8 mb-16">
           <!-- Brand Column -->
           <div class="space-y-8">
-            <div class="flex items-center gap-2">
-              <img
-                src="images/karol-modelski.webp"
-                alt="Karol Modelski"
-                width="40"
-                height="40"
-                class="h-10 w-10 rounded-xl shadow-lg shadow-primary-600/20 object-cover"
-              />
-              <span class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight"
-                >Karol Modelski</span
-              >
-            </div>
-            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs">
+            <app-brand-logo />
+            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs mt-4">
               Senior Frontend Developer & SaaS Founder. Modernizing legacy frontends and building
               performance-first, audit-ready web applications for enterprise and startups.
             </p>
@@ -53,22 +43,22 @@ import {
                   <a
                     [href]="social.url"
                     target="_blank"
-                    class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    class="text-slate-400 hover:text-primary transition-colors"
                   >
                     <span class="sr-only">{{ social.platform }}</span>
                     <!-- Icon Logic -->
                     @if (social.icon === 'github') {
-                      <lucide-icon [img]="Github" class="h-6 w-6"></lucide-icon>
+                      <lucide-icon [img]="Github" class="h-5 w-5"></lucide-icon>
                     } @else if (social.icon === 'linkedin') {
-                      <lucide-icon [img]="Linkedin" class="h-6 w-6"></lucide-icon>
+                      <lucide-icon [img]="Linkedin" class="h-5 w-5"></lucide-icon>
                     } @else if (social.icon === 'medium') {
-                      <lucide-icon [img]="BookOpen" class="h-6 w-6"></lucide-icon>
+                      <lucide-icon [img]="BookOpen" class="h-5 w-5"></lucide-icon>
                     } @else if (social.icon === 'rocket') {
-                      <lucide-icon [img]="Rocket" class="h-6 w-6"></lucide-icon>
+                      <lucide-icon [img]="Rocket" class="h-5 w-5"></lucide-icon>
                     } @else if (social.icon === 'globe') {
-                      <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                      <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
                     } @else {
-                      <lucide-icon [img]="Globe" class="h-6 w-6"></lucide-icon>
+                      <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
                     }
                   </a>
                 </li>
@@ -81,7 +71,7 @@ import {
             class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-8 xl:col-span-2 xl:mt-0 xl:grid-cols-4"
           >
             <div>
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
                 {{ store.footerColumns()[0].title }}
               </h3>
               <ul class="mt-6 space-y-4">
@@ -89,7 +79,7 @@ import {
                   <li>
                     <a
                       [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
                     >
                       {{ link.label }}
                     </a>
@@ -98,7 +88,7 @@ import {
               </ul>
             </div>
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
                 {{ store.footerColumns()[1].title }}
               </h3>
               <ul class="mt-6 space-y-4">
@@ -106,7 +96,7 @@ import {
                   <li>
                     <a
                       [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
                     >
                       {{ link.label }}
                     </a>
@@ -115,7 +105,7 @@ import {
               </ul>
             </div>
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
                 {{ store.footerColumns()[2].title }}
               </h3>
               <ul class="mt-6 space-y-4">
@@ -123,7 +113,7 @@ import {
                   <li>
                     <a
                       [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
                     >
                       {{ link.label }}
                     </a>
@@ -133,7 +123,7 @@ import {
             </div>
             <!-- Contact / CTA Column -->
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-slate-900 dark:text-white">
+              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
                 Contact
               </h3>
               <ul class="mt-6 space-y-4">
@@ -142,11 +132,11 @@ import {
                 >
                   <lucide-icon
                     [img]="AtSign"
-                    class="h-6 w-5 flex-none text-primary-500 mt-0.5"
+                    class="h-5 w-5 flex-none text-primary mt-0.5"
                   ></lucide-icon>
                   <a
                     href="mailto:{{ store.contactInfo().email }}"
-                    class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors break-all"
+                    class="hover:text-primary transition-colors break-all"
                   >
                     {{ store.contactInfo().email }}
                   </a>

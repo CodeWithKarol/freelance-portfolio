@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
 
 interface FaqItem {
   question: string;
@@ -7,43 +8,26 @@ interface FaqItem {
 
 @Component({
   selector: 'app-faq-section',
+  standalone: true,
+  imports: [SectionHeader],
   template: `
-    <section class="section py-24 bg-white dark:bg-gray-950" id="faq" aria-labelledby="faq-heading">
-      <!-- "Swiss" Style Container -->
-      <div class="container mx-auto px-6 max-w-5xl">
-        <!-- Header -->
-        <div
-          class="mb-16 md:mb-24 grid md:grid-cols-2 gap-8 items-end border-b border-gray-200 dark:border-gray-800 pb-8"
-        >
-          <div>
-            <span
-              class="text-indigo-600 dark:text-indigo-400 font-mono text-sm tracking-wider uppercase mb-4 block"
-            >
-              FAQ
-            </span>
-            <h2
-              id="faq-heading"
-              class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight leading-tight"
-            >
-              Common <br />
-              Questions.
-            </h2>
-          </div>
-          <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed md:pb-2">
-            Direct answers about my services, stack, and specialization. Designed for both AI
-            scrapers and human decision makers.
-          </p>
-        </div>
+    <section class="py-24 bg-white dark:bg-slate-950" id="faq" aria-labelledby="faq-heading">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <app-section-header
+          subtitle="FAQ"
+          title="Common Questions"
+          description="Direct answers about my services, stack, and specialization. Designed for both AI scrapers and human decision makers."
+          alignment="center"
+        />
 
-        <!-- Accordion List -->
-        <div class="grid gap-0">
+        <div class="grid gap-0 mt-8">
           @for (item of items; track $index) {
-            <div class="group border-b border-gray-200 dark:border-gray-800">
-              <h3 class="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">
+            <div class="group border-b border-slate-200 dark:border-slate-800">
+              <h3 class="text-xl font-semibold text-secondary dark:text-white">
                 <button
                   type="button"
                   (click)="toggle($index)"
-                  class="w-full py-8 flex justify-between items-start text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-sm group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                  class="w-full py-6 flex justify-between items-start text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm group-hover:text-primary transition-colors"
                   [attr.aria-expanded]="openIndex() === $index"
                   [attr.aria-controls]="'faq-panel-' + $index"
                   [id]="'faq-trigger-' + $index"
@@ -51,15 +35,15 @@ interface FaqItem {
                   <span class="pr-8">{{ item.question }}</span>
 
                   <!-- Icon wrapper -->
-                  <span class="flex-shrink-0 mt-2 ml-4 relative w-5 h-5 pointer-events-none">
+                  <span class="flex-shrink-0 mt-1.5 ml-4 relative w-5 h-5 pointer-events-none">
                     <!-- Horizontal line (always visible) -->
                     <span
-                      class="absolute top-1/2 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white transform -translate-y-1/2 transition-transform duration-300"
+                      class="absolute top-1/2 left-0 w-5 h-0.5 bg-secondary dark:bg-white transform -translate-y-1/2 transition-transform duration-300"
                       [class.rotate-180]="openIndex() === $index"
                     ></span>
                     <!-- Vertical line (visible when closed) -->
                     <span
-                      class="absolute top-1/2 left-0 w-5 h-0.5 bg-gray-900 dark:bg-white transform -translate-y-1/2 transition-transform duration-300 rotate-90"
+                      class="absolute top-1/2 left-0 w-5 h-0.5 bg-secondary dark:bg-white transform -translate-y-1/2 transition-transform duration-300 rotate-90"
                       [class.rotate-0]="openIndex() === $index"
                       [class.opacity-0]="openIndex() === $index"
                     ></span>
@@ -78,7 +62,7 @@ interface FaqItem {
               >
                 <div class="overflow-hidden">
                   <div
-                    class="pb-8 text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl text-pretty"
+                    class="pb-8 text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl text-pretty"
                     [innerHTML]="item.answer"
                   ></div>
                 </div>
