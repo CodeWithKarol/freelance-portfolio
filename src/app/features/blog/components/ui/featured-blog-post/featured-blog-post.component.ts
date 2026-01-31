@@ -5,7 +5,6 @@ import { BlogPost } from '../../../../../core/portfolio/portfolio.model';
 
 @Component({
   selector: 'app-featured-blog-post',
-  standalone: true,
   imports: [CommonModule, DatePipe, LucideAngularModule],
   template: `
     <article

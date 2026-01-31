@@ -4,13 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError, finalize, take } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { PortfolioStore } from '../../../../../core/portfolio/portfolio-store';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { LucideAngularModule, ChevronDown, Loader2, CheckCircle } from 'lucide-angular';
-import { Button } from '../../../../../shared/ui/button/button';
+import { Button } from '@shared/ui/button/button';
 
 @Component({
   selector: 'app-contact-form',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, Button],
   template: `
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">

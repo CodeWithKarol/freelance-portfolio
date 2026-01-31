@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import {
   LucideAngularModule,
   ArrowRight,
@@ -11,13 +10,12 @@ import {
   Zap,
   Download,
 } from 'lucide-angular';
-import { Button } from '../../../../shared/ui/button/button';
-import { Badge } from '../../../../shared/ui/badge/badge';
+import { Button } from '@shared/ui/button/button';
+import { Badge } from '@shared/ui/badge/badge';
 
 @Component({
   selector: 'app-about-section',
-  standalone: true,
-  imports: [CommonModule, RouterLink, LucideAngularModule, Button, Badge],
+  imports: [CommonModule, LucideAngularModule, Button, Badge],
   template: `
     <section id="about" class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
       <!-- Sophisticated Background Gradient -->

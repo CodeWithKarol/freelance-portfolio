@@ -8,7 +8,6 @@ interface FaqItem {
 
 @Component({
   selector: 'app-faq-section',
-  standalone: true,
   imports: [SectionHeader],
   template: `
     <section class="py-24 bg-white dark:bg-slate-950" id="faq" aria-labelledby="faq-heading">

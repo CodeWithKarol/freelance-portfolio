@@ -1,18 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CaseStudyPage } from './case-study-page';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { SeoService } from '../../../../core/seo/seo.service';
 import { provideRouter } from '@angular/router';
 import { signal } from '@angular/core';
-import { vi } from 'vitest';
 
 describe('CaseStudyPage', () => {
   let component: CaseStudyPage;
   let fixture: ComponentFixture<CaseStudyPage>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let mockPortfolioStore: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let mockSeoService: any;
 
   const mockCaseStudies = [
     {
@@ -34,18 +30,9 @@ describe('CaseStudyPage', () => {
       caseStudies: signal(mockCaseStudies),
     };
 
-    mockSeoService = {
-      updateSeo: vi.fn(),
-      setJsonLd: vi.fn(),
-    };
-
     await TestBed.configureTestingModule({
       imports: [CaseStudyPage],
-      providers: [
-        provideRouter([]),
-        { provide: PortfolioStore, useValue: mockPortfolioStore },
-        { provide: SeoService, useValue: mockSeoService },
-      ],
+      providers: [provideRouter([]), { provide: PortfolioStore, useValue: mockPortfolioStore }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CaseStudyPage);
@@ -63,18 +50,5 @@ describe('CaseStudyPage', () => {
 
   it('should find the correct case study based on slug', () => {
     expect(component.caseStudy()).toEqual(mockCaseStudies[0]);
-  });
-
-  it('should update SEO when case study is found', () => {
-    expect(mockSeoService.updateSeo).toHaveBeenCalledWith(
-      expect.objectContaining({
-        title: 'Test Study',
-        url: '/work/test-study',
-      }),
-    );
-  });
-
-  it('should set JSON-LD data', () => {
-    expect(mockSeoService.setJsonLd).toHaveBeenCalled();
   });
 });

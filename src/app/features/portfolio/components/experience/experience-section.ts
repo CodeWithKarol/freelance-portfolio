@@ -1,15 +1,14 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { LucideAngularModule, Download } from 'lucide-angular';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
-import { Card } from '../../../../shared/ui/card/card';
-import { Badge } from '../../../../shared/ui/badge/badge';
-import { Button } from '../../../../shared/ui/button/button';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
+import { Card } from '@shared/ui/card/card';
+import { Badge } from '@shared/ui/badge/badge';
+import { Button } from '@shared/ui/button/button';
 
 @Component({
   selector: 'app-experience-section',
-  standalone: true,
   imports: [CommonModule, LucideAngularModule, SectionHeader, Card, Badge, Button],
   template: `
     <section

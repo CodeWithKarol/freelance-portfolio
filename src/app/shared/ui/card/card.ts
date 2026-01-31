@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 
 @Component({
   selector: 'app-card',
-  standalone: true,
   template: `<ng-content />`,
   host: {
     '[class]': 'computedClasses()',
