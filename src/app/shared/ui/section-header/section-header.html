@@ -1,0 +1,20 @@
+<header
+  class="mx-auto max-w-4xl mb-16 lg:mb-24"
+  [class.text-center]="alignment() === 'center'"
+  [class.text-left]="alignment() === 'left'"
+>
+  @if (subtitle()) {
+    <h2 class="text-sm font-mono font-bold leading-7 text-accent uppercase tracking-widest">
+      {{ subtitle() }}
+    </h2>
+  }
+  <h2 class="mt-2 heading-2 text-balance">
+    {{ title() }}
+  </h2>
+  @if (description()) {
+    <p class="mx-auto mt-6 max-w-2xl text-body text-pretty">
+      {{ description() }}
+    </p>
+  }
+  <ng-content />
+</header>

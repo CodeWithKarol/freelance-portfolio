@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
 import { LucideAngularModule, CheckCircle } from 'lucide-angular';
-import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
+import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
 
 @Component({
   selector: 'app-case-studies-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, LucideAngularModule, SectionHeaderComponent],
+  imports: [CommonModule, RouterLink, LucideAngularModule, SectionHeader],
   template: `
     <section id="cases" class="py-24 sm:py-32 bg-white dark:bg-slate-950 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-20 sm:mb-28">
           <app-section-header
-            preTitle="Selected Work"
+            subtitle="Selected Work"
             title="Measurable Outcomes"
             description="Real examples of modernization, performance wins, and scalable frontend architecture—built to reduce risk and keep delivery moving."
           />

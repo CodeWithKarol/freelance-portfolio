@@ -13,22 +13,32 @@ import {
   Wrench,
   Check,
   Smartphone,
-  Plus,
-  Minus,
 } from 'lucide-angular';
-import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
+import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
+import { Card } from '../../../../shared/ui/card/card';
+import { Badge } from '../../../../shared/ui/badge/badge';
+import { Accordion } from '../../../../shared/ui/accordion/accordion';
+import { AccordionItem } from '../../../../shared/ui/accordion/accordion-item';
 
 @Component({
   selector: 'app-skills-section',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, SectionHeaderComponent],
+  imports: [
+    CommonModule,
+    LucideAngularModule,
+    SectionHeader,
+    Card,
+    Badge,
+    Accordion,
+    AccordionItem,
+  ],
   template: `
-    <section id="skills" class="py-24 sm:py-32 bg-white dark:bg-slate-950">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="skills" class="section-padding bg-slate-50 dark:bg-slate-950">
+      <div class="layout-container">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-16 sm:mb-20">
           <app-section-header
-            preTitle="Technical Proficiency"
+            subtitle="Technical Proficiency"
             title="Engineering for Scale & Performance"
             description="A comprehensive Frontend toolchain. While Angular is my specialty for enterprise scale, I maintain deep proficiency in React and the broader JavaScript ecosystem to architect the right solution for the problem."
           />
@@ -37,38 +47,40 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
         <!-- Core Stack (Featured) -->
         <div class="mx-auto max-w-7xl mb-20">
           <h3
-            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider text-center sm:text-left"
+            class="text-small font-semibold mb-6 uppercase tracking-wider text-center sm:text-left"
           >
             Primary Stack
           </h3>
           <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-0 list-none">
             @for (tech of coreStack(); track tech.name) {
-              <li
-                class="relative flex items-center space-x-3 rounded-lg border border-slate-300 bg-white px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-slate-400 dark:bg-slate-900 dark:border-slate-800 dark:hover:border-slate-700 transition-colors"
-              >
-                <div class="flex-shrink-0">
-                  <div
-                    class="h-10 w-10 flex items-center justify-center rounded-lg bg-indigo-50 text-indigo-600 dark:bg-indigo-900/30 dark:text-indigo-400"
-                  >
-                    <lucide-icon
-                      [img]="getCategoryIcon(tech.category)"
-                      class="h-6 w-6"
-                    ></lucide-icon>
+              <li>
+                <app-card
+                  variant="default"
+                  [interactive]="true"
+                  class="h-full flex items-center p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+                >
+                  <div class="flex-shrink-0 mr-4">
+                    <div
+                      class="h-10 w-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary"
+                    >
+                      <lucide-icon
+                        [img]="getCategoryIcon(tech.category)"
+                        class="h-6 w-6"
+                      ></lucide-icon>
+                    </div>
                   </div>
-                </div>
-                <div class="min-w-0 flex-1">
-                  <span class="absolute inset-0" aria-hidden="true"></span>
-                  <p class="text-sm font-medium text-slate-900 dark:text-white">{{ tech.name }}</p>
-                  <p class="truncate text-xs text-slate-500 dark:text-slate-400">
-                    {{ tech.years }}+ years exp.
-                  </p>
-                </div>
-                @if (tech.proficiency === 'Expert') {
-                  <span
-                    class="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 dark:bg-green-900/30 dark:text-green-400"
-                    >Expert</span
-                  >
-                }
+                  <div class="min-w-0 flex-1">
+                    <p class="font-bold text-secondary dark:text-white">{{ tech.name }}</p>
+                    <p class="truncate text-xs text-secondary/60 dark:text-slate-400">
+                      {{ tech.years }}+ years exp.
+                    </p>
+                  </div>
+                  @if (tech.proficiency === 'Expert') {
+                    <div class="ml-2">
+                      <app-badge variant="soft" color="success">Expert</app-badge>
+                    </div>
+                  }
+                </app-card>
               </li>
             }
           </ul>
@@ -77,18 +89,16 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
         <!-- Secondary Stack -->
         <div class="mx-auto max-w-7xl mb-20">
           <h3
-            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider text-center sm:text-left"
+            class="text-small font-semibold mb-6 uppercase tracking-wider text-center sm:text-left"
           >
             Additional Tools
           </h3>
           <ul class="flex flex-wrap justify-center sm:justify-start gap-2 p-0 list-none">
             @for (tech of secondaryStack(); track tech.name) {
               <li class="contents">
-                <span
-                  class="inline-flex items-center rounded-full bg-slate-50 dark:bg-slate-900 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-800"
-                >
+                <app-badge variant="outline" color="neutral">
                   {{ tech.name }}
-                </span>
+                </app-badge>
               </li>
             }
           </ul>
@@ -96,93 +106,64 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
 
         <!-- Expandable Detailed Skills (Accordion) -->
         <div class="mx-auto max-w-3xl mb-24">
-          <h3
-            class="text-sm font-semibold leading-6 text-slate-500 dark:text-slate-400 mb-6 uppercase tracking-wider"
-          >
-            Detailed Expertise
-          </h3>
-          <div
-            class="divide-y divide-slate-200 dark:divide-slate-800 border-t border-b border-slate-200 dark:border-slate-800"
-          >
+          <h3 class="text-small font-semibold mb-6 uppercase tracking-wider">Detailed Expertise</h3>
+          <app-accordion>
             @for (group of groupedTechnicalSkills(); track group.category; let i = $index) {
-              <div class="py-4">
-                <button
-                  (click)="toggleCategory(group.category)"
-                  [attr.aria-expanded]="isCategoryOpen(group.category)"
-                  [attr.aria-controls]="'skill-group-' + i"
-                  [id]="'skill-button-' + i"
-                  class="flex w-full items-center justify-between py-2 text-left text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg -mx-2 px-2 group"
-                >
-                  <span class="text-base font-semibold flex items-center gap-3">
-                    <lucide-icon
-                      [img]="getCategoryIcon(group.category)"
-                      class="h-5 w-5 text-slate-400 group-hover:text-indigo-500 transition-colors"
-                    ></lucide-icon>
-                    {{ group.category }}
-                  </span>
-                  <span class="ml-6 flex items-center">
-                    @if (isCategoryOpen(group.category)) {
-                      <lucide-icon
-                        [img]="Minus"
-                        class="h-5 w-5 text-indigo-600 dark:text-indigo-400"
-                      ></lucide-icon>
-                    } @else {
-                      <lucide-icon [img]="Plus" class="h-5 w-5 text-slate-400"></lucide-icon>
-                    }
-                  </span>
-                </button>
-                @if (isCategoryOpen(group.category)) {
-                  <div
-                    [id]="'skill-group-' + i"
-                    role="region"
-                    [attr.aria-labelledby]="'skill-button-' + i"
-                    class="mt-4 pb-2 animate-in slide-in-from-top-2 fade-in duration-200"
-                  >
-                    <div class="flex flex-wrap gap-2">
-                      @for (skill of group.skills; track skill.name) {
+              <app-accordion-item
+                [isOpen]="isCategoryOpen(group.category)"
+                (toggled)="toggleCategory(group.category)"
+              >
+                <div header class="contents">
+                  <lucide-icon
+                    [img]="getCategoryIcon(group.category)"
+                    class="h-5 w-5 text-secondary/40 dark:text-slate-500 group-hover:text-primary transition-colors"
+                  ></lucide-icon>
+                  {{ group.category }}
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                  @for (skill of group.skills; track skill.name) {
+                    <app-badge
+                      variant="soft"
+                      color="neutral"
+                      class="bg-slate-100 dark:bg-slate-800 text-secondary dark:text-slate-300"
+                    >
+                      {{ skill.name }}
+                      @if (skill.proficiency === 'Expert') {
                         <span
-                          class="inline-flex items-center rounded-md bg-slate-50 dark:bg-slate-800 px-3 py-2 text-sm font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-600/10 dark:ring-slate-700/30"
-                        >
-                          {{ skill.name }}
-                          @if (skill.proficiency === 'Expert') {
-                            <div
-                              class="ml-2 h-1.5 w-1.5 rounded-full bg-green-500 ring-2 ring-white dark:ring-slate-900"
-                            ></div>
-                          }
-                        </span>
+                          class="ml-1.5 inline-block h-1.5 w-1.5 rounded-full bg-success"
+                        ></span>
                       }
-                    </div>
-                  </div>
-                }
-              </div>
+                    </app-badge>
+                  }
+                </div>
+              </app-accordion-item>
             }
-          </div>
+          </app-accordion>
         </div>
 
         <!-- Leadership / Soft Skills (Feature Section) -->
-        <div
-          class="overflow-hidden bg-slate-50 dark:bg-slate-900 rounded-3xl lg:grid lg:grid-cols-2"
+        <app-card
+          variant="default"
+          class="block overflow-hidden bg-white dark:bg-slate-900 lg:grid lg:grid-cols-2 border border-slate-200 dark:border-slate-800 p-0"
         >
           <div class="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-8 xl:px-20 xl:py-20">
             <div class="lg:self-center">
-              <h2
-                class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
-              >
+              <h2 class="heading-2 mb-4">
                 <span class="block">More than just code.</span>
-                <span class="block text-indigo-600 dark:text-indigo-400">Tech Leadership.</span>
+                <span class="block text-primary">Tech Leadership.</span>
               </h2>
-              <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">
+              <p class="text-body mt-4">
                 Software is built by people. I foster environments where technical excellence meets
                 product vision.
               </p>
-              <ul class="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 sm:gap-y-6">
+              <ul
+                class="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 sm:gap-y-6 list-none p-0"
+              >
                 @for (skill of softSkills(); track skill.name) {
                   <li class="flex items-start gap-3">
-                    <lucide-icon
-                      [img]="Check"
-                      class="h-5 w-5 flex-none text-indigo-600 dark:text-indigo-400"
-                    ></lucide-icon>
-                    <span class="font-semibold text-slate-900 dark:text-white text-sm leading-5">
+                    <lucide-icon [img]="Check" class="h-5 w-5 flex-none text-primary"></lucide-icon>
+                    <span class="font-semibold text-secondary dark:text-white text-sm leading-5">
                       {{ skill.name }}
                     </span>
                   </li>
@@ -197,7 +178,7 @@ import { SectionHeaderComponent } from '../../../../shared/ui/section-header/sec
               alt="Team collaboration"
             />
           </div>
-        </div>
+        </app-card>
       </div>
     </section>
   `,
@@ -278,8 +259,6 @@ export class SkillsSection {
   }
 
   readonly Check = Check;
-  readonly Plus = Plus;
-  readonly Minus = Minus;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private categoryIcons: Record<string, any> = {

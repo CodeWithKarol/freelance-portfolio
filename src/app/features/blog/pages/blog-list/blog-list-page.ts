@@ -12,7 +12,7 @@ import { httpResource } from '@angular/common/http';
 import { BlogPost } from '../../../../core/portfolio/portfolio.model';
 import { LucideAngularModule, ArrowRight, Loader2, AlertCircle } from 'lucide-angular';
 import { BackgroundPatternComponent } from '../../../../shared/ui/background-pattern/background-pattern.component';
-import { SectionHeaderComponent } from '../../../../shared/ui/section-header/section-header.component';
+import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
 import { FeaturedBlogPostComponent } from '../../components/ui/featured-blog-post/featured-blog-post.component';
 import { BlogPostCardComponent } from '../../components/ui/blog-post-card/blog-post-card.component';
 import { SeoService } from '../../../../core/seo/seo.service';
@@ -50,7 +50,7 @@ interface MediumPost {
     CommonModule,
     LucideAngularModule,
     BackgroundPatternComponent,
-    SectionHeaderComponent,
+    SectionHeader,
     FeaturedBlogPostComponent,
     BlogPostCardComponent,
   ],
@@ -64,7 +64,7 @@ interface MediumPost {
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32">
         <!-- Header -->
         <app-section-header
-          preTitle="The Blog"
+          subtitle="The Blog"
           title="Insights & Engineering"
           description="Practical writing on Angular architecture, Signals/RxJS patterns, performance tuning, and engineering decisions that keep teams shipping."
         />

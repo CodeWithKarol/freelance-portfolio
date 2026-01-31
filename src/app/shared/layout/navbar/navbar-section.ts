@@ -2,11 +2,13 @@ import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-angular';
+import { BrandLogo } from '../../ui/brand-logo/brand-logo';
+import { Button } from '../../ui/button/button';
 
 @Component({
   selector: 'app-navbar-section',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule, BrandLogo, Button],
   template: `
     <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       <!-- Background & Blur Layer -->
@@ -26,37 +28,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
       >
         <!-- Logo Area -->
         <div class="flex lg:flex-1">
-          <a
-            [routerLink]="['/']"
-            fragment="about"
-            (click)="isMenuOpen.set(false)"
-            class="-m-1.5 p-1.5 flex items-center gap-3 cursor-pointer group"
-          >
-            <span class="sr-only">Karol Modelski</span>
-            <div
-              class="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-slate-100 dark:ring-slate-800 group-hover:ring-indigo-500 transition-all duration-300"
-            >
-              <img
-                src="images/karol-modelski.webp"
-                width="36"
-                height="36"
-                alt=""
-                class="h-full w-full object-cover"
-              />
-            </div>
-            <div class="hidden sm:flex flex-col">
-              <span
-                class="text-sm font-bold text-slate-900 dark:text-white leading-none mb-0.5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
-              >
-                Karol Modelski
-              </span>
-              <span
-                class="text-[10px] font-medium text-slate-500 uppercase tracking-wider leading-none"
-              >
-                Senior Frontend Developer
-              </span>
-            </div>
-          </a>
+          <app-brand-logo (scrollToTop)="isMenuOpen.set(false)" />
         </div>
 
         <!-- Mobile Menu Button -->
@@ -85,14 +57,14 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                 <a
                   [routerLink]="['/']"
                   [fragment]="item.id"
-                  routerLinkActive="text-indigo-600 dark:text-indigo-400 bg-slate-100 dark:bg-slate-800"
+                  routerLinkActive="text-primary dark:text-indigo-400 bg-slate-100 dark:bg-slate-800"
                   [routerLinkActiveOptions]="{
                     fragment: 'exact',
                     paths: 'exact',
                     queryParams: 'ignored',
                     matrixParams: 'ignored',
                   }"
-                  class="px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white block"
+                  class="px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 text-secondary dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white block"
                 >
                   {{ item.label }}
                 </a>
@@ -101,10 +73,8 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             <li>
               <a
                 [routerLink]="'/work'"
-                [routerLinkActive]="
-                  'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
-                "
-                class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200 block"
+                [routerLinkActive]="'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'"
+                class="px-3 py-2 text-sm font-medium rounded-full text-secondary dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white cursor-pointer transition-colors duration-200 block"
               >
                 Work
               </a>
@@ -112,10 +82,8 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
             <li>
               <a
                 [routerLink]="'/blog'"
-                [routerLinkActive]="
-                  'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'
-                "
-                class="px-3 py-2 text-sm font-medium rounded-full text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors duration-200 block"
+                [routerLinkActive]="'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/30 dark:text-indigo-300'"
+                class="px-3 py-2 text-sm font-medium rounded-full text-secondary dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white cursor-pointer transition-colors duration-200 block"
               >
                 Blog
               </a>
@@ -142,14 +110,16 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
               class="h-5 w-5 transition-transform duration-500 rotate-0 dark:-rotate-90 dark:hidden block"
             ></lucide-icon>
           </button>
-          <a
-            [routerLink]="['/']"
+          <app-button
+            variant="primary"
+            size="sm"
+            [route]="['/']"
             fragment="contact"
-            class="hidden sm:inline-flex items-center justify-center gap-2 h-9 rounded-full bg-slate-900 dark:bg-white/10 dark:hover:bg-white/20 px-4 text-sm font-semibold text-white transition-all hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 cursor-pointer"
+            styleClass="hidden sm:inline-flex gap-2"
           >
             <span>Book a Call</span>
             <lucide-icon [img]="ArrowUpRight" class="h-3.5 w-3.5 text-slate-300"></lucide-icon>
-          </a>
+          </app-button>
         </div>
       </nav>
 
@@ -181,21 +151,7 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
           [class.translate-x-full]="!isMenuOpen()"
         >
           <div class="flex items-center justify-between">
-            <a
-              [routerLink]="['/']"
-              fragment="about"
-              (click)="toggleMenu()"
-              class="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer"
-            >
-              <img
-                src="images/karol-modelski.webp"
-                width="32"
-                height="32"
-                alt=""
-                class="rounded-full ring-1 ring-slate-200 dark:ring-slate-800"
-              />
-              <span class="text-sm font-bold text-slate-900 dark:text-white">Karol Modelski</span>
-            </a>
+            <app-brand-logo (scrollToTop)="toggleMenu()" />
             <button
               type="button"
               class="-m-2.5 rounded-md p-2.5 text-slate-700 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
@@ -241,16 +197,17 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                 </li>
               </ul>
               <div class="py-6">
+                <!-- Mobile Theme Switcher -->
                 <div
-                  class="flex items-center justify-between mb-6 p-3 rounded-lg bg-slate-50 dark:bg-slate-900"
+                  class="flex items-center justify-between mb-6 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
                 >
                   <span class="text-sm font-medium text-slate-900 dark:text-slate-200"
                     >Dark Appearance</span
                   >
                   <button
                     (click)="toggleTheme()"
-                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
-                    [class.bg-indigo-600]="isDark()"
+                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    [class.bg-primary]="isDark()"
                     [class.bg-slate-200]="!isDark()"
                   >
                     <span class="sr-only">Toggle theme</span>
@@ -261,14 +218,15 @@ import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-an
                     ></span>
                   </button>
                 </div>
-                <a
-                  [routerLink]="['/']"
+                <app-button
+                  variant="primary"
+                  [route]="['/']"
                   fragment="contact"
                   (click)="toggleMenu()"
-                  class="-mx-3 block rounded-xl px-3 py-3 text-center text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition-colors cursor-pointer"
+                  styleClass="flex w-full justify-center"
                 >
                   Book a Call
-                </a>
+                </app-button>
               </div>
             </div>
           </div>
