@@ -1,7 +1,7 @@
 import { Component, inject, ChangeDetectionStrategy, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { Skill } from '../../../../core/portfolio/portfolio.model';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
+import { Skill } from '@core/portfolio/portfolio.model';
 import {
   LucideAngularModule,
   Terminal,
@@ -14,15 +14,14 @@ import {
   Check,
   Smartphone,
 } from 'lucide-angular';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
-import { Card } from '../../../../shared/ui/card/card';
-import { Badge } from '../../../../shared/ui/badge/badge';
-import { Accordion } from '../../../../shared/ui/accordion/accordion';
-import { AccordionItem } from '../../../../shared/ui/accordion/accordion-item';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
+import { Card } from '@shared/ui/card/card';
+import { Badge } from '@shared/ui/badge/badge';
+import { Accordion } from '@shared/ui/accordion/accordion';
+import { AccordionItem } from '@shared/ui/accordion/accordion-item';
 
 @Component({
   selector: 'app-skills-section',
-  standalone: true,
   imports: [
     CommonModule,
     LucideAngularModule,

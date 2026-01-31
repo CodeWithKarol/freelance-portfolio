@@ -1,10 +1,9 @@
-import { Component, input, signal, HostListener, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-angular';
 
 @Component({
   selector: 'app-project-screenshots',
-  standalone: true,
   imports: [CommonModule, LucideAngularModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -100,10 +99,11 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
               <img
                 [src]="img"
                 class="rounded-lg shadow-2xl ring-1 ring-white/10 select-none object-contain transition-all duration-300 bg-slate-900"
-                [ngClass]="{
-                  'max-h-[85vh] w-auto cursor-zoom-in': !isZoomed(),
-                  'w-full max-w-7xl cursor-zoom-out': isZoomed(),
-                }"
+                [class]="
+                  isZoomed()
+                    ? 'w-full max-w-7xl cursor-zoom-out'
+                    : 'max-h-[85vh] w-auto cursor-zoom-in'
+                "
                 alt="Enlarged screenshot"
                 role="button"
                 tabindex="0"
@@ -116,6 +116,9 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
       }
     </section>
   `,
+  host: {
+    '(document:keydown.escape)': 'onEscape()',
+  },
 })
 export class ProjectScreenshotsComponent {
   readonly screenshots = input.required<string[]>();
@@ -150,7 +153,6 @@ export class ProjectScreenshotsComponent {
     this.isZoomed.update((z) => !z);
   }
 
-  @HostListener('document:keydown.escape')
   onEscape() {
     if (this.selectedImage()) {
       this.closeZoom();

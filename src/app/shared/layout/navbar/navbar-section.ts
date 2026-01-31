@@ -1,13 +1,12 @@
-import { Component, ChangeDetectionStrategy, signal, inject, HostListener } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-angular';
-import { BrandLogo } from '../../ui/brand-logo/brand-logo';
-import { Button } from '../../ui/button/button';
+import { BrandLogo } from '@shared/ui/brand-logo/brand-logo';
+import { Button } from '@shared/ui/button/button';
 
 @Component({
   selector: 'app-navbar-section',
-  standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule, BrandLogo, Button],
   template: `
     <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
@@ -234,7 +233,9 @@ import { Button } from '../../ui/button/button';
       </div>
     </header>
   `,
-  styles: [],
+  host: {
+    '(window:scroll)': 'onScroll()',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarSection {
@@ -270,7 +271,6 @@ export class NavbarSection {
     }
   }
 
-  @HostListener('window:scroll')
   onScroll() {
     this.isScrolled.set(window.scrollY > 10);
   }

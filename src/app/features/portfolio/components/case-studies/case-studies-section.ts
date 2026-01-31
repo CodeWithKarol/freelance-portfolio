@@ -1,13 +1,12 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { LucideAngularModule, CheckCircle } from 'lucide-angular';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
 
 @Component({
   selector: 'app-case-studies-section',
-  standalone: true,
   imports: [CommonModule, RouterLink, LucideAngularModule, SectionHeader],
   template: `
     <section id="cases" class="py-24 sm:py-32 bg-white dark:bg-slate-950 overflow-hidden">

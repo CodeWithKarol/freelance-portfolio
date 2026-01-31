@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/
 
 @Component({
   selector: 'app-accordion',
-  standalone: true,
   template: `<ng-content />`,
   host: {
     class:

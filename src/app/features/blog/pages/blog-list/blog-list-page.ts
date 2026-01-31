@@ -5,17 +5,16 @@ import {
   signal,
   inject,
   OnInit,
-  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { httpResource } from '@angular/common/http';
-import { BlogPost } from '../../../../core/portfolio/portfolio.model';
+import { BlogPost } from '@core/portfolio/portfolio.model';
+import { SeoService } from '@shared/core/seo/seo.service';
 import { LucideAngularModule, ArrowRight, Loader2, AlertCircle } from 'lucide-angular';
-import { BackgroundPatternComponent } from '../../../../shared/ui/background-pattern/background-pattern.component';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { FeaturedBlogPostComponent } from '../../components/ui/featured-blog-post/featured-blog-post.component';
 import { BlogPostCardComponent } from '../../components/ui/blog-post-card/blog-post-card.component';
-import { SeoService } from '../../../../core/seo/seo.service';
 
 interface MediumFeedResponse {
   status: string;
@@ -45,7 +44,6 @@ interface MediumPost {
 
 @Component({
   selector: 'app-blog-list-page',
-  standalone: true,
   imports: [
     CommonModule,
     LucideAngularModule,
@@ -146,10 +144,9 @@ interface MediumPost {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BlogListPage implements OnInit {
+  private readonly seoService = inject(SeoService);
   private readonly rssUrl = 'https://karol-modelski.medium.com/feed';
   private readonly apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${this.rssUrl}`;
-
-  private seo = inject(SeoService);
 
   readonly ArrowRight = ArrowRight;
   readonly Loader2 = Loader2;
@@ -204,71 +201,29 @@ export class BlogListPage implements OnInit {
     this.visibleCount.update((c) => c + this.displayBatchSize);
   }
 
-  constructor() {
-    // Dynamically update schema when blog posts are fetched
-    effect(() => {
-      const posts = this.allPosts();
-      if (posts.length > 0) {
-        this.updateSchema(posts);
-      }
-    });
-  }
-
-  ngOnInit() {
-    this.seo.updateSeo({
-      title: 'Engineering Blog & Angular Insights',
+  ngOnInit(): void {
+    this.seoService.setPageMetadata({
+      title: 'Angular Blog - Architecture, Signals & Performance',
       description:
-        'Practical articles on Angular architecture, Signals, RxJS patterns, and performance tuning. Deep dives into real-world engineering problems and solutions.',
-      url: '/blog',
+        'Practical writing on Angular architecture, Signals/RxJS patterns, performance tuning, and engineering decisions that keep teams shipping.',
+      slug: '/blog',
+      type: 'article',
       keywords: [
         'Angular Blog',
-        'Frontend Engineering',
+        'Frontend Architecture',
+        'Angular Signals',
+        'RxJS Patterns',
         'Web Performance',
-        'Software Architecture',
-        'RxJS',
-        'Signals',
+        'Engineering Management',
+        'Software Engineering',
+        'Tech Lead',
+        'Angular Best Practices',
       ],
-      type: 'website',
     });
 
-    // Provide an initial schema structure (skeleton) immediately
-    this.updateSchema([]);
-  }
-
-  private updateSchema(posts: BlogPost[]) {
-    this.seo.setJsonLd({
-      '@context': 'https://schema.org',
-      '@type': 'Blog',
-      name: 'Engineering Insights by Karol Modelski',
-      description:
-        'Practical writing on Angular architecture, Signals/RxJS patterns, and performance tuning.',
-      url: 'https://www.karol-modelski.scale-sail.io/blog',
-      publisher: {
-        '@type': 'Organization',
-        name: 'Scale Sail',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
-        },
-      },
-      author: {
-        '@type': 'Person',
-        name: 'Karol Modelski',
-        url: 'https://www.karol-modelski.scale-sail.io',
-      },
-      // Maps fetched posts to schema.org BlogPosting objects
-      blogPost: posts.map((p) => ({
-        '@type': 'BlogPosting',
-        headline: p.title,
-        description: p.excerpt,
-        image: p.imageUrl ? [p.imageUrl] : [],
-        datePublished: p.date,
-        url: p.url,
-        author: {
-          '@type': 'Person',
-          name: 'Karol Modelski',
-        },
-      })),
-    });
+    this.seoService.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog' },
+    ]);
   }
 }

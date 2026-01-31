@@ -2,11 +2,10 @@ import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight } from 'lucide-angular';
-import { CaseStudy } from '../../../../../core/portfolio/portfolio.model';
+import { CaseStudy } from '@core/portfolio/portfolio.model';
 
 @Component({
   selector: 'app-project-card',
-  standalone: true,
   imports: [CommonModule, RouterLink, LucideAngularModule],
   styles: [
     `

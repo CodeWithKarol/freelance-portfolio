@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioStore } from '../../../core/portfolio/portfolio-store';
-import { BrandLogo } from '../../ui/brand-logo/brand-logo';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
+import { BrandLogo } from '@shared/ui/brand-logo/brand-logo';
 import {
   LucideAngularModule,
   Github,
@@ -14,7 +14,6 @@ import {
 
 @Component({
   selector: 'app-footer-section',
-  standalone: true,
   imports: [CommonModule, LucideAngularModule, BrandLogo],
   template: `
     <footer

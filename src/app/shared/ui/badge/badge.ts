@@ -13,7 +13,6 @@ export type BadgeColor =
 
 @Component({
   selector: 'app-badge',
-  standalone: true,
   template: `<ng-content />`,
   host: {
     '[class]': 'computedClasses()',

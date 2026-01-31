@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import {
   LucideAngularModule,
   ArrowRightLeft,
@@ -9,14 +9,13 @@ import {
   Users,
   Rocket,
 } from 'lucide-angular';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
-import { Card } from '../../../../shared/ui/card/card';
-import { Badge } from '../../../../shared/ui/badge/badge';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
+import { Card } from '@shared/ui/card/card';
+import { Badge } from '@shared/ui/badge/badge';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-services-section',
-  standalone: true,
   imports: [CommonModule, LucideAngularModule, SectionHeader, Card, Badge],
   template: `
     <section id="services" class="section-padding bg-slate-50 dark:bg-slate-950 overflow-hidden">

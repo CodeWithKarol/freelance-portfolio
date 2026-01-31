@@ -5,11 +5,10 @@ import { ExperienceSection } from '../../components/experience/experience-sectio
 import { SkillsSection } from '../../components/skills/skills-section';
 import { ContactSection } from '../../components/contact/contact-section';
 import { FaqSection } from '../../components/faq/faq-section';
-import { SeoService } from '../../../../core/seo/seo.service';
+import { SeoService } from '../../../../shared/core/seo/seo.service';
 
 @Component({
   selector: 'app-home-page',
-  standalone: true,
   imports: [
     AboutSection,
     ServicesSection,
@@ -30,18 +29,34 @@ import { SeoService } from '../../../../core/seo/seo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage implements OnInit {
-  private seo = inject(SeoService);
+  private seoService = inject(SeoService);
 
-  ngOnInit() {
-    this.seo.updateSeo({
-      title: 'Senior Frontend Developer & Legacy Modernization',
+  ngOnInit(): void {
+    this.seoService.setPageMetadata({
+      title: 'Angular Expert & Legacy Code Modernization | Karol Modelski',
       description:
-        'Senior Frontend Developer specialized in modernizing legacy Angular applications. I help teams fix performance bottlenecks, refactor legacy code, and establish scalable architecture.',
-      url: '/',
-      keywords: ['Angular', 'Frontend', 'Legacy Migration', 'Performance', 'Consultant'],
+        'Fractional Tech Lead & Senior Angular Developer specialized in retiring technical debt, Zoneless Angular migration, and high-performance enterprise architecture.',
+      slug: '',
+      type: 'website',
+      keywords: [
+        'Angular Developer',
+        'Frontend Architect',
+        'Legacy Modernization',
+        'Angular Migration',
+        'Enterprise Angular',
+        'Performance Optimization',
+        'Technical Debt',
+        'Zoneless Angular',
+        'RxJS Expert',
+        'Angular Signals',
+        'Nx Monorepo',
+        'Tailwind CSS',
+      ],
     });
 
-    this.seo.setJsonLd({
+    this.seoService.setBreadcrumbs([{ name: 'Home', path: '/' }]);
+
+    this.seoService.setSchema({
       '@context': 'https://schema.org',
       '@graph': [
         {

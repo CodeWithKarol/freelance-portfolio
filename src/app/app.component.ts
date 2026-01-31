@@ -5,7 +5,6 @@ import { FooterSection } from './shared/layout/footer/footer-section';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterOutlet, NavbarSection, FooterSection],
   template: `
     <a href="#main-content" class="skip-link">Skip to main content</a>

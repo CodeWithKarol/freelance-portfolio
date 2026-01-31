@@ -6,7 +6,6 @@ let nextId = 0;
 
 @Component({
   selector: 'app-accordion-item',
-  standalone: true,
   imports: [CommonModule, LucideAngularModule],
   template: `
     <div class="py-4">

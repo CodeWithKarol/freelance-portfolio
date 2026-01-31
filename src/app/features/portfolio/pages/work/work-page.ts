@@ -4,19 +4,17 @@ import {
   inject,
   computed,
   signal,
-  effect,
   OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { BackgroundPatternComponent } from '../../../../shared/ui/background-pattern/background-pattern.component';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
+import { SeoService } from '@shared/core/seo/seo.service';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { ProjectCardComponent } from '../../components/ui/project-card/project-card.component';
-import { SeoService } from '../../../../core/seo/seo.service';
 
 @Component({
   selector: 'app-work-page',
-  standalone: true,
   imports: [CommonModule, BackgroundPatternComponent, SectionHeader, ProjectCardComponent],
   template: `
     <div
@@ -73,97 +71,11 @@ import { SeoService } from '../../../../core/seo/seo.service';
 })
 export class WorkPage implements OnInit {
   store = inject(PortfolioStore);
-  seo = inject(SeoService);
+  private seoService = inject(SeoService);
 
   // State
   private readonly batchSize = 3;
   protected visibleCount = signal(4);
-
-  ngOnInit() {
-    this.seo.updateSeo({
-      title: 'Work & Case Studies',
-      description:
-        'Explore my portfolio of enterprise Angular modernization projects, performance optimizations, and scalable SaaS architectures.',
-      url: '/work',
-      keywords: [
-        'Angular Portfolio',
-        'Case Studies',
-        'Frontend Architecture',
-        'Enterprise Angular',
-        'Performance Optimization',
-      ],
-    });
-
-    // Provide initial schema
-    this.updateSchema();
-  }
-
-  constructor() {
-    effect(() => {
-      // Allow signal dependency tracking
-      this.visibleProjects();
-      this.updateSchema();
-    });
-  }
-
-  private updateSchema() {
-    // Generate JSON-LD for the collection of works
-    const summaries = this.visibleProjects().map((p) => ({
-      '@type': 'Article',
-      headline: p.title,
-      name: p.title,
-      description: p.tagline,
-      image: p.heroImage ? [`https://www.karol-modelski.scale-sail.io${p.heroImage}`] : [],
-      url: `https://www.karol-modelski.scale-sail.io/work/${p.id}`,
-      author: {
-        '@type': 'Person',
-        name: 'Karol Modelski',
-        url: 'https://www.karol-modelski.scale-sail.io',
-      },
-      datePublished: '2024-01-01T08:00:00+00:00', // Portfolio items usually don't have exact dates
-    }));
-
-    this.seo.setJsonLd({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              name: 'Home',
-              item: 'https://www.karol-modelski.scale-sail.io',
-            },
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: 'Work',
-              item: 'https://www.karol-modelski.scale-sail.io/work',
-            },
-          ],
-        },
-        {
-          '@type': 'CollectionPage',
-          '@id': 'https://www.karol-modelski.scale-sail.io/work',
-          name: 'Portfolio Work - Karol Modelski',
-          description: 'Selected case studies and engineering projects.',
-          url: 'https://www.karol-modelski.scale-sail.io/work',
-          isPartOf: {
-            '@id': 'https://www.karol-modelski.scale-sail.io/#website',
-          },
-          mainEntity: {
-            '@type': 'ItemList',
-            itemListElement: summaries.map((item, index) => ({
-              '@type': 'ListItem',
-              position: index + 1,
-              item: item,
-            })),
-          },
-        },
-      ],
-    });
-  }
 
   // Derived
   hasProjects = computed(() => this.store.caseStudies().length > 0);
@@ -177,6 +89,30 @@ export class WorkPage implements OnInit {
   });
 
   loadMore() {
-    this.visibleCount.update((c) => c + 2);
+    this.visibleCount.update((c) => c + this.batchSize);
+  }
+
+  ngOnInit(): void {
+    this.seoService.setPageMetadata({
+      title: 'Angular Portfolio & Case Studies | Enterprise Architecture',
+      description:
+        'Explore real-world case studies of Angular migrations, performance optimization, and scalable "Smart Shell" architecture for enterprise applications.',
+      slug: '/work',
+      keywords: [
+        'Angular Portfolio',
+        'Case Studies',
+        'Enterprise Angular',
+        'System Architecture',
+        'SaaS Development',
+        'Frontend Modernization',
+        'Angular Signals',
+        'High Performance Dashboard',
+      ],
+    });
+
+    this.seoService.setBreadcrumbs([
+      { name: 'Home', path: '/' },
+      { name: 'Work', path: '/work' },
+    ]);
   }
 }

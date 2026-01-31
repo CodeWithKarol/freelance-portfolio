@@ -5,7 +5,6 @@ import { BlogPost } from '../../../../../core/portfolio/portfolio.model';
 
 @Component({
   selector: 'app-blog-post-card',
-  standalone: true,
   imports: [CommonModule, DatePipe, LucideAngularModule],
   styles: [
     `

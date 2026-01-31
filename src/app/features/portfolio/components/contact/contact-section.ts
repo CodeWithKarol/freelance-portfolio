@@ -1,14 +1,13 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { LucideAngularModule, Mail, MapPin } from 'lucide-angular';
-import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
-import { Card } from '../../../../shared/ui/card/card';
+import { SectionHeader } from '@shared/ui/section-header/section-header';
+import { Card } from '@shared/ui/card/card';
 import { ContactFormComponent } from './form/contact-form.component';
 
 @Component({
   selector: 'app-contact-section',
-  standalone: true,
   imports: [CommonModule, LucideAngularModule, SectionHeader, Card, ContactFormComponent],
   template: `
     <section

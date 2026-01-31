@@ -1,8 +1,8 @@
 import { Component, inject, computed, input, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { PortfolioStore } from '../../../../core/portfolio/portfolio-store';
-import { SeoService } from '../../../../core/seo/seo.service';
+import { PortfolioStore } from '@core/portfolio/portfolio-store';
+import { SeoService } from '@shared/core/seo/seo.service';
 import {
   LucideAngularModule,
   ArrowLeft,
@@ -18,7 +18,6 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
 
 @Component({
   selector: 'app-case-study-page',
-  standalone: true,
   imports: [CommonModule, RouterLink, LucideAngularModule, ProjectScreenshotsComponent],
   template: `
     @if (caseStudy(); as study) {
@@ -287,7 +286,7 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
 })
 export class CaseStudyPage {
   store = inject(PortfolioStore);
-  seo = inject(SeoService);
+  private seoService = inject(SeoService);
 
   // Input from router parameter
   slug = input.required<string>();
@@ -301,41 +300,30 @@ export class CaseStudyPage {
       const study = this.caseStudy();
       if (!study) return;
 
-      this.seo.updateSeo({
-        title: study.title,
-        description: study.challenge.substring(0, 150) + '...', // Create a meta description from component data
+      this.seoService.setPageMetadata({
+        title: `${study.title} | Angular Case Study`,
+        description: study.challenge.substring(0, 160) + '...',
         image: study.heroImage,
-        url: '/work/' + study.id,
-        keywords: study.techStack,
+        slug: `/work/${study.id}`,
+        keywords: [
+          ...study.techStack,
+          'Angular Case Study',
+          'Frontend Architecture',
+          'Web Development',
+          'Enterprise Application',
+        ],
+        type: 'article',
       });
 
-      // Structured Data for Portfolio/Project
-      this.seo.setJsonLd({
+      this.seoService.setBreadcrumbs([
+        { name: 'Home', path: '/' },
+        { name: 'Work', path: '/work' },
+        { name: study.title, path: `/work/${study.id}` },
+      ]);
+
+      this.seoService.setSchema({
         '@context': 'https://schema.org',
         '@graph': [
-          {
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.karol-modelski.scale-sail.io',
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Work',
-                item: 'https://www.karol-modelski.scale-sail.io/work',
-              },
-              {
-                '@type': 'ListItem',
-                position: 3,
-                name: study.title,
-                item: `https://www.karol-modelski.scale-sail.io/work/${study.id}`,
-              },
-            ],
-          },
           {
             '@type': 'Article',
             headline: study.title,
