@@ -13,12 +13,24 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { Card } from '@shared/ui/card/card';
 import { Badge } from '@shared/ui/badge/badge';
 import { CommonModule } from '@angular/common';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-services-section',
-  imports: [CommonModule, LucideAngularModule, SectionHeader, Card, Badge],
+  imports: [
+    CommonModule,
+    LucideAngularModule,
+    SectionHeader,
+    Card,
+    Badge,
+    BackgroundPatternComponent,
+  ],
   template: `
-    <section id="services" class="section-padding bg-slate-50 dark:bg-slate-950 overflow-hidden">
+    <section
+      id="services"
+      class="section-padding bg-slate-50 dark:bg-slate-950 overflow-hidden relative isolate"
+    >
+      <app-background-pattern variant="section" position="top-right" />
       <div class="layout-container">
         <app-section-header
           subtitle="What I Deliver"

@@ -6,20 +6,25 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { Card } from '@shared/ui/card/card';
 import { Badge } from '@shared/ui/badge/badge';
 import { Button } from '@shared/ui/button/button';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-experience-section',
-  imports: [CommonModule, LucideAngularModule, SectionHeader, Card, Badge, Button],
+  imports: [
+    CommonModule,
+    LucideAngularModule,
+    SectionHeader,
+    Card,
+    Badge,
+    Button,
+    BackgroundPatternComponent,
+  ],
   template: `
     <section
       id="experience"
-      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden"
+      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden isolate"
     >
-      <!-- Background subtle pattern -->
-      <div
-        class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
-        style="background-image: radial-gradient(#6366f1 1px, transparent 1px); background-size: 32px 32px;"
-      ></div>
+      <app-background-pattern variant="subtle" position="center" />
 
       <div class="layout-container">
         <!-- Section Header -->

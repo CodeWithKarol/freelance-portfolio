@@ -19,6 +19,7 @@ import { Card } from '@shared/ui/card/card';
 import { Badge } from '@shared/ui/badge/badge';
 import { Accordion } from '@shared/ui/accordion/accordion';
 import { AccordionItem } from '@shared/ui/accordion/accordion-item';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-skills-section',
@@ -30,9 +31,15 @@ import { AccordionItem } from '@shared/ui/accordion/accordion-item';
     Badge,
     Accordion,
     AccordionItem,
+    BackgroundPatternComponent,
   ],
   template: `
-    <section id="skills" class="section-padding bg-slate-50 dark:bg-slate-950">
+    <section
+      id="skills"
+      class="section-padding bg-slate-50 dark:bg-slate-950 relative overflow-hidden isolate"
+    >
+      <app-background-pattern variant="subtle" position="bottom-left" />
+
       <div class="layout-container">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-16 sm:mb-20">

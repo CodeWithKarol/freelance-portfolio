@@ -12,46 +12,15 @@ import {
 } from 'lucide-angular';
 import { Button } from '@shared/ui/button/button';
 import { Badge } from '@shared/ui/badge/badge';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-about-section',
-  imports: [CommonModule, LucideAngularModule, Button, Badge],
+  imports: [CommonModule, LucideAngularModule, Button, Badge, BackgroundPatternComponent],
   template: `
     <section id="about" class="relative isolate overflow-hidden bg-white dark:bg-slate-950">
       <!-- Sophisticated Background Gradient -->
-      <svg
-        class="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-slate-200 dark:stroke-slate-800 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
-        aria-hidden="true"
-      >
-        <defs>
-          <pattern
-            id="pattern-about-bg"
-            width="200"
-            height="200"
-            x="50%"
-            y="-1"
-            patternUnits="userSpaceOnUse"
-          >
-            <path d="M.5 200V.5H200" fill="none" />
-          </pattern>
-        </defs>
-        <svg x="50%" y="-1" class="overflow-visible fill-slate-50 dark:fill-slate-900">
-          <path
-            d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-            stroke-width="0"
-          />
-        </svg>
-        <rect width="100%" height="100%" stroke-width="0" fill="url(#pattern-about-bg)" />
-      </svg>
-      <div
-        class="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
-        aria-hidden="true"
-      >
-        <div
-          class="aspect-[801/1036] w-[50.0625rem] bg-gradient-to-tr from-primary/30 to-accent/30 opacity-30"
-          style="clip-path: polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 36.8%, 59.7% 49%, 0.1% 62.5%, 2.1% 26.8%, 13.9% 70.3%, 36.3% 94.5%, 80.5% 56.7%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%)"
-        ></div>
-      </div>
+      <app-background-pattern variant="hero" position="top-right" />
 
       <div class="overflow-hidden">
         <div class="layout-container pb-32 pt-36 sm:pt-60 lg:pt-32">

@@ -5,43 +5,28 @@ import { LucideAngularModule, Mail, MapPin } from 'lucide-angular';
 import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { Card } from '@shared/ui/card/card';
 import { ContactFormComponent } from './form/contact-form.component';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-contact-section',
-  imports: [CommonModule, LucideAngularModule, SectionHeader, Card, ContactFormComponent],
+  imports: [
+    CommonModule,
+    LucideAngularModule,
+    SectionHeader,
+    Card,
+    ContactFormComponent,
+    BackgroundPatternComponent,
+  ],
   template: `
     <section
       id="contact"
-      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden"
+      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden isolate"
     >
+      <app-background-pattern variant="section" position="bottom-right" />
       <div class="layout-container lg:grid lg:grid-cols-2 lg:gap-x-16">
         <!-- Left Column: Info & Context -->
         <div class="relative pb-20 pt-10 sm:pt-16 lg:static lg:py-16">
           <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <!-- Background Decoration (Simplified) -->
-            <div
-              class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden opacity-30 dark:opacity-10 pointer-events-none"
-            >
-              <svg
-                class="absolute inset-0 h-full w-full stroke-slate-200 dark:stroke-slate-800"
-                aria-hidden="true"
-              >
-                <defs>
-                  <pattern
-                    id="hex-pattern"
-                    width="200"
-                    height="200"
-                    x="100%"
-                    y="-1"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path d="M130 200V.5M.5 .5H200" fill="none" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" stroke-width="0" fill="url(#hex-pattern)" />
-              </svg>
-            </div>
-
             <app-section-header
               subtitle="Get in Touch"
               title="Start a Project"

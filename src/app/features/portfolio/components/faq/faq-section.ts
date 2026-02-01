@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { SectionHeader } from '../../../../shared/ui/section-header/section-header';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 interface FaqItem {
   question: string;
@@ -8,9 +9,14 @@ interface FaqItem {
 
 @Component({
   selector: 'app-faq-section',
-  imports: [SectionHeader],
+  imports: [SectionHeader, BackgroundPatternComponent],
   template: `
-    <section class="py-24 bg-white dark:bg-slate-950" id="faq" aria-labelledby="faq-heading">
+    <section
+      class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden isolate"
+      id="faq"
+      aria-labelledby="faq-heading"
+    >
+      <app-background-pattern variant="subtle" position="center" />
       <div class="container mx-auto px-6 max-w-4xl">
         <app-section-header
           subtitle="FAQ"
