@@ -4,7 +4,6 @@ import {
   inject,
   computed,
   signal,
-  OnInit,
   effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -70,7 +69,7 @@ import { ProjectCardComponent } from '../../components/ui/project-card/project-c
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkPage implements OnInit {
+export class WorkPage {
   store = inject(PortfolioStore);
   private seoService = inject(SeoService);
 
@@ -93,6 +92,28 @@ export class WorkPage implements OnInit {
     effect(() => {
       const projects = this.store.caseStudies();
 
+      this.seoService.setPageMetadata({
+        title: 'Angular Portfolio & Case Studies | Enterprise Architecture',
+        description:
+          'Explore real-world case studies of Angular migrations, performance optimization, and scalable "Smart Shell" architecture for enterprise applications.',
+        slug: '/work',
+        keywords: [
+          'Angular Portfolio',
+          'Case Studies',
+          'Enterprise Angular',
+          'System Architecture',
+          'SaaS Development',
+          'Frontend Modernization',
+          'Angular Signals',
+          'High Performance Dashboard',
+        ],
+      });
+
+      this.seoService.setBreadcrumbs([
+        { name: 'Home', path: '/' },
+        { name: 'Work', path: '/work' },
+      ]);
+
       this.seoService.setSchema({
         '@context': 'https://schema.org',
         '@graph': [
@@ -107,12 +128,21 @@ export class WorkPage implements OnInit {
               itemListElement: projects.map((project, index) => ({
                 '@type': 'ListItem',
                 position: index + 1,
-                url: `https://www.karol-modelski.scale-sail.io/work/${project.id}`,
-                name: project.title,
-                image: project.heroImage
-                  ? [`https://www.karol-modelski.scale-sail.io${project.heroImage}`]
-                  : [],
-                description: project.tagline,
+                item: {
+                  '@type': 'Article',
+                  url: `https://www.karol-modelski.scale-sail.io/work/${project.id}`,
+                  name: project.title,
+                  headline: project.title,
+                  image: project.heroImage
+                    ? [`https://www.karol-modelski.scale-sail.io${project.heroImage}`]
+                    : [],
+                  description: project.tagline,
+                  author: {
+                    '@type': 'Person',
+                    name: 'Karol Modelski',
+                    url: 'https://www.karol-modelski.scale-sail.io',
+                  },
+                },
               })),
             },
           },
@@ -123,29 +153,5 @@ export class WorkPage implements OnInit {
 
   loadMore() {
     this.visibleCount.update((c) => c + this.batchSize);
-  }
-
-  ngOnInit(): void {
-    this.seoService.setPageMetadata({
-      title: 'Angular Portfolio & Case Studies | Enterprise Architecture',
-      description:
-        'Explore real-world case studies of Angular migrations, performance optimization, and scalable "Smart Shell" architecture for enterprise applications.',
-      slug: '/work',
-      keywords: [
-        'Angular Portfolio',
-        'Case Studies',
-        'Enterprise Angular',
-        'System Architecture',
-        'SaaS Development',
-        'Frontend Modernization',
-        'Angular Signals',
-        'High Performance Dashboard',
-      ],
-    });
-
-    this.seoService.setBreadcrumbs([
-      { name: 'Home', path: '/' },
-      { name: 'Work', path: '/work' },
-    ]);
   }
 }
