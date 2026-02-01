@@ -1,4 +1,4 @@
-import { Component, inject, computed, input, effect } from '@angular/core';
+import { Component, inject, computed, input, effect, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '@core/portfolio/portfolio-store';
@@ -19,6 +19,7 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
 @Component({
   selector: 'app-case-study-page',
   imports: [CommonModule, RouterLink, LucideAngularModule, ProjectScreenshotsComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (caseStudy(); as study) {
       <!-- Main wrapper -->
@@ -341,8 +342,8 @@ export class CaseStudyPage {
             isPartOf: {
               '@id': 'https://www.karol-modelski.scale-sail.io/#website',
             },
-            datePublished: '2024-01-01T08:00:00+00:00',
-            dateModified: '2026-01-20T08:00:00+00:00',
+            datePublished: new Date('2024-01-01T08:00:00+00:00').toISOString(),
+            dateModified: new Date('2026-01-20T08:00:00+00:00').toISOString(),
             mainEntityOfPage: {
               '@type': 'WebPage',
               '@id': `https://www.karol-modelski.scale-sail.io/work/${study.id}`,

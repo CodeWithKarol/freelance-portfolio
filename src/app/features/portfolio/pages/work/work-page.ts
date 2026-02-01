@@ -5,6 +5,7 @@ import {
   computed,
   signal,
   OnInit,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '@core/portfolio/portfolio-store';
@@ -87,6 +88,38 @@ export class WorkPage implements OnInit {
   hasMoreProjects = computed(() => {
     return this.visibleProjects().length < this.store.caseStudies().length;
   });
+
+  constructor() {
+    effect(() => {
+      const projects = this.store.caseStudies();
+
+      this.seoService.setSchema({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'CollectionPage',
+            name: 'Selected Work | Angular Portfolio',
+            description:
+              'Case studies focused on modernization, performance wins, and scalable architecture.',
+            url: 'https://www.karol-modelski.scale-sail.io/work',
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: projects.map((project, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                url: `https://www.karol-modelski.scale-sail.io/work/${project.id}`,
+                name: project.title,
+                image: project.heroImage
+                  ? [`https://www.karol-modelski.scale-sail.io${project.heroImage}`]
+                  : [],
+                description: project.tagline,
+              })),
+            },
+          },
+        ],
+      });
+    });
+  }
 
   loadMore() {
     this.visibleCount.update((c) => c + this.batchSize);
