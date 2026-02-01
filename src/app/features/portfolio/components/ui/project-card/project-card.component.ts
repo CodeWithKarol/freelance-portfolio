@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LucideAngularModule, ArrowRight } from 'lucide-angular';
 import { CaseStudy } from '@core/portfolio/portfolio.model';
+import { Badge } from '@shared/ui/badge/badge';
+import { Button } from '@shared/ui/button/button';
 
 @Component({
   selector: 'app-project-card',
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule, Badge, Button],
   styles: [
     `
       :host {
@@ -48,11 +50,7 @@ import { CaseStudy } from '@core/portfolio/portfolio.model';
       <!-- Content Section -->
       <div class="w-full lg:w-1/2 flex flex-col justify-center">
         <div class="flex items-center gap-x-4">
-          <div
-            class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-700/10 dark:bg-indigo-400/10 dark:text-indigo-400 dark:ring-indigo-400/30"
-          >
-            Case Study
-          </div>
+          <app-badge color="primary" variant="soft">Case Study</app-badge>
           @if (project().techStack.length > 0) {
             <span class="text-xs font-medium text-slate-500 dark:text-slate-400">
               {{ project().techStack[0] }}
@@ -61,9 +59,7 @@ import { CaseStudy } from '@core/portfolio/portfolio.model';
         </div>
 
         <div class="group relative max-w-xl">
-          <h3
-            class="mt-6 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"
-          >
+          <h3 class="mt-6 heading-2">
             <a [routerLink]="['/work', project().id]">
               <span class="absolute inset-0"></span>
               {{ project().title }}
@@ -80,11 +76,7 @@ import { CaseStudy } from '@core/portfolio/portfolio.model';
         >
           @for (tech of project().techStack.slice(0, 4); track tech) {
             <li>
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-md text-sm font-medium bg-slate-50 text-slate-700 ring-1 ring-inset ring-slate-200/50 dark:bg-slate-800 dark:text-slate-300 dark:ring-slate-700"
-              >
-                {{ tech }}
-              </span>
+              <app-badge color="neutral" variant="soft">{{ tech }}</app-badge>
             </li>
           }
           @if (project().techStack.length > 4) {
@@ -100,16 +92,17 @@ import { CaseStudy } from '@core/portfolio/portfolio.model';
 
         <!-- Call to Action -->
         <div class="mt-8 flex items-center gap-x-6">
-          <a
-            [routerLink]="['/work', project().id]"
-            class="group/link flex items-center gap-2 text-sm font-semibold leading-6 text-indigo-600 dark:text-indigo-400 hover:text-indigo-500"
+          <app-button
+            variant="link"
+            [route]="['/work', project().id]"
+            class="group/link text-sm font-semibold leading-6"
           >
             Read case study
             <lucide-icon
               [img]="ArrowRight"
-              class="h-4 w-4 transition-transform group-hover/link:translate-x-1"
+              class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
             />
-          </a>
+          </app-button>
         </div>
       </div>
     </article>

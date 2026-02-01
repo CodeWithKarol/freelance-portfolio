@@ -9,13 +9,14 @@ import {
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { SeoService } from '@shared/core/seo/seo.service';
+import { Button } from '@shared/ui/button/button';
 import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { ProjectCardComponent } from '../../components/ui/project-card/project-card.component';
 
 @Component({
   selector: 'app-work-page',
-  imports: [CommonModule, BackgroundPatternComponent, SectionHeader, ProjectCardComponent],
+  imports: [CommonModule, BackgroundPatternComponent, SectionHeader, ProjectCardComponent, Button],
   template: `
     <div
       class="min-h-screen bg-white dark:bg-slate-950 font-sans text-slate-900 dark:text-white pb-24 sm:pb-32 relative isolate"
@@ -23,7 +24,7 @@ import { ProjectCardComponent } from '../../components/ui/project-card/project-c
       <!-- Background Elements -->
       <app-background-pattern />
 
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32">
+      <div class="layout-container pt-24 sm:pt-32">
         <!-- Header -->
         <app-section-header
           subtitle="Portfolio"
@@ -50,12 +51,9 @@ import { ProjectCardComponent } from '../../components/ui/project-card/project-c
             <!-- Load More -->
             @if (hasMoreProjects()) {
               <div class="mt-32 flex justify-center">
-                <button
-                  (click)="loadMore()"
-                  class="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50 dark:bg-slate-800 dark:text-white dark:ring-slate-700 dark:hover:bg-slate-700 transition-all"
-                >
+                <app-button variant="outline" size="lg" (click)="loadMore()">
                   Load more projects
-                </button>
+                </app-button>
               </div>
             }
           } @else {

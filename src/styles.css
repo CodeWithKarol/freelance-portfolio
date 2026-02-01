@@ -106,6 +106,10 @@
     @apply bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all;
   }
 
+  .btn-link {
+    @apply bg-transparent text-primary hover:text-blue-600 shadow-none hover:bg-transparent !p-0 !h-auto justify-start;
+  }
+
   .btn-lg {
     @apply px-8 py-4 text-lg;
   }
