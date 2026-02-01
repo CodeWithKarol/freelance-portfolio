@@ -70,9 +70,9 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
 
         <main>
           <!-- Hero Section -->
-          <section class="relative pt-20 pb-32 overflow-hidden">
+          <section class="relative pt-20 pb-32 overflow-hidden isolate">
             <!-- Background Texture -->
-            <app-background-pattern variant="hero" />
+            <app-background-pattern variant="hero" position="top-right" />
 
             <div class="layout-container text-center">
               <div
@@ -211,20 +211,18 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
           </div>
 
           <!-- Application Interface (Screenshots) -->
-          @if (study.screenshots?.length) {
-            <app-project-screenshots [screenshots]="study.screenshots!" />
-          }
+          <section class="relative isolate overflow-hidden">
+            <app-background-pattern variant="subtle" position="top-left" />
+            
+            @if (study.screenshots?.length) {
+              <app-project-screenshots [screenshots]="study.screenshots!" />
+            }
+          </section>
 
           <!-- Technical Architecture (Dark Section) -->
-          <section class="bg-slate-900 py-24 relative overflow-hidden">
-            <!-- Decorative elements -->
-            <div
-              class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"
-            ></div>
-            <div
-              class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-            ></div>
-
+          <section class="bg-slate-900 py-24 relative overflow-hidden isolate">
+            <app-background-pattern variant="section" position="center" />
+            
             <div class="relative layout-container">
               <div class="max-w-3xl">
                 <div
@@ -250,7 +248,9 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
           </section>
 
           <!-- Footer/Next Steps -->
-          <section class="py-24 bg-white dark:bg-slate-950">
+          <section class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden isolate">
+            <app-background-pattern variant="subtle" position="bottom-right" />
+            
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 class="heading-2 mb-8">Ready to see more?</h2>
               <app-button variant="secondary" size="lg" [route]="['/work']">
