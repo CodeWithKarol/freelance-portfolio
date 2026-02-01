@@ -87,6 +87,8 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
           <div
             class="absolute inset-0 z-[100] overflow-y-auto overflow-x-hidden"
             (click)="onBackdropClick($event)"
+            (keyup.enter)="onBackdropClick($event)"
+            tabindex="-1"
           >
             <div class="min-h-full w-full flex items-center justify-center p-4 pt-24 pb-24">
               <!-- Scroll Indicator Pill -->
@@ -113,6 +115,9 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
                 "
                 alt="Enlarged screenshot"
                 (click)="toggleZoom($event)"
+                (keyup.enter)="toggleZoom($event)"
+                tabindex="0"
+                role="button"
               />
             </div>
           </div>
@@ -146,7 +151,7 @@ export class ProjectScreenshotsComponent {
     document.body.style.overflow = ''; // Restore scrolling
   }
 
-  onBackdropClick(event: MouseEvent) {
+  onBackdropClick(event: Event) {
     if (event.target === event.currentTarget) {
       this.closeZoom();
     }
