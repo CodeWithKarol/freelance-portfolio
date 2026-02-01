@@ -16,6 +16,7 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
 import { SectionHeader } from '@shared/ui/section-header/section-header';
 import { FeaturedBlogPostComponent } from '../../components/ui/featured-blog-post/featured-blog-post.component';
 import { BlogPostCardComponent } from '../../components/ui/blog-post-card/blog-post-card.component';
+import { Button } from '@shared/ui/button/button';
 
 interface MediumFeedResponse {
   status: string;
@@ -52,6 +53,7 @@ interface MediumPost {
     SectionHeader,
     FeaturedBlogPostComponent,
     BlogPostCardComponent,
+    Button,
   ],
   template: `
     <div
@@ -129,12 +131,9 @@ interface MediumPost {
               <div
                 class="flex justify-center border-t border-slate-200 dark:border-slate-800 pt-10 mt-16"
               >
-                <button
-                  (click)="loadMore()"
-                  class="rounded-full bg-white dark:bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-900 dark:text-white shadow-sm ring-1 ring-inset ring-slate-300 dark:ring-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
-                >
+                <app-button variant="outline" size="lg" (click)="loadMore()">
                   Load more articles
-                </button>
+                </app-button>
               </div>
             }
           }

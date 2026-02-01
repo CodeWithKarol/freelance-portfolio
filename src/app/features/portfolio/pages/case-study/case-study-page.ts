@@ -1,6 +1,5 @@
 import { Component, inject, computed, input, effect, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { SeoService } from '@shared/core/seo/seo.service';
 import {
@@ -23,7 +22,6 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
   selector: 'app-case-study-page',
   imports: [
     CommonModule,
-    RouterLink,
     LucideAngularModule,
     ProjectScreenshotsComponent,
     Badge,
@@ -213,7 +211,7 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
           <!-- Application Interface (Screenshots) -->
           <section class="relative isolate overflow-hidden">
             <app-background-pattern variant="subtle" position="top-left" />
-            
+
             @if (study.screenshots?.length) {
               <app-project-screenshots [screenshots]="study.screenshots!" />
             }
@@ -222,7 +220,7 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
           <!-- Technical Architecture (Dark Section) -->
           <section class="bg-slate-900 py-24 relative overflow-hidden isolate">
             <app-background-pattern variant="section" position="center" />
-            
+
             <div class="relative layout-container">
               <div class="max-w-3xl">
                 <div
@@ -250,7 +248,7 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
           <!-- Footer/Next Steps -->
           <section class="py-24 bg-white dark:bg-slate-950 relative overflow-hidden isolate">
             <app-background-pattern variant="subtle" position="bottom-right" />
-            
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 class="heading-2 mb-8">Ready to see more?</h2>
               <app-button variant="secondary" size="lg" [route]="['/work']">
