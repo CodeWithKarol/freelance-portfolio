@@ -15,10 +15,21 @@ import {
   Globe,
 } from 'lucide-angular';
 import { ProjectScreenshotsComponent } from '../../components/ui/project-screenshots/project-screenshots.component';
+import { Badge } from '@shared/ui/badge/badge';
+import { Button } from '@shared/ui/button/button';
+import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-case-study-page',
-  imports: [CommonModule, RouterLink, LucideAngularModule, ProjectScreenshotsComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    LucideAngularModule,
+    ProjectScreenshotsComponent,
+    Badge,
+    Button,
+    BackgroundPatternComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (caseStudy(); as study) {
@@ -30,44 +41,28 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
         <nav
           class="sticky top-0 z-50 w-full border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md"
         >
-          <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
-          >
-            <a
-              [routerLink]="'/work'"
-              class="group inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              <div
-                class="p-1.5 rounded-md bg-slate-100 dark:bg-slate-900 ring-1 ring-slate-200 dark:ring-slate-800 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-950/30 group-hover:ring-indigo-200 dark:group-hover:ring-indigo-800 transition-all"
-              >
-                <lucide-icon [img]="ArrowLeft" class="h-4 w-4"></lucide-icon>
-              </div>
+          <div class="layout-container h-16 flex items-center justify-between">
+            <app-button variant="ghost" [route]="['/work']" class="gap-2">
+              <lucide-icon [img]="ArrowLeft" class="h-4 w-4 mr-2" />
               <span class="hidden sm:inline">Back to Work</span>
-            </a>
+            </app-button>
 
             <div class="flex items-center gap-3">
               @if (study.repoUrl) {
-                <a
+                <app-button
+                  variant="ghost"
                   [href]="study.repoUrl"
-                  target="_blank"
-                  class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                  class="!p-2"
                   aria-label="View Source"
                 >
-                  <lucide-icon [img]="Github" class="h-5 w-5"></lucide-icon>
-                </a>
+                  <lucide-icon [img]="Github" class="h-5 w-5" />
+                </app-button>
               }
               @if (study.demoUrl) {
-                <a
-                  [href]="study.demoUrl"
-                  target="_blank"
-                  class="inline-flex items-center gap-2 rounded-full bg-slate-900 dark:bg-white px-4 py-2 text-sm font-semibold text-white dark:text-slate-900 shadow-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
+                <app-button variant="outline" size="sm" [href]="study.demoUrl">
                   <span>Visit Site</span>
-                  <lucide-icon
-                    [img]="ExternalLink"
-                    class="h-4 w-4 text-white/70 dark:text-slate-900/70"
-                  ></lucide-icon>
-                </a>
+                  <lucide-icon [img]="ExternalLink" class="ml-2 h-4 w-4" />
+                </app-button>
               }
             </div>
           </div>
@@ -77,38 +72,31 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
           <!-- Hero Section -->
           <section class="relative pt-20 pb-32 overflow-hidden">
             <!-- Background Texture -->
-            <div
-              class="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
-            ></div>
+            <app-background-pattern variant="hero" />
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="layout-container text-center">
               <div
-                class="inline-flex items-center rounded-full border border-indigo-200 dark:border-indigo-900 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 text-xs font-semibold text-indigo-700 dark:text-indigo-300 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                class="flex justify-center mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700"
               >
-                Case Study
+                <app-badge variant="soft" color="primary">Case Study</app-badge>
               </div>
               <h1
-                class="text-balance text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-6xl mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100"
+                class="heading-1 text-balance mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100"
               >
                 {{ study.title }}
               </h1>
               <p
-                class="text-balance max-w-2xl mx-auto text-lg leading-8 text-slate-600 dark:text-slate-400 mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200"
+                class="text-balance max-w-2xl mx-auto text-lg leading-8 text-secondary/80 dark:text-slate-400 mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200"
               >
                 {{ study.tagline }}
               </p>
 
               <!-- Tech Stack Strip -->
               <div
-                class="flex flex-wrap justify-center gap-x-8 gap-y-4 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300"
+                class="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300"
               >
                 @for (tech of study.techStack; track tech) {
-                  <div
-                    class="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400"
-                  >
-                    <div class="h-1.5 w-1.5 rounded-full bg-indigo-500"></div>
-                    {{ tech }}
-                  </div>
+                  <app-badge variant="soft" color="neutral">{{ tech }}</app-badge>
                 }
               </div>
             </div>
@@ -116,7 +104,7 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
 
           <!-- Main Visual (Overlapping) -->
           <div
-            class="relative z-10 -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 animate-in fade-in zoom-in-95 duration-1000 delay-300"
+            class="relative z-10 -mt-20 layout-container mb-24 animate-in fade-in zoom-in-95 duration-1000 delay-300"
           >
             <div
               class="relative rounded-2xl overflow-hidden shadow-2xl bg-slate-900 ring-1 ring-slate-900/10 dark:ring-white/10 aspect-[16/9] md:aspect-[21/9]"
@@ -133,7 +121,7 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
           </div>
 
           <!-- Content Grid -->
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24">
+          <div class="layout-container mb-24">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
               <!-- Left: Narrative -->
               <div class="lg:col-span-8 space-y-20">
@@ -141,16 +129,14 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
                 <section class="group">
                   <div class="flex items-center gap-4 mb-6">
                     <span
-                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-md group-hover:bg-indigo-500 transition-colors"
+                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white shadow-md group-hover:bg-primary/90 transition-colors"
                     >
                       <lucide-icon [img]="Layers" class="h-5 w-5"></lucide-icon>
                     </span>
-                    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-                      The Challenge
-                    </h2>
+                    <h2 class="heading-3">The Challenge</h2>
                   </div>
                   <div
-                    class="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400"
+                    class="prose prose-lg prose-slate dark:prose-invert max-w-none text-secondary/80 dark:text-slate-400"
                   >
                     <p>{{ study.challenge }}</p>
                   </div>
@@ -160,16 +146,14 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
                 <section class="group">
                   <div class="flex items-center gap-4 mb-6">
                     <span
-                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-md group-hover:bg-emerald-500 transition-colors"
+                      class="flex h-10 w-10 items-center justify-center rounded-lg bg-success text-white shadow-md group-hover:bg-success/90 transition-colors"
                     >
                       <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
                     </span>
-                    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-                      The Solution
-                    </h2>
+                    <h2 class="heading-3">The Solution</h2>
                   </div>
                   <div
-                    class="prose prose-lg prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400"
+                    class="prose prose-lg prose-slate dark:prose-invert max-w-none text-secondary/80 dark:text-slate-400"
                   >
                     <p>{{ study.solution }}</p>
                   </div>
@@ -179,11 +163,9 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
               <!-- Right: Key Outcomes (Sticky) -->
               <div class="lg:col-span-4">
                 <div class="sticky top-28">
-                  <div
-                    class="rounded-2xl bg-slate-50 dark:bg-slate-900 p-8 ring-1 ring-slate-900/5 dark:ring-white/10"
-                  >
+                  <div class="card p-8 bg-slate-50 dark:bg-slate-900">
                     <h3
-                      class="text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-400 mb-6 flex items-center gap-2"
+                      class="text-base font-semibold leading-7 text-primary dark:text-blue-400 mb-6 flex items-center gap-2"
                     >
                       <lucide-icon [img]="Trophy" class="h-5 w-5"></lucide-icon>
                       Key Outcomes
@@ -192,7 +174,7 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
                       @for (result of study.results; track result) {
                         <li class="relative pl-9">
                           <div
-                            class="absolute left-0 top-1 h-5 w-5 text-emerald-600 dark:text-emerald-500"
+                            class="absolute left-0 top-1 h-5 w-5 text-success dark:text-emerald-400"
                           >
                             <lucide-icon [img]="CheckCircle2" class="h-5 w-5"></lucide-icon>
                           </div>
@@ -212,11 +194,13 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
                       </p>
                       <div class="flex flex-wrap gap-2">
                         @for (tech of study.techStack; track tech) {
-                          <span
-                            class="inline-flex items-center rounded-md bg-white dark:bg-slate-800 px-2 py-1 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-slate-200 dark:ring-slate-700"
+                          <app-badge
+                            variant="outline"
+                            color="neutral"
+                            class="bg-white dark:bg-slate-800"
                           >
                             {{ tech }}
-                          </span>
+                          </app-badge>
                         }
                       </div>
                     </div>
@@ -241,10 +225,10 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
               class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
             ></div>
 
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative layout-container">
               <div class="max-w-3xl">
                 <div
-                  class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-xs font-semibold mb-6 border border-indigo-500/20"
+                  class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary-300 text-xs font-semibold mb-6 border border-primary/20"
                 >
                   <lucide-icon [img]="Cpu" class="h-3.5 w-3.5"></lucide-icon>
                   Under The Hood
@@ -268,16 +252,11 @@ import { ProjectScreenshotsComponent } from '../../components/ui/project-screens
           <!-- Footer/Next Steps -->
           <section class="py-24 bg-white dark:bg-slate-950">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">
-                Ready to see more?
-              </h2>
-              <a
-                [routerLink]="'/work'"
-                class="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-slate-900 px-8 py-4 text-base font-semibold text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-all"
-              >
-                <lucide-icon [img]="ArrowLeft" class="h-5 w-5"></lucide-icon>
+              <h2 class="heading-2 mb-8">Ready to see more?</h2>
+              <app-button variant="secondary" size="lg" [route]="['/work']">
+                <lucide-icon [img]="ArrowLeft" class="h-5 w-5 mr-2"></lucide-icon>
                 Back to All Projects
-              </a>
+              </app-button>
             </div>
           </section>
         </main>

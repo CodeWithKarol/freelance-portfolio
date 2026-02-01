@@ -103,7 +103,7 @@
   }
 
   .btn-outline {
-    @apply bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all;
+    @apply bg-transparent border-2 border-secondary text-secondary hover:bg-secondary hover:text-white dark:border-slate-700 dark:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all;
   }
 
   .btn-link {
