@@ -209,9 +209,10 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
           </div>
 
           <!-- Application Interface (Screenshots) -->
-          <section class="relative isolate overflow-hidden">
-            <app-background-pattern variant="subtle" position="top-left" />
-
+          <section class="relative">
+            <div class="absolute inset-0 overflow-hidden -z-10">
+              <app-background-pattern variant="subtle" position="top-left" />
+            </div>
             @if (study.screenshots?.length) {
               <app-project-screenshots [screenshots]="study.screenshots!" />
             }

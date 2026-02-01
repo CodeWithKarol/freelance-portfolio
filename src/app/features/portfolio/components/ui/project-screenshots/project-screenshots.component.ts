@@ -56,59 +56,63 @@ import { LucideAngularModule, X, ZoomIn, ZoomOut, ChevronsUpDown } from 'lucide-
 
       <!-- Lightbox Modal -->
       @if (selectedImage(); as img) {
-        <div
-          class="fixed inset-0 z-[100] overflow-y-auto overflow-x-hidden"
-          role="dialog"
-          aria-modal="true"
-          tabindex="-1"
-          (click)="onBackdropClick($event)"
-          (keydown.escape)="closeZoom()"
-        >
-          <!-- Fixed Backdrop -->
+        <div class="fixed inset-0 z-[100] isolate" role="dialog" aria-modal="true">
+          <!-- Backdrop -->
           <div
-            class="fixed inset-0 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200"
+            class="absolute inset-0 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-200"
           ></div>
 
-          <!-- Fixed Close Button (Always visible) -->
-          <button
-            (click)="closeZoom()"
-            class="fixed top-4 right-4 z-[110] p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/10"
-            aria-label="Close zoom"
-          >
-            <lucide-icon [img]="X" class="w-6 h-6"></lucide-icon>
-          </button>
+          <!-- Controls (Fixed Top Right) -->
+          <div class="absolute top-4 right-4 z-[110] flex gap-3 pointer-events-none">
+            <!-- Zoom Toggle -->
+            <button
+              (click)="toggleZoom($event)"
+              class="pointer-events-auto p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/10 shadow-lg"
+              aria-label="Toggle zoom"
+            >
+              <lucide-icon [img]="isZoomed() ? ZoomOut : ZoomIn" class="w-6 h-6"></lucide-icon>
+            </button>
+
+            <!-- Close -->
+            <button
+              (click)="closeZoom()"
+              class="pointer-events-auto p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/10 shadow-lg"
+              aria-label="Close"
+            >
+              <lucide-icon [img]="X" class="w-6 h-6"></lucide-icon>
+            </button>
+          </div>
 
           <!-- Scrollable Image Container -->
-          <div class="relative min-h-full flex items-center justify-center p-4 sm:p-8">
-            <!-- Scroll Indicator Pill -->
-            @if (isZoomed()) {
-              <div
-                class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[120] pointer-events-none animate-in fade-in slide-in-from-bottom-4 duration-500"
-              >
+          <div
+            class="absolute inset-0 z-[100] overflow-y-auto overflow-x-hidden"
+            (click)="onBackdropClick($event)"
+          >
+            <div class="min-h-full w-full flex items-center justify-center p-4 pt-24 pb-24">
+              <!-- Scroll Indicator Pill -->
+              @if (isZoomed()) {
                 <div
-                  class="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-white text-sm font-medium border border-white/10 shadow-xl"
+                  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[120] pointer-events-none animate-in fade-in slide-in-from-bottom-4 duration-500"
                 >
-                  <lucide-icon [img]="ChevronsUpDown" class="w-4 h-4"></lucide-icon>
-                  Scroll to explore
+                  <div
+                    class="flex items-center gap-2 px-4 py-2 bg-black/60 backdrop-blur-md rounded-full text-white text-sm font-medium border border-white/10 shadow-xl"
+                  >
+                    <lucide-icon [img]="ChevronsUpDown" class="w-4 h-4"></lucide-icon>
+                    Scroll to explore
+                  </div>
                 </div>
-              </div>
-            }
+              }
 
-            <!-- Image Wrapper -->
-            <div class="relative transition-all duration-300 ease-out flex justify-center w-full">
               <img
                 [src]="img"
                 class="rounded-lg shadow-2xl ring-1 ring-white/10 select-none object-contain transition-all duration-300 bg-slate-900"
                 [class]="
                   isZoomed()
-                    ? 'w-full max-w-7xl cursor-zoom-out'
+                    ? 'w-full max-w-7xl cursor-zoom-out h-auto'
                     : 'max-h-[85vh] w-auto cursor-zoom-in'
                 "
                 alt="Enlarged screenshot"
-                role="button"
-                tabindex="0"
                 (click)="toggleZoom($event)"
-                (keyup.enter)="toggleZoom($event)"
               />
             </div>
           </div>
