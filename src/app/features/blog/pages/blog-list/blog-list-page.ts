@@ -5,6 +5,7 @@ import {
   signal,
   inject,
   OnInit,
+  effect,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { httpResource } from '@angular/common/http';
@@ -158,6 +159,53 @@ export class BlogListPage implements OnInit {
 
   feedResource = httpResource<MediumFeedResponse>(() => this.apiUrl);
 
+  constructor() {
+    effect(() => {
+      const posts = this.allPosts();
+
+      this.seoService.setSchema({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Blog',
+            headline: 'Angular Blog - Architecture, Signals & Performance',
+            name: 'Angular Blog - Architecture, Signals & Performance',
+            description:
+              'Practical writing on Angular architecture, Signals/RxJS patterns, performance tuning, and engineering decisions that keep teams shipping.',
+            author: {
+              '@type': 'Person',
+              name: 'Karol Modelski',
+              url: 'https://www.karol-modelski.scale-sail.io',
+            },
+            blogPost: posts.map((post) => ({
+              '@type': 'BlogPosting',
+              headline: post.title,
+              name: post.title,
+              description: post.excerpt,
+              url: post.url,
+              datePublished: post.date,
+              image: post.imageUrl ? [post.imageUrl] : [],
+              author: {
+                '@type': 'Person',
+                name: 'Karol Modelski',
+                url: 'https://www.karol-modelski.scale-sail.io',
+              },
+              mainEntityOfPage: {
+                '@type': 'WebPage',
+                '@id': post.url,
+              },
+            })),
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': 'https://www.karol-modelski.scale-sail.io/blog',
+            },
+            inLanguage: 'en-US',
+          },
+        ],
+      });
+    });
+  }
+
   private allPosts = computed<BlogPost[]>(() => {
     const feed = this.feedResource.value();
     if (!feed || feed.status !== 'ok') return [];
@@ -170,7 +218,7 @@ export class BlogListPage implements OnInit {
         id: item.guid,
         title: item.title,
         excerpt: item.description.replace(/<[^>]*>/g, '').substring(0, 160) + '...',
-        date: item.pubDate,
+        date: new Date(item.pubDate).toISOString(),
         slug: item.guid,
         imageUrl: imageUrl,
         category: item.categories?.length ? item.categories[0] : 'Tech',
