@@ -37,7 +37,9 @@ import {
         <div class="xl:grid xl:grid-cols-4 xl:gap-8 mb-16">
           <!-- Identity Column -->
           <div class="xl:col-span-1 space-y-6">
-            <app-brand-logo />
+            <div class="dark">
+              <app-brand-logo />
+            </div>
             <div class="font-mono text-xs text-slate-500 leading-relaxed max-w-xs">
               <span class="text-primary block mb-2">> SYSTEM_IDENTITY_LOG</span>
               Specialized in high-performance frontend architecture and legacy modernization.
