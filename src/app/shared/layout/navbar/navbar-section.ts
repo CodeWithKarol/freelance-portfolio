@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { LucideAngularModule, Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-angular';
+import { LucideAngularModule, Menu, X, ArrowUpRight } from 'lucide-angular';
 import { BrandLogo } from '@shared/ui/brand-logo/brand-logo';
 import { Button } from '@shared/ui/button/button';
 
@@ -9,63 +9,82 @@ import { Button } from '@shared/ui/button/button';
   selector: 'app-navbar-section',
   imports: [CommonModule, RouterLink, RouterLinkActive, LucideAngularModule, BrandLogo, Button],
   template: `
-    <header class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
-      <!-- Background & Blur Layer -->
+    <header class="fixed inset-x-0 top-0 z-50">
+      <!-- Terminal-style Top Bar -->
       <div
-        class="absolute inset-0 border-b border-transparent transition-all duration-300"
-        [class.bg-white/80]="isScrolled()"
-        [class.dark:bg-slate-950/80]="isScrolled()"
-        [class.backdrop-blur-xl]="isScrolled()"
-        [class.border-slate-200]="isScrolled()"
-        [class.dark:border-slate-800]="isScrolled()"
-        [class.shadow-sm]="isScrolled()"
+        class="absolute inset-0 bg-white/90 dark:bg-slate-950/90 border-b border-slate-200 dark:border-slate-800 backdrop-blur-md transition-all duration-300"
+        [class.shadow-lg]="isScrolled()"
+      ></div>
+
+      <!-- Tech Border Line (Animated) -->
+      <div
+        class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent w-0 transition-all duration-700"
+        [style.width]="'100%'"
       ></div>
 
       <nav
-        class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8"
+        class="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8 font-mono"
         aria-label="Global"
       >
-        <!-- Logo Area -->
-        <div class="flex lg:flex-1">
+        <!-- Logo Area with Status Indicator -->
+        <div class="flex lg:flex-1 items-center gap-4">
           <app-brand-logo (scrollToTop)="isMenuOpen.set(false)" />
+
+          <!-- System Status Badge (Desktop Only) -->
+          <div
+            class="hidden lg:flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm"
+          >
+            <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+            <span class="text-[10px] uppercase text-slate-500 tracking-wider">Sys.Online</span>
+          </div>
         </div>
 
         <!-- Mobile Menu Button -->
         <div class="flex xl:hidden">
           <button
             type="button"
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            class="-m-2.5 inline-flex items-center justify-center p-2.5 text-slate-700 dark:text-slate-200 hover:text-primary transition-colors"
             (click)="toggleMenu()"
             [attr.aria-expanded]="isMenuOpen()"
             aria-controls="mobile-menu"
           >
             <span class="sr-only">Open main menu</span>
+            <span class="font-mono text-xs mr-2 uppercase tracking-widest">{{
+              isMenuOpen() ? '[CLOSE]' : '[MENU]'
+            }}</span>
             @if (!isMenuOpen()) {
-              <lucide-icon [img]="Menu" class="h-6 w-6"></lucide-icon>
+              <lucide-icon [img]="Menu" class="h-5 w-5"></lucide-icon>
             } @else {
-              <lucide-icon [img]="X" class="h-6 w-6"></lucide-icon>
+              <lucide-icon [img]="X" class="h-5 w-5"></lucide-icon>
             }
           </button>
         </div>
 
         <!-- Desktop Nav -->
-        <div class="hidden xl:flex xl:gap-x-2">
-          <ul class="flex gap-x-2 list-none m-0 p-0">
+        <div class="hidden xl:flex xl:gap-x-1">
+          <ul class="flex items-center gap-x-1 list-none m-0 p-0">
             @for (item of navItems; track item.id) {
               <li>
                 <a
                   [routerLink]="['/']"
                   [fragment]="item.id"
-                  routerLinkActive="text-primary dark:text-indigo-400 bg-slate-100 dark:bg-slate-800"
+                  routerLinkActive="text-primary bg-primary/5 border-primary/20"
                   [routerLinkActiveOptions]="{
                     fragment: 'exact',
                     paths: 'exact',
                     queryParams: 'ignored',
                     matrixParams: 'ignored',
                   }"
-                  class="px-3 py-2 text-sm font-medium rounded-full cursor-pointer transition-colors duration-200 text-secondary dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary dark:hover:text-white block"
+                  class="relative px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 text-slate-500 dark:text-slate-400 block group"
                 >
-                  {{ item.label }}
+                  <span
+                    class="opacity-0 group-hover:opacity-100 absolute left-1 top-1/2 -translate-y-1/2 text-primary transition-opacity"
+                    >></span
+                  >
+                  <span
+                    class="group-hover:translate-x-2 transition-transform duration-200 inline-block"
+                    >{{ item.label }}</span
+                  >
                 </a>
               </li>
             }
@@ -73,33 +92,34 @@ import { Button } from '@shared/ui/button/button';
         </div>
 
         <!-- Desktop Actions -->
-        <div class="hidden xl:flex xl:flex-1 xl:justify-end xl:items-center gap-3">
-          <!-- Theme Toggle -->
+        <div class="hidden xl:flex xl:flex-1 xl:justify-end xl:items-center gap-4">
+          <!-- Theme Toggle (Terminal Switch Style) -->
           <button
             (click)="toggleTheme()"
-            class="group inline-flex items-center justify-center h-9 w-9 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200 transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+            class="group flex items-center gap-2 px-3 py-1.5 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:border-primary/50 transition-colors"
             aria-label="Toggle theme"
           >
-            <!-- Sun icon (shows in dark mode) -->
-            <lucide-icon
-              [img]="Sun"
-              class="h-5 w-5 transition-transform duration-500 rotate-90 dark:rotate-0 hidden dark:block"
-            ></lucide-icon>
-            <!-- Moon icon (shows in light mode) -->
-            <lucide-icon
-              [img]="Moon"
-              class="h-5 w-5 transition-transform duration-500 rotate-0 dark:-rotate-90 dark:hidden block"
-            ></lucide-icon>
+            <span
+              class="text-[10px] uppercase text-slate-500 group-hover:text-primary transition-colors"
+              >Theme:</span
+            >
+            <div class="relative w-8 h-4 bg-slate-200 dark:bg-slate-800 rounded-sm p-0.5">
+              <div
+                class="absolute top-0.5 left-0.5 w-3 h-3 bg-white dark:bg-primary shadow-sm transition-transform duration-300"
+                [class.translate-x-4]="isDark()"
+              ></div>
+            </div>
           </button>
+
           <app-button
             variant="primary"
             size="sm"
             [route]="['/']"
             fragment="contact"
-            styleClass="hidden sm:inline-flex gap-2"
+            styleClass="hidden sm:inline-flex gap-2 rounded-none font-mono uppercase tracking-wide text-xs h-9"
           >
-            <span>Book a Call</span>
-            <lucide-icon [img]="ArrowUpRight" class="h-3.5 w-3.5 text-slate-300"></lucide-icon>
+            <span>Execute_Project</span>
+            <lucide-icon [img]="ArrowUpRight" class="h-3 w-3"></lucide-icon>
           </app-button>
         </div>
       </nav>
@@ -115,7 +135,7 @@ import { Button } from '@shared/ui/button/button';
       >
         <!-- Backdrop -->
         <div
-          class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300"
+          class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm transition-opacity duration-300"
           [class.opacity-100]="isMenuOpen()"
           [class.opacity-0]="!isMenuOpen()"
           (click)="toggleMenu()"
@@ -127,15 +147,19 @@ import { Button } from '@shared/ui/button/button';
 
         <!-- Panel -->
         <div
-          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-slate-900/10 transition-transform duration-300 ease-in-out"
+          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-950 px-6 py-6 sm:max-w-sm border-l border-slate-200 dark:border-slate-800 transition-transform duration-300 ease-out"
           [class.translate-x-0]="isMenuOpen()"
           [class.translate-x-full]="!isMenuOpen()"
         >
-          <div class="flex items-center justify-between">
-            <app-brand-logo (scrollToTop)="toggleMenu()" />
+          <div
+            class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-6 mb-6"
+          >
+            <div class="font-mono text-sm font-bold uppercase text-slate-900 dark:text-white">
+              <span class="text-primary">></span> Navigation_Module
+            </div>
             <button
               type="button"
-              class="-m-2.5 rounded-md p-2.5 text-slate-700 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              class="-m-2.5 rounded-md p-2.5 text-slate-700 dark:text-slate-400 hover:text-primary transition-colors"
               (click)="toggleMenu()"
             >
               <span class="sr-only">Close menu</span>
@@ -143,52 +167,52 @@ import { Button } from '@shared/ui/button/button';
             </button>
           </div>
 
-          <div class="mt-8 flow-root">
+          <div class="mt-2 flow-root">
             <div class="-my-6 divide-y divide-slate-100 dark:divide-slate-800">
-              <ul class="space-y-1 py-6 list-none p-0">
+              <ul class="space-y-2 py-6 list-none p-0 font-mono">
                 @for (item of navItems; track item.id) {
                   <li>
                     <a
                       [routerLink]="['/']"
                       [fragment]="item.id"
                       (click)="toggleMenu()"
-                      class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+                      class="group flex items-center gap-3 rounded-none px-3 py-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 border-l-2 border-transparent hover:border-primary transition-all"
                     >
+                      <span class="text-slate-300 group-hover:text-primary transition-colors"
+                        >#</span
+                      >
                       {{ item.label }}
                     </a>
                   </li>
                 }
               </ul>
-              <div class="py-6">
+              <div class="py-6 space-y-4">
                 <!-- Mobile Theme Switcher -->
-                <div
-                  class="flex items-center justify-between mb-6 p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800"
+                <button
+                  (click)="toggleTheme()"
+                  class="flex w-full items-center justify-between p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 group"
                 >
-                  <span class="text-sm font-medium text-slate-900 dark:text-slate-200"
-                    >Dark Appearance</span
+                  <span
+                    class="font-mono text-xs uppercase font-bold text-slate-900 dark:text-slate-200 group-hover:text-primary transition-colors"
                   >
-                  <button
-                    (click)="toggleTheme()"
-                    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                    [class.bg-primary]="isDark()"
-                    [class.bg-slate-200]="!isDark()"
-                  >
-                    <span class="sr-only">Toggle theme</span>
-                    <span
-                      class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+                    Visual_Mode: {{ isDark() ? 'DARK' : 'LIGHT' }}
+                  </span>
+                  <div class="relative w-10 h-5 bg-slate-200 dark:bg-slate-800 rounded-sm p-0.5">
+                    <div
+                      class="absolute top-0.5 left-0.5 w-4 h-4 bg-white dark:bg-primary shadow-sm transition-transform duration-300"
                       [class.translate-x-5]="isDark()"
-                      [class.translate-x-0]="!isDark()"
-                    ></span>
-                  </button>
-                </div>
+                    ></div>
+                  </div>
+                </button>
+
                 <app-button
                   variant="primary"
                   [route]="['/']"
                   fragment="contact"
                   (click)="toggleMenu()"
-                  styleClass="flex w-full justify-center"
+                  styleClass="flex w-full justify-center rounded-none font-mono uppercase tracking-wide"
                 >
-                  Book a Call
+                  Execute_Project
                 </app-button>
               </div>
             </div>
@@ -205,8 +229,6 @@ import { Button } from '@shared/ui/button/button';
 export class NavbarSection {
   readonly Menu = Menu;
   readonly X = X;
-  readonly Sun = Sun;
-  readonly Moon = Moon;
   readonly ArrowUpRight = ArrowUpRight;
 
   isDark = signal(false);

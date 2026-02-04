@@ -13,178 +13,162 @@ import {
   Wrench,
   Check,
   Smartphone,
+  Users,
 } from 'lucide-angular';
 import { SectionHeader } from '@shared/ui/section-header/section-header';
-import { Card } from '@shared/ui/card/card';
-import { Badge } from '@shared/ui/badge/badge';
-import { Accordion } from '@shared/ui/accordion/accordion';
 import { AccordionItem } from '@shared/ui/accordion/accordion-item';
-import { BackgroundPatternComponent } from '@shared/ui/background-pattern/background-pattern.component';
 
 @Component({
   selector: 'app-skills-section',
-  imports: [
-    CommonModule,
-    LucideAngularModule,
-    SectionHeader,
-    Card,
-    Badge,
-    Accordion,
-    AccordionItem,
-    BackgroundPatternComponent,
-  ],
+  imports: [CommonModule, LucideAngularModule, SectionHeader, AccordionItem],
   template: `
     <section
       id="skills"
-      class="section-padding bg-slate-50 dark:bg-slate-950 relative overflow-hidden isolate"
+      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden"
     >
-      <app-background-pattern variant="subtle" position="bottom-left" />
+      <!-- Scanline Overlay -->
+      <div
+        class="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style="background: repeating-linear-gradient(to bottom, transparent, transparent 2px, #000 3px);"
+      ></div>
 
-      <div class="layout-container">
+      <div class="layout-container relative z-10">
         <!-- Section Header -->
         <div class="mx-auto max-w-2xl text-center mb-16 sm:mb-20">
           <app-section-header
-            subtitle="Technical Proficiency"
-            title="Engineering for Scale & Performance"
-            description="A comprehensive Frontend toolchain. While Angular is my specialty for enterprise scale, I maintain deep proficiency in React and the broader JavaScript ecosystem to architect the right solution for the problem."
+            subtitle="TECH STACK"
+            title="SYSTEM CAPABILITIES"
+            description="Operational diagnostic of current technical proficiency and toolchain readiness."
           />
         </div>
 
-        <!-- Core Stack (Featured) -->
-        <div class="mx-auto max-w-7xl mb-20">
-          <h3
-            class="text-small font-semibold mb-6 uppercase tracking-wider text-center sm:text-left"
-          >
-            Primary Stack
-          </h3>
-          <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 p-0 list-none">
-            @for (tech of coreStack(); track tech.name) {
-              <li>
-                <app-card
-                  variant="default"
-                  [interactive]="true"
-                  class="h-full flex items-center p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+        <!-- Main Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Primary Stack (Left Col, 2/3 width on large) -->
+          <div class="lg:col-span-2 space-y-8">
+            <div
+              class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1"
+            >
+              <div
+                class="bg-white dark:bg-slate-950 p-6 border border-slate-200 dark:border-slate-800 h-full"
+              >
+                <div
+                  class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-4"
                 >
-                  <div class="flex-shrink-0 mr-4">
-                    <div
-                      class="h-10 w-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary"
-                    >
-                      <lucide-icon
-                        [img]="getCategoryIcon(tech.category)"
-                        class="h-6 w-6"
-                      ></lucide-icon>
-                    </div>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="font-bold text-secondary dark:text-white">{{ tech.name }}</p>
-                    <p class="truncate text-xs text-secondary/60 dark:text-slate-400">
-                      {{ tech.years }}+ years exp.
-                    </p>
-                  </div>
-                  @if (tech.proficiency === 'Expert') {
-                    <div class="ml-2">
-                      <app-badge variant="soft" color="success">Expert</app-badge>
-                    </div>
-                  }
-                </app-card>
-              </li>
-            }
-          </ul>
-        </div>
-
-        <!-- Secondary Stack -->
-        <div class="mx-auto max-w-7xl mb-20">
-          <h3
-            class="text-small font-semibold mb-6 uppercase tracking-wider text-center sm:text-left"
-          >
-            Additional Tools
-          </h3>
-          <ul class="flex flex-wrap justify-center sm:justify-start gap-2 p-0 list-none">
-            @for (tech of secondaryStack(); track tech.name) {
-              <li class="contents">
-                <app-badge variant="outline" color="neutral">
-                  {{ tech.name }}
-                </app-badge>
-              </li>
-            }
-          </ul>
-        </div>
-
-        <!-- Expandable Detailed Skills (Accordion) -->
-        <div class="mx-auto max-w-3xl mb-24">
-          <h3 class="text-small font-semibold mb-6 uppercase tracking-wider">Detailed Expertise</h3>
-          <app-accordion>
-            @for (group of groupedTechnicalSkills(); track group.category; let i = $index) {
-              <app-accordion-item
-                [isOpen]="isCategoryOpen(group.category)"
-                (toggled)="toggleCategory(group.category)"
-              >
-                <div header class="contents">
-                  <lucide-icon
-                    [img]="getCategoryIcon(group.category)"
-                    class="h-5 w-5 text-secondary/40 dark:text-slate-500 group-hover:text-primary transition-colors"
-                  ></lucide-icon>
-                  {{ group.category }}
+                  <h3 class="font-mono font-bold text-lg uppercase flex items-center gap-2">
+                    <lucide-icon [img]="Terminal" class="w-5 h-5 text-primary"></lucide-icon>
+                    Core Runtime
+                  </h3>
+                  <span class="text-xs font-mono text-green-500 animate-pulse">● ONLINE</span>
                 </div>
 
-                <div class="flex flex-wrap gap-2">
-                  @for (skill of group.skills; track skill.name) {
-                    <app-badge
-                      variant="soft"
-                      color="neutral"
-                      class="bg-slate-100 dark:bg-slate-800 text-secondary dark:text-slate-300"
-                    >
-                      {{ skill.name }}
-                      @if (skill.proficiency === 'Expert') {
-                        <span
-                          class="ml-1.5 inline-block h-1.5 w-1.5 rounded-full bg-success"
-                        ></span>
-                      }
-                    </app-badge>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  @for (tech of coreStack(); track tech.name) {
+                    <div class="group">
+                      <div class="flex justify-between items-end mb-2">
+                        <span class="font-mono font-bold text-slate-700 dark:text-slate-200">{{
+                          tech.name
+                        }}</span>
+                        <span class="text-xs font-mono text-slate-400">{{ tech.years }}+ YRS</span>
+                      </div>
+                      <!-- Progress Bar -->
+                      <div
+                        class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-none overflow-hidden relative"
+                      >
+                        <div
+                          class="absolute inset-0 bg-slate-200 dark:bg-slate-800 w-full"
+                          style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);"
+                        ></div>
+                        <div
+                          class="h-full bg-primary transition-all duration-1000 ease-out group-hover:bg-primary-400"
+                          [style.width]="tech.proficiency === 'Expert' ? '95%' : '75%'"
+                        ></div>
+                      </div>
+                    </div>
                   }
                 </div>
-              </app-accordion-item>
-            }
-          </app-accordion>
-        </div>
+              </div>
+            </div>
 
-        <!-- Leadership / Soft Skills (Feature Section) -->
-        <app-card
-          variant="default"
-          class="block overflow-hidden bg-white dark:bg-slate-900 lg:grid lg:grid-cols-2 border border-slate-200 dark:border-slate-800 p-0"
-        >
-          <div class="px-6 pb-12 pt-10 sm:px-16 sm:pt-16 lg:py-16 lg:pr-8 xl:px-20 xl:py-20">
-            <div class="lg:self-center">
-              <h2 class="heading-2 mb-4">
-                <span class="block">More than just code.</span>
-                <span class="block text-primary">Tech Leadership.</span>
-              </h2>
-              <p class="text-body mt-4">
-                Software is built by people. I foster environments where technical excellence meets
-                product vision.
-              </p>
-              <ul
-                class="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 sm:gap-y-6 list-none p-0"
+            <!-- Secondary Modules -->
+            <div
+              class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6"
+            >
+              <h3 class="font-mono font-bold text-sm uppercase text-slate-500 mb-4">
+                Auxiliary Modules
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                @for (tech of secondaryStack(); track tech.name) {
+                  <span
+                    class="px-3 py-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 font-mono text-xs hover:border-primary/50 cursor-crosshair transition-colors"
+                  >
+                    {{ tech.name }}
+                  </span>
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Stats & Soft Skills -->
+          <div class="lg:col-span-1 space-y-8">
+            <!-- Soft Skills / Protocols -->
+            <div
+              class="bg-slate-900 text-white p-6 border border-slate-800 tech-border relative overflow-hidden"
+            >
+              <h3
+                class="font-mono font-bold text-lg uppercase mb-6 flex items-center gap-2 text-white"
               >
+                <lucide-icon [img]="UsersIcon" class="w-5 h-5 text-accent"></lucide-icon>
+                Leadership Protocols
+              </h3>
+
+              <ul class="space-y-4 font-mono text-sm">
                 @for (skill of softSkills(); track skill.name) {
                   <li class="flex items-start gap-3">
-                    <lucide-icon [img]="Check" class="h-5 w-5 flex-none text-primary"></lucide-icon>
-                    <span class="font-semibold text-secondary dark:text-white text-sm leading-5">
-                      {{ skill.name }}
-                    </span>
+                    <span class="text-accent mt-1">>></span>
+                    <span class="text-slate-300">{{ skill.name }}</span>
                   </li>
                 }
               </ul>
             </div>
+
+            <!-- Detailed Categories Accordion (Styled as technical specs) -->
+            <div class="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+              @for (group of groupedTechnicalSkills(); track group.category) {
+                <app-accordion-item
+                  [isOpen]="isCategoryOpen(group.category)"
+                  (toggled)="toggleCategory(group.category)"
+                  class="border-b border-slate-200 dark:border-slate-800 last:border-0 block"
+                >
+                  <div
+                    header
+                    class="flex items-center gap-3 w-full py-4 px-4 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors"
+                  >
+                    <lucide-icon
+                      [img]="getCategoryIcon(group.category)"
+                      class="h-4 w-4 text-slate-400"
+                    ></lucide-icon>
+                    <span class="font-mono text-sm font-bold uppercase">{{ group.category }}</span>
+                  </div>
+
+                  <div
+                    class="p-4 pt-0 bg-slate-50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800/50"
+                  >
+                    <div class="flex flex-wrap gap-2 pt-4">
+                      @for (skill of group.skills; track skill.name) {
+                        <span
+                          class="text-xs font-mono text-slate-600 dark:text-slate-400 px-2 py-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800"
+                        >
+                          {{ skill.name }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                </app-accordion-item>
+              }
+            </div>
           </div>
-          <div class="relative min-h-[300px] w-full lg:h-full">
-            <img
-              class="absolute inset-0 h-full w-full bg-slate-50 object-cover object-center"
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80"
-              alt="Team collaboration"
-            />
-          </div>
-        </app-card>
+        </div>
       </div>
     </section>
   `,
@@ -265,6 +249,8 @@ export class SkillsSection {
   }
 
   readonly Check = Check;
+  readonly Terminal = Terminal;
+  readonly UsersIcon = Users;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private categoryIcons: Record<string, any> = {
