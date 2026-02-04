@@ -32,7 +32,7 @@ import { Button } from '@shared/ui/button/button';
 
           <!-- System Status Badge (Desktop Only) -->
           <div
-            class="hidden lg:flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm"
+            class="hidden lg:flex items-center gap-2 px-3 py-1 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm mr-8"
           >
             <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
             <span class="text-[10px] uppercase text-slate-500 tracking-wider">Sys.Online</span>

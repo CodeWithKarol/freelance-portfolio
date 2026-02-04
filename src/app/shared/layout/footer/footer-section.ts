@@ -131,7 +131,7 @@ import {
                 </li>
                 <li class="flex justify-between border-b border-slate-800 pb-2">
                   <span>Rendering</span>
-                  <span class="text-slate-300">SSR / Hydro</span>
+                  <span class="text-slate-300">SSR / SSG</span>
                 </li>
                 <li class="flex justify-between pt-1">
                   <span>Version</span>
