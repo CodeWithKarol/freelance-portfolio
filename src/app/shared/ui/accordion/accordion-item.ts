@@ -15,7 +15,7 @@ let nextId = 0;
         [attr.aria-expanded]="isOpen()"
         [attr.aria-controls]="panelId"
         [id]="triggerId"
-        class="flex w-full items-center justify-between py-2 text-left text-secondary dark:text-white hover:text-primary dark:hover:text-primary-400 transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded-lg -mx-2 px-2 group"
+        class="flex w-full items-center justify-between py-2 text-left text-secondary dark:text-white hover:text-primary dark:hover:text-primary-400 transition-colors focus:outline-none rounded-lg -mx-2 px-2 group"
       >
         <span class="text-base font-semibold flex items-center gap-3">
           <ng-content select="[header]" />

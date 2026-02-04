@@ -96,7 +96,8 @@ import { Button } from '@shared/ui/button/button';
               </app-button>
 
               <app-button
-                [route]="['/work']"
+                [route]="['/']"
+                fragment="skills"
                 variant="outline"
                 size="lg"
                 styleClass="rounded-none font-mono uppercase tracking-wide border-slate-300 dark:border-slate-700"
