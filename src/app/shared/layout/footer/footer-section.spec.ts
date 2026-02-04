@@ -35,4 +35,8 @@ describe('FooterSection', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render system status', () => {
+    expect(fixture.nativeElement.textContent).toContain('SYSTEM_ONLINE');
+  });
 });

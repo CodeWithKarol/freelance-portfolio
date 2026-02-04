@@ -7,164 +7,159 @@ import {
   Github,
   Linkedin,
   Globe,
-  AtSign,
-  BookOpen,
-  Rocket,
+  Terminal,
+  Cpu,
+  Power,
+  GitBranch,
+  ExternalLink,
 } from 'lucide-angular';
 
 @Component({
   selector: 'app-footer-section',
   imports: [CommonModule, LucideAngularModule, BrandLogo],
   template: `
-    <footer
-      class="relative bg-white dark:bg-slate-950 pt-20 pb-12 overflow-hidden z-10 border-t border-slate-200 dark:border-slate-800"
-      aria-labelledby="footer-heading"
-    >
-      <h2 id="footer-heading" class="sr-only">Footer</h2>
-
-      <!-- Subtle Grid Background (Consistency with About Section) -->
+    <footer class="relative bg-slate-950 pt-16 pb-8 overflow-hidden z-10 border-t border-slate-800">
+      <!-- Tech Grid Background -->
       <div
-        class="absolute inset-x-0 top-0 -z-10 h-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black_20%,black)]"
+        class="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black)]"
       ></div>
 
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="xl:grid xl:grid-cols-3 xl:gap-8 mb-16">
-          <!-- Brand Column -->
-          <div class="space-y-8">
+      <!-- Top Border Decoration -->
+      <div class="absolute top-0 inset-x-0 h-px bg-slate-800"></div>
+      <div
+        class="absolute top-0 left-1/4 w-px h-8 bg-slate-800 [mask-image:linear-gradient(to_bottom,black,transparent)]"
+      ></div>
+      <div
+        class="absolute top-0 right-1/4 w-px h-8 bg-slate-800 [mask-image:linear-gradient(to_bottom,black,transparent)]"
+      ></div>
+
+      <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="xl:grid xl:grid-cols-4 xl:gap-8 mb-16">
+          <!-- Identity Column -->
+          <div class="xl:col-span-1 space-y-6">
             <app-brand-logo />
-            <p class="text-sm leading-6 text-slate-600 dark:text-slate-400 max-w-xs mt-4">
-              Senior Frontend Developer & SaaS Founder. Modernizing legacy frontends and building
-              performance-first, audit-ready web applications for enterprise and startups.
-            </p>
-            <ul class="flex space-x-6 list-none p-0">
-              @for (social of store.socialLinks(); track social.platform) {
-                <li>
-                  <a
-                    [href]="social.url"
-                    target="_blank"
-                    class="text-slate-400 hover:text-primary transition-colors"
-                  >
-                    <span class="sr-only">{{ social.platform }}</span>
-                    <!-- Icon Logic -->
-                    @if (social.icon === 'github') {
-                      <lucide-icon [img]="Github" class="h-5 w-5"></lucide-icon>
-                    } @else if (social.icon === 'linkedin') {
-                      <lucide-icon [img]="Linkedin" class="h-5 w-5"></lucide-icon>
-                    } @else if (social.icon === 'medium') {
-                      <lucide-icon [img]="BookOpen" class="h-5 w-5"></lucide-icon>
-                    } @else if (social.icon === 'rocket') {
-                      <lucide-icon [img]="Rocket" class="h-5 w-5"></lucide-icon>
-                    } @else if (social.icon === 'globe') {
-                      <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
-                    } @else {
-                      <lucide-icon [img]="Globe" class="h-5 w-5"></lucide-icon>
-                    }
-                  </a>
-                </li>
-              }
-            </ul>
+            <div class="font-mono text-xs text-slate-500 leading-relaxed max-w-xs">
+              <span class="text-primary block mb-2">> SYSTEM_IDENTITY_LOG</span>
+              Specialized in high-performance frontend architecture and legacy modernization.
+              Operational since 2016.
+            </div>
+
+            <!-- Connection Status -->
+            <div class="flex items-center gap-2 text-xs font-mono">
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+                ></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="text-emerald-500">SYSTEM_ONLINE</span>
+            </div>
           </div>
 
-          <!-- Column Links -->
-          <div
-            class="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-8 xl:col-span-2 xl:mt-0 xl:grid-cols-4"
-          >
+          <!-- Navigation / Modules -->
+          <div class="mt-12 xl:mt-0 xl:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <!-- Site Map -->
             <div>
-              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
-                {{ store.footerColumns()[0].title }}
+              <h3
+                class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
+              >
+                <lucide-icon [img]="Terminal" class="w-4 h-4 text-primary"></lucide-icon>
+                Directories
               </h3>
-              <ul class="mt-6 space-y-4">
+              <ul class="space-y-3 font-mono text-xs">
                 @for (link of store.footerColumns()[0].links; track link.label) {
                   <li>
                     <a
                       [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                      class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 group"
                     >
-                      {{ link.label }}
+                      <span class="opacity-0 group-hover:opacity-100 transition-opacity">></span>
+                      <span class="group-hover:translate-x-1 transition-transform"
+                        >./{{ link.label | lowercase }}</span
+                      >
                     </a>
                   </li>
                 }
               </ul>
             </div>
-            <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
-                {{ store.footerColumns()[1].title }}
+
+            <!-- Social Protocols -->
+            <div>
+              <h3
+                class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
+              >
+                <lucide-icon [img]="GitBranch" class="w-4 h-4 text-primary"></lucide-icon>
+                Ext_Protocols
               </h3>
-              <ul class="mt-6 space-y-4">
-                @for (link of store.footerColumns()[1].links; track link.label) {
+              <ul class="space-y-3 font-mono text-xs">
+                @for (social of store.socialLinks(); track social.platform) {
                   <li>
                     <a
-                      [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+                      [href]="social.url"
+                      target="_blank"
+                      class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 group"
                     >
-                      {{ link.label }}
+                      <lucide-icon
+                        [img]="ExternalLink"
+                        class="w-3 h-3 opacity-50 group-hover:text-primary"
+                      ></lucide-icon>
+                      <span class="group-hover:translate-x-1 transition-transform">{{
+                        social.platform
+                      }}</span>
                     </a>
                   </li>
                 }
               </ul>
             </div>
-            <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
-                {{ store.footerColumns()[2].title }}
+
+            <!-- Tech Specs -->
+            <div>
+              <h3
+                class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
+              >
+                <lucide-icon [img]="Cpu" class="w-4 h-4 text-primary"></lucide-icon>
+                Sys_Specs
               </h3>
-              <ul class="mt-6 space-y-4">
-                @for (link of store.footerColumns()[2].links; track link.label) {
-                  <li>
-                    <a
-                      [href]="link.href"
-                      class="text-sm leading-6 text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
-                    >
-                      {{ link.label }}
-                    </a>
-                  </li>
-                }
-              </ul>
-            </div>
-            <!-- Contact / CTA Column -->
-            <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-secondary dark:text-white">
-                Contact
-              </h3>
-              <ul class="mt-6 space-y-4">
-                <li
-                  class="flex items-start gap-2 text-sm leading-6 text-slate-600 dark:text-slate-400"
-                >
-                  <lucide-icon
-                    [img]="AtSign"
-                    class="h-5 w-5 flex-none text-primary mt-0.5"
-                  ></lucide-icon>
-                  <a
-                    href="mailto:{{ store.contactInfo().email }}"
-                    class="hover:text-primary transition-colors break-all"
-                  >
-                    {{ store.contactInfo().email }}
-                  </a>
+              <ul class="space-y-3 font-mono text-xs text-slate-500">
+                <li class="flex justify-between border-b border-slate-800 pb-2">
+                  <span>Framework</span>
+                  <span class="text-slate-300">Angular v21</span>
                 </li>
-                <li
-                  class="flex items-start gap-2 text-sm leading-6 text-slate-600 dark:text-slate-400"
-                >
-                  <span
-                    class="inline-flex items-center rounded-full bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-400 ring-1 ring-inset ring-emerald-600/20"
-                  >
-                    {{ store.contactInfo().availability }}
-                  </span>
+                <li class="flex justify-between border-b border-slate-800 pb-2">
+                  <span>State</span>
+                  <span class="text-slate-300">Signals</span>
+                </li>
+                <li class="flex justify-between border-b border-slate-800 pb-2">
+                  <span>Rendering</span>
+                  <span class="text-slate-300">SSR / Hydro</span>
+                </li>
+                <li class="flex justify-between pt-1">
+                  <span>Version</span>
+                  <span class="text-primary">v4.2.0-rc1</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Bottom Bar -->
+        <!-- System Footer -->
         <div
-          class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
+          class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs"
         >
-          <p class="text-xs leading-5 text-slate-500 dark:text-slate-400">
-            &copy; {{ currentYear }} Karol Modelski. All rights reserved.
-          </p>
-          <div class="flex items-center gap-4">
-            <span class="text-xs text-slate-400"
-              >Built with Angular 21, Signals & SSR-ready performance</span
+          <div class="text-slate-600">
+            <span>root@portfolio:~$</span>
+            <span class="text-slate-400 ml-2"
+              >&copy; {{ currentYear }} Karol Modelski. All processes terminated.</span
             >
+          </div>
+
+          <div class="flex items-center gap-4 text-slate-600">
+            <span class="flex items-center gap-1.5">
+              <lucide-icon [img]="Power" class="w-3 h-3"></lucide-icon>
+              <span>NO_cookies_tracked</span>
+            </span>
+            <span class="text-slate-800">|</span>
+            <span>Latency: <span class="text-emerald-500">12ms</span></span>
           </div>
         </div>
       </div>
@@ -173,13 +168,15 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterSection {
-  store = inject(PortfolioStore);
-  currentYear = new Date().getFullYear();
+  readonly store = inject(PortfolioStore);
+  readonly currentYear = new Date().getFullYear();
 
   readonly Github = Github;
   readonly Linkedin = Linkedin;
   readonly Globe = Globe;
-  readonly AtSign = AtSign;
-  readonly BookOpen = BookOpen;
-  readonly Rocket = Rocket;
+  readonly Terminal = Terminal;
+  readonly Cpu = Cpu;
+  readonly Power = Power;
+  readonly GitBranch = GitBranch;
+  readonly ExternalLink = ExternalLink;
 }

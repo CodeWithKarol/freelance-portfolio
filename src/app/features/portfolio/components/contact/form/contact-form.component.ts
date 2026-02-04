@@ -55,6 +55,11 @@ import { Button } from '@shared/ui/button/button';
                 "
               />
             </div>
+            @if (contactForm.get('name')?.touched && contactForm.get('name')?.invalid) {
+              <div class="mt-1 text-xs text-red-500 flex items-center gap-1">
+                <span>[ERROR]</span> User_ID is required.
+              </div>
+            }
           </div>
 
           <!-- Email -->
@@ -76,6 +81,16 @@ import { Button } from '@shared/ui/button/button';
                 "
               />
             </div>
+            @if (contactForm.get('email')?.touched && contactForm.get('email')?.invalid) {
+              <div class="mt-1 text-xs text-red-500 flex items-center gap-1">
+                <span>[ERROR]</span>
+                @if (contactForm.get('email')?.hasError('required')) {
+                  Return_Address is required.
+                } @else {
+                  Invalid address format.
+                }
+              </div>
+            }
           </div>
 
           <!-- Project Type -->
