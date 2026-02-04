@@ -90,10 +90,6 @@ import { BackgroundPatternComponent } from '@shared/ui/background-pattern/backgr
                 <app-button [route]="['/']" fragment="contact" variant="primary">
                   Book a Call
                 </app-button>
-
-                <app-button [route]="['/work']" variant="ghost">
-                  View Case Studies <span aria-hidden="true" class="ml-1">→</span>
-                </app-button>
               </div>
 
               <!-- Trust Anchor -->

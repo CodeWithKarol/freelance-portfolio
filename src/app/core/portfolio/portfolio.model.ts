@@ -18,21 +18,6 @@ export interface Skill {
   years: number;
 }
 
-export interface CaseStudy {
-  id: string;
-  title: string;
-  tagline: string;
-  heroImage: string;
-  challenge: string;
-  solution: string;
-  technicalApproach?: string; // New field for detailed architectural explanation
-  results: string[];
-  techStack: string[];
-  screenshots?: string[];
-  demoUrl?: string;
-  repoUrl?: string;
-}
-
 export interface Testimonial {
   id: string;
   name: string;
@@ -40,18 +25,6 @@ export interface Testimonial {
   company: string;
   quote: string;
   avatarUrl?: string;
-}
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  slug: string;
-  content?: string; // HTML or Markdown content
-  url?: string; // External fallback
-  imageUrl?: string;
-  category?: string;
 }
 
 export interface Service {

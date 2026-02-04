@@ -25,12 +25,6 @@ describe('PortfolioStore', () => {
     expect(services[0].title).toBeDefined();
   });
 
-  it('should have case studies signal populated', () => {
-    const cases = store.caseStudies();
-    expect(cases.length).toBeGreaterThan(0);
-    expect(cases[0].title).toBeDefined();
-  });
-
   it('should have testimonials signal populated', () => {
     const testimonials = store.testimonials();
     expect(testimonials.length).toBeGreaterThan(0);

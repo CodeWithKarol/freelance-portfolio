@@ -12,24 +12,6 @@ export const routes: Routes = [
     },
   },
   {
-    path: 'work/:slug',
-    loadComponent: () =>
-      import('./features/portfolio/pages/case-study/case-study-page').then((m) => m.CaseStudyPage),
-    title: 'Work | Portfolio',
-  },
-  {
-    path: 'work',
-    loadComponent: () =>
-      import('./features/portfolio/pages/work/work-page').then((m) => m.WorkPage),
-    title: 'Work | Portfolio',
-  },
-  {
-    path: 'blog',
-    loadComponent: () =>
-      import('./features/blog/pages/blog-list/blog-list-page').then((m) => m.BlogListPage),
-    title: 'Blog | Angular Insights',
-  },
-  {
     path: '**',
     redirectTo: '',
   },

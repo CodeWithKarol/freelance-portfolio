@@ -1,7 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import {
   Skill,
-  CaseStudy,
   Testimonial,
   Service,
   SocialLink,
@@ -9,7 +8,6 @@ import {
   ContactInfo,
   Experience,
 } from './portfolio.model';
-import { CASE_STUDIES } from './portfolio-data';
 
 @Injectable({
   providedIn: 'root',
@@ -287,8 +285,6 @@ export class PortfolioStore {
     },
   ]);
 
-  readonly caseStudies = signal<CaseStudy[]>(CASE_STUDIES);
-
   readonly testimonials = signal<Testimonial[]>([
     {
       id: '1',
@@ -344,7 +340,6 @@ export class PortfolioStore {
     {
       title: 'Portfolio',
       links: [
-        { label: 'Selected Work', href: '/work' },
         { label: 'Contact', href: '#contact' },
         { label: 'GitHub', href: 'https://github.com/CodeWithKarol' },
       ],
@@ -352,7 +347,6 @@ export class PortfolioStore {
     {
       title: 'Resources',
       links: [
-        { label: 'Blog', href: '/blog' },
         { label: 'FAQ', href: '/#faq' },
         { label: 'Tech Stack', href: '#skills' },
         { label: 'Contact', href: '#contact' },
