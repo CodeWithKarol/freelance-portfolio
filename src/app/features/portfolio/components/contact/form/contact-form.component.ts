@@ -2,8 +2,7 @@ import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/cor
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { tap, catchError, finalize, take } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { tap, catchError, finalize, take, of } from 'rxjs';
 import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { LucideAngularModule, ChevronDown, Loader2, CheckCircle } from 'lucide-angular';
 import { Button } from '@shared/ui/button/button';
@@ -202,28 +201,25 @@ import { Button } from '@shared/ui/button/button';
 })
 export class ContactFormComponent {
   readonly store = inject(PortfolioStore);
-  private http = inject(HttpClient);
-  private fb = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
+  private readonly fb = inject(FormBuilder);
 
-  readonly ChevronDown = ChevronDown;
-  readonly Loader2 = Loader2;
-  readonly CheckCircle = CheckCircle;
+  protected readonly ChevronDown = ChevronDown;
+  protected readonly Loader2 = Loader2;
+  protected readonly CheckCircle = CheckCircle;
 
-  isSubmitting = signal(false);
-  isSuccess = signal(false);
-  contactForm;
+  protected readonly isSubmitting = signal(false);
+  protected readonly isSuccess = signal(false);
 
-  constructor() {
-    this.contactForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      projectType: ['enterprise-migration'],
-      budget: [''],
-      message: ['', [Validators.required, Validators.minLength(20)]],
-    });
-  }
+  readonly contactForm = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    projectType: ['enterprise-migration'],
+    budget: [''],
+    message: ['', [Validators.required, Validators.minLength(20)]],
+  });
 
-  onSubmit() {
+  protected onSubmit() {
     if (this.contactForm.valid) {
       this.isSubmitting.set(true);
 

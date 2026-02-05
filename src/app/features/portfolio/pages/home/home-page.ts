@@ -1,28 +1,34 @@
 import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { AboutSection } from '../../components/about/about-section';
-import { ServicesSection } from '../../components/services/services-section';
+import { ProjectsSection } from '../../components/projects/projects-section';
+import { GigsSection } from '../../components/gigs/gigs-section';
+import { ProcessSection } from '../../components/process/process-section';
+import { FaqSection } from '../../components/faq/faq-section';
 import { ExperienceSection } from '../../components/experience/experience-section';
 import { SkillsSection } from '../../components/skills/skills-section';
 import { ContactSection } from '../../components/contact/contact-section';
-import { FaqSection } from '../../components/faq/faq-section';
 import { SeoService } from '../../../../shared/core/seo/seo.service';
 
 @Component({
   selector: 'app-home-page',
   imports: [
     AboutSection,
-    ServicesSection,
+    ProjectsSection,
+    GigsSection,
+    ProcessSection,
+    FaqSection,
     ExperienceSection,
     SkillsSection,
     ContactSection,
-    FaqSection,
   ],
   template: `
     <app-about-section />
-    <app-services-section />
+    <app-gigs-section />
+    <app-process-section />
+    <app-faq-section />
+    <app-projects-section />
     <app-experience-section />
     <app-skills-section />
-    <app-faq-section />
     <app-contact-section />
   `,
 
@@ -92,55 +98,6 @@ export class HomePage implements OnInit {
               'https://karol-modelski.medium.com/',
             ],
           },
-        },
-        {
-          '@type': 'FAQPage',
-          '@id': 'https://www.karol-modelski.scale-sail.io/#faq',
-          isPartOf: {
-            '@id': 'https://www.karol-modelski.scale-sail.io/#website',
-          },
-          mainEntity: [
-            {
-              '@type': 'Question',
-              name: 'What services does Karol Modelski provide?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'I provide enterprise modernization, SaaS product engineering, and architecture audits. Whether you need to rescue a legacy codebase or ship complex new features, I deliver performance-first solutions and scalable architecture.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'What is your primary tech stack?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'My primary stack is Angular (v14-v21), TypeScript, Nx, and RxJS/Signals. I focus on performance-first architecture, strictly typed reactive forms, and "Zoneless" applications.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'Do you work with legacy codebases?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'Yes, retiring legacy technical debt is my specialty. I manage complex migrations from AngularJS or older Angular versions to modern, signal-based architectures.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'Do you offer technical leadership?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'Yes. I act as a Fractional Tech Lead to elevate team capabilities. I provide code reviews, set up engineering best practices (CI/CD, Testing), and mentor developers on advanced architectural patterns.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'Can you help ship new features?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'Absolutely. I execute end-to-end feature delivery—from architectural planning to UI implementation. I prioritize complex state management, API integration, and ensuring new capabilities launch smoothly without regressions.',
-              },
-            },
-          ],
         },
       ],
     });

@@ -1,13 +1,21 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioStore } from '@core/portfolio/portfolio-store';
-import { LucideAngularModule, Mail, MapPin, Radio, Signal, Wifi } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  Mail,
+  MapPin,
+  Radio,
+  Signal,
+  Wifi,
+  ArrowRight,
+  ExternalLink,
+} from 'lucide-angular';
 import { SectionHeader } from '@shared/ui/section-header/section-header';
-import { ContactFormComponent } from './form/contact-form.component';
 
 @Component({
   selector: 'app-contact-section',
-  imports: [CommonModule, LucideAngularModule, SectionHeader, ContactFormComponent],
+  imports: [CommonModule, LucideAngularModule, SectionHeader],
   template: `
     <section
       id="contact"
@@ -112,10 +120,49 @@ import { ContactFormComponent } from './form/contact-form.component';
             <div class="p-6 md:p-8 bg-slate-950 rounded-b-lg border-x border-b border-slate-800">
               <div class="font-mono text-sm text-slate-500 mb-6">
                 <span>Last login: {{ lastLogin }} on ttys001</span><br />
-                <span>Type details to initialize packet transmission...</span>
+                <span>Select protocol to initialize packet transmission...</span>
               </div>
 
-              <app-contact-form />
+              <div class="grid gap-4">
+                <!-- Direct Contract Option -->
+                <a
+                  [href]="'mailto:' + store.contactInfo().email"
+                  class="group relative flex items-center justify-between p-4 bg-slate-900/50 hover:bg-green-500/10 border border-slate-800 hover:border-green-500/50 rounded-sm transition-all duration-300"
+                >
+                  <div>
+                    <div class="text-green-400 font-bold mb-1 font-mono group-hover:text-green-300">
+                      &gt; EXECUTE_DIRECT_CONTRACT
+                    </div>
+                    <div class="text-slate-500 text-xs group-hover:text-slate-400">
+                      For independent consulting, audits & specialized roles
+                    </div>
+                  </div>
+                  <lucide-icon
+                    [img]="ArrowRight"
+                    class="text-green-500 w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                  ></lucide-icon>
+                </a>
+
+                <!-- Agency Option -->
+                <a
+                  href="https://scale-sail.io"
+                  target="_blank"
+                  class="group relative flex items-center justify-between p-4 bg-slate-900/50 hover:bg-blue-500/10 border border-slate-800 hover:border-blue-500/50 rounded-sm transition-all duration-300"
+                >
+                  <div>
+                    <div class="text-blue-400 font-bold mb-1 font-mono group-hover:text-blue-300">
+                      &gt; NAVIGATE_TO_AGENCY
+                    </div>
+                    <div class="text-slate-500 text-xs group-hover:text-slate-400">
+                      For full-scale modernization & enterprise teams
+                    </div>
+                  </div>
+                  <lucide-icon
+                    [img]="ExternalLink"
+                    class="text-blue-500 w-5 h-5 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+                  ></lucide-icon>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -132,6 +179,8 @@ export class ContactSection {
   readonly Radio = Radio;
   readonly Signal = Signal;
   readonly Wifi = Wifi;
+  readonly ArrowRight = ArrowRight;
+  readonly ExternalLink = ExternalLink;
 
   readonly lastLogin = new Date().toLocaleDateString('en-US', {
     weekday: 'short',

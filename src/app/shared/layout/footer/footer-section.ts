@@ -60,87 +60,44 @@ import {
 
           <!-- Navigation / Modules -->
           <div class="mt-12 xl:mt-0 xl:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <!-- Site Map -->
-            <div>
-              <h3
-                class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
-              >
-                <lucide-icon [img]="Terminal" class="w-4 h-4 text-primary"></lucide-icon>
-                Directories
-              </h3>
-              <ul class="space-y-3 font-mono text-xs">
-                @for (link of store.footerColumns()[0].links; track link.label) {
-                  <li>
-                    <a
-                      [href]="link.href"
-                      class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 group"
-                    >
-                      <span class="opacity-0 group-hover:opacity-100 transition-opacity">></span>
-                      <span class="group-hover:translate-x-1 transition-transform"
-                        >./{{ link.label | lowercase }}</span
+            @for (column of store.footerColumns(); track column.title) {
+              <div>
+                <h3
+                  class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
+                >
+                  <lucide-icon
+                    [img]="getIconForColumn(column.title)"
+                    class="w-4 h-4 text-primary"
+                  ></lucide-icon>
+                  {{ column.title }}
+                </h3>
+                <ul class="space-y-3 font-mono text-xs">
+                  @for (link of column.links; track link.label) {
+                    <li>
+                      <a
+                        [href]="link.href"
+                        [target]="isExternal(link.href) ? '_blank' : '_self'"
+                        class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 group"
                       >
-                    </a>
-                  </li>
-                }
-              </ul>
-            </div>
-
-            <!-- Social Protocols -->
-            <div>
-              <h3
-                class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
-              >
-                <lucide-icon [img]="GitBranch" class="w-4 h-4 text-primary"></lucide-icon>
-                Ext_Protocols
-              </h3>
-              <ul class="space-y-3 font-mono text-xs">
-                @for (social of store.socialLinks(); track social.platform) {
-                  <li>
-                    <a
-                      [href]="social.url"
-                      target="_blank"
-                      class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 group"
-                    >
-                      <lucide-icon
-                        [img]="ExternalLink"
-                        class="w-3 h-3 opacity-50 group-hover:text-primary"
-                      ></lucide-icon>
-                      <span class="group-hover:translate-x-1 transition-transform">{{
-                        social.platform
-                      }}</span>
-                    </a>
-                  </li>
-                }
-              </ul>
-            </div>
-
-            <!-- Tech Specs -->
-            <div>
-              <h3
-                class="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-widest font-mono mb-6"
-              >
-                <lucide-icon [img]="Cpu" class="w-4 h-4 text-primary"></lucide-icon>
-                Sys_Specs
-              </h3>
-              <ul class="space-y-3 font-mono text-xs text-slate-500">
-                <li class="flex justify-between border-b border-slate-800 pb-2">
-                  <span>Framework</span>
-                  <span class="text-slate-300">Angular v21</span>
-                </li>
-                <li class="flex justify-between border-b border-slate-800 pb-2">
-                  <span>State</span>
-                  <span class="text-slate-300">Signals</span>
-                </li>
-                <li class="flex justify-between border-b border-slate-800 pb-2">
-                  <span>Rendering</span>
-                  <span class="text-slate-300">SSR / SSG</span>
-                </li>
-                <li class="flex justify-between pt-1">
-                  <span>Version</span>
-                  <span class="text-primary">v4.2.0-rc1</span>
-                </li>
-              </ul>
-            </div>
+                        @if (isExternal(link.href)) {
+                          <lucide-icon
+                            [img]="ExternalLink"
+                            class="w-3 h-3 opacity-50 group-hover:text-primary"
+                          ></lucide-icon>
+                        } @else {
+                          <span class="opacity-0 group-hover:opacity-100 transition-opacity"
+                            >></span
+                          >
+                        }
+                        <span class="group-hover:translate-x-1 transition-transform">
+                          {{ link.label }}
+                        </span>
+                      </a>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
           </div>
         </div>
 
@@ -181,4 +138,21 @@ export class FooterSection {
   readonly Power = Power;
   readonly GitBranch = GitBranch;
   readonly ExternalLink = ExternalLink;
+
+  isExternal(url: string): boolean {
+    return url.startsWith('http');
+  }
+
+  getIconForColumn(title: string) {
+    switch (title) {
+      case 'Main':
+        return Terminal;
+      case 'Resources':
+        return Cpu;
+      case 'Connect':
+        return GitBranch;
+      default:
+        return Terminal;
+    }
+  }
 }
