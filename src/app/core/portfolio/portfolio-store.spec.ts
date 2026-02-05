@@ -19,10 +19,22 @@ describe('PortfolioStore', () => {
     expect(skills[0].name).toContain('Angular');
   });
 
-  it('should have services signal populated', () => {
-    const services = store.services();
-    expect(services.length).toBeGreaterThan(0);
-    expect(services[0].title).toBeDefined();
+  it('should have projects signal populated', () => {
+    const projects = store.projects();
+    expect(projects.length).toBeGreaterThan(0);
+    expect(projects[0].title).toBeDefined();
+  });
+
+  it('should have gigs signal populated', () => {
+    const gigs = store.gigs();
+    expect(gigs.length).toBeGreaterThan(0);
+    expect(gigs[0].title).toBeDefined();
+  });
+
+  it('should have process signal populated', () => {
+    const process = store.process();
+    expect(process.length).toBeGreaterThan(0);
+    expect(process[0].title).toBeDefined();
   });
 
   it('should have testimonials signal populated', () => {

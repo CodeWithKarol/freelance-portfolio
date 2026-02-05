@@ -68,3 +68,32 @@ export interface Experience {
   description: string;
   technologies: string[];
 }
+
+export interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  thumbnailUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
+}
+
+export interface Gig {
+  title: string;
+  description: string;
+  price: string;
+  features: string[];
+  ctaUrl: string;
+  icon: 'code' | 'performance' | 'component' | 'consulting';
+}
+
+export interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}

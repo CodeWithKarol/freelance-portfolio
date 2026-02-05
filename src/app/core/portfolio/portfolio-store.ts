@@ -2,11 +2,14 @@ import { Injectable, signal } from '@angular/core';
 import {
   Skill,
   Testimonial,
-  Service,
   SocialLink,
   FooterColumn,
   ContactInfo,
   Experience,
+  Project,
+  Gig,
+  ProcessStep,
+  FaqItem,
 } from './portfolio.model';
 
 @Injectable({
@@ -247,44 +250,6 @@ export class PortfolioStore {
     },
   ]);
 
-  readonly services = signal<Service[]>([
-    {
-      title: 'Enterprise Migration & Modernization',
-      description:
-        'Transform slow, tangled legacy frontends into clean, modular Angular systems. I specialize in Angular migrations (AngularJS/legacy → modern), refactoring strategies that remove technical debt, and scalable architectures that keep delivery moving.',
-      icon: 'migration',
-      features: ['Angular Migration Expert', 'Codebase Refactoring', 'Nx Monorepo'],
-    },
-    {
-      title: 'SaaS Product Engineering',
-      description:
-        'End-to-end delivery for scalable SaaS products. I design maintainable UI architectures, predictable state management, and performance-first frontends that support rapid iteration without regressions.',
-      icon: 'code',
-      features: ['Full-Cycle Dev', 'Scalable Architecture', 'Reactive State'],
-    },
-    {
-      title: 'Architecture Audits & Performance',
-      description:
-        'Deep-dive audits into your codebase structure and runtime performance. I identify scaling bottlenecks, optimize Core Web Vitals, and turn spaghetti code into feature-based modules with clear ownership.',
-      icon: 'performance',
-      metric: { value: '40%+', label: 'Faster load times' },
-    },
-    {
-      title: 'Feature Delivery',
-      description:
-        'Turn product requirements into deployed reality. I execute end-to-end feature development—from architectural planning to pixel-perfect UI—ensuring new capabilities launch smoothly and integrate seamlessly with your existing system.',
-      icon: 'feature',
-      features: ['End-to-End Implementation', 'Complex State Management', 'API Integration'],
-    },
-    {
-      title: 'Fractional Tech Lead / Mentorship',
-      description:
-        "Elevate your team's capabilities. I provide code reviews, set up best practices (CI/CD, Testing), and mentor developers on advanced architectural patterns like Signals and RxJS.",
-      icon: 'leadership',
-      features: ['Code Reviews', 'Team Upskilling', 'Process Setup'],
-    },
-  ]);
-
   readonly testimonials = signal<Testimonial[]>([
     {
       id: '1',
@@ -329,27 +294,32 @@ export class PortfolioStore {
 
   readonly footerColumns = signal<FooterColumn[]>([
     {
-      title: 'Services',
+      title: 'Main',
       links: [
-        { label: 'Modernization & Migration', href: '#services' },
-        { label: 'Architecture Audit', href: '#services' },
-        { label: 'Performance Optimization', href: '#services' },
-        { label: 'Fractional Tech Lead', href: '#services' },
-      ],
-    },
-    {
-      title: 'Portfolio',
-      links: [
-        { label: 'Contact', href: '#contact' },
-        { label: 'GitHub', href: 'https://github.com/CodeWithKarol' },
+        { label: 'Home', href: '/' },
+        { label: 'About Me', href: '#about' },
+        { label: 'Micro-Engagements', href: '#gigs' },
+        { label: 'Projects', href: '#projects' },
       ],
     },
     {
       title: 'Resources',
       links: [
-        { label: 'FAQ', href: '/#faq' },
+        { label: 'The Process', href: '#process' },
         { label: 'Tech Stack', href: '#skills' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'Experience', href: '#experience' },
+        { label: 'FAQ', href: '#faq' },
+        { label: 'Blog / Medium', href: 'https://karol-modelski.medium.com/' },
+      ],
+    },
+    {
+      title: 'Connect',
+      links: [
+        { label: 'Start a Project', href: '#contact' },
+        { label: 'Scale Sail Agency', href: 'https://scale-sail.io' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/karol-modelski' },
+        { label: 'GitHub', href: 'https://github.com/CodeWithKarol' },
+        { label: 'X / Twitter', href: 'https://x.com/modelski_karol' },
       ],
     },
   ]);
@@ -360,6 +330,105 @@ export class PortfolioStore {
     availability: 'Available for new projects',
     calendlyUrl: 'https://calendly.com',
   });
+
+  readonly projects = signal<Project[]>([
+    {
+      title: 'Modern Enterprise Admin Dashboard',
+      description:
+        'High-Performance Real-Time Analytics. Built with Angular 21, Signals, and Tailwind CSS 4 to support dense data layouts without UI bloat.',
+      tags: ['Angular 21', 'Signals', 'Tailwind CSS 4', 'Vitest'],
+      thumbnailUrl: 'images/admin-panel/admin-panel.webp',
+      liveUrl: 'https://www.admin-panel.scale-sail.io',
+      githubUrl: 'https://www.github.com/CodeWithKarol/admin-panel',
+    },
+    {
+      title: 'QuickCart: High-Performance E-Commerce',
+      description:
+        'Next-Gen Angular E-Commerce Architecture. Features a clean-slate "Smart Shell" architecture and Signal-based reactivity system.',
+      tags: ['Angular', 'Signals', 'Standalone Components', 'Tailwind CSS'],
+      thumbnailUrl: 'images/quick-cart/quick-cart.webp',
+      liveUrl: 'https://www.quick-cart.scale-sail.io',
+      githubUrl: 'https://www.github.com/CodeWithKarol/quick-cart',
+    },
+  ]);
+
+  readonly gigs = signal<Gig[]>([
+    {
+      title: 'Code Review Deep Dive',
+      description:
+        'Stop merging technical debt. I review a critical PR to catch security holes, performance killers, and logic bombs before they reach production.',
+      price: 'Starting at $149',
+      features: ['Video Walkthrough', 'Architecture Feedback', 'Security Check'],
+      ctaUrl: 'https://calendly.com',
+      icon: 'code',
+    },
+    {
+      title: 'Performance Quick-Win',
+      description:
+        'Your app is too slow. I identify exactly why (Render blocking? Bundle size?) and give you a remediation plan to get back to < 1s load times.',
+      price: 'Starting at $299',
+      features: ['Lighthouse Analysis', 'Bundle Audit', 'Action Plan'],
+      ctaUrl: 'https://calendly.com',
+      icon: 'performance',
+    },
+    {
+      title: 'Single Component Build',
+      description:
+        'Need a complex UI widget but your team is swamped? I build it pixel-perfect, fully accessible, and 100% unit tested. Drop-in ready.',
+      price: 'Starting at $399',
+      features: ['Pixel Perfect', '100% Test Coverage', 'Fully Accessible'],
+      ctaUrl: 'https://calendly.com',
+      icon: 'component',
+    },
+    {
+      title: '1:1 Architecture Consult',
+      description:
+        'Stuck on a hard problem? We jump on a call, share screens, and solve it together. I unblock you so you can get back to shipping.',
+      price: '$199 / Hour',
+      features: ['Live Problem Solving', 'Recording Provided', 'Follow-up Email'],
+      ctaUrl: 'https://calendly.com',
+      icon: 'consulting',
+    },
+  ]);
+
+  readonly process = signal<ProcessStep[]>([
+    {
+      number: '01',
+      title: 'Diagnosis & Scope',
+      description:
+        'You send the repo or invite me to the call. I identify the root cause, define the fix, and set a fixed price. No guessing.',
+    },
+    {
+      number: '02',
+      title: 'Surgical Strike',
+      description:
+        'I fix the issue in isolation. I write the tests, refactor the mess, and ensure it integrates cleanly with your existing codebase.',
+    },
+    {
+      number: '03',
+      title: 'Recovery & Handoff',
+      description:
+        'I deliver a PR with a video walkthrough. Your team gets a solved problem and a blueprint for future stability.',
+    },
+  ]);
+
+  readonly faqs = signal<FaqItem[]>([
+    {
+      question: 'How is this different from your agency?',
+      answer:
+        'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert attention but not a full team.',
+    },
+    {
+      question: 'What is your availability?',
+      answer:
+        'I dedicate 10-15 hours/week to freelance gigs. Most "Micro-Engagements" are delivered within 3-5 business days.',
+    },
+    {
+      question: 'Do you work hourly or fixed price?',
+      answer:
+        'I prefer fixed-price for defined scopes (like Component Builds or Audits). For open-ended consulting, I bill hourly.',
+    },
+  ]);
 
   readonly experience = signal<Experience[]>([
     {
@@ -388,7 +457,7 @@ export class PortfolioStore {
     },
     {
       company: 'Amway',
-      role: 'Javascript Developer',
+      role: 'Junior Frontend Developer',
       period: 'Apr 2019 - Oct 2021',
       description:
         'Global E-commerce. Built high-traffic dashboards for business owners. Optimized data visualization components handling millions of records.',

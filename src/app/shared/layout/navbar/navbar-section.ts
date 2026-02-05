@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { LucideAngularModule, Menu, X, ArrowUpRight } from 'lucide-angular';
+import { LucideAngularModule, Menu, X, ArrowUpRight, ChevronDown } from 'lucide-angular';
 import { BrandLogo } from '@shared/ui/brand-logo/brand-logo';
 import { Button } from '@shared/ui/button/button';
 
@@ -61,31 +61,78 @@ import { Button } from '@shared/ui/button/button';
         </div>
 
         <!-- Desktop Nav -->
-        <div class="hidden xl:flex xl:gap-x-1">
-          <ul class="flex items-center gap-x-1 list-none m-0 p-0">
+        <div class="hidden xl:flex xl:gap-x-6">
+          <ul class="flex items-center gap-x-6 list-none m-0 p-0">
             @for (item of navItems; track item.id) {
-              <li>
-                <a
-                  [routerLink]="['/']"
-                  [fragment]="item.id"
-                  routerLinkActive="text-primary bg-primary/5 border-primary/20"
-                  [routerLinkActiveOptions]="{
-                    fragment: 'exact',
-                    paths: 'exact',
-                    queryParams: 'ignored',
-                    matrixParams: 'ignored',
-                  }"
-                  class="relative px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 text-slate-500 dark:text-slate-400 block group"
-                >
-                  <span
-                    class="opacity-0 group-hover:opacity-100 absolute left-1 top-1/2 -translate-y-1/2 text-primary transition-opacity"
-                    >></span
+              <li class="relative">
+                <!-- Simple Link -->
+                @if (!item.children) {
+                  <a
+                    [routerLink]="['/']"
+                    [fragment]="item.id"
+                    routerLinkActive="text-primary"
+                    [routerLinkActiveOptions]="{
+                      fragment: 'exact',
+                      paths: 'exact',
+                      queryParams: 'ignored',
+                      matrixParams: 'ignored',
+                    }"
+                    class="relative text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-primary transition-colors duration-200 group flex items-center gap-1"
                   >
-                  <span
-                    class="group-hover:translate-x-2 transition-transform duration-200 inline-block"
-                    >{{ item.label }}</span
+                    <span
+                      class="opacity-0 group-hover:opacity-100 text-primary transition-opacity absolute -left-3"
+                      >></span
+                    >
+                    {{ item.label }}
+                  </a>
+                }
+                <!-- Dropdown Parent -->
+                @else {
+                  <button
+                    type="button"
+                    (click)="toggleDropdown(item.id, $event)"
+                    [class.text-primary]="activeDropdown() === item.id"
+                    class="relative text-xs font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 hover:text-primary transition-colors duration-200 flex items-center gap-1 outline-none"
                   >
-                </a>
+                    {{ item.label }}
+                    <lucide-icon
+                      [img]="ChevronDown"
+                      class="w-3 h-3 transition-transform duration-200"
+                      [class.rotate-180]="activeDropdown() === item.id"
+                    ></lucide-icon>
+                  </button>
+
+                  <!-- Dropdown Panel -->
+                  @if (activeDropdown() === item.id) {
+                    <div
+                      class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 p-2 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xl rounded-sm z-50 animate-[fadeIn_0.1s_ease-out]"
+                    >
+                      <!-- Decorative Top Arrow -->
+                      <div
+                        class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white dark:bg-slate-950 border-t border-l border-slate-200 dark:border-slate-800 rotate-45"
+                      ></div>
+
+                      <ul class="relative space-y-1">
+                        @for (subItem of item.children; track subItem.id) {
+                          <li>
+                            <a
+                              [routerLink]="['/']"
+                              [fragment]="subItem.id"
+                              (click)="closeDropdown()"
+                              class="block px-4 py-3 text-xs font-mono text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-primary dark:hover:text-primary transition-colors rounded-sm group flex items-center justify-between"
+                            >
+                              {{ subItem.label }}
+                              <span
+                                class="opacity-0 group-hover:opacity-100 text-primary transition-opacity"
+                                >></span
+                              >
+                            </a>
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  }
+                }
               </li>
             }
           </ul>
@@ -172,17 +219,59 @@ import { Button } from '@shared/ui/button/button';
               <ul class="space-y-2 py-6 list-none p-0 font-mono">
                 @for (item of navItems; track item.id) {
                   <li>
-                    <a
-                      [routerLink]="['/']"
-                      [fragment]="item.id"
-                      (click)="toggleMenu()"
-                      class="group flex items-center gap-3 rounded-none px-3 py-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 border-l-2 border-transparent hover:border-primary transition-all"
-                    >
-                      <span class="text-slate-300 group-hover:text-primary transition-colors"
-                        >#</span
+                    @if (!item.children) {
+                      <a
+                        [routerLink]="['/']"
+                        [fragment]="item.id"
+                        (click)="toggleMenu()"
+                        class="group flex items-center gap-3 rounded-none px-3 py-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 border-l-2 border-transparent hover:border-primary transition-all"
                       >
-                      {{ item.label }}
-                    </a>
+                        <span class="text-slate-300 group-hover:text-primary transition-colors"
+                          >#</span
+                        >
+                        {{ item.label }}
+                      </a>
+                    } @else {
+                      <div class="block">
+                        <button
+                          type="button"
+                          (click)="toggleMobileSection(item.id)"
+                          class="w-full group flex items-center justify-between gap-3 rounded-none px-3 py-3 text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-900 border-l-2 border-transparent hover:border-primary transition-all"
+                        >
+                          <span class="flex items-center gap-3">
+                            <span class="text-slate-300 group-hover:text-primary transition-colors"
+                              >+</span
+                            >
+                            {{ item.label }}
+                          </span>
+                          <lucide-icon
+                            [img]="ChevronDown"
+                            class="w-4 h-4 transition-transform duration-300"
+                            [class.rotate-180]="isMobileSectionOpen(item.id)"
+                          ></lucide-icon>
+                        </button>
+
+                        <!-- Mobile Sub-items -->
+                        @if (isMobileSectionOpen(item.id)) {
+                          <ul
+                            class="pl-8 mt-1 space-y-1 border-l border-slate-100 dark:border-slate-800 ml-3 animate-[fadeIn_0.2s_ease-out]"
+                          >
+                            @for (sub of item.children; track sub.id) {
+                              <li>
+                                <a
+                                  [routerLink]="['/']"
+                                  [fragment]="sub.id"
+                                  (click)="toggleMenu()"
+                                  class="block px-3 py-2 text-xs font-mono text-slate-500 hover:text-primary transition-colors"
+                                >
+                                  ./{{ sub.label }}
+                                </a>
+                              </li>
+                            }
+                          </ul>
+                        }
+                      </div>
+                    }
                   </li>
                 }
               </ul>
@@ -223,6 +312,7 @@ import { Button } from '@shared/ui/button/button';
   `,
   host: {
     '(window:scroll)': 'onScroll()',
+    '(document:click)': 'onDocumentClick($event)',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -230,18 +320,38 @@ export class NavbarSection {
   readonly Menu = Menu;
   readonly X = X;
   readonly ArrowUpRight = ArrowUpRight;
+  readonly ChevronDown = ChevronDown;
 
   isDark = signal(false);
   isMenuOpen = signal(false);
   isScrolled = signal(false);
+
+  // Dropdown States
+  activeDropdown = signal<string | null>(null);
+  mobileExpanded = signal<Set<string>>(new Set());
+
   private router = inject(Router);
 
   navItems = [
     { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'faq', label: 'FAQ' },
+    {
+      id: 'services',
+      label: 'Services',
+      children: [
+        { id: 'gigs', label: 'Micro-Engagements' },
+        { id: 'process', label: 'The Process' },
+        { id: 'faq', label: 'FAQ' },
+      ],
+    },
+    {
+      id: 'work',
+      label: 'Work',
+      children: [
+        { id: 'projects', label: 'Projects' },
+        { id: 'experience', label: 'Experience' },
+        { id: 'skills', label: 'Tech Stack' },
+      ],
+    },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -260,6 +370,43 @@ export class NavbarSection {
   onScroll() {
     this.isScrolled.set(window.scrollY > 10);
   }
+
+  // --- Dropdown Logic ---
+
+  toggleDropdown(id: string, event: Event) {
+    event.stopPropagation(); // Prevent document click from immediately closing it
+    this.activeDropdown.update((current) => (current === id ? null : id));
+  }
+
+  closeDropdown() {
+    this.activeDropdown.set(null);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onDocumentClick(event: Event) {
+    // If click is outside, close dropdown
+    this.activeDropdown.set(null);
+  }
+
+  // --- Mobile Logic ---
+
+  toggleMobileSection(id: string) {
+    this.mobileExpanded.update((set) => {
+      const newSet = new Set(set);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  }
+
+  isMobileSectionOpen(id: string) {
+    return this.mobileExpanded().has(id);
+  }
+
+  // --- Existing Logic ---
 
   toggleTheme() {
     this.isDark.update((d) => !d);
