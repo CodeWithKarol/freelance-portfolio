@@ -42,7 +42,7 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
               <div
                 class="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-800 pb-2"
               >
-                <span class="text-slate-500 uppercase">Connection Status</span>
+                <span class="text-slate-400 uppercase">Connection Status</span>
                 <span class="flex items-center gap-2 text-green-500 animate-pulse">
                   <lucide-icon [img]="Wifi" class="w-4 h-4"></lucide-icon>
                   READY
@@ -118,7 +118,7 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
             </div>
 
             <div class="p-6 md:p-8 bg-slate-950 rounded-b-lg border-x border-b border-slate-800">
-              <div class="font-mono text-sm text-slate-500 mb-6">
+              <div class="font-mono text-sm text-slate-400 mb-6">
                 <span>Last login: {{ lastLogin }} on ttys001</span><br />
                 <span>Select protocol to initialize packet transmission...</span>
               </div>
@@ -133,7 +133,7 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
                     <div class="text-green-400 font-bold mb-1 font-mono group-hover:text-green-300">
                       &gt; EXECUTE_DIRECT_CONTRACT
                     </div>
-                    <div class="text-slate-500 text-xs group-hover:text-slate-400">
+                    <div class="text-slate-400 text-xs group-hover:text-slate-300">
                       For independent consulting, audits & specialized roles
                     </div>
                   </div>
@@ -153,7 +153,7 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
                     <div class="text-blue-400 font-bold mb-1 font-mono group-hover:text-blue-300">
                       &gt; NAVIGATE_TO_AGENCY
                     </div>
-                    <div class="text-slate-500 text-xs group-hover:text-slate-400">
+                    <div class="text-slate-400 text-xs group-hover:text-slate-300">
                       For full-scale modernization & enterprise teams
                     </div>
                   </div>

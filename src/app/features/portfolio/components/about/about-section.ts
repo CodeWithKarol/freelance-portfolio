@@ -70,25 +70,25 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
             <div
               class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-400 mb-1">DIAGNOSTICS</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">DIAGNOSTICS</span>
               <span class="font-bold text-slate-900 dark:text-white">PERFORMANCE / WEB VITALS</span>
             </div>
             <div
               class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-400 mb-1">QUALITY GATES</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">QUALITY GATES</span>
               <span class="font-bold text-slate-900 dark:text-white">STRICT TYPES / TESTING</span>
             </div>
             <div
               class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-400 mb-1">STANDARDS</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">STANDARDS</span>
               <span class="font-bold text-slate-900 dark:text-white">WCAG 2.1 AA / A11Y</span>
             </div>
             <div
               class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-400 mb-1">MODERNIZATION</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">MODERNIZATION</span>
               <span class="font-bold text-slate-900 dark:text-white">LEGACY TO SIGNALS</span>
             </div>
           </div>

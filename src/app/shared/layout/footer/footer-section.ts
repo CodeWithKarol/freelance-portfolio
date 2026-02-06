@@ -40,7 +40,7 @@ import {
             <div class="dark">
               <app-brand-logo />
             </div>
-            <div class="font-mono text-xs text-slate-500 leading-relaxed max-w-xs">
+            <div class="font-mono text-xs text-slate-400 leading-relaxed max-w-xs">
               <span class="text-primary block mb-2">> SYSTEM_IDENTITY_LOG</span>
               Specialized in high-performance frontend architecture and legacy modernization.
               Operational since 2016.
@@ -77,7 +77,7 @@ import {
                       <a
                         [href]="link.href"
                         [target]="isExternal(link.href) ? '_blank' : '_self'"
-                        class="text-slate-500 hover:text-primary transition-colors flex items-center gap-2 group"
+                        class="text-slate-400 hover:text-primary transition-colors flex items-center gap-2 group"
                       >
                         @if (isExternal(link.href)) {
                           <lucide-icon

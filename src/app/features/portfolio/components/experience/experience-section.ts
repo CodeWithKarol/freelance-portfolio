@@ -98,7 +98,7 @@ import { Button } from '@shared/ui/button/button';
                         class="w-3.5 h-3.5 text-green-500"
                       ></lucide-icon>
                       <span
-                        class="text-[10px] font-mono uppercase font-bold text-slate-600 dark:text-slate-400"
+                        class="text-[10px] font-mono uppercase font-bold text-slate-600 dark:text-slate-300"
                       >
                         {{ first ? 'Current_Version' : 'Legacy_Build' }}
                       </span>
