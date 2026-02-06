@@ -335,7 +335,7 @@ export class PortfolioStore {
     {
       title: 'Modern Enterprise Admin Dashboard',
       description:
-        'High-Performance Real-Time Analytics. Built with Angular 21, Signals, and Tailwind CSS 4 to support dense data layouts without UI bloat.',
+        'High-Performance Real-Time Analytics. Built with Angular 21, Signals, and Tailwind CSS 4. Optimized for incremental hydration and low TBT (Total Blocking Time).',
       tags: ['Angular 21', 'Signals', 'Tailwind CSS 4', 'Vitest'],
       thumbnailUrl: 'images/admin-panel/admin-panel.webp',
       liveUrl: 'https://www.admin-panel.scale-sail.io',

@@ -45,6 +45,10 @@ export class HomePage implements OnInit {
       slug: '',
       type: 'website',
       keywords: [
+        'Angular 21 Developer',
+        'Angular Signals Migration',
+        'Zoneless Angular Expert',
+        'Nx Monorepo Architect',
         'Angular Performance Audit',
         'Fractional Frontend Lead',
         'Fix Slow Angular App',
@@ -55,10 +59,7 @@ export class HomePage implements OnInit {
         'Enterprise Angular',
         'Performance Optimization',
         'Technical Debt',
-        'Zoneless Angular',
         'RxJS Expert',
-        'Angular Signals',
-        'Nx Monorepo',
         'Tailwind CSS',
       ],
     });
@@ -101,7 +102,10 @@ export class HomePage implements OnInit {
               'https://karol-modelski.medium.com/',
             ],
             knowsAbout: [
-              'Angular',
+              'Angular 21',
+              'Angular Signals',
+              'Zoneless Architecture',
+              'Nx Monorepo',
               'RxJS',
               'TypeScript',
               'Legacy Modernization',
@@ -153,6 +157,60 @@ export class HomePage implements OnInit {
             price: '149.00',
             priceCurrency: 'USD',
             availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-performance',
+          name: 'Performance Quick-Win',
+          description:
+            'Identify render blocking issues and bundle size problems. Remediation plan to improve Core Web Vitals (LCP/INP) by up to 40%.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '299.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-component',
+          name: 'Single Component Build',
+          description:
+            'Pixel-perfect, fully accessible (WCAG 2.1 AA), and 100% unit tested Angular component build.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '399.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-consulting',
+          name: '1:1 Architecture Consult',
+          description:
+            'Live problem solving for architectural blockers. Unblock your team and get back to shipping.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '199.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            priceSpecification: {
+              '@type': 'UnitPriceSpecification',
+              price: '199.00',
+              priceCurrency: 'USD',
+              unitCode: 'HUR',
+            },
           },
         },
       ],
