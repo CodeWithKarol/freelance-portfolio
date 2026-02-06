@@ -414,6 +414,49 @@ export class PortfolioStore {
 
   readonly faqs = signal<FaqItem[]>([
     {
+      question: 'What is a Micro-Engagement?',
+      answer:
+        'A Micro-Engagement is a high-impact, short-term contract focused on a specific outcome (like a performance audit or component build) rather than ongoing hourly work. It allows you to access senior-level expertise for critical problems without a long-term hiring commitment.',
+    },
+    {
+      question: 'Why choose a Micro-Engagement over a Freelancer or Agency?',
+      answer: `
+        <p class="mb-4">Traditional hiring models are often too slow or too expensive for focused technical problems.</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 dark:border-slate-800">
+                <th class="py-2 font-mono font-bold text-slate-900 dark:text-white">Feature</th>
+                <th class="py-2 font-mono font-bold text-slate-500">Freelancer</th>
+                <th class="py-2 font-mono font-bold text-slate-500">Agency</th>
+                <th class="py-2 font-mono font-bold text-primary">Micro-Engagement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-slate-100 dark:border-slate-800/50">
+                <td class="py-2 font-medium text-slate-700 dark:text-slate-300">Speed</td>
+                <td class="py-2 text-slate-600 dark:text-slate-400">Varies</td>
+                <td class="py-2 text-slate-600 dark:text-slate-400">Slow</td>
+                <td class="py-2 font-bold text-slate-900 dark:text-white">Fast (3-5 Days)</td>
+              </tr>
+              <tr class="border-b border-slate-100 dark:border-slate-800/50">
+                <td class="py-2 font-medium text-slate-700 dark:text-slate-300">Cost</td>
+                <td class="py-2 text-slate-600 dark:text-slate-400">Hourly</td>
+                <td class="py-2 text-slate-600 dark:text-slate-400">High ($$$)</td>
+                <td class="py-2 font-bold text-slate-900 dark:text-white">Fixed Price</td>
+              </tr>
+              <tr>
+                <td class="py-2 font-medium text-slate-700 dark:text-slate-300">Expertise</td>
+                <td class="py-2 text-slate-600 dark:text-slate-400">Hit or Miss</td>
+                <td class="py-2 text-slate-600 dark:text-slate-400">Mixed Team</td>
+                <td class="py-2 font-bold text-slate-900 dark:text-white">Senior Lead</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `,
+    },
+    {
       question: 'How is this different from your agency?',
       answer:
         'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert attention but not a full team.',

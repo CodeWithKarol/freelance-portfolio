@@ -52,11 +52,16 @@ import { SectionHeader } from '../../../../shared/ui/section-header/section-head
                     </svg>
                   </span>
                 </summary>
+                <!-- 
+                  Safe to use innerHTML here because:
+                  1. Content comes from our trusted static store (PortfolioStore)
+                  2. Angular sanitizes it automatically (strips scripts)
+                  3. We are not rendering user-generated content 
+                -->
                 <div
                   class="px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed border-t border-slate-100 dark:border-slate-800/50 pt-4 font-sans"
-                >
-                  {{ faq.answer }}
-                </div>
+                  [innerHTML]="faq.answer"
+                ></div>
               </details>
             </div>
           }
