@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      .bg { fill: #0a1f44; }
+      .fg { fill: #007bff; }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #ffffff; }
+        .fg { fill: #007bff; }
+      }
+    </style>
+  </defs>
+  <rect width="512" height="512" rx="128" class="bg"/>
+  <path d="M144 144 L320 256 L144 368" stroke-width="64" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="fg"/>
+  <rect x="350" y="320" width="64" height="64" class="fg"/>
+</svg>
