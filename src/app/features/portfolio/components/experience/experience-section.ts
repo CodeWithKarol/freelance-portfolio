@@ -135,15 +135,15 @@ import { Button } from '@shared/ui/button/button';
           <!-- Resume Download (Terminal Style) -->
           <div class="mt-16 pl-24">
             <div
-              class="flex items-center gap-4 p-4 border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50"
+              class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50 rounded-sm"
             >
-              <div class="flex-1 font-mono text-xs text-slate-500">
+              <div class="font-mono text-xs text-slate-500 text-center sm:text-left">
                 <span class="text-green-500">➜</span> Ready to view full system logs?
               </div>
               <app-button
                 href="https://drive.google.com/file/d/1ZAtoLBrbP-suftqfzVAdJD2welSEzoVR/view?usp=sharing"
                 variant="outline"
-                styleClass="font-mono text-xs uppercase tracking-wider border-slate-300 dark:border-slate-600"
+                styleClass="w-full sm:w-auto font-mono text-xs uppercase tracking-wider border-slate-300 dark:border-slate-600 justify-center"
               >
                 <lucide-icon [img]="Download" class="h-3.5 w-3.5 mr-2"></lucide-icon>
                 EXPORT_RESUME.PDF

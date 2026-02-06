@@ -20,6 +20,30 @@ describe('AppComponent', () => {
       })),
     });
 
+    // Mock localStorage
+    const store: Record<string, string> = {};
+    const mockLocalStorage = {
+      getItem: (key: string): string | null => {
+        return key in store ? store[key] : null;
+      },
+      setItem: (key: string, value: string) => {
+        store[key] = `${value}`;
+      },
+      removeItem: (key: string) => {
+        delete store[key];
+      },
+      clear: () => {
+        for (const key in store) {
+          delete store[key];
+        }
+      },
+    };
+
+    Object.defineProperty(window, 'localStorage', {
+      value: mockLocalStorage,
+      writable: true,
+    });
+
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [provideRouter([])],

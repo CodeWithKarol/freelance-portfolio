@@ -96,7 +96,7 @@
   }
 
   .btn-accent {
-    @apply bg-accent text-white hover:bg-[#ff855a] focus:ring-accent;
+    @apply bg-accent text-secondary hover:bg-[#ff855a] focus:ring-accent;
   }
 
   .btn-ghost {
@@ -166,6 +166,6 @@
   }
 
   .skip-link {
-    @apply absolute left-4 top-4 -translate-y-[150%] rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-transform focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 z-[100];
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:border focus:border-white/20 focus:bg-primary focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:font-bold focus:uppercase focus:tracking-widest focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900;
   }
 }

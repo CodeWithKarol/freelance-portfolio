@@ -24,12 +24,26 @@ describe('NavbarSection', () => {
     });
 
     const store: Record<string, string> = {};
-    const mockGetItem = vi.spyOn(Storage.prototype, 'getItem');
-    mockGetItem.mockImplementation((key: string) => store[key] || null);
+    const mockLocalStorage = {
+      getItem: vi.fn((key: string): string | null => {
+        return key in store ? store[key] : null;
+      }),
+      setItem: vi.fn((key: string, value: string) => {
+        store[key] = `${value}`;
+      }),
+      removeItem: vi.fn((key: string) => {
+        delete store[key];
+      }),
+      clear: vi.fn(() => {
+        for (const key in store) {
+          delete store[key];
+        }
+      }),
+    };
 
-    const mockSetItem = vi.spyOn(Storage.prototype, 'setItem');
-    mockSetItem.mockImplementation((key: string, value: string) => {
-      store[key] = value + '';
+    Object.defineProperty(window, 'localStorage', {
+      value: mockLocalStorage,
+      writable: true,
     });
 
     await TestBed.configureTestingModule({
