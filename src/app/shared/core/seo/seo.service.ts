@@ -12,7 +12,7 @@ export class SeoService {
   private readonly document = inject(DOCUMENT);
 
   private readonly baseUrl = 'https://www.karol-modelski.scale-sail.io';
-  private readonly defaultImage = '/images/scale-sail-logo.jpeg';
+  private readonly defaultImage = '/images/freelance-portfolio-og.jpeg';
 
   // Signal to track current canonical URL for the active page
   private readonly _currentCanonical = signal<string>('');
