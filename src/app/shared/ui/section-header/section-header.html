@@ -4,11 +4,13 @@
   [class.text-left]="alignment() === 'left'"
 >
   @if (subtitle()) {
-    <h2 class="text-sm font-mono font-bold leading-7 text-accent uppercase tracking-widest">
+    <span
+      class="block mb-3 text-sm font-mono font-bold leading-7 text-accent uppercase tracking-widest"
+    >
       {{ subtitle() }}
-    </h2>
+    </span>
   }
-  <h2 class="mt-2 heading-2 text-balance">
+  <h2 class="heading-2 text-balance">
     {{ title() }}
   </h2>
   @if (description()) {

@@ -100,6 +100,59 @@ export class HomePage implements OnInit {
               'https://github.com/CodeWithKarol',
               'https://karol-modelski.medium.com/',
             ],
+            knowsAbout: [
+              'Angular',
+              'RxJS',
+              'TypeScript',
+              'Legacy Modernization',
+              'Performance Optimization',
+            ],
+          },
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#faq',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'How is this different from your agency?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert attention but not a full team.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'What is your availability?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'I dedicate 10-15 hours/week to freelance gigs. Most "Micro-Engagements" are delivered within 3-5 business days.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Do you work hourly or fixed price?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'I prefer fixed-price for defined scopes (like Component Builds or Audits). For open-ended consulting, I bill hourly.',
+              },
+            },
+          ],
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-audit',
+          name: 'Code Review Deep Dive',
+          description:
+            'Stop merging technical debt. I review a critical PR to catch security holes, performance killers, and logic bombs.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '149.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
           },
         },
       ],
