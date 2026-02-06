@@ -50,10 +50,11 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
 
           <!-- Sub-headline text -->
           <p class="text-body text-xl max-w-2xl mx-auto mb-12 dark:text-slate-400 leading-relaxed">
-            I fix
+            I provide
             <strong class="text-slate-900 dark:text-white"
-              >performance and architecture bottlenecks</strong
-            >. No long-term contracts, just immediate impact. Currently building
+              >Fractional Leadership and Surgical Strikes</strong
+            >
+            for scaling teams. No long-term contracts, just immediate impact. Currently building
             <a
               href="https://scale-sail.io"
               target="_blank"

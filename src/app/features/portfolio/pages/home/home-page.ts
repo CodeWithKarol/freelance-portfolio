@@ -39,12 +39,15 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     this.seoService.setPageMetadata({
-      title: 'Angular Expert & Legacy Code Modernization | Karol Modelski',
+      title: 'Fractional Tech Lead & Angular Expert | Karol Modelski',
       description:
         'Fractional Tech Lead & Senior Angular Developer specialized in retiring technical debt, Zoneless Angular migration, and high-performance enterprise architecture.',
       slug: '',
       type: 'website',
       keywords: [
+        'Angular Performance Audit',
+        'Fractional Frontend Lead',
+        'Fix Slow Angular App',
         'Angular Developer',
         'Frontend Architect',
         'Legacy Modernization',

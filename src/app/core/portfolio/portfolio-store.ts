@@ -356,27 +356,27 @@ export class PortfolioStore {
     {
       title: 'Code Review Deep Dive',
       description:
-        'Stop merging technical debt. I review a critical PR to catch security holes, performance killers, and logic bombs before they reach production.',
+        'Stop merging technical debt. I review a critical PR to catch security holes, performance killers, and logic bombs. Includes video walkthrough and specific remediation code.',
       price: 'Starting at $149',
-      features: ['Video Walkthrough', 'Architecture Feedback', 'Security Check'],
+      features: ['Video Walkthrough', 'Architecture Feedback', 'Security Vulnerability Check'],
       ctaUrl: 'https://calendly.com',
       icon: 'code',
     },
     {
       title: 'Performance Quick-Win',
       description:
-        'Your app is too slow. I identify exactly why (Render blocking? Bundle size?) and give you a remediation plan to get back to < 1s load times.',
+        'Your app is too slow. I identify exactly why (Render blocking? Bundle size?) and provide a remediation plan to improve Core Web Vitals (LCP/INP) by up to 40%.',
       price: 'Starting at $299',
-      features: ['Lighthouse Analysis', 'Bundle Audit', 'Action Plan'],
+      features: ['Lighthouse Analysis', 'Bundle Size Audit', 'Core Web Vitals Action Plan'],
       ctaUrl: 'https://calendly.com',
       icon: 'performance',
     },
     {
       title: 'Single Component Build',
       description:
-        'Need a complex UI widget but your team is swamped? I build it pixel-perfect, fully accessible, and 100% unit tested. Drop-in ready.',
+        'Need a complex UI widget but your team is swamped? I build it pixel-perfect, fully accessible (WCAG 2.1 AA), and 100% unit tested. Drop-in ready for your codebase.',
       price: 'Starting at $399',
-      features: ['Pixel Perfect', '100% Test Coverage', 'Fully Accessible'],
+      features: ['Pixel Perfect Implementation', '100% Test Coverage', 'WCAG 2.1 AA Accessible'],
       ctaUrl: 'https://calendly.com',
       icon: 'component',
     },
