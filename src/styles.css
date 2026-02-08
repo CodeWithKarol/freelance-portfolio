@@ -39,7 +39,7 @@
   }
 
   body {
-    @apply antialiased text-secondary dark:text-slate-100 bg-slate-50 dark:bg-slate-950;
+    @apply antialiased text-secondary dark:text-white bg-white dark:bg-slate-950;
   }
 }
 
@@ -71,11 +71,11 @@
   }
 
   .text-body {
-    @apply text-base text-secondary/80 dark:text-slate-300 leading-relaxed;
+    @apply text-base text-secondary dark:text-slate-200 leading-relaxed;
   }
 
   .text-small {
-    @apply text-sm text-secondary/70 dark:text-slate-400;
+    @apply text-sm text-secondary/80 dark:text-slate-400;
   }
 
   /* --- Buttons --- */
@@ -128,6 +128,10 @@
     @apply border border-slate-200 dark:border-slate-800 relative;
   }
 
+  .depth-groove {
+    @apply shadow-[inset_0_6px_12px_rgba(0,0,0,0.06)] border-y border-slate-200 dark:shadow-[inset_0_2px_12px_rgba(0,0,0,0.5)];
+  }
+
   .tech-border::before {
     content: '';
     @apply absolute -top-px -left-px w-2 h-2 border-t-2 border-l-2 border-primary dark:border-primary-400;
@@ -141,14 +145,14 @@
   .grid-bg {
     background-size: 40px 40px;
     background-image:
-      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
   }
 
   .dark .grid-bg {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   }
 
   /* --- Cards & Surfaces --- */

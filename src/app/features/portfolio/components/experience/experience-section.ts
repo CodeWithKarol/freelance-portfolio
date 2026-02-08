@@ -21,7 +21,7 @@ import { Button } from '@shared/ui/button/button';
   template: `
     <section
       id="experience"
-      class="section-padding bg-white dark:bg-slate-950 relative overflow-hidden"
+      class="section-padding bg-slate-100 dark:bg-slate-900 relative overflow-hidden depth-groove"
     >
       <!-- Background Grid -->
       <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>

@@ -25,7 +25,7 @@ import { ViewportScroller } from '@angular/common';
         <span
           class="text-[10px] font-medium text-secondary/60 dark:text-slate-400 uppercase tracking-wider leading-none mt-1"
         >
-          Senior Frontend Developer
+          Senior Angular Developer
         </span>
       </div>
     </a>

@@ -39,9 +39,9 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     this.seoService.setPageMetadata({
-      title: 'Fractional Tech Lead & Angular Expert | Karol Modelski',
+      title: 'Angular Micro-Engagements & Development | Karol Modelski',
       description:
-        'Fractional Tech Lead & Senior Angular Developer specialized in retiring technical debt, Zoneless Angular migration, and high-performance enterprise architecture.',
+        'Eliminate frontend bottlenecks with fixed-price Angular micro-engagements. Access specialized expertise for Audits, Refactors, and Feature Builds without the hourly overhead.',
       slug: '',
       type: 'website',
       keywords: [
@@ -75,7 +75,7 @@ export class HomePage implements OnInit {
           url: 'https://www.karol-modelski.scale-sail.io',
           name: 'Karol Modelski Portfolio',
           alternateName: 'Karol Modelski',
-          description: 'Senior Frontend Developer & Legacy Modernization',
+          description: 'Angular Micro-Engagements & Development',
           inLanguage: 'en-US',
         },
         {
@@ -91,9 +91,9 @@ export class HomePage implements OnInit {
             '@type': 'Person',
             '@id': 'https://www.karol-modelski.scale-sail.io/#person',
             name: 'Karol Modelski',
-            jobTitle: 'Senior Frontend Developer',
+            jobTitle: 'Senior Angular Developer',
             description:
-              'Senior Frontend Developer specialized in modernizing legacy Angular applications.',
+              'Senior Angular Developer specialized in modernizing legacy Angular applications.',
             image: 'https://www.karol-modelski.scale-sail.io/images/karol-modelski.jpg',
             url: 'https://www.karol-modelski.scale-sail.io',
             sameAs: [
@@ -119,26 +119,26 @@ export class HomePage implements OnInit {
           mainEntity: [
             {
               '@type': 'Question',
+              name: 'What is a Micro-Engagement?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'A Micro-Engagement is a high-impact, short-term contract focused on a specific outcome (like a performance audit or component build) rather than ongoing hourly work. It allows you to access specialized Angular expertise for critical problems without a long-term hiring commitment.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Why choose a Micro-Engagement over a Freelancer?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Freelancers often require onboarding and hourly billing. Micro-Engagements are fixed-price, "surgical strikes" by a Senior Developer to solve a specific problem in days, not weeks.',
+              },
+            },
+            {
+              '@type': 'Question',
               name: 'How is this different from your agency?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert attention but not a full team.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'What is your availability?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'I dedicate 10-15 hours/week to freelance gigs. Most "Micro-Engagements" are delivered within 3-5 business days.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'Do you work hourly or fixed price?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'I prefer fixed-price for defined scopes (like Component Builds or Audits). For open-ended consulting, I bill hourly.',
+                text: 'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert Angular attention but not a full team.',
               },
             },
           ],
@@ -146,9 +146,25 @@ export class HomePage implements OnInit {
         {
           '@type': 'Service',
           '@id': 'https://www.karol-modelski.scale-sail.io/#service-audit',
-          name: 'Code Review Deep Dive',
+          name: 'Code Quality Audit',
           description:
-            'Stop merging technical debt. I review a critical PR to catch security holes, performance killers, and logic bombs.',
+            'Merge with confidence. Get a comprehensive review of your most critical Pull Request (max 400 LoC). You receive actionable feedback on maintainability, type safety, and Angular best practices in 24h.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '49.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-detox',
+          name: 'Component Detox',
+          description:
+            'Turn fragile UI into rock-solid code. Your complex component is refactored into a clean Smart (Data) vs. Dumb (UI) architecture, eliminating bugs and making future updates effortless.',
           provider: {
             '@id': 'https://www.karol-modelski.scale-sail.io/#person',
           },
@@ -161,10 +177,26 @@ export class HomePage implements OnInit {
         },
         {
           '@type': 'Service',
-          '@id': 'https://www.karol-modelski.scale-sail.io/#service-performance',
-          name: 'Performance Quick-Win',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-api',
+          name: 'API Integration Layer',
           description:
-            'Identify render blocking issues and bundle size problems. Remediation plan to improve Core Web Vitals (LCP/INP) by up to 40%.',
+            'Stop writing boilerplate. You get fully type-safe Angular Services and a reactive Signal Store generated directly from your Swagger/Postman specs, ready to plug into your UI.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '149.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-feature',
+          name: 'Small Feature Build',
+          description:
+            'Ship a production-ready feature in days. You get a fully integrated, state-managed feature built with your existing UI library (Material/Tailwind), polished and ready for users.',
           provider: {
             '@id': 'https://www.karol-modelski.scale-sail.io/#person',
           },
@@ -173,44 +205,6 @@ export class HomePage implements OnInit {
             price: '299.00',
             priceCurrency: 'USD',
             availability: 'https://schema.org/InStock',
-          },
-        },
-        {
-          '@type': 'Service',
-          '@id': 'https://www.karol-modelski.scale-sail.io/#service-component',
-          name: 'Single Component Build',
-          description:
-            'Pixel-perfect, fully accessible (WCAG 2.1 AA), and 100% unit tested Angular component build.',
-          provider: {
-            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
-          },
-          offers: {
-            '@type': 'Offer',
-            price: '399.00',
-            priceCurrency: 'USD',
-            availability: 'https://schema.org/InStock',
-          },
-        },
-        {
-          '@type': 'Service',
-          '@id': 'https://www.karol-modelski.scale-sail.io/#service-consulting',
-          name: '1:1 Architecture Consult',
-          description:
-            'Live problem solving for architectural blockers. Unblock your team and get back to shipping.',
-          provider: {
-            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
-          },
-          offers: {
-            '@type': 'Offer',
-            price: '199.00',
-            priceCurrency: 'USD',
-            availability: 'https://schema.org/InStock',
-            priceSpecification: {
-              '@type': 'UnitPriceSpecification',
-              price: '199.00',
-              priceCurrency: 'USD',
-              unitCode: 'HUR',
-            },
           },
         },
       ],

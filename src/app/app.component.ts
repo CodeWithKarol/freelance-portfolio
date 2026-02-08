@@ -9,7 +9,7 @@ import { FooterSection } from './shared/layout/footer/footer-section';
   template: `
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div
-      class="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 transition-colors duration-300"
+      class="min-h-screen flex flex-col bg-white dark:bg-slate-950 text-secondary dark:text-white transition-colors duration-300"
     >
       <app-navbar-section />
       <main id="main-content" class="flex-grow pt-16">

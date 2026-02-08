@@ -10,12 +10,12 @@ import { SectionHeader } from '../../../../shared/ui/section-header/section-head
   template: `
     <section
       id="process"
-      class="section-padding bg-slate-50 dark:bg-slate-950 relative border-b border-slate-200 dark:border-slate-800 overflow-hidden"
+      class="section-padding bg-white dark:bg-slate-950 relative border-b border-slate-200 dark:border-slate-800 overflow-hidden"
     >
       <div class="layout-container relative z-10">
         <app-section-header
-          title="The 'Unblock' Protocol"
-          subtitle="Zero friction. We align on goals once, then I execute."
+          title="The Async Workflow"
+          subtitle="Optimized for speed and focus. We skip the meetings and get straight to the code."
           alignment="center"
           class="mb-16 block"
         />

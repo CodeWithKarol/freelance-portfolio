@@ -29,9 +29,9 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
         <div class="relative pb-12 lg:pb-0">
           <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg sticky top-24">
             <app-section-header
-              subtitle="UPLINK"
-              title="INITIATE SEQUENCE"
-              description="Open a secure channel for project collaboration. Direct line to engineering leadership."
+              subtitle="AVAILABILITY"
+              title="SECURE A SLOT"
+              description="I open 2 slots per week for Micro-Engagements. Book yours directly via email."
               alignment="left"
             />
 
@@ -127,14 +127,14 @@ import { SectionHeader } from '@shared/ui/section-header/section-header';
                 <!-- Direct Contract Option -->
                 <a
                   [href]="'mailto:' + store.contactInfo().email"
-                  class="group relative flex items-center justify-between p-4 bg-slate-900/50 hover:bg-green-500/10 border border-slate-800 hover:border-green-500/50 rounded-sm transition-all duration-300"
+                  class="w-full text-left group relative flex items-center justify-between p-4 bg-slate-900/50 hover:bg-green-500/10 border border-slate-800 hover:border-green-500/50 rounded-sm transition-all duration-300 cursor-pointer"
                 >
                   <div>
                     <div class="text-green-400 font-bold mb-1 font-mono group-hover:text-green-300">
-                      &gt; EXECUTE_DIRECT_CONTRACT
+                      &gt; REQUEST_ENGAGEMENT
                     </div>
                     <div class="text-slate-400 text-xs group-hover:text-slate-300">
-                      For independent consulting, audits & specialized roles
+                      Email to book a specific micro-engagement (Audit, Detox, etc.)
                     </div>
                   </div>
                   <lucide-icon

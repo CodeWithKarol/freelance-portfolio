@@ -10,7 +10,7 @@ import { SectionHeader } from '../../../../shared/ui/section-header/section-head
   template: `
     <section
       id="faq"
-      class="section-padding bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800"
+      class="section-padding bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 depth-groove"
     >
       <div class="layout-container max-w-3xl">
         <app-section-header

@@ -19,11 +19,11 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
   template: `
     <section
       id="about"
-      class="relative isolate overflow-hidden bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 h-screen flex flex-col justify-center"
+      class="relative isolate overflow-hidden bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-screen flex flex-col justify-center depth-groove"
     >
       <!-- Neural Network Background -->
       <app-network-background
-        class="absolute inset-0 z-0 opacity-40 dark:opacity-30"
+        class="absolute inset-0 z-0 opacity-25 dark:opacity-20"
         color="#3b82f6"
       ></app-network-background>
 
@@ -44,24 +44,18 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
 
           <!-- Main Heading -->
           <h1 class="heading-1 mb-8 text-5xl lg:text-7xl font-bold tracking-tight">
-            <span class="block text-slate-900 dark:text-white mb-2">Need an Angular Expert</span>
-            <span class="block text-primary dark:text-primary-500">for a Week?</span>
+            <span class="block text-slate-900 dark:text-white mb-2">High-Impact Angular</span>
+            <span class="block text-primary dark:text-primary-500">Zero Meetings.</span>
           </h1>
 
           <!-- Sub-headline text -->
-          <p class="text-body text-xl max-w-2xl mx-auto mb-12 dark:text-slate-400 leading-relaxed">
-            I provide
-            <strong class="text-slate-900 dark:text-white"
-              >Fractional Leadership and Surgical Strikes</strong
-            >
-            for scaling teams. No long-term contracts, just immediate impact. Currently building
-            <a
-              href="https://scale-sail.io"
-              target="_blank"
-              class="text-primary hover:text-primary-600 underline decoration-primary/30 underline-offset-4 transition-colors"
-              >Scale Sail Agency</a
-            >
-            for enterprise scale.
+          <p
+            class="text-slate-600 text-xl max-w-2xl mx-auto mb-12 dark:text-slate-300 leading-relaxed"
+          >
+            Eliminate frontend bottlenecks with
+            <strong class="text-slate-900 dark:text-white">Fixed-Price Micro-Engagements</strong>.
+            Access specialized Angular expertise for critical tasks—Audits, Refactors,
+            Features—delivered asynchronously without the hourly hiring overhead.
           </p>
 
           <!-- Tech Stack Data Grid (Horizontal) -->
@@ -69,28 +63,28 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
             class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mx-auto mb-12 font-mono text-xs text-left"
           >
             <div
-              class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
+              class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-500 dark:text-slate-400 mb-1">DIAGNOSTICS</span>
-              <span class="font-bold text-slate-900 dark:text-white">PERFORMANCE / WEB VITALS</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">AUDITS</span>
+              <span class="font-bold text-slate-900 dark:text-white">CODE & PERFORMANCE</span>
             </div>
             <div
-              class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
+              class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-500 dark:text-slate-400 mb-1">QUALITY GATES</span>
-              <span class="font-bold text-slate-900 dark:text-white">STRICT TYPES / TESTING</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">ARCHITECTURE</span>
+              <span class="font-bold text-slate-900 dark:text-white">SMART / DUMB SPLITS</span>
             </div>
             <div
-              class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
+              class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
-              <span class="block text-slate-500 dark:text-slate-400 mb-1">STANDARDS</span>
-              <span class="font-bold text-slate-900 dark:text-white">WCAG 2.1 AA / A11Y</span>
+              <span class="block text-slate-500 dark:text-slate-400 mb-1">INTEGRATION</span>
+              <span class="font-bold text-slate-900 dark:text-white">TYPE-SAFE APIS</span>
             </div>
             <div
-              class="p-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
+              class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
               <span class="block text-slate-500 dark:text-slate-400 mb-1">MODERNIZATION</span>
-              <span class="font-bold text-slate-900 dark:text-white">LEGACY TO SIGNALS</span>
+              <span class="font-bold text-slate-900 dark:text-white">SIGNALS & ZONELESS</span>
             </div>
           </div>
 
@@ -98,20 +92,19 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
           <div class="flex flex-wrap items-center justify-center gap-6">
             <app-button
               [route]="['/']"
-              fragment="contact"
+              fragment="gigs"
               variant="primary"
               size="lg"
               styleClass="rounded-none font-mono uppercase tracking-wide px-8 h-14 text-sm"
             >
-              Start an Engagement
+              View Micro-Engagements
             </app-button>
 
             <a
-              href="https://scale-sail.io"
-              target="_blank"
+              href="#process"
               class="inline-flex h-14 items-center justify-center px-8 rounded-none border border-slate-300 dark:border-slate-700 bg-white/10 backdrop-blur-sm text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-mono uppercase tracking-wide text-sm font-medium"
             >
-              Visit Agency Site
+              How It Works
             </a>
           </div>
         </div>
