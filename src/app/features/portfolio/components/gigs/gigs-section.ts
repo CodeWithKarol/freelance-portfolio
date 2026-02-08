@@ -19,7 +19,7 @@ import { Button } from '../../../../shared/ui/button/button';
 
       <div class="layout-container relative z-10">
         <app-section-header
-          title="Angular Emergency Room"
+          title="The Micro-Engagement Menu"
           subtitle="Surgical interventions for your most critical issues. Don't hire a full-time employee for a one-time problem."
           alignment="center"
           class="mb-16 block"

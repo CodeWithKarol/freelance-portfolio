@@ -354,61 +354,61 @@ export class PortfolioStore {
 
   readonly gigs = signal<Gig[]>([
     {
-      title: 'Code Review Deep Dive',
+      title: 'Code Quality Audit',
       description:
-        'Stop merging technical debt. I review a critical PR to catch security holes, performance killers, and logic bombs. Includes video walkthrough and specific remediation code.',
-      price: 'Starting at $149',
-      features: ['Video Walkthrough', 'Architecture Feedback', 'Security Vulnerability Check'],
-      ctaUrl: 'https://calendly.com',
-      icon: 'code',
+        'Merge with confidence. Get a comprehensive review of your most critical Pull Request (max 400 LoC). You receive actionable feedback on maintainability, type safety, and Angular best practices in 24h.',
+      price: '$49 / PR',
+      features: ['Clean Code Review', 'Type Safety Check', 'Architectural Sign-off'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Code Quality Audit',
+      icon: 'consulting',
     },
     {
-      title: 'Performance Quick-Win',
+      title: 'Component Detox',
       description:
-        'Your app is too slow. I identify exactly why (Render blocking? Bundle size?) and provide a remediation plan to improve Core Web Vitals (LCP/INP) by up to 40%.',
-      price: 'Starting at $299',
-      features: ['Lighthouse Analysis', 'Bundle Size Audit', 'Core Web Vitals Action Plan'],
-      ctaUrl: 'https://calendly.com',
-      icon: 'performance',
-    },
-    {
-      title: 'Single Component Build',
-      description:
-        'Need a complex UI widget but your team is swamped? I build it pixel-perfect, fully accessible (WCAG 2.1 AA), and 100% unit tested. Drop-in ready for your codebase.',
-      price: 'Starting at $399',
-      features: ['Pixel Perfect Implementation', '100% Test Coverage', 'WCAG 2.1 AA Accessible'],
-      ctaUrl: 'https://calendly.com',
+        'Turn fragile UI into rock-solid code. Your complex component is refactored into a clean Smart (Data) vs. Dumb (UI) architecture, eliminating bugs and making future updates effortless.',
+      price: '$149 / Component',
+      features: ['Logic Extraction', 'Signal Integration', 'OnPush Strategy'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Component Detox',
       icon: 'component',
     },
     {
-      title: '1:1 Architecture Consult',
+      title: 'API Integration Layer',
       description:
-        'Stuck on a hard problem? We jump on a call, share screens, and solve it together. I unblock you so you can get back to shipping.',
-      price: '$199 / Hour',
-      features: ['Live Problem Solving', 'Recording Provided', 'Follow-up Email'],
-      ctaUrl: 'https://calendly.com',
-      icon: 'consulting',
+        'Stop writing boilerplate. You get fully type-safe Angular Services and a reactive Signal Store generated directly from your Swagger/Postman specs, ready to plug into your UI.',
+      price: '$149 / Module',
+      features: ['Generated Types', 'Signal Store Setup', 'Postman/Swagger Support'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: API Integration Layer',
+      icon: 'code',
+    },
+    {
+      title: 'Small Feature Build',
+      description:
+        'Ship a production-ready feature in days. You get a fully integrated, state-managed feature built with your existing UI library (Material/Tailwind), polished and ready for users.',
+      price: '$299 / Feature',
+      features: ['Material/Tailwind UI', 'State Management', 'End-to-End Logic'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Small Feature Build',
+      icon: 'component',
     },
   ]);
 
   readonly process = signal<ProcessStep[]>([
     {
       number: '01',
-      title: 'Diagnosis & Scope',
+      title: 'Select & Sync',
       description:
-        'You send the repo or invite me to the call. I identify the root cause, define the fix, and set a fixed price. No guessing.',
+        'Select your Micro-Engagement. We align asynchronously via email/Loom to confirm requirements. No lengthy discovery calls.',
     },
     {
       number: '02',
-      title: 'Surgical Strike',
+      title: 'Deep Work',
       description:
-        'I fix the issue in isolation. I write the tests, refactor the mess, and ensure it integrates cleanly with your existing codebase.',
+        'Execution. Your task is completed in deep-work isolation using your repo or a clean branch. Focus is on quality and tests, not meetings.',
     },
     {
       number: '03',
-      title: 'Recovery & Handoff',
+      title: 'Async Handoff',
       description:
-        'I deliver a PR with a video walkthrough. Your team gets a solved problem and a blueprint for future stability.',
+        'Delivery. You receive a PR, a Loom walkthrough, and documentation. I iterate on feedback until you are ready to merge.',
     },
   ]);
 
@@ -416,7 +416,7 @@ export class PortfolioStore {
     {
       question: 'What is a Micro-Engagement?',
       answer:
-        'A Micro-Engagement is a high-impact, short-term contract focused on a specific outcome (like a performance audit or component build) rather than ongoing hourly work. It allows you to access senior-level expertise for critical problems without a long-term hiring commitment.',
+        'A Micro-Engagement is a high-impact, short-term contract focused on a specific outcome (like a performance audit or component build) rather than ongoing hourly work. It allows you to access specialized Angular expertise for critical problems without a long-term hiring commitment.',
     },
     {
       question: 'Why choose a Micro-Engagement over a Freelancer or Agency?',
@@ -449,7 +449,7 @@ export class PortfolioStore {
                 <td class="py-2 font-medium text-slate-700 dark:text-slate-300">Expertise</td>
                 <td class="py-2 text-slate-600 dark:text-slate-400">Hit or Miss</td>
                 <td class="py-2 text-slate-600 dark:text-slate-400">Mixed Team</td>
-                <td class="py-2 font-bold text-slate-900 dark:text-white">Senior Lead</td>
+                <td class="py-2 font-bold text-slate-900 dark:text-white">Angular Expert</td>
               </tr>
             </tbody>
           </table>
@@ -459,17 +459,17 @@ export class PortfolioStore {
     {
       question: 'How is this different from your agency?',
       answer:
-        'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert attention but not a full team.',
+        'Scale Sail Agency handles large-scale migrations and long-term contracts. Here, I personally handle smaller, high-impact tasks (Micro-Engagements) that need expert Angular attention but not a full team.',
     },
     {
       question: 'What is your availability?',
       answer:
-        'I dedicate 10-15 hours/week to freelance gigs. Most "Micro-Engagements" are delivered within 3-5 business days.',
+        'I strictly cap my freelance work to 10-15 hours/week to maintain high quality. Most "Micro-Engagements" are delivered within 3-4 business days.',
     },
     {
       question: 'Do you work hourly or fixed price?',
       answer:
-        'I prefer fixed-price for defined scopes (like Component Builds or Audits). For open-ended consulting, I bill hourly.',
+        'I strictly prefer fixed-price, asynchronous engagements. I do not offer hourly billing or live meeting blocks, allowing me to focus deeply on delivering the best solution.',
     },
   ]);
 
