@@ -154,7 +154,7 @@ export class HomePage implements OnInit {
           },
           offers: {
             '@type': 'Offer',
-            price: '49.00',
+            price: '79.00',
             priceCurrency: 'USD',
             availability: 'https://schema.org/InStock',
           },
@@ -164,7 +164,7 @@ export class HomePage implements OnInit {
           '@id': 'https://www.karol-modelski.scale-sail.io/#service-detox',
           name: 'Component Detox',
           description:
-            'Turn fragile UI into rock-solid code. Your complex component is refactored into a clean Smart (Data) vs. Dumb (UI) architecture, eliminating bugs and making future updates effortless.',
+            'Turn fragile UI into rock-solid code. Your complex component (< 500 LoC) is refactored into a clean Smart (Data) vs. Dumb (UI) architecture, eliminating bugs and making future updates effortless.',
           provider: {
             '@id': 'https://www.karol-modelski.scale-sail.io/#person',
           },
@@ -180,7 +180,7 @@ export class HomePage implements OnInit {
           '@id': 'https://www.karol-modelski.scale-sail.io/#service-api',
           name: 'API Integration Layer',
           description:
-            'Stop writing boilerplate. You get fully type-safe Angular Services and a reactive Signal Store generated directly from your Swagger/Postman specs, ready to plug into your UI.',
+            'Stop writing boilerplate. You get fully type-safe Angular Services and a reactive Signal Store generated directly from your Swagger/Postman specs (up to 5 endpoints), ready to plug into your UI.',
           provider: {
             '@id': 'https://www.karol-modelski.scale-sail.io/#person',
           },
@@ -196,13 +196,61 @@ export class HomePage implements OnInit {
           '@id': 'https://www.karol-modelski.scale-sail.io/#service-feature',
           name: 'Small Feature Build',
           description:
-            'Ship a production-ready feature in days. You get a fully integrated, state-managed feature built with your existing UI library (Material/Tailwind), polished and ready for users.',
+            'Ship a production-ready feature in days. You get a fully integrated, state-managed feature built using your existing UI library (Material/Tailwind), polished and ready for users.',
           provider: {
             '@id': 'https://www.karol-modelski.scale-sail.io/#person',
           },
           offers: {
             '@type': 'Offer',
             price: '299.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-bundle-diet',
+          name: 'Bundle Diet Analysis',
+          description:
+            'Your app is slow because your initial bundle is huge. I’ll tell you exactly what to cut. A PDF report identifying the top 3 largest libraries bloating the main bundle.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '99.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-zoneless',
+          name: 'Zoneless Readiness Check',
+          description:
+            'Prepare for Angular 21. I’ll identify every blocker preventing you from removing zone.js. List of incompatible 3rd-party libs and ChangeDetectorRef usages.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '149.00',
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+          },
+        },
+        {
+          '@type': 'Service',
+          '@id': 'https://www.karol-modelski.scale-sail.io/#service-e2e',
+          name: 'Critical Path E2E Test',
+          description:
+            'Never break checkout again. I\'ll write one rock-solid Cypress/Playwright test covering a single "Happy Path" user journey.',
+          provider: {
+            '@id': 'https://www.karol-modelski.scale-sail.io/#person',
+          },
+          offers: {
+            '@type': 'Offer',
+            price: '199.00',
             priceCurrency: 'USD',
             availability: 'https://schema.org/InStock',
           },

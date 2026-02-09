@@ -7,8 +7,7 @@ import { provideRouter } from '@angular/router';
 describe('FooterSection', () => {
   let component: FooterSection;
   let fixture: ComponentFixture<FooterSection>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let mockStore: any;
+  let mockStore: Pick<PortfolioStore, 'socialLinks' | 'footerColumns' | 'contactInfo'>;
 
   beforeEach(async () => {
     mockStore = {
@@ -19,7 +18,12 @@ describe('FooterSection', () => {
         { title: 'Col3', links: [] },
         { title: 'Col4', links: [] },
       ]),
-      contactInfo: signal({ email: 'test@example.com' }),
+      contactInfo: signal({
+        email: 'test@example.com',
+        location: 'Test Location',
+        availability: 'Available',
+        calendlyUrl: '#',
+      }),
     };
 
     await TestBed.configureTestingModule({

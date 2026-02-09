@@ -8,15 +8,20 @@ describe('HomePage', () => {
 
   beforeAll(() => {
     // Mock IntersectionObserver for @defer (on viewport)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (globalThis as any).IntersectionObserver = class IntersectionObserver {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      observe() {}
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      unobserve() {}
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      disconnect() {}
-    };
+    Object.defineProperty(globalThis, 'IntersectionObserver', {
+      writable: true,
+      value: class IntersectionObserver {
+        observe() {
+          return;
+        }
+        unobserve() {
+          return;
+        }
+        disconnect() {
+          return;
+        }
+      },
+    });
   });
 
   beforeEach(async () => {
