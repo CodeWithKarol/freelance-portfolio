@@ -4,6 +4,7 @@ import { PortfolioStore } from '@core/portfolio/portfolio-store';
 import { Skill } from '@core/portfolio/portfolio.model';
 import {
   LucideAngularModule,
+  LucideIconData,
   Terminal,
   CodeXml,
   Zap,
@@ -252,8 +253,7 @@ export class SkillsSection {
   readonly Terminal = Terminal;
   readonly UsersIcon = Users;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private categoryIcons: Record<string, any> = {
+  private categoryIcons: Record<string, LucideIconData> = {
     'Core Stack': Terminal,
     Frameworks: Smartphone,
     Languages: CodeXml,

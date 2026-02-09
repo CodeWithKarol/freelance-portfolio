@@ -357,10 +357,11 @@ export class PortfolioStore {
       title: 'Code Quality Audit',
       description:
         'Merge with confidence. Get a comprehensive review of your most critical Pull Request (max 400 LoC). You receive actionable feedback on maintainability, type safety, and Angular best practices in 24h.',
-      price: '$49 / PR',
+      price: '$79 / PR',
       features: ['Clean Code Review', 'Type Safety Check', 'Architectural Sign-off'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Code Quality Audit',
       icon: 'consulting',
+      category: 'Code Quality',
     },
     {
       title: 'Component Detox',
@@ -370,6 +371,7 @@ export class PortfolioStore {
       features: ['Logic Extraction', 'Signal Integration', 'Max 500 Lines Source'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Component Detox',
       icon: 'component',
+      category: 'Code Quality',
     },
     {
       title: 'API Integration Layer',
@@ -379,6 +381,7 @@ export class PortfolioStore {
       features: ['Generated Types', 'Signal Store Setup', 'Max 5 Endpoints'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: API Integration Layer',
       icon: 'code',
+      category: 'Features',
     },
     {
       title: 'Small Feature Build',
@@ -388,6 +391,207 @@ export class PortfolioStore {
       features: ['Existing Design System', 'State Management', 'Single View / Widget'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Small Feature Build',
       icon: 'component',
+      category: 'Features',
+    },
+    {
+      title: 'The "Bundle Diet" Analysis',
+      description:
+        'Your app is slow because your initial bundle is huge. I’ll tell you exactly what to cut. A PDF report identifying the top 3 largest libraries bloating the main bundle.',
+      price: '$99 / Report',
+      features: ['Source Map Analysis', 'Lazy-Loading Plan', 'No Code Changes'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Bundle Diet Analysis',
+      icon: 'performance',
+      category: 'Performance',
+    },
+    {
+      title: 'RxJS Leak Hunter',
+      description:
+        'Memory leaks are silent killers. I’ll find where your Observables are leaking. Automated scan + manual spot check report.',
+      price: '$149 / Report',
+      features: ['Leak Detection', 'Subscription Audit', 'Max 50 Files'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: RxJS Leak Hunter',
+      icon: 'consulting',
+      category: 'Audits',
+    },
+    {
+      title: '"Zoneless" Readiness Check',
+      description:
+        'Prepare for Angular 21. I’ll identify every blocker preventing you from removing zone.js. List of incompatible 3rd-party libs and ChangeDetectorRef usages.',
+      price: '$149 / Report',
+      features: ['Zone.js Audit', 'Library Check', 'Max 50k LoC'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Zoneless Readiness Check',
+      icon: 'consulting',
+      category: 'Audits',
+    },
+    {
+      title: 'Tailwind CSS Bloat Check',
+      description:
+        "Are you shipping unused CSS? I'll audit your Tailwind config and usage. Config optimization report + list of arbitrary values that should be theme tokens.",
+      price: '$99 / Audit',
+      features: ['Config Optimization', 'Token Strategy', '1 Global Styles File'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Tailwind CSS Bloat Check',
+      icon: 'performance',
+      category: 'Performance',
+    },
+    {
+      title: 'Circular Dependency Audit',
+      description:
+        "Spaghetti imports are slowing down your build. I'll map out your circular dependencies. Madge visualization + step-by-step plan to break the 3 worst cycles.",
+      price: '$199 / Analysis',
+      features: ['Dependency Graph', 'Cycle Breaking Plan', 'Analysis Only'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Circular Dependency Audit',
+      icon: 'consulting',
+      category: 'Audits',
+    },
+    {
+      title: 'Signal Input Migration',
+      description:
+        'Move to the new Signal Inputs API for better type safety and performance. Convert @Input() decorators to input() signals for one feature module.',
+      price: '$199 / Module',
+      features: ['Signal Inputs', 'Type Safety', 'Max 10 Components'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Signal Input Migration',
+      icon: 'component',
+      category: 'Modernization',
+    },
+    {
+      title: 'Control Flow Modernization',
+      description:
+        "Ditch *ngIf and *ngFor. I'll upgrade your templates to the new built-in control flow (@if, @for, @switch).",
+      price: '$149 / Module',
+      features: ['New Syntax', 'Template Cleanup', 'Max 15 Templates'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Control Flow Modernization',
+      icon: 'component',
+      category: 'Modernization',
+    },
+    {
+      title: 'Semantic HTML Upgrade',
+      description:
+        "Fix your accessibility foundation. I'll rewrite your main layout with semantic tags (<main>, <nav>, <article>) to pass basic accessibility checks.",
+      price: '$129 / Page',
+      features: ['Semantic Tags', 'A11y Basics', 'Max 400 Lines'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Semantic HTML Upgrade',
+      icon: 'component',
+      category: 'Modernization',
+    },
+    {
+      title: 'Pipe Purification',
+      description:
+        "Stop running logic in templates. I'll move complex function calls into pure, memoized pipes.",
+      price: '$149 / Batch',
+      features: ['Pure Pipes', 'Memoization', 'Max 5 Pipes'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Pipe Purification',
+      icon: 'performance',
+      category: 'Performance',
+    },
+    {
+      title: 'Image Optimization Sprint',
+      description:
+        "Fix your LCP score. I'll implement NgOptimizedImage for your landing page, converting standard <img> tags to ngSrc with correct loaders.",
+      price: '$149 / Page',
+      features: ['LCP Improvement', 'NgOptimizedImage', '1 Landing Page'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Image Optimization Sprint',
+      icon: 'performance',
+      category: 'Performance',
+    },
+    {
+      title: '"OnPush" Enforcer',
+      description:
+        "Stop unnecessary re-renders. I'll switch a subtree to OnPush change detection and fix state management issues.",
+      price: '$249 / Route',
+      features: ['OnPush Strategy', 'Render Check', '1 Route Component'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: OnPush Enforcer',
+      icon: 'performance',
+      category: 'Performance',
+    },
+    {
+      title: 'Virtual Scroll Implementation',
+      description:
+        "Rendering 1000 items? I'll implement CDK Virtual Scroll to make it instant, replacing *ngFor with <cdk-virtual-scroll-viewport>.",
+      price: '$199 / List',
+      features: ['CDK Virtual Scroll', 'Performance Boost', '1 List Component'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Virtual Scroll Implementation',
+      icon: 'performance',
+      category: 'Performance',
+    },
+    {
+      title: 'Nx Caching Setup',
+      description:
+        "Cut your CI times in half. I'll configure Nx Computation Caching for your workspace (nx.json + CI step).",
+      price: '$299 / Config',
+      features: ['CI Optimization', 'Nx Cache', 'Config Only'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Nx Caching Setup',
+      icon: 'consulting',
+      category: 'DX & Ops',
+    },
+    {
+      title: 'Storybook Initialization',
+      description:
+        "Start building UI in isolation. I'll set up Storybook and write your first story for a button/card.",
+      price: '$199 / Setup',
+      features: ['Storybook Setup', 'Component Isolation', '1 Example Story'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Storybook Initialization',
+      icon: 'consulting',
+      category: 'DX & Ops',
+    },
+    {
+      title: 'ESLint Strict Mode Config',
+      description:
+        "Enforce best practices automatically. I'll install a strict, modern Angular ESLint config and run auto-fix.",
+      price: '$99 / Config',
+      features: ['Strict Rules', 'Auto-Fix', 'Modern Config'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: ESLint Strict Mode',
+      icon: 'consulting',
+      category: 'DX & Ops',
+    },
+    {
+      title: 'Critical Path E2E Test',
+      description:
+        'Never break checkout again. I\'ll write one rock-solid Cypress/Playwright test covering a single "Happy Path".',
+      price: '$199 / Flow',
+      features: ['Cypress/Playwright', 'Critical Flow', 'Max 5 Steps'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Critical Path E2E Test',
+      icon: 'consulting',
+      category: 'Testing',
+    },
+    {
+      title: 'Unit Test Catch-up',
+      description:
+        'Get that critical service to 100% coverage. Jest/Jasmine spec file with full coverage for one service.',
+      price: '$149 / File',
+      features: ['100% Coverage', 'Jest/Jasmine', 'Max 200 LoC'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Unit Test Catch-up',
+      icon: 'consulting',
+      category: 'Testing',
+    },
+    {
+      title: 'Mock Data Factory',
+      description:
+        "Develop without the backend. I'll set up MSW (Mock Service Worker) handlers for one feature's API endpoints.",
+      price: '$199 / Module',
+      features: ['MSW Setup', 'Offline Dev', 'Max 5 Endpoints'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Mock Data Factory',
+      icon: 'code',
+      category: 'Testing',
+    },
+    {
+      title: 'Theme Switcher Implementation',
+      description:
+        'Add Dark Mode to your app properly. Service to handle theme state + Tailwind/CSS variable setup.',
+      price: '$149 / Setup',
+      features: ['Dark Mode', 'Tailwind Config', 'State Service'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Theme Switcher Implementation',
+      icon: 'component',
+      category: 'Features',
+    },
+    {
+      title: 'Interactive Chart Widget',
+      description:
+        "Visualize your data. I'll build a reusable chart component wrapped around Chart.js/ApexCharts with typed inputs.",
+      price: '$249 / Chart',
+      features: ['Data Visualization', 'Typed Inputs', '1 Chart Type'],
+      ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Interactive Chart Widget',
+      icon: 'component',
+      category: 'Features',
     },
   ]);
 

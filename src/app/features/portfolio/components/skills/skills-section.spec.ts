@@ -6,8 +6,7 @@ import { signal } from '@angular/core';
 describe('SkillsSection', () => {
   let component: SkillsSection;
   let fixture: ComponentFixture<SkillsSection>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let mockStore: any;
+  let mockStore: Pick<PortfolioStore, 'skills'>;
 
   beforeEach(async () => {
     mockStore = {

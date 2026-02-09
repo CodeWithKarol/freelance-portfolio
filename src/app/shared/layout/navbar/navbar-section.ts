@@ -312,7 +312,7 @@ import { Button } from '@shared/ui/button/button';
   `,
   host: {
     '(window:scroll)': 'onScroll()',
-    '(document:click)': 'onDocumentClick($event)',
+    '(document:click)': 'onDocumentClick()',
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -382,8 +382,7 @@ export class NavbarSection {
     this.activeDropdown.set(null);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  onDocumentClick(event: Event) {
+  onDocumentClick() {
     // If click is outside, close dropdown
     this.activeDropdown.set(null);
   }

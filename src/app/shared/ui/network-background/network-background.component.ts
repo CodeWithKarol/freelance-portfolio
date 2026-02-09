@@ -11,15 +11,17 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-interface Particle {
+interface Point {
   x: number;
   y: number;
-  baseX: number;
-  baseY: number;
-  size: number;
-  // Grid coordinates for connections
-  ix: number;
-  iy: number;
+  connections: Point[];
+}
+
+interface SignalPacket {
+  start: Point;
+  end: Point;
+  progress: number; // 0 to 1
+  speed: number;
 }
 
 @Component({
@@ -32,35 +34,26 @@ interface Particle {
         display: block;
         position: absolute;
         inset: 0;
-        pointer-events: none; /* Let clicks pass through to content */
+        pointer-events: none;
         z-index: 0;
-      }
-      canvas {
-        pointer-events: auto; /* Re-enable pointer events for interaction if needed, or keep none */
       }
     `,
   ],
 })
 export class NetworkBackgroundComponent implements OnInit, OnDestroy {
   @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
-  @Input() color = '#3b82f6'; // Primary blue default
+  @Input() color = '#3b82f6';
 
   private ngZone = inject(NgZone);
   private platformId = inject(PLATFORM_ID);
 
   private ctx!: CanvasRenderingContext2D | null;
   private animationFrameId: number | null = null;
-  private particles: Particle[] = [];
   private width = 0;
   private height = 0;
+  private points: Point[] = [];
+  private signals: SignalPacket[] = [];
   private mouse = { x: -1000, y: -1000 };
-
-  // Grid configuration
-  private cols = 0;
-  private rows = 0;
-  private spacing = 40; // Space between particles
-
-  // Animation config
   private time = 0;
 
   ngOnInit() {
@@ -96,10 +89,15 @@ export class NetworkBackgroundComponent implements OnInit, OnDestroy {
     if (parent) {
       this.width = parent.clientWidth;
       this.height = parent.clientHeight;
-      canvas.width = this.width;
-      canvas.height = this.height;
+      // Increase resolution for sharp rendering on high DPI
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = this.width * dpr;
+      canvas.height = this.height * dpr;
+      this.ctx?.scale(dpr, dpr);
+      canvas.style.width = `${this.width}px`;
+      canvas.style.height = `${this.height}px`;
 
-      this.createParticles();
+      this.initNetwork();
     }
   };
 
@@ -109,112 +107,143 @@ export class NetworkBackgroundComponent implements OnInit, OnDestroy {
     this.mouse.y = e.clientY - rect.top;
   };
 
-  private createParticles() {
-    this.particles = [];
-    this.cols = Math.ceil(this.width / this.spacing) + 1;
-    this.rows = Math.ceil(this.height / this.spacing) + 1;
+  private initNetwork() {
+    this.points = [];
+    this.signals = [];
+    const spacing = 80;
+    const cols = Math.ceil(this.width / spacing);
+    const rows = Math.ceil(this.height / spacing);
 
-    for (let iy = 0; iy < this.rows; iy++) {
-      for (let ix = 0; ix < this.cols; ix++) {
-        // Hexagonal/staggered offset for more organic look
-        // const xOffset = (iy % 2) * (this.spacing / 2);
-        const xOffset = 0;
-
-        const x = ix * this.spacing + xOffset;
-        const y = iy * this.spacing;
-
-        this.particles.push({
-          x,
-          y,
-          baseX: x,
-          baseY: y,
-          ix,
-          iy,
-          size: 2,
-        });
+    // Create Grid Points
+    for (let i = 0; i <= cols; i++) {
+      for (let j = 0; j <= rows; j++) {
+        // Add some jitter to make it less robotic
+        const x = i * spacing + (Math.random() - 0.5) * 20;
+        const y = j * spacing + (Math.random() - 0.5) * 20;
+        this.points.push({ x, y, connections: [] });
       }
+    }
+
+    // Create Connections (Architecture)
+    // Connect to nearest neighbors only
+    this.points.forEach((p1, index) => {
+      this.points.slice(index + 1).forEach((p2) => {
+        const dx = p1.x - p2.x;
+        const dy = p1.y - p2.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        // Connect if close enough
+        if (dist < spacing * 1.5) {
+          p1.connections.push(p2);
+          // Optional: Add some randomness to avoid connecting EVERYTHING
+          // if (Math.random() > 0.5) p1.connections.push(p2);
+        }
+      });
+    });
+  }
+
+  private spawnSignal() {
+    if (this.points.length === 0) return;
+
+    // Pick a random point that has connections
+    const startPoint = this.points[Math.floor(Math.random() * this.points.length)];
+    if (startPoint.connections.length > 0) {
+      const endPoint =
+        startPoint.connections[Math.floor(Math.random() * startPoint.connections.length)];
+      this.signals.push({
+        start: startPoint,
+        end: endPoint,
+        progress: 0,
+        speed: 0.02 + Math.random() * 0.04, // Varied speed
+      });
     }
   }
 
   private animate = () => {
     if (!this.ctx) return;
-
-    this.time += 0.01; // Animation speed
+    this.time++;
 
     this.ctx.clearRect(0, 0, this.width, this.height);
 
-    // Update Particles
-    for (const p of this.particles) {
-      // Wave effect
-      // Calculate distance from center or just use coordinates for wave
-      const waveX = Math.sin(p.ix * 0.2 + this.time) * 10;
-      const waveY = Math.cos(p.iy * 0.2 + this.time) * 10;
-
-      // Mouse interaction (Repel/Attract)
-      const dx = this.mouse.x - p.baseX;
-      const dy = this.mouse.y - p.baseY;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const maxDistance = 300;
-
-      let forceX = 0;
-      let forceY = 0;
-
-      if (distance < maxDistance) {
-        const force = (maxDistance - distance) / maxDistance;
-        const angle = Math.atan2(dy, dx);
-        const moveDistance = force * 40; // Max displacement
-        forceX = Math.cos(angle) * moveDistance;
-        forceY = Math.sin(angle) * moveDistance;
-      }
-
-      p.x = p.baseX + waveX - forceX;
-      p.y = p.baseY + waveY - forceY;
-
-      // Dynamic size based on wave height (simulated Z-axis)
-      // p.size = 2 + Math.sin(p.ix * 0.2 + this.time) * 1;
-    }
-
-    // Draw Connections (Right and Bottom neighbors)
-    this.ctx.beginPath();
+    // 1. Draw Static Architecture (Subtle)
+    this.ctx.lineWidth = 1;
     this.ctx.strokeStyle = this.color;
-    this.ctx.lineWidth = 0.5; // Thinner lines for elegance
 
-    // Create a 2D access to particles for easier neighbor finding
-    // Since particles are generated in order (row by row), we can map (ix, iy) to index
-    // index = iy * cols + ix
+    // Draw connections
+    this.points.forEach((p) => {
+      // Draw Node
+      // Mouse Proximity Glow
+      const dx = this.mouse.x - p.x;
+      const dy = this.mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const isNearMouse = dist < 150;
 
-    for (const p of this.particles) {
-      // Right neighbor
-      if (p.ix < this.cols - 1) {
-        const rightIndex = p.iy * this.cols + (p.ix + 1);
-        if (rightIndex < this.particles.length) {
-          const neighbor = this.particles[rightIndex];
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(neighbor.x, neighbor.y);
-        }
+      // Base Opacity
+      let opacity = 0.1;
+      if (isNearMouse) {
+        opacity = 0.4 * (1 - dist / 150);
       }
 
-      // Bottom neighbor
-      if (p.iy < this.rows - 1) {
-        const bottomIndex = (p.iy + 1) * this.cols + p.ix;
-        if (bottomIndex < this.particles.length) {
-          const neighbor = this.particles[bottomIndex];
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(neighbor.x, neighbor.y);
-        }
-      }
+      this.ctx!.globalAlpha = opacity;
+      this.ctx!.beginPath();
+      p.connections.forEach((conn) => {
+        this.ctx!.moveTo(p.x, p.y);
+        this.ctx!.lineTo(conn.x, conn.y);
+      });
+      this.ctx!.stroke();
+
+      // Draw Point
+      this.ctx!.globalAlpha = isNearMouse ? 0.8 : 0.25;
+      this.ctx!.fillStyle = this.color;
+      this.ctx!.beginPath();
+      this.ctx!.arc(p.x, p.y, isNearMouse ? 2.5 : 1.5, 0, Math.PI * 2);
+      this.ctx!.fill();
+    });
+
+    // 2. Manage & Draw Signals (Data Flow)
+    // Spawn new signals randomly
+    if (this.signals.length < 25 && Math.random() > 0.85) {
+      this.spawnSignal();
     }
 
-    this.ctx.globalAlpha = 0.3; // Base opacity for lines
-    this.ctx.stroke();
+    this.ctx.globalAlpha = 1;
+    for (let i = this.signals.length - 1; i >= 0; i--) {
+      const sig = this.signals[i];
+      sig.progress += sig.speed;
 
-    // Draw Particles
-    this.ctx.globalAlpha = 0.8; // Higher opacity for dots
-    this.ctx.fillStyle = this.color;
+      if (sig.progress >= 1) {
+        // Signal reached destination
+        // Chance to continue to next node
+        if (Math.random() > 0.3 && sig.end.connections.length > 0) {
+          // Hop to next
+          const nextNode =
+            sig.end.connections[Math.floor(Math.random() * sig.end.connections.length)];
+          // Avoid bouncing back immediately if possible
+          if (nextNode !== sig.start || sig.end.connections.length === 1) {
+            sig.start = sig.end;
+            sig.end = nextNode;
+            sig.progress = 0;
+          } else {
+            this.signals.splice(i, 1);
+          }
+        } else {
+          this.signals.splice(i, 1);
+        }
+        continue;
+      }
 
-    for (const p of this.particles) {
+      // Draw Signal
+      const currentX = sig.start.x + (sig.end.x - sig.start.x) * sig.progress;
+      const currentY = sig.start.y + (sig.end.y - sig.start.y) * sig.progress;
+
+      // Glow effect
+      const gradient = this.ctx.createRadialGradient(currentX, currentY, 0, currentX, currentY, 4);
+      gradient.addColorStop(0, this.color); // Core
+      gradient.addColorStop(1, 'rgba(0,0,0,0)'); // Fade
+
+      this.ctx.fillStyle = gradient;
       this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      this.ctx.arc(currentX, currentY, 4, 0, Math.PI * 2);
       this.ctx.fill();
     }
 
