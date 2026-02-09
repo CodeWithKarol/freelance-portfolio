@@ -85,6 +85,14 @@ export interface Gig {
   features: string[];
   ctaUrl: string;
   icon: 'code' | 'performance' | 'component' | 'consulting';
+  category:
+    | 'Performance'
+    | 'Code Quality'
+    | 'Features'
+    | 'Audits'
+    | 'Modernization'
+    | 'DX & Ops'
+    | 'Testing';
 }
 
 export interface ProcessStep {

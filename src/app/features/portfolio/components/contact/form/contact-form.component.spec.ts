@@ -8,8 +8,7 @@ import { By } from '@angular/platform-browser';
 describe('ContactFormComponent', () => {
   let component: ContactFormComponent;
   let fixture: ComponentFixture<ContactFormComponent>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let mockStore: any;
+  let mockStore: Pick<PortfolioStore, 'contactInfo'>;
 
   beforeEach(async () => {
     mockStore = {
