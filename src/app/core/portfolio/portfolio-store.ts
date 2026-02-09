@@ -365,27 +365,27 @@ export class PortfolioStore {
     {
       title: 'Component Detox',
       description:
-        'Turn fragile UI into rock-solid code. Your complex component is refactored into a clean Smart (Data) vs. Dumb (UI) architecture, eliminating bugs and making future updates effortless.',
+        'Turn fragile UI into rock-solid code. Your complex component (< 500 LoC) is refactored into a clean Smart (Data) vs. Dumb (UI) architecture, eliminating bugs and making future updates effortless.',
       price: '$149 / Component',
-      features: ['Logic Extraction', 'Signal Integration', 'OnPush Strategy'],
+      features: ['Logic Extraction', 'Signal Integration', 'Max 500 Lines Source'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Component Detox',
       icon: 'component',
     },
     {
       title: 'API Integration Layer',
       description:
-        'Stop writing boilerplate. You get fully type-safe Angular Services and a reactive Signal Store generated directly from your Swagger/Postman specs, ready to plug into your UI.',
+        'Stop writing boilerplate. You get fully type-safe Angular Services and a reactive Signal Store generated directly from your Swagger/Postman specs (up to 5 endpoints), ready to plug into your UI.',
       price: '$149 / Module',
-      features: ['Generated Types', 'Signal Store Setup', 'Postman/Swagger Support'],
+      features: ['Generated Types', 'Signal Store Setup', 'Max 5 Endpoints'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: API Integration Layer',
       icon: 'code',
     },
     {
       title: 'Small Feature Build',
       description:
-        'Ship a production-ready feature in days. You get a fully integrated, state-managed feature built with your existing UI library (Material/Tailwind), polished and ready for users.',
+        'Ship a production-ready feature in days. You get a fully integrated, state-managed feature built using your existing UI library (Material/Tailwind), polished and ready for users.',
       price: '$299 / Feature',
-      features: ['Material/Tailwind UI', 'State Management', 'End-to-End Logic'],
+      features: ['Existing Design System', 'State Management', 'Single View / Widget'],
       ctaUrl: 'mailto:karol-modelski@scale-sail.io?subject=Request: Small Feature Build',
       icon: 'component',
     },
