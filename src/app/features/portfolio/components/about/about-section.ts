@@ -72,13 +72,13 @@ import { NetworkBackgroundComponent } from '@shared/ui/network-background/networ
               class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
               <span class="block text-slate-500 dark:text-slate-400 mb-1">ARCHITECTURE</span>
-              <span class="font-bold text-slate-900 dark:text-white">SMART / DUMB SPLITS</span>
+              <span class="font-bold text-slate-900 dark:text-white">PREDICTABLE STATE</span>
             </div>
             <div
               class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"
             >
               <span class="block text-slate-500 dark:text-slate-400 mb-1">INTEGRATION</span>
-              <span class="font-bold text-slate-900 dark:text-white">TYPE-SAFE APIS</span>
+              <span class="font-bold text-slate-900 dark:text-white">ZERO RUNTIME ERRORS</span>
             </div>
             <div
               class="p-4 bg-white/95 dark:bg-slate-950/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-sm hover:border-primary/50 transition-colors"

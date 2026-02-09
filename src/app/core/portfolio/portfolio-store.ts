@@ -479,7 +479,7 @@ export class PortfolioStore {
       role: 'Senior Frontend Developer',
       period: 'Mar 2025 - Present',
       description:
-        'Leading architecture for mission-critical trading platforms. Enforcing 100% test coverage policies while migrating legacy micro-frontends to a coherent Nx monorepo. Balancing enterprise compliance with developer velocity.',
+        'Delivering robust trading platforms. Enforcing 100% test coverage policies while migrating legacy micro-frontends to a coherent Nx monorepo. Balancing enterprise compliance with developer velocity.',
       technologies: ['Angular 19', 'Nx', 'Micro-Frontends', 'Regulatory Compliance'],
     },
     {
