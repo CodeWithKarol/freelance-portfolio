@@ -38,19 +38,21 @@ import { Button } from '@shared/ui/button/button';
 
         <div class="relative max-w-4xl mx-auto">
           <!-- Main Trunk Line -->
-          <div class="absolute left-8 top-0 bottom-0 w-px bg-slate-300 dark:bg-slate-800"></div>
+          <div
+            class="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-slate-300 dark:bg-slate-800"
+          ></div>
 
-          <div class="space-y-12">
+          <div class="space-y-8 md:space-y-12">
             @for (
               job of store.experience();
               track job.company;
               let first = $first;
               let last = $last
             ) {
-              <div class="relative pl-24 group">
+              <div class="relative pl-12 md:pl-24 group">
                 <!-- Git Graph Node -->
                 <div
-                  class="absolute left-[23px] top-6 w-4 h-4 rounded-full border-[3px] z-10 bg-white dark:bg-slate-950 transition-colors duration-300"
+                  class="absolute left-[8px] md:left-[23px] top-6 w-4 h-4 rounded-full border-[3px] z-10 bg-white dark:bg-slate-950 transition-colors duration-300"
                   [class.border-primary]="first"
                   [class.border-slate-400]="!first"
                   [class.dark:border-slate-600]="!first"
@@ -58,7 +60,7 @@ import { Button } from '@shared/ui/button/button';
 
                 <!-- Connector Branch (Curved) -->
                 <div
-                  class="absolute left-8 top-8 w-12 h-8 border-b-2 border-l-2 border-slate-300 dark:border-slate-800 rounded-bl-2xl"
+                  class="hidden md:block absolute left-8 top-8 w-12 h-8 border-b-2 border-l-2 border-slate-300 dark:border-slate-800 rounded-bl-2xl"
                 ></div>
 
                 <!-- Content Panel -->
@@ -106,7 +108,7 @@ import { Button } from '@shared/ui/button/button';
                   </div>
 
                   <!-- Description -->
-                  <div class="p-6">
+                  <div class="p-4 md:p-6">
                     <p
                       class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-mono mb-6 border-l-2 border-slate-200 dark:border-slate-800 pl-4"
                     >
@@ -133,7 +135,7 @@ import { Button } from '@shared/ui/button/button';
           </div>
 
           <!-- Resume Download (Terminal Style) -->
-          <div class="mt-16 pl-24">
+          <div class="mt-12 md:mt-16 pl-12 md:pl-24">
             <div
               class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/50 rounded-sm"
             >
